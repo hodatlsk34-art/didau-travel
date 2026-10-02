@@ -868,6 +868,19 @@ path.island{fill:var(--moss);stroke:var(--surface);stroke-width:1}
 .leaflet-tooltip.tip::before{border-top-color:var(--ink)}
 .mapctl{position:absolute;top:12px;left:12px;z-index:500;display:flex;gap:6px;flex-wrap:wrap}
 .mapctl button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600;box-shadow:var(--shadow)}
+.route-box{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper)}
+.route-box h3{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.route-res{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.route-res b{font-size:22px;font-family:var(--font-display);font-variant-numeric:tabular-nums}
+.route-res span{color:var(--muted);font-size:13px}
+.dist-tag{font-size:11.5px;font-weight:700;color:var(--teal)}
+path.myroute{stroke:var(--teal);stroke-width:5;stroke-opacity:.85;fill:none;stroke-linecap:round;stroke-linejoin:round}
+path.myroute.est{stroke-dasharray:2 9}
+path.me{fill:#2F7DE1;stroke:#fff;stroke-width:3;fill-opacity:1}
+path.me-acc{fill:#2F7DE1;fill-opacity:.12;stroke:#2F7DE1;stroke-opacity:.35;stroke-width:1}
+.pickbar{position:absolute;left:50%;transform:translateX(-50%);bottom:52px;z-index:600;background:var(--ink);color:var(--paper);border-radius:12px;padding:8px 10px 8px 14px;display:flex;gap:10px;align-items:center;font-size:13px;box-shadow:var(--shadow);max-width:calc(100% - 24px)}
+.pickbar button{border:0;background:var(--paper);color:var(--ink);border-radius:8px;padding:4px 10px;font-weight:600}
+.mapwrap.picking #map{cursor:crosshair}
 .mapctl button[aria-pressed="true"]{background:var(--moss);color:var(--on-accent);border-color:var(--moss)}
 .legend{position:absolute;left:12px;bottom:12px;z-index:500;display:flex;gap:10px;flex-wrap:wrap;background:var(--surface);border-radius:999px;padding:6px 12px;box-shadow:var(--shadow);font-size:12px}
 .legend span{display:inline-flex;align-items:center;gap:5px}
@@ -932,8 +945,10 @@ textarea.copy{width:100%;min-height:220px;border:1px solid var(--line);border-ra
       <div class="mapctl">
         <button id="btnTiles" aria-pressed="true">Bản đồ đường phố</button>
         <button id="btnVN">Toàn quốc</button>
+        <button id="btnMe">📍 Vị trí của tôi</button>
       </div>
       <div class="tilenote" id="tilenote" hidden></div>
+      <div class="pickbar" id="pickbar" hidden><span>Bấm lên bản đồ để chọn điểm xuất phát</span><button id="pickCancel">Hủy</button></div>
       <div class="legend">
         <span style="--c:var(--lacquer)"><i></i>Ăn uống</span>
         <span style="--c:var(--gold)"><i></i>Check-in</span>
@@ -1121,7 +1136,8 @@ const state = {
   plans:load('didau.plans',[]).filter(pl=>pl.days&&pl.days.every(d=>d.stops.every(s=>BYID[s.id]))),
   must:new Set(),
   opts:{prov:'Hà Nội',area:'Nội thành',start:'2026-10-03',days:2,people:2,budget:'vua',pace:'vua',interests:new Set(['food','history'])},
-  plan:null, day:0, loading:false, tiles:'try'
+  plan:null, day:0, loading:false, tiles:'try',
+  me:null, pickMode:false, sortNear:false, rmode:null, route:null
 };
 
 /* ---------- Lập lịch trình (mô phỏng AI) ---------- */
@@ -1265,7 +1281,9 @@ function render(){
 function provPlaces(){return ALL.filter(p=>p.prov===state.prov);}
 function filtered(){
   const q=norm(state.q.trim());
-  return provPlaces().filter(p=>(state.area==='all'||p.area===state.area)&&(state.filter==='all'||p.cat===state.filter)&&(!q||norm(p.name+' '+p.addr+' '+p.must+' '+p.area).includes(q)));
+  const r=provPlaces().filter(p=>(state.area==='all'||p.area===state.area)&&(state.filter==='all'||p.cat===state.filter)&&(!q||norm(p.name+' '+p.addr+' '+p.must+' '+p.area).includes(q)));
+  if(state.me&&state.sortNear) r.sort((a,b)=>hav(state.me,a)-hav(state.me,b));
+  return r;
 }
 function exploreHTML(){
   const pm=PROVMAP[state.prov], areas=DATA[state.prov].areas, base=provPlaces().filter(p=>state.area==='all'||p.area===state.area);
@@ -1278,7 +1296,8 @@ function exploreHTML(){
   ${areaChips}
   <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
     <input id="q" type="search" placeholder="Tìm quán, món ăn, địa điểm… (gõ không dấu được)" value="${esc(state.q)}" aria-label="Tìm kiếm"></label>
-  <div class="chips">${chip('all','Tất cả')}${chip('food','Ăn uống',CAT.food.c)}${chip('check','Check-in',CAT.check.c)}${chip('sight','Tham quan',CAT.sight.c)}</div>
+  <div class="chips">${chip('all','Tất cả')}${chip('food','Ăn uống',CAT.food.c)}${chip('check','Check-in',CAT.check.c)}${chip('sight','Tham quan',CAT.sight.c)}
+    ${state.me?`<button class="chip" data-action="sortnear" aria-pressed="${state.sortNear}">📍 Gần tôi nhất</button>`:`<button class="chip" data-action="locate">📍 Tính khoảng cách từ chỗ tôi</button>`}</div>
   <div class="season"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c0-6 0-9 0-12"/><path d="M12 9c-4 0-6-2.5-6-6 3.5 0 6 2 6 6z"/><path d="M12 13c3.5 0 6-2.2 6-5.5-3.3 0-6 2-6 5.5z"/></svg>
     <div><div class="season-k">Tháng 10 ở ${esc(state.prov)}</div><p>${esc(note)}</p></div></div>
   <div class="count" id="count"></div>
@@ -1289,7 +1308,7 @@ function cardHTML(p,showProv){
   return `<li><button class="pcard" data-open="${p.id}">
     <span class="pic" style="--c:${CAT[p.cat].c}">${ICON[p.cat]}</span>
     <span class="pmain"><span class="pname">${esc(p.name)}</span><span class="psub">${esc(p.addr)}</span>
-      <span class="pmeta"><span>${esc(p.price)}</span><span class="dot">•</span><span>${esc(p.best)}</span>${p.season?'<span class="tag-season">Đúng mùa</span>':''}${showProv?`<span class="tag-area">${esc(p.prov)}</span>`:(multi&&state.area==='all'?`<span class="tag-area">${esc(p.area)}</span>`:'')}</span></span>
+      <span class="pmeta"><span>${esc(p.price)}</span><span class="dot">•</span><span>${esc(p.best)}</span>${p.season?'<span class="tag-season">Đúng mùa</span>':''}${state.me?`<span class="dist-tag">📍 ~${fmtKm(roadKm(state.me,p))}</span>`:''}${showProv?`<span class="tag-area">${esc(p.prov)}</span>`:(multi&&state.area==='all'?`<span class="tag-area">${esc(p.area)}</span>`:'')}</span></span>
     ${state.saved.has(p.id)?'<span class="heart" aria-label="Đã lưu">♥</span>':'<span></span>'}
   </button></li>`;
 }
@@ -1297,6 +1316,91 @@ function updateList(){
   const list=filtered(), ul=$('#plist'); if(!ul) return;
   $('#count').textContent=list.length+' địa điểm';
   ul.innerHTML=list.length?list.map(p=>cardHTML(p)).join(''):'<li class="empty"><b>Không tìm thấy địa điểm</b>Thử từ khóa khác hoặc chọn "Tất cả".</li>';
+}
+/* ---------- Vị trí người dùng & chỉ đường ---------- */
+const ROUTERS={
+  car:['https://routing.openstreetmap.de/routed-car/route/v1/driving/','https://router.project-osrm.org/route/v1/driving/'],
+  foot:['https://routing.openstreetmap.de/routed-foot/route/v1/driving/']
+};
+const routeCache={};
+function gmapsDir(from,to,mode){return 'https://www.google.com/maps/dir/?api=1'+(from?'&origin='+from.lat.toFixed(6)+','+from.lng.toFixed(6):'')+'&destination='+to.lat+','+to.lng+'&travelmode='+(mode==='foot'?'walking':'driving');}
+function fmtMin(m){m=Math.max(1,Math.round(m));return m>=60?Math.floor(m/60)+' giờ'+(m%60?' '+(m%60)+' phút':''):m+' phút';}
+function autoMode(p){return state.rmode||(state.me&&roadKm(state.me,p)<1.5?'foot':'car');}
+function routeBoxHTML(p){
+  if(!state.me) return `<section class="route-box"><h3>Đường đi</h3>
+    <p class="hint">Cho phép lấy vị trí để tính quãng đường, thời gian và vẽ đường đi từ chỗ bạn đến đây.</p>
+    <div class="actions"><button class="btn" data-action="locate">📍 Dùng vị trí của tôi</button><button class="btn-ghost" data-action="pick">Chọn điểm xuất phát trên bản đồ</button></div>
+    <a class="btn-ghost" href="${gmapsDir(null,p,'car')}" target="_blank" rel="noopener">Mở chỉ đường trên Google Maps ↗</a></section>`;
+  const mode=autoMode(p), straight=hav(state.me,p), rt=state.route&&state.route.id===p.id&&state.route.mode===mode?state.route:null;
+  let res;
+  if(!rt||rt.status==='loading') res=`<div class="route-res"><span>Đang tính đường đi…</span></div>`;
+  else if(rt.status==='ok') res=`<div class="route-res"><b>${fmtKm(rt.km)}</b><b>${fmtMin(rt.min)}</b><span>${mode==='foot'?'đi bộ':'xe máy/ô tô, chưa tính kẹt xe'}</span></div>`;
+  else {const ek=straight*1.3, em=mode==='foot'?ek/4.5*60:ek/25*60+5;
+    res=`<div class="route-res"><b>~${fmtKm(ek)}</b><b>~${fmtMin(em)}</b><span>ước tính theo đường chim bay ${fmtKm(straight)}, chưa kết nối được máy chủ tính đường.</span></div>`;}
+  const footOk=straight<30;
+  return `<section class="route-box"><h3>Đường đi từ ${state.me.src==='gps'?'vị trí của bạn':'điểm bạn chọn'}</h3>
+    <div class="seg" role="group"><button data-rmode="car" aria-pressed="${mode==='car'}">Xe máy / ô tô</button>${footOk?`<button data-rmode="foot" aria-pressed="${mode==='foot'}">Đi bộ</button>`:''}</div>
+    ${res}
+    <div class="actions"><a class="btn" href="${gmapsDir(state.me,p,mode)}" target="_blank" rel="noopener">Dẫn đường từng bước (Google Maps) ↗</a>
+    <button class="btn-ghost" data-action="pick">Đổi điểm xuất phát</button></div></section>`;
+}
+async function fetchRoute(from,to,mode){
+  const key=[from.lat.toFixed(4),from.lng.toFixed(4),to.id,mode].join('|'); if(routeCache[key]) return routeCache[key];
+  for(const base of ROUTERS[mode]){
+    try{
+      const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),9000);
+      const r=await fetch(base+from.lng+','+from.lat+';'+to.lng+','+to.lat+'?overview=full&geometries=geojson',{signal:ctl.signal}); clearTimeout(t);
+      if(!r.ok) continue; const j=await r.json(); if(j.code!=='Ok'||!j.routes||!j.routes.length) continue;
+      const rt=j.routes[0], km=rt.distance/1000;
+      let min=rt.duration/60; if(mode==='car') min=Math.max(min, km/30*60); // xe máy trong đô thị ~30 km/h
+      return routeCache[key]={km,min,coords:rt.geometry.coordinates.map(c=>[c[1],c[0]])};
+    }catch(e){}
+  }
+  return null;
+}
+async function requestRoute(){
+  const p=state.selected&&byId(state.selected); if(!p||!state.me) return;
+  const mode=autoMode(p), want={id:p.id,mode,from:state.me};
+  if(state.route&&state.route.id===p.id&&state.route.mode===mode&&state.route.from===state.me&&state.route.status!=='loading') return;
+  state.route={...want,status:'loading'}; refreshRouteUI();
+  const res=await fetchRoute(state.me,p,mode);
+  if(!state.route||state.route.id!==p.id||state.route.mode!==mode||state.route.from!==state.me) return;
+  state.route=res?{...want,status:'ok',...res}:{...want,status:'fail'};
+  refreshRouteUI(true);
+}
+function refreshRouteUI(fit){
+  const p=state.selected&&byId(state.selected); if(!p) return;
+  const box=document.querySelector('.route-box'); if(box) box.outerHTML=routeBoxHTML(p);
+  drawRoute(fit);
+}
+function drawRoute(fit){
+  if(!map) return; routeLayer.clearLayers();
+  const p=state.selected&&byId(state.selected), rt=state.route;
+  if(!p||!state.me||!rt||rt.id!==p.id||rt.status==='loading') return;
+  const pts=rt.status==='ok'?rt.coords:[[state.me.lat,state.me.lng],[p.lat,p.lng]];
+  const line=L.polyline(pts,{className:'myroute'+(rt.status==='ok'?'':' est'),interactive:false}).addTo(routeLayer);
+  if(fit) map.fitBounds(line.getBounds(),{padding:[60,60],maxZoom:16});
+}
+function drawMe(){
+  if(!map) return; meLayer.clearLayers(); if(!state.me) return;
+  if(state.me.acc) L.circle([state.me.lat,state.me.lng],{radius:state.me.acc,className:'me-acc',interactive:false}).addTo(meLayer);
+  L.circleMarker([state.me.lat,state.me.lng],{radius:8,className:'me',interactive:true}).bindTooltip(state.me.src==='gps'?'Bạn đang ở đây':'Điểm xuất phát',{direction:'top',className:'tip'}).addTo(meLayer);
+}
+function setMe(lat,lng,src,acc){
+  state.me={lat,lng,src,acc}; state.route=null; state.rmode=null; setPick(false);
+  drawMe(); render();
+  if(state.selected) requestRoute(); else if(map) map.setView([lat,lng],Math.max(map.getZoom(),13));
+  toast(src==='gps'?'Đã lấy vị trí của bạn.':'Đã đặt điểm xuất phát.');
+}
+function setPick(on){ state.pickMode=on; const b=$('#pickbar'); if(b) b.hidden=!on; $('#mapwrap').classList.toggle('picking',on); }
+function locate(){
+  const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+  if(!navigator.geolocation){toast('Trình duyệt không hỗ trợ định vị. Hãy chọn điểm xuất phát trên bản đồ.');setPick(true);return;}
+  toast('Đang lấy vị trí…');
+  navigator.geolocation.getCurrentPosition(
+    pos=>setMe(pos.coords.latitude,pos.coords.longitude,'gps',pos.coords.accuracy),
+    err=>{ toast(err.code===1?(inFrame?'Bản xem trước không cho lấy vị trí. Hãy chọn điểm trên bản đồ.':'Bạn chưa cho phép lấy vị trí. Hãy bật quyền vị trí hoặc chọn điểm trên bản đồ.'):'Không lấy được vị trí. Hãy chọn điểm xuất phát trên bản đồ.'); setPick(true); },
+    {enableHighAccuracy:true,timeout:12000,maximumAge:60000});
 }
 function detailHTML(p){
   const c=CAT[p.cat], sv=state.saved.has(p.id);
@@ -1316,8 +1420,8 @@ function detailHTML(p){
   <div class="actions">
     <button class="btn-ghost ${sv?'on':''}" data-action="save" aria-pressed="${sv}">${sv?'♥ Đã lưu':'♡ Lưu'}</button>
     <button class="btn" data-action="addplan">+ Thêm vào lịch trình</button>
-    <a class="btn-ghost" href="https://www.openstreetmap.org/directions?to=${p.lat}%2C${p.lng}" target="_blank" rel="noopener">Chỉ đường ↗</a>
   </div>
+  ${routeBoxHTML(p)}
   <section class="aff"><h3>Ở gần đây & hoạt động</h3>
     <div class="actions">${(()=>{const ag=agodaUrl([p.area,p.prov]);return ag?`<a class="btn-ghost" href="${ag}" target="_blank" rel="noopener sponsored">Khách sạn trên Agoda ↗</a>`:'';})()}<a class="btn-ghost" href="${bookingUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Khách sạn quanh ${esc(placeQuery(p))} ↗</a>
     <a class="btn-ghost" href="${klookUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Vé, tour ${esc(placeQuery(p))} ↗</a></div>
@@ -1395,6 +1499,7 @@ function savedHTML(){
 }
 
 /* ---------- Bản đồ thật (Leaflet) ---------- */
+let routeLayer, meLayer;
 let map, provLayer, tileLayer, placeLayer, labelLayer, tileErrs=0, tileOk=false, tileIdx=0;
 const OSM_ATTR='© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
 const TILE_PROVIDERS=[
@@ -1421,7 +1526,7 @@ function initMap(){
   makeTileLayer(0);
   provLayer=L.geoJSON(GEO,{
     style:()=>({weight:1,fill:true,className:'prov'}),
-    onEachFeature:(f,l)=>{const disp=GEO2DISP[f.properties.name]; provPaths[disp]=l; l.on('click',()=>{ if(disp!==state.prov) selectProv(disp); });}
+    onEachFeature:(f,l)=>{const disp=GEO2DISP[f.properties.name]; provPaths[disp]=l; l.on('click',()=>{ if(state.pickMode) return; if(disp!==state.prov) selectProv(disp); });}
   }).addTo(map);
   map.attributionControl.addAttribution('Ranh giới: vietnam-map-34-provinces (MIT)');
   /* Quần đảo Hoàng Sa, Trường Sa */
@@ -1433,7 +1538,10 @@ function initMap(){
   labelLayer=L.layerGroup().addTo(map);
   GEO.features.forEach(f=>{const disp=GEO2DISP[f.properties.name];
     L.marker([f.properties.lat,f.properties.lng],{icon:L.divIcon({className:'plabel'+(PROVMAP[disp].t==='tp'?' city':''),html:esc(disp),iconSize:[120,16],iconAnchor:[60,8]}),interactive:false,keyboard:false}).addTo(labelLayer);});
+  routeLayer=L.layerGroup().addTo(map);
   placeLayer=L.layerGroup().addTo(map);
+  meLayer=L.layerGroup().addTo(map);
+  map.on('click',e=>{ if(state.pickMode) setMe(e.latlng.lat,e.latlng.lng,'manual',0); });
   map.on('zoomend',()=>{const z=map.getZoom(),w=$('#mapwrap');w.classList.toggle('far',z<8);w.classList.toggle('vfar',z<6);});
   if(load('didau.tiles',true)) enableTiles(); else $('#btnTiles').setAttribute('aria-pressed','false');
 }
@@ -1463,7 +1571,7 @@ function visibleItems(){
 }
 function renderMap(){
   if(!map) return;
-  markProv(); placeLayer.clearLayers();
+  markProv(); placeLayer.clearLayers(); drawRoute(false);
   const vi=visibleItems(), sel=state.selected?byId(state.selected):null;
   const add=(p,r,cls)=>{const m=L.circleMarker([p.lat,p.lng],{radius:r,className:'mk mk-'+p.cat+(cls?' '+cls:''),bubblingMouseEvents:false});
     m.bindTooltip(esc(p.name),{direction:'top',offset:[0,-r],className:'tip'}); m.on('click',()=>openPlace(p.id)); m.addTo(placeLayer); return m;};
@@ -1529,7 +1637,8 @@ function openPlace(id){
   const p=byId(id);
   if(!state.selected) state.from=state.tab;
   if(p.prov!==state.prov){state.prov=p.prov;state.area='all';}
-  state.selected=id; render(); $('#pbody').scrollTop=0;
+  state.selected=id; state.rmode=null; render(); $('#pbody').scrollTop=0;
+  if(state.me) requestRoute();
   if(map){ if(map.getZoom()<12) map.setView([p.lat,p.lng],14); else map.panTo([p.lat,p.lng]); }
 }
 function generate(){
@@ -1554,6 +1663,7 @@ $('#pbody').addEventListener('click',e=>{
   const d=el.dataset;
   if(d.open){openPlace(d.open);return;}
   if(d.area){state.area=d.area;render();fitView();return;}
+  if(d.rmode){state.rmode=d.rmode;requestRoute();refreshRouteUI();return;}
   if(d.filter){state.filter=d.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===state.filter)));updateList();renderMap();return;}
   if(d.opt){state.opts[d.opt]=d.opt==='days'?Number(d.val):d.val;render();return;}
   if(d.int){const s=state.opts.interests;s.has(d.int)?s.delete(d.int):s.add(d.int);render();return;}
@@ -1567,6 +1677,9 @@ $('#pbody').addEventListener('click',e=>{
     state.plan={opts:o,zones:pl.zones,days:pl.days.map(dd=>({date:new Date(dd.date),wd:dd.wd,zi:dd.zi,stops:dd.stops.map(s=>({...s,slot:PACE[o.pace].slots.find(x=>x.t===s.t)||PACE[o.pace].slots[0],tried:[s.id]}))}))};
     state.tab='plan';state.day=0;render();fitView();return;}
   const a=d.action; if(!a) return;
+  if(a==='locate'){locate();return;}
+  if(a==='pick'){setPick(true);toast('Bấm lên bản đồ để chọn điểm xuất phát.');return;}
+  if(a==='sortnear'){state.sortNear=!state.sortNear;render();return;}
   if(a==='back'){state.selected=null;state.tab=state.from;render();fitView();}
   else if(a==='save'){const id=state.selected;state.saved.has(id)?state.saved.delete(id):state.saved.add(id);store('didau.saved',[...state.saved]);render();toast(state.saved.has(id)?'Đã lưu vào danh sách.':'Đã bỏ lưu.');}
   else if(a==='addplan'){const p=byId(state.selected);
@@ -1586,6 +1699,8 @@ $('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'){closeSheet()
 $('#sheet').addEventListener('input',e=>{ if(e.target.id==='provq') $('#provList').innerHTML=provHTML(e.target.value); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !$('#sheet').hidden) closeSheet(); });
 $('#btnTiles').onclick=()=>{ if(map.hasLayer(tileLayer)){disableTiles(false);store('didau.tiles',false);} else {tileOk=false;enableTiles();store('didau.tiles',true);} };
+$('#btnMe').onclick=()=>{ if(state.me&&state.me.src==='gps'){map.setView([state.me.lat,state.me.lng],15);} else locate(); };
+$('#pickCancel').onclick=()=>setPick(false);
 $('#btnVN').onclick=()=>map.fitBounds([[8.3,102.1],[23.4,114.6]],{padding:[10,10]});
 
 /* ---------- Khởi tạo ---------- */
