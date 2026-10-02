@@ -95,6 +95,24 @@ def summary(lang, title):
     return None
 
 
+def article_files(lang, title):
+    """Ảnh đại diện + các ảnh JPG khác trong bài viết (tối đa 8)."""
+    u = (f'https://{lang}.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=pageimages|images'
+         f'&piprop=name&imlimit=40&titles=' + urllib.parse.quote(title))
+    j = get(u)
+    out = []
+    for pg in ((j or {}).get('query', {}).get('pages', {}) or {}).values():
+        if 'missing' in pg:
+            WHY.append('missing ' + title[:30]); return []
+        if pg.get('pageimage'):
+            out.append(pg['pageimage'])
+        for im in pg.get('images', []) or []:
+            n = im.get('title', '').split(':', 1)[-1].replace(' ', '_')
+            if re.search(r'\.(jpe?g)$', n, re.I) and not BAD_NAME.search(n) and n not in out:
+                out.append(n)
+    return out[:8]
+
+
 def from_summary(j):
     if not j:
         WHY.append('no-summary'); return None
@@ -116,7 +134,22 @@ def commons_search(q):
     return [(p.get('title', ''), (p.get('imageinfo') or [None])[0]) for p in pages]
 
 
-def save(ii, rel, width):
+BAD_NAME = re.compile(r'(map|location|locator|logo|seal|flag|emblem|coat[_ ]of|huy[_ ]hi|b%E1%BA%A3n|bản[_ ]đồ|ban[_ ]do|plan|diagram|document|scan|stamp|tem[_ ]|signature|chu[_ ]ky|portrait|chan[_ ]dung|chân[_ ]dung|banknote|icon)', re.I)
+
+
+def photo_ok(im, name):
+    if BAD_NAME.search(name or ''):
+        return 'bad-name'
+    if im.width / im.height < 0.75:
+        return 'portrait'
+    hsv = im.convert('HSV').resize((64, 64))
+    sat = sum(px[1] for px in hsv.getdata()) / (64 * 64 * 255)
+    if sat < 0.16:
+        return f'dull {sat:.2f}'
+    return None
+
+
+def save(ii, rel, width, strict=True):
     if not ii:
         WHY.append('no-imageinfo'); return None
     if not re.match(r'image/(jpeg|png|webp)', ii.get('mime', '')):
@@ -131,8 +164,12 @@ def save(ii, rel, width):
         im = Image.open(io.BytesIO(data)).convert('RGB')
     except Exception as e:
         WHY.append('pil ' + type(e).__name__ + ' ' + str(len(data))); return None
-    if im.width < 300:
+    if im.width < 400:
         WHY.append('small'); return None
+    if strict:
+        bad = photo_ok(im, urllib.parse.unquote(ii.get('descriptionurl') or src))
+        if bad:
+            WHY.append(bad + ' ' + urllib.parse.unquote(src.split('/')[-1])[:40]); return None
     if im.width > width:
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     path = os.path.join(PUB, rel)
@@ -154,31 +191,35 @@ def main():
     got = miss = 0
 
     if only in ('all', 'dest'):
+        marks = json.load(open(os.path.join(ROOT, 'tools', 'dest_landmarks.json'), encoding='utf-8'))
         for d in targets['dests']:
             key = d['key']
-            if key in cred:
+            if key in cred and cred[key]['f'].startswith('/images/dest2/'):
                 continue
             WHY.clear()
             slug = hashlib.md5(key.encode()).hexdigest()[:10]
+            rel = f'images/dest2/{slug}.webp'
             res = None
-            nm = re.sub(r'^TP ', '', d['name'])
-            segs = [x.strip() for x in nm.split(' – ')] if ' – ' in nm else []
-            cands = [('en', t) for t in d['titles']] + [('vi', nm)] + [(l, x) for x in segs for l in ('vi', 'en')]
-            for lang, t in cands:
-                res = save(from_summary(summary(lang, t)), f'images/dest/{slug}.webp', 960)
-                time.sleep(0.4)
+            for spec in marks.get(key, []) + ['en:' + t.replace('_', ' ') for t in d['titles']]:
+                lang, title = spec.split(':', 1)
+                for f in article_files(lang, title):
+                    ii = file_info('File:' + f, 'commons') or file_info('File:' + f, lang)
+                    res = save(ii, rel, 960)
+                    if res:
+                        break
                 if res:
                     break
             if not res:
-                for title, ii in commons_search(d['name'] + ' ' + d['prov']):
-                    if ok_title(title, d['name']):
-                        res = save(ii, f'images/dest/{slug}.webp', 960)
-                        if res:
-                            break
+                q = (marks.get(key) or ['x:' + d['name']])[0].split(':', 1)[1]
+                for title, ii in commons_search(q):
+                    res = save(ii, rel, 960)
+                    if res:
+                        break
             if res:
                 cred[key] = res; got += 1; print('OK  ', key, res['credit'])
             else:
-                miss += 1; print('MISS', key, WHY[:4])
+                miss += 1; print('MISS', key, WHY[:5])
+            json.dump(cred, open(CRED_PATH, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 
     if only in ('all', 'place'):
         for p in targets['places']:
