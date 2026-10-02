@@ -1029,6 +1029,7 @@ const CAT = {food:{label:'Ăn uống',c:'var(--lacquer)'},check:{label:'Check-in
 const PRESET_ZONES = {'Hà Nội|Nội thành':[{name:'Hồ Gươm – Phố cổ',lat:21.031,lng:105.851},{name:'Ba Đình – Văn Miếu',lat:21.033,lng:105.838},{name:'Hồ Tây – Long Biên',lat:21.046,lng:105.842}]};
 const INTEREST = {food:{label:'Ẩm thực đường phố',tag:'street'},history:{label:'Lịch sử',tag:'history'},photo:{label:'Sống ảo',tag:'photo'},cafe:{label:'Cà phê',tag:'cafe'}};
 const BUDGET = {tietkiem:{label:'Tiết kiệm',max:80000},vua:{label:'Vừa phải',max:150000},thoaimai:{label:'Thoải mái',max:Infinity}};
+const MAX_DAYS = 14;
 const PACE = {
   thongtha:{label:'Thong thả',slots:[
     {t:'07:30',label:'Ăn sáng',kinds:['sang']},{t:'09:00',label:'Tham quan',kinds:['sight','check']},
@@ -1464,7 +1465,10 @@ function plannerHTML(){
     <div class="field"><span class="label">Ngày đi</span><input class="date" type="date" id="startDate" value="${o.start}"></div>
     <div class="field"><span class="label">Số người</span><div class="stepper"><button data-people="-1" aria-label="Bớt người">−</button><output>${o.people}</output><button data-people="1" aria-label="Thêm người">+</button></div></div>
   </div>
-  <div class="field"><span class="label">Số ngày</span>${seg('days',{1:'1 ngày',2:'2 ngày',3:'3 ngày'},o.days)}</div>
+  <div class="field"><span class="label">Số ngày</span>
+    <div class="row2"><div class="stepper"><button data-ndays="-1" aria-label="Bớt một ngày">−</button><output>${o.days} ngày</output><button data-ndays="1" aria-label="Thêm một ngày">+</button></div>
+    <div class="chips">${[2,3,5,7].map(n=>`<button class="chip" data-setdays="${n}" aria-pressed="${o.days===n}">${n}</button>`).join('')}</div></div>
+    ${o.days>DATA[o.prov].areas.length*2&&o.days>3?'<span class="hint">Chuyến dài: các ngày sau có thể lặp lại khu vực và ít điểm hơn vì dữ liệu tỉnh này còn ít.</span>':''}</div>
   <div class="field"><span class="label">Ngân sách ăn uống</span>${seg('budget',BUDGET,o.budget)}</div>
   <div class="field"><span class="label">Nhịp độ</span>${seg('pace',PACE,o.pace)}</div>
   <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-int="${k}" aria-pressed="${o.interests.has(k)}">${v.label}</button>`).join('')}</div></div>
@@ -1697,6 +1701,8 @@ $('#pbody').addEventListener('click',e=>{
   if(d.filter){state.filter=d.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===state.filter)));updateList();renderMap();return;}
   if(d.opt){state.opts[d.opt]=d.opt==='days'?Number(d.val):d.val;render();return;}
   if(d.int){const s=state.opts.interests;s.has(d.int)?s.delete(d.int):s.add(d.int);render();return;}
+  if(d.ndays){state.opts.days=Math.min(MAX_DAYS,Math.max(1,state.opts.days+Number(d.ndays)));render();return;}
+  if(d.setdays){state.opts.days=Number(d.setdays);render();return;}
   if(d.people){state.opts.people=Math.min(10,Math.max(1,state.opts.people+Number(d.people)));render();return;}
   if(d.unmust){state.must.delete(d.unmust);render();return;}
   if(d.day){state.day=Number(d.day);render();fitView();return;}
