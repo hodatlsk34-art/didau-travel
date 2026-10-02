@@ -27,7 +27,7 @@
 <title>Đi Đâu?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Dancing+Script:wght@700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
 <style>
 /* required styles */
 
@@ -1311,6 +1311,23 @@ html,body{height:auto!important}
 .rv-stars{color:#F5A623;letter-spacing:2px} .rv-stars i{color:var(--line);font-style:normal}
 .rv-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,#F5A623 12%,var(--surface)),var(--surface));border:1px solid var(--line)}
 .rv-cta p{margin:0} .rv-cta small{color:var(--muted)}
+/* Robot AI + khẩu hiệu */
+.hx-ask{width:min(860px,100%);display:flex;align-items:center;gap:6px;margin-top:6px}
+.hx-ask .hx-search{flex:1;width:auto;min-width:0;margin-top:0}
+.hx-robot{width:118px;height:auto;flex:none;filter:drop-shadow(0 8px 12px rgba(10,40,90,.3));animation:rbFloat 3.2s ease-in-out infinite}
+.rb-hand{transform-origin:100px 98px;animation:rbHand 1.6s ease-in-out infinite}
+.rb-bulb{animation:rbBlink 2.4s ease-in-out infinite}
+@keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rbHand{0%,100%{transform:rotate(0)}50%{transform:rotate(-18deg) translateY(-4px)}}
+@keyframes rbBlink{0%,100%{opacity:1}50%{opacity:.45}}
+.hx-slogan{margin:0;font-family:"Dancing Script","Segoe Script","Brush Script MT",cursive;font-weight:700;color:#0E2F66;line-height:1.05;display:flex;flex-direction:column;align-items:center;
+  font-size:clamp(24px,2.6vw,40px);text-shadow:0 0 2px #fff,0 0 6px rgba(255,255,255,.95),0 0 14px rgba(255,255,255,.8);transform:rotate(-5deg)}
+.hx-slogan svg{width:80%;height:14px;margin-top:2px}
+@media (min-width:1180px){ .hx-slogan{position:absolute;right:max(28px,calc((100% - 1380px)/2));top:118px;align-items:flex-start} .hx-slogan span:last-of-type{padding-left:22px} .hx-plane{top:-60px} }
+@media (max-width:1179px){ .hx-slogan{margin:-4px 0 2px} }
+@media (max-width:899px){ .hx-robot{width:62px} .hx-ask{gap:2px} }
+@media (max-width:480px){ .hx-robot{width:52px} .hx-slogan{font-size:23px;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:0 6px} .hx-slogan svg{width:70%;flex-basis:100%;height:10px} }
+@media (prefers-reduced-motion:reduce){ .hx-robot,.rb-hand,.rb-bulb{animation:none} }
 </style>
 
 <div class="app">
@@ -1340,11 +1357,24 @@ html,body{height:auto!important}
         <h1 class="hx-word"><span class="sr">Đi Đâu?</span><svg viewBox="0 0 480 200" aria-hidden="true"><defs><path id="arcMain" d="M10 168 Q240 76 470 168"/><path id="arcShadow" d="M10 175 Q240 83 470 175"/></defs><text font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="104" letter-spacing="-1" text-anchor="middle" stroke-linejoin="round" paint-order="stroke" fill="#0A2552" stroke="#0A2552" stroke-width="16"><textPath href="#arcShadow" startOffset="50%">Đi Đâu?</textPath></text><text font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="104" letter-spacing="-1" text-anchor="middle" stroke-linejoin="round" paint-order="stroke" stroke="#0E3F86" stroke-width="15"><textPath href="#arcMain" startOffset="50%"><tspan fill="#FFFFFF">Đi </tspan><tspan fill="#FFC20E">Đâu?</tspan></textPath></text></svg></h1>
       </div>
       <p class="hx-tag">Trợ lý du lịch AI dành cho người Việt</p>
+      <p class="hx-slogan"><span>Không biết đi đâu?</span><span>Cứ nói với Đi Đâu!</span><svg viewBox="0 0 240 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C70 4 160 2 236 8" fill="none" stroke="#FFC20E" stroke-width="6" stroke-linecap="round"/></svg></p>
+      <div class="hx-ask"><svg class="hx-robot" viewBox="0 0 130 120" aria-hidden="true"><defs><linearGradient id="rbHead" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#E3F0FC"/></linearGradient></defs>
+<g class="rb-wave"><path d="M112 70l9-6M114 80h11M112 90l9 6" stroke="#FFC20E" stroke-width="4" stroke-linecap="round"/></g>
+<line x1="60" y1="22" x2="60" y2="9" stroke="#9CC9F0" stroke-width="4" stroke-linecap="round"/><circle class="rb-bulb" cx="60" cy="8" r="6" fill="#3BB8FF" stroke="#fff" stroke-width="2"/>
+<rect x="6" y="44" width="15" height="26" rx="7" fill="#2F8BFF"/><rect x="99" y="44" width="15" height="26" rx="7" fill="#2F8BFF"/>
+<rect x="16" y="20" width="88" height="70" rx="32" fill="url(#rbHead)" stroke="#BFDDF7" stroke-width="3"/>
+<rect x="28" y="34" width="64" height="44" rx="20" fill="#11325F"/>
+<path class="rb-eye" d="M40 58q7-9 14 0M66 58q7-9 14 0" fill="none" stroke="#5EEBFF" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M52 66q8 7 16 0" fill="none" stroke="#5EEBFF" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="37" cy="68" r="4" fill="#FF8FB1" opacity=".55"/><circle cx="83" cy="68" r="4" fill="#FF8FB1" opacity=".55"/>
+<rect x="40" y="88" width="40" height="26" rx="13" fill="url(#rbHead)" stroke="#BFDDF7" stroke-width="3"/><circle cx="60" cy="101" r="5" fill="#2F8BFF"/>
+<g class="rb-hand"><circle cx="100" cy="98" r="9" fill="#fff" stroke="#BFDDF7" stroke-width="3"/></g></svg>
       <form class="hx-search" id="hxForm" role="search" autocomplete="off">
         <svg class="hx-s1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input id="hxq" type="text" enterkeyhint="search" aria-label="Bạn muốn đi đâu?" placeholder="Bạn muốn đi đâu?">
         <button class="hx-go" type="submit" aria-label="Tìm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       </form>
+      </div>
       <p class="hx-hint">Gõ tên nơi muốn đến, hoặc kể chuyến đi: “3 ngày, 5 triệu, đi cùng con nhỏ, thích biển”</p>
       <div class="hx-cards">
         <button class="hx-card c1" data-hx="explore"><svg class="hx-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7.5 7.5 0 0 0-7.5 7.5c0 5.4 6.6 11.9 6.9 12.2a.85.85 0 0 0 1.2 0c.3-.3 6.9-6.8 6.9-12.2A7.5 7.5 0 0 0 12 2zm0 10.3a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z"/></svg><b>Khám phá</b><span>Điểm đến hấp dẫn</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V38l30-22 26 20 34-28 40 34 22-14 48 30z" fill="#fff" opacity=".16"/><path d="M0 60c40-18 80-6 110-14s60-10 90-6v20z" fill="#fff" opacity=".14"/></svg></button>
