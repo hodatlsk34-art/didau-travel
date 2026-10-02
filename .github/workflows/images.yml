@@ -7,6 +7,7 @@ on:
       - 'tools/image_targets.json'
       - 'tools/fetch_images.py'
       - 'tools/hero_queries.json'
+      - 'tools/only_hero'
       - '.github/workflows/images.yml'
 
 permissions:

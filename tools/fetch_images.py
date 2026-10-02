@@ -184,6 +184,20 @@ def save(ii, rel, width, strict=True):
     return {'f': '/' + rel.replace(os.sep, '/'), 'page': page, 'credit': ' · '.join(x for x in (au, lic or 'Wikimedia') if x)}
 
 
+def grade_bright(im):
+    """Làm ảnh tươi sáng: tăng màu, tương phản, phủ xanh trời vùng trời nhạt."""
+    from PIL import ImageEnhance
+    im = ImageEnhance.Color(im).enhance(1.35); im = ImageEnhance.Contrast(im).enhance(1.08); im = ImageEnhance.Brightness(im).enhance(1.05)
+    w, h = im.size; sky = Image.new('RGB', (w, h), (58, 150, 235)); mask = Image.new('L', (w, h), 0)
+    px = mask.load(); hsv = im.convert('HSV').load(); src = im.load(); lim = int(h * .5)
+    for y in range(lim):
+        a = 1 - y / lim
+        for x in range(w):
+            r, g, b = src[x, y]; _, sat, v = hsv[x, y]
+            if v > 150 and (sat < 90 or (b > r and b > g)):
+                px[x, y] = int(150 * a)
+    return Image.composite(sky, im, mask)
+
 def hero_candidates(queries):
     """Tải ảnh xem trước (480px) cho các ảnh nền ứng viên để chọn ảnh tươi sáng."""
     outdir = os.path.join(ROOT, 'tools', 'hero_cand'); os.makedirs(outdir, exist_ok=True)
@@ -212,6 +226,8 @@ def main():
     targets = json.load(open(os.path.join(ROOT, 'tools', 'image_targets.json'), encoding='utf-8'))
     cred = json.load(open(CRED_PATH, encoding='utf-8')) if os.path.exists(CRED_PATH) else {}
     only = sys.argv[1] if len(sys.argv) > 1 else 'all'
+    if os.path.exists(os.path.join(ROOT, 'tools', 'only_hero')):
+        only = 'hero'
     hq = os.path.join(ROOT, 'tools', 'hero_queries.json')
     if os.path.exists(hq):
         hero_candidates(json.load(open(hq, encoding='utf-8'))); return
@@ -219,7 +235,7 @@ def main():
 
     if only in ('all', 'hero'):
         # Ảnh nền lớn cho trang chủ (1920px + bản dọc cho điện thoại)
-        HERO = {'halong': 'File:Ha_Long_Bay_in_2019.jpg'}
+        HERO = {'halong': 'File:Ha_Long_Bay_in_2019.jpg', 'halong2': 'File:Ha_Long_Bay_on_a_sunny_day.jpg'}
         for name, ft in HERO.items():
             out = os.path.join(PUB, 'images', 'hero', name + '-1920.webp')
             if os.path.exists(out):
@@ -235,6 +251,8 @@ def main():
             im = Image.open(io.BytesIO(data)).convert('RGB')
             if im.width > 1920:
                 im = im.resize((1920, round(im.height * 1920 / im.width)), Image.LANCZOS)
+            if name == 'halong2':
+                im = grade_bright(im)
             os.makedirs(os.path.dirname(out), exist_ok=True)
             im.save(out, 'WEBP', quality=78, method=6)
             # bản điện thoại: cắt dọc phần giữa, rộng 900
