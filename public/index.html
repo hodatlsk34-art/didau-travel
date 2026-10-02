@@ -1394,15 +1394,30 @@ function savedHTML(){
 }
 
 /* ---------- Bản đồ thật (Leaflet) ---------- */
-let map, provLayer, tileLayer, placeLayer, labelLayer, tileErrs=0, tileOk=false;
+let map, provLayer, tileLayer, placeLayer, labelLayer, tileErrs=0, tileOk=false, tileIdx=0;
+const OSM_ATTR='© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
+const TILE_PROVIDERS=[
+  {name:'OpenStreetMap',url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',opt:{maxZoom:19,attribution:OSM_ATTR}},
+  {name:'CARTO Voyager',url:'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',opt:{subdomains:'abcd',maxZoom:20,attribution:OSM_ATTR+' © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}}
+];
+function makeTileLayer(i){
+  tileIdx=i; tileErrs=0; tileOk=false;
+  const pr=TILE_PROVIDERS[i];
+  tileLayer=L.tileLayer(pr.url,{...pr.opt,referrerPolicy:'strict-origin-when-cross-origin',crossOrigin:false});
+  tileLayer.on('tileload',()=>{tileOk=true;});
+  tileLayer.on('tileerror',()=>{ tileErrs++;
+    if(tileErrs>=4 && !tileOk){
+      const wasOn=map.hasLayer(tileLayer); if(wasOn) map.removeLayer(tileLayer);
+      if(tileIdx+1<TILE_PROVIDERS.length){ makeTileLayer(tileIdx+1); if(wasOn) enableTiles(); }
+      else { makeTileLayer(0); disableTiles(true); }
+    }});
+}
 const provPaths={};
 function initMap(){
   map=L.map('map',{zoomControl:true,minZoom:4.5,maxZoom:18,zoomSnap:0.5,worldCopyJump:false});
   map.zoomControl.setPosition('topright');
   map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-  tileLayer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'});
-  tileLayer.on('tileload',()=>{tileOk=true;});
-  tileLayer.on('tileerror',()=>{tileErrs++; if(tileErrs>=3 && !tileOk) disableTiles(true);});
+  makeTileLayer(0);
   provLayer=L.geoJSON(GEO,{
     style:()=>({weight:1,fill:true,className:'prov'}),
     onEachFeature:(f,l)=>{const disp=GEO2DISP[f.properties.name]; provPaths[disp]=l; l.on('click',()=>{ if(disp!==state.prov) selectProv(disp); });}
@@ -1427,8 +1442,10 @@ function disableTiles(blocked){
   $('#mapwrap').classList.remove('has-tiles'); $('#btnTiles').setAttribute('aria-pressed','false');
   if(blocked){ state.tiles='blocked';
     const n=$('#tilenote'); n.hidden=false;
-    n.innerHTML='<b>Lớp bản đồ đường phố chưa tải được ở đây.</b> Khung xem trước chặn ảnh bản đồ từ máy chủ ngoài. Khi đưa app lên web thật, lớp bản đồ OpenStreetMap sẽ tự hiện. Ranh giới tỉnh và tọa độ địa điểm vẫn chính xác.';
-    setTimeout(()=>{n.hidden=true;},9000);
+    const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+    n.innerHTML=inFrame?'<b>Lớp bản đồ đường phố chưa tải được ở đây.</b> Khung xem trước chặn ảnh bản đồ từ máy chủ ngoài. Mở trang trên web thật để thấy bản đồ đường phố. Ranh giới tỉnh và tọa độ địa điểm vẫn chính xác.'
+      :'<b>Không tải được ảnh bản đồ đường phố.</b> Mạng hoặc trình duyệt đang chặn máy chủ bản đồ (OpenStreetMap, CARTO). Thử tải lại trang, tắt trình chặn quảng cáo hoặc đổi mạng. Bấm "Bản đồ đường phố" để thử lại.';
+    setTimeout(()=>{n.hidden=true;},12000);
   }
 }
 function markProv(){
