@@ -803,7 +803,7 @@ p{margin:0}
 /* planner */
 .field{display:flex;flex-direction:column;gap:6px}
 .label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
 .seg{display:flex;background:var(--surface-2);border-radius:11px;padding:3px;gap:3px}
 .seg button{flex:1;border:0;background:transparent;padding:7px 6px;border-radius:8px;color:var(--muted);font-weight:500;font-size:13.5px}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.14)}
@@ -925,7 +925,88 @@ path.me-acc{fill:#2F7DE1;fill-opacity:.12;stroke:#2F7DE1;stroke-opacity:.35;stro
 textarea.copy{width:100%;min-height:220px;border:1px solid var(--line);border-radius:10px;padding:10px;font:13px/1.5 var(--font-body);background:var(--paper);color:var(--ink)}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:12px;font-size:13.5px;box-shadow:var(--shadow);z-index:3000;max-width:calc(100% - 32px)}
 
+/* V2: trang chủ, gợi ý điểm đến, lịch trình chi tiết */
+.home-hero{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--moss) 13%,var(--surface)),color-mix(in srgb,var(--sun) 15%,var(--surface)))}
+.home-hero h1{font-family:var(--font-display);font-size:30px;line-height:1.1}
+.home-hero .sub{color:var(--muted);font-size:13.5px}
+.ask{display:flex;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden}
+.ask:focus-within{border-color:var(--moss)}
+.ask textarea{flex:1;border:0;resize:vertical;min-height:70px;padding:12px;font:15px/1.45 var(--font-body);background:transparent;color:var(--ink);outline:none}
+.examples{display:flex;flex-wrap:wrap;gap:6px}
+.ex{border:1px dashed var(--border);background:transparent;border-radius:999px;padding:5px 10px;font-size:12.5px;color:var(--muted);text-align:left}
+.ex:hover{color:var(--ink);border-style:solid}
+.parsed{display:flex;flex-wrap:wrap;gap:6px}
+.pchip{display:inline-flex;gap:5px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:600}
+.pchip.miss{color:var(--muted);font-weight:500;border-style:dashed}
+.cta2{border:0;background:none;color:var(--moss);font-weight:700;padding:4px 0;text-decoration:underline;text-underline-offset:3px}
+details.more{border:1px solid var(--line);border-radius:14px;padding:0 12px;background:var(--surface)}
+details.more>summary{cursor:pointer;padding:11px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:8px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:'▾';color:var(--muted)}
+details.more[open]>summary::after{content:'▴'}
+details.more>div{display:flex;flex-direction:column;gap:12px;padding-bottom:14px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mini{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mini>span{font-size:11.5px;color:var(--muted);font-weight:600}
+.stepper.sm button{width:30px;height:34px;font-size:16px}
+.money{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:0 10px}
+.money input{flex:1;min-width:0;border:0;background:transparent;padding:8px 0;font:inherit;color:var(--ink);outline:none}
+.money span{color:var(--muted);font-size:13px}
+.rec{border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+.rec.best{border-color:var(--moss);box-shadow:inset 0 0 0 1px var(--moss)}
+.rec-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.rec-h h3{font-family:var(--font-display);font-size:22px;line-height:1.15}
+.rec-h small{display:block;color:var(--muted);font-size:12.5px}
+.match{flex:none;text-align:center;border-radius:12px;background:var(--moss);color:var(--on-accent);padding:6px 10px;font-weight:700;font-size:19px;line-height:1.1}
+.match small{display:block;font-size:10.5px;font-weight:600;opacity:.85}
+.rec ul{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:2px}
+.rec li.w{color:var(--lacquer)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kpis div{background:var(--paper);border-radius:10px;padding:7px 9px;min-width:0}
+.kpis b{display:block;font-size:14.5px;font-variant-numeric:tabular-nums}
+.kpis span{font-size:11px;color:var(--muted)}
+.pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;align-self:flex-start}
+.pill.ok{background:color-mix(in srgb,var(--teal) 20%,var(--surface));color:var(--teal)}
+.pill.bad{background:color-mix(in srgb,var(--lacquer) 20%,var(--surface));color:var(--lacquer)}
+.plan-sum .pill{background:var(--surface)}
+.opt-note{font-size:12.5px;opacity:.9}
+.warns{display:flex;flex-direction:column;gap:6px}
+.wbox{border-radius:12px;padding:10px 12px;font-size:13px;background:color-mix(in srgb,var(--sun) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--sun) 45%,transparent)}
+.wbox ul{margin:4px 0 0;padding-left:18px}
+.wbox.rain{background:color-mix(in srgb,#2F7DE1 11%,var(--surface));border-color:color-mix(in srgb,#2F7DE1 40%,transparent)}
+.wbox.good{background:color-mix(in srgb,var(--teal) 11%,var(--surface));border-color:color-mix(in srgb,var(--teal) 40%,transparent)}
+.wbox .actions{margin-top:8px}
+.tl-meta{font-size:12px;color:var(--muted)}
+.tl-ctl{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.tl-ctl .row{display:flex;gap:3px}
+.ic-btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;width:28px;height:26px;font-size:13px;color:var(--muted);padding:0}
+.ic-btn:disabled{opacity:.3;cursor:default}
+.free{margin:0 0 0 62px;padding:3px 0 3px 14px;border-left:2px dashed var(--line);font-size:12px;color:var(--teal)}
+.startpt{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
+.startpt b{color:var(--ink)}
+.budget{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.budget table{width:100%;border-collapse:collapse;font-size:13.5px}
+.budget td{padding:7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.budget td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;padding-left:10px}
+.budget td small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
+.budget tr.total td{border-bottom:0;font-size:15.5px;font-weight:700}
+.daytab .wx{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.feat{display:flex;flex-direction:column;gap:8px}
+.mk-dest{display:grid;place-items:center;min-width:28px;height:28px;padding:0 7px;border-radius:999px;background:var(--moss);color:var(--on-accent);font-weight:700;font-size:12.5px;border:2px solid var(--surface);box-shadow:0 1px 5px rgba(0,0,0,.3);white-space:nowrap}
+.mk-dest.dim{background:var(--gold);min-width:14px;height:14px;padding:0}
+#printArea{display:none}
+@media print{
+  .app,.sheet,.toast{display:none!important}
+  body{background:#fff;color:#000}
+  #printArea{display:block!important;font:11pt/1.45 var(--font-body);color:#000}
+  #printArea h1{font-family:var(--font-display);font-size:19pt;margin-bottom:4pt}
+  #printArea h2{font-size:13pt;margin:14pt 0 4pt}
+  #printArea table{width:100%;border-collapse:collapse}
+  #printArea td{border-bottom:1px solid #bbb;padding:4pt;vertical-align:top}
+  #printArea tr{break-inside:avoid}
+}
 @media (max-width:899px){
+  .app[data-tab="home"] .mapwrap{order:1;height:42vh}
   html,body{height:auto}
   .app{height:auto}
   .main{grid-template-columns:1fr}
@@ -949,12 +1030,13 @@ textarea.copy{width:100%;min-height:220px;border:1px solid var(--line);border-ra
       <span class="nm" id="provName">Hà Nội</span> <span aria-hidden="true">▾</span>
     </button>
   </header>
-  <div class="proto"><strong>Bản dùng thử</strong> · Dữ liệu mẫu <span id="totalN"></span> địa điểm tại 34 tỉnh thành. Giá, giờ mở cửa và tọa độ chỉ để tham khảo, chưa được xác minh. Lịch trình AI đang chạy ở chế độ mô phỏng.</div>
+  <div class="proto"><strong>Bản beta</strong> · <span id="totalN"></span> địa điểm tại 34 tỉnh thành do Đi Đâu? tổng hợp, chưa xác minh tại chỗ: giá, giờ mở cửa chỉ để tham khảo. Lịch trình do thuật toán của Đi Đâu? lập từ kho dữ liệu này.</div>
   <main class="main">
     <section class="panel">
       <nav class="tabs" role="tablist">
+        <button class="tab" role="tab" data-tab="home">Trang chủ</button>
         <button class="tab" role="tab" data-tab="explore">Khám phá</button>
-        <button class="tab" role="tab" data-tab="plan">Lịch trình AI</button>
+        <button class="tab" role="tab" data-tab="plan">Lịch trình</button>
         <button class="tab" role="tab" data-tab="saved">Đã lưu <span class="n" id="savedN">0</span></button>
       </nav>
       <div class="pbody" id="pbody"></div>
@@ -984,6 +1066,7 @@ textarea.copy{width:100%;min-height:220px;border:1px solid var(--line);border-ra
   </div>
 </div>
 <div class="toast" id="toast" hidden role="status"></div>
+<div id="printArea"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
@@ -1027,8 +1110,14 @@ DATA['Hà Nội'] = {areas:['Nội thành'], places:HN.map(p=>Object.assign(p,{a
 
 const CAT = {food:{label:'Ăn uống',c:'var(--lacquer)'},check:{label:'Check-in',c:'var(--gold)'},sight:{label:'Tham quan',c:'var(--teal)'}};
 const PRESET_ZONES = {'Hà Nội|Nội thành':[{name:'Hồ Gươm – Phố cổ',lat:21.031,lng:105.851},{name:'Ba Đình – Văn Miếu',lat:21.033,lng:105.838},{name:'Hồ Tây – Long Biên',lat:21.046,lng:105.842}]};
-const INTEREST = {food:{label:'Ẩm thực đường phố',tag:'street'},history:{label:'Lịch sử',tag:'history'},photo:{label:'Sống ảo',tag:'photo'},cafe:{label:'Cà phê',tag:'cafe'}};
-const BUDGET = {tietkiem:{label:'Tiết kiệm',max:80000},vua:{label:'Vừa phải',max:150000},thoaimai:{label:'Thoải mái',max:Infinity}};
+const INTEREST = {
+  food:{label:'Ẩm thực',tag:'street',ic:'🍜',v:'a'}, beach:{label:'Biển – đảo',tag:'beach',ic:'🏖️',v:'bd'},
+  nature:{label:'Núi – thiên nhiên',tag:'nature',ic:'⛰️',v:'n'}, history:{label:'Lịch sử – văn hóa',tag:'history',ic:'🏯',v:'v'},
+  photo:{label:'Chụp ảnh',tag:'photo',ic:'📸'}, cafe:{label:'Cà phê',tag:'cafe',ic:'☕'},
+  relax:{label:'Nghỉ dưỡng',tag:'relax',ic:'🧘',v:'r'}, cool:{label:'Khí hậu mát',tag:'cool',ic:'🌲',v:'m'}
+};
+const BUDGET = {tietkiem:{label:'Bình dân',max:80000},vua:{label:'Vừa phải',max:150000},thoaimai:{label:'Thoải mái',max:Infinity}};
+const HOTEL_LV = {tk:{label:'Tiết kiệm',i:0},vua:{label:'Tầm trung',i:1},tm:{label:'Cao cấp',i:2}};
 const MAX_DAYS = 14;
 const PACE = {
   thongtha:{label:'Thong thả',slots:[
@@ -1173,17 +1262,172 @@ function legText(a,b){const km=roadKm(a,b);
   const m=Math.round(km/40*60+10); return 'Ô tô/xe máy ~'+(m>=60?Math.floor(m/60)+' giờ '+(m%60?m%60+' phút':''):m+' phút')+' · '+fmtKm(km);}
 function store(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 function load(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
+const isoD = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const tomorrowIso = () => {const d=new Date();d.setDate(d.getDate()+1);return isoD(d);};
+const fmtM = n => {n=Math.round(n/10000)*10000; if(n>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'').replace('.',',')+' triệu'; return n.toLocaleString('vi-VN')+'đ';};
+const fmtH = h => h<1 ? Math.max(10,Math.round(h*60/5)*5)+' phút' : (Math.round(h*2)/2).toString().replace('.',',')+' giờ';
+const toMin = t => {const a=String(t).split(':').map(Number);return a[0]*60+(a[1]||0);};
+const hhmm = m => String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(Math.round(m%60)).padStart(2,'0');
+
+/* ---------- V2: làm giàu dữ liệu địa điểm ----------
+   Thời lượng, trong nhà/ngoài trời, độ phù hợp trẻ em/người lớn tuổi được SUY RA theo quy tắc từ tên và loại địa điểm (ước tính).
+   p.src: nguồn; p.ver: ngày xác minh tại chỗ. Chưa xác minh thì để null, không tự điền. */
+function ioOf(p){
+  if(p.cat==='food') return p.kinds.includes('evening')||p.kinds.includes('vat')?'mixed':'in';
+  const n=p.name.toLowerCase();
+  if(/bảo tàng|nhà hát|hải dương học|dinh |dinh thự|nhà tù|nhà cổ|hầm |chung cư|bưu điện|^động |văn miếu|đại nội|chợ lớn|ga đà lạt|làng tranh/.test(n)) return 'in';
+  if(/bãi|biển|vịnh|đảo|đèo|đồi|thác|^hồ|hồ |núi|mũi|gành|ghềnh|eo gió|ruộng|thung lũng|rừng|suối|^cầu|phố đi bộ|quảng trường|công viên|bến |làng chài|cánh đồng|cột |cao nguyên|kỳ co|cổng tò vò|đỉnh|pù luông|tràng an|tam cốc|sông|chợ nổi|vườn|^bản |hang múa|hòn|tượng|vòng quay|bà nà|fansipan|ải chi lăng|cồn |tràm chim|lăng cô|hang rái/.test(n)) return 'out';
+  return 'mixed';
+}
+function durOf(p){
+  const n=p.name.toLowerCase();
+  if(p.cat==='food') return p.tags.includes('cafe')||p.kinds.includes('cafe')?60:p.kinds.includes('toi')?75:p.kinds.includes('trua')?60:p.kinds.includes('sang')?45:40;
+  if(/vịnh|bà nà|fansipan|vườn quốc gia|kỳ co|tràng an|yên tử|sông nho quế|hồ na hang|lan hạ|cù lao|đảo|cát tiên|hồ ba bể|chợ nổi|mỹ sơn|tam cốc/.test(n)) return 180;
+  if(/đại nội|bảo tàng|phố cổ|dinh|lăng|nhà tù|thành |bản |chợ phiên|di tích|thánh địa|địa đạo|^động /.test(n)) return p.cost>=100000?120:90;
+  return p.cat==='sight'?75:45;
+}
+function fitOf(p){
+  const n=p.name.toLowerCase();
+  const hard=/đèo|đỉnh|cột cờ|mã pì lèng|ô quy hồ|khau phạ|hang múa|kỳ co|trekking|leo núi/.test(n);
+  const steps=/yên tử|bạch mã|thác|đồi cát|sông nho quế|pù luông|đảo bé|eo gió|hang rái|núi |mẫu sơn|fansipan|ngũ hành sơn|bà đen/.test(n);
+  return {kid:!hard, old:!hard&&!steps};
+}
+const BEACH_RX=/bãi|biển|vịnh|đảo|mũi|gành|ghềnh|kỳ co|eo gió|hòn|làng chài|cầu tàu/, NAT_RX=/thác|hồ|rừng|núi|đèo|vườn|ruộng|hang|đồi|suối|thung lũng|cao nguyên|pù luông|tràng an|tam cốc|sông|cánh đồng|^bản |tràm chim|cồn |^động /;
+ALL.forEach(p=>{
+  p.dur=p.dur||durOf(p); p.io=p.io||ioOf(p); p.fit=p.fit||fitOf(p);
+  const n=p.name.toLowerCase();
+  if(p.cat!=='food'){ if(BEACH_RX.test(n)) p.tags.push('beach'); if(NAT_RX.test(n)) p.tags.push('nature'); if(p.tags.includes('beach')||/hồ |suối|đồi chè|thiền viện/.test(n)) p.tags.push('relax'); }
+  if(p.tags.includes('cafe')) p.tags.push('relax');
+  p.src=p.src||'Đi Đâu? tổng hợp từ thông tin công khai'; p.ver=p.ver||null;
+});
+const IO_TX={in:'Trong nhà',out:'Ngoài trời',mixed:'Trong nhà & ngoài trời'};
+
+/* ---------- V2: kho điểm đến (cấp khu vực) ----------
+   [vibe, mức giá phòng, tháng đẹp, có sân bay gần, hợp trẻ em 0–2, hợp người lớn tuổi 0–2, phí tàu/phà khứ hồi mỗi người, giới thiệu]
+   vibe: b biển · d đảo · n núi/thiên nhiên · m mát mẻ · c thành phố · v văn hóa–lịch sử · a ẩm thực · s sông nước · r nghỉ dưỡng
+   Giá phòng là ước tính mặt bằng chung (nghìn đồng/phòng/đêm), cần cập nhật theo giá thực tế. */
+const TIER={H:[350,800,2000],T:[300,650,1600],I:[500,1200,3200],M:[250,500,1200],S:[250,450,900]};
+const DMETA={
+ 'Nội thành':['cva','H','3,4,9,10,11,12',1,2,2,0,'Phố cổ, ẩm thực đường phố, di tích nghìn năm'],
+ 'Cố đô Huế':['va','T','1,2,3,4,5',1,2,2,0,'Cố đô triều Nguyễn, lăng tẩm, ẩm thực cung đình'],
+ 'Lăng Cô – Bạch Mã':['bn','S','3,4,5,6,7,8',1,1,1,0,'Vịnh biển Lăng Cô, rừng quốc gia Bạch Mã'],
+ 'Nội thành Hải Phòng':['ca','S','3,4,5,9,10,11',1,2,2,0,'Thành phố hoa phượng, ẩm thực bình dân'],
+ 'Đồ Sơn':['b','S','5,6,7,8',1,2,2,0,'Biển gần Hà Nội'],
+ 'Cát Bà':['bdn','T','4,5,6,7,8,9,10',1,2,1,150000,'Đảo, vịnh Lan Hạ, vườn quốc gia'],
+ 'Hải Dương':['v','S','1,2,3,9,10,11,12',0,2,2,0,'Di tích Côn Sơn – Kiếp Bạc'],
+ 'Trung tâm Đà Nẵng':['bcar','T','2,3,4,5,6,7,8',1,2,2,0,'Biển Mỹ Khê, Bà Nà, cầu Rồng'],
+ 'Hội An – Mỹ Sơn':['vab','T','2,3,4,5,6,7',1,2,2,0,'Phố cổ đèn lồng, thánh địa Mỹ Sơn'],
+ 'Trung tâm Sài Gòn':['cav','H','12,1,2,3,4',1,2,2,0,'Thành phố sôi động, ẩm thực phong phú'],
+ 'Vũng Tàu':['bar','T','11,12,1,2,3,4',0,2,2,0,'Biển gần Sài Gòn, hải sản'],
+ 'Côn Đảo':['bdvr','I','3,4,5,6,7,8,9',1,1,2,0,'Đảo hoang sơ, di tích lịch sử'],
+ 'Cần Thơ':['sa','S','9,10,11,12,1,2,3',1,2,2,0,'Chợ nổi Cái Răng, miệt vườn'],
+ 'Sóc Trăng':['vs','S','12,1,2,3',1,2,2,0,'Chùa Khmer, văn hóa ba dân tộc'],
+ 'Thác Bản Giốc – Trùng Khánh':['n','S','9,10,11',0,2,1,0,'Thác nước biên giới hùng vĩ'],
+ 'TP Cao Bằng – Pác Bó':['vn','S','9,10,11,12,1,2,3',0,2,2,0,'Di tích Pác Bó, non nước Cao Bằng'],
+ 'TP Điện Biên Phủ':['vn','S','2,3,10,11',1,2,2,0,'Chiến trường xưa, cánh đồng Mường Thanh'],
+ 'Hà Tĩnh – Thiên Cầm':['bv','S','5,6,7,8',1,2,2,0,'Biển Thiên Cầm yên bình'],
+ 'Nghi Xuân':['bv','S','5,6,7,8',1,2,2,0,'Quê Nguyễn Du, biển Xuân Thành'],
+ 'Lai Châu':['nm','M','9,10,11,12,1,2,3,4',0,1,0,0,'Đèo Ô Quy Hồ, đồi chè Tân Uyên'],
+ 'TP Lạng Sơn':['vna','S','9,10,11,12,1,2,3',0,2,2,0,'Động Tam Thanh, ẩm thực xứ Lạng'],
+ 'Mẫu Sơn':['nm','S','11,12,1,2',0,1,1,0,'Đỉnh núi mây mù, có năm có băng giá'],
+ 'Vinh – Cửa Lò':['b','S','5,6,7,8',1,2,2,0,'Biển Cửa Lò, quê Bác'],
+ 'Hạ Long':['bdnc','T','4,5,6,7,8,9,10,11',1,2,2,0,'Di sản vịnh Hạ Long'],
+ 'Cô Tô':['bd','S','4,5,6,7,8',1,1,1,600000,'Đảo biển xanh hoang sơ'],
+ 'Sầm Sơn':['ba','S','5,6,7,8',1,2,2,0,'Biển đông vui, hải sản giá mềm'],
+ 'Thành nhà Hồ – Pù Luông':['nv','M','5,6,9,10',1,1,1,0,'Ruộng bậc thang Pù Luông, di sản Thành nhà Hồ'],
+ 'Mộc Châu':['nm','M','10,11,12,1,2,3',0,2,2,0,'Cao nguyên chè, hoa mận, khí hậu mát'],
+ 'Hà Giang – Đồng Văn':['nv','M','9,10,11,12,1,2,3',0,1,0,0,'Cao nguyên đá, đèo Mã Pì Lèng'],
+ 'Sa Pa':['nmv','T','3,4,5,9,10,11',0,2,1,0,'Fansipan, ruộng bậc thang, bản làng'],
+ 'Mù Cang Chải':['n','M','9,10',0,1,0,0,'Ruộng bậc thang mùa lúa chín'],
+ 'Hồ Ba Bể':['n','M','4,5,6,7,8,9,10',0,2,1,0,'Hồ nước ngọt tự nhiên giữa núi'],
+ 'TP Thái Nguyên':['vn','S','9,10,11,12,1,2,3',1,2,2,0,'Đồi chè Tân Cương, hồ Núi Cốc'],
+ 'Tam Đảo':['nm','T','4,5,6,7,8,9',1,2,1,0,'Thị trấn mây mát gần Hà Nội'],
+ 'Mai Châu':['nv','M','4,5,9,10',1,2,2,0,'Bản Lác, thung lũng yên bình'],
+ 'Kinh Bắc':['va','S','1,2,3,9,10',1,2,2,0,'Quan họ, chùa cổ, tranh Đông Hồ'],
+ 'Phố Hiến':['v','S','3,4,8,9,10',1,2,2,0,'Phố Hiến cổ, nhãn lồng'],
+ 'Thái Bình':['vb','S','9,10,11,12,1,2,3',0,2,2,0,'Chùa Keo, biển Đồng Châu'],
+ 'Tràng An – Tam Cốc':['nv','T','1,2,3,4,5,6',0,2,1,0,'Di sản Tràng An, Hang Múa, Bái Đính'],
+ 'Nam Định':['va','S','1,2,3,9,10',0,2,2,0,'Đền Trần, phở bò Nam Định'],
+ 'Phong Nha – Đồng Hới':['nb','T','3,4,5,6,7,8',1,2,1,0,'Hang động di sản, biển Nhật Lệ'],
+ 'Quảng Trị':['v','S','3,4,5,6,7,8',1,2,2,0,'Di tích Thành cổ, địa đạo Vịnh Mốc'],
+ 'Lý Sơn':['bd','S','3,4,5,6,7,8',1,1,1,500000,'Đảo núi lửa, tỏi Lý Sơn'],
+ 'Kon Tum – Măng Đen':['nm','S','11,12,1,2,3,4',1,2,2,0,'Rừng thông Măng Đen, khí hậu mát'],
+ 'Quy Nhơn':['bar','T','2,3,4,5,6,7,8',1,2,2,0,'Biển Kỳ Co, Eo Gió, hải sản'],
+ 'Pleiku':['n','S','11,12,1,2,3',1,2,2,0,'Biển Hồ, đồi chè'],
+ 'Nha Trang':['bdcr','T','1,2,3,4,5,6,7,8',1,2,2,0,'Vịnh biển, đảo, tháp Bà Ponagar'],
+ 'Ninh Thuận – Vĩnh Hy':['bn','S','1,2,3,4,5,6,7,8,9',1,2,1,0,'Vịnh Vĩnh Hy, đồi cát, tháp Chăm'],
+ 'Đà Lạt':['nmr','T','11,12,1,2,3,4',1,2,2,0,'Thành phố ngàn hoa, khí hậu mát quanh năm'],
+ 'Mũi Né – Phan Thiết':['br','T','11,12,1,2,3,4,5',0,2,2,0,'Đồi cát, biển, resort'],
+ 'Buôn Ma Thuột':['nva','S','11,12,1,2,3',1,2,2,0,'Thủ phủ cà phê, văn hóa Tây Nguyên'],
+ 'Phú Yên':['bn','S','2,3,4,5,6,7,8',1,2,1,0,'Gành Đá Đĩa, Mũi Điện'],
+ 'Biên Hòa – Trị An':['n','S','12,1,2,3,4',1,2,2,0,'Hồ Trị An, Bửu Long'],
+ 'Núi Bà Đen – Tòa Thánh':['vn','S','12,1,2,3,4',1,2,2,0,'Nóc nhà Nam Bộ, Tòa Thánh Cao Đài'],
+ 'Sa Đéc – Tràm Chim':['s','S','9,10,11,12,1',0,2,2,0,'Làng hoa, sân chim mùa nước nổi'],
+ 'Mỹ Tho':['sa','S','12,1,2,3,4',1,2,2,0,'Cù lao, miệt vườn gần Sài Gòn'],
+ 'Châu Đốc – Núi Sam':['vs','S','9,10,11',0,2,2,0,'Miếu Bà, rừng tràm Trà Sư mùa nước nổi'],
+ 'Phú Quốc':['bdr','T','11,12,1,2,3,4',1,2,2,600000,'Đảo ngọc, biển xanh, hoàng hôn'],
+ 'Hà Tiên':['bv','S','11,12,1,2,3,4',0,2,2,0,'Thị trấn biển yên bình'],
+ 'Bạc Liêu':['vs','S','12,1,2,3,4',0,2,2,0,'Nhà công tử, cánh đồng điện gió'],
+ 'Mũi Cà Mau – U Minh':['s','S','12,1,2,3,4',1,1,1,0,'Cực Nam Tổ quốc, rừng U Minh'],
+ 'Bến Tre':['sa','S','12,1,2,3,4,5,6',0,2,2,0,'Xứ dừa, kênh rạch'],
+ 'Vĩnh Long':['sa','S','12,1,2,3',0,2,2,0,'Miệt vườn, cù lao'],
+ 'Trà Vinh':['vs','S','12,1,2,3',0,2,2,0,'Chùa Khmer, Ao Bà Om']
+};
+const DEST=[];
+Object.entries(DATA).forEach(([pv,d])=>d.areas.forEach(a=>{
+  const ps=ALL.filter(p=>p.prov===pv&&p.area===a); if(!ps.length) return;
+  const nf=ps.filter(p=>p.cat!=='food'), src=nf.length?nf:ps;
+  const m=DMETA[a]||['',PROVMAP[pv].t==='tp'?'T':'S','',0,2,2,0,''];
+  DEST.push({key:pv+'|'+a,prov:pv,area:a,name:a==='Nội thành'?pv:a,lat:src.reduce((s,p)=>s+p.lat,0)/src.length,lng:src.reduce((s,p)=>s+p.lng,0)/src.length,
+    n:ps.length,v:m[0],h:TIER[m[1]],months:m[2]?m[2].split(',').map(Number):[],kid:m[4],old:m[5],ferry:m[6],intro:m[7],r:PROVMAP[pv].r,
+    noRoad:a==='Côn Đảo',flyX:a==='Côn Đảo'?1200000:0});
+}));
+const DESTMAP=Object.fromEntries(DEST.map(d=>[d.key,d]));
+const destOf=(prov,area)=>DESTMAP[prov+'|'+area]||DEST.filter(d=>d.prov===prov).sort((a,b)=>b.n-a.n)[0];
+const destName=D=>D.name+(D.name!==D.prov&&!D.name.includes(D.prov)?' ('+D.prov+')':'');
+
+/* ---------- V2: đi lại từ nơi xuất phát (ước tính) ---------- */
+const AIRPORTS=[['Nội Bài',21.221,105.807,1],['Tân Sơn Nhất',10.818,106.652,1],['Đà Nẵng',16.044,108.199,1],['Cát Bi',20.819,106.725],['Vân Đồn',21.118,107.414],['Phú Bài',16.402,107.703],['Vinh',18.738,105.671],['Thọ Xuân',19.902,105.468],['Đồng Hới',17.515,106.591],['Chu Lai',15.406,108.706],['Phù Cát',13.955,109.042],['Pleiku',14.004,108.017],['Tuy Hòa',13.05,109.334],['Cam Ranh',11.998,109.219],['Liên Khương',11.75,108.367],['Buôn Ma Thuột',12.668,108.12],['Cần Thơ',10.085,105.712],['Rạch Giá',9.958,105.134],['Phú Quốc',10.17,103.993],['Cà Mau',9.177,105.177],['Côn Đảo',8.732,106.633],['Điện Biên',21.397,103.008]].map(a=>({name:a[0],lat:a[1],lng:a[2],hub:!!a[3]}));
+const ORIGIN={'Hà Nội':[21.028,105.854],'TP. Hồ Chí Minh':[10.776,106.7],'Đà Nẵng':[16.054,108.202],'Hải Phòng':[20.845,106.688],'Huế':[16.463,107.59],'Cần Thơ':[10.034,105.788],
+ 'An Giang':[10.012,105.08],'Bắc Ninh':[21.273,106.194],'Cà Mau':[9.177,105.15],'Cao Bằng':[22.666,106.258],'Đắk Lắk':[12.667,108.038],'Điện Biên':[21.386,103.017],'Đồng Nai':[10.957,106.843],'Đồng Tháp':[10.36,106.36],
+ 'Gia Lai':[13.776,109.223],'Hà Tĩnh':[18.343,105.906],'Hưng Yên':[20.646,106.051],'Khánh Hòa':[12.238,109.196],'Lai Châu':[22.396,103.458],'Lâm Đồng':[11.94,108.458],'Lạng Sơn':[21.853,106.761],'Lào Cai':[21.705,104.875],
+ 'Nghệ An':[18.679,105.681],'Ninh Bình':[20.251,105.975],'Phú Thọ':[21.322,105.402],'Quảng Ngãi':[15.12,108.792],'Quảng Ninh':[20.951,107.08],'Quảng Trị':[17.468,106.622],'Sơn La':[21.327,103.914],'Tây Ninh':[10.535,106.413],
+ 'Thái Nguyên':[21.594,105.848],'Thanh Hóa':[19.807,105.776],'Tuyên Quang':[21.823,105.214],'Vĩnh Long':[10.254,105.972]};
+const nearestAir=pt=>AIRPORTS.reduce((a,b)=>hav(a,pt)<=hav(b,pt)?a:b);
+function travelFor(origin,dest){
+  const oc=ORIGIN[origin]; if(!oc||!dest) return null;
+  const O={lat:oc[0],lng:oc[1]}, dkm=hav(O,dest);
+  if(dkm<15) return {mode:'local',h:0.3,pp:0,text:'Ngay tại '+origin};
+  const rk=dkm*1.3, rh=rk/45+0.3;
+  let best=dest.noRoad?null:{mode:'road',h:rh,pp:2*Math.max(80000,rk*800)+(dest.ferry||0),text:(rk<160?'Ô tô/xe khách':'Xe khách giường nằm')+' ~'+fmtH(rh)+' mỗi chiều'+(dest.ferry?', gồm tàu/phà':'')};
+  const oa=nearestAir(O), da=nearestAir(dest), g1=hav(O,oa)*1.3, g2=hav(da,dest)*1.3, fk=hav(oa,da);
+  if(oa!==da && fk>(dest.noRoad?100:200) && (oa.hub||da.hub) && g1<160 && g2<200){
+    const h=g1/40+1.6+fk/700+0.4+g2/40;
+    const fly={mode:'fly',h,pp:2*(650000+fk*550+Math.max(60000,(g1+g2)*900))+(dest.flyX||0),text:'Máy bay '+oa.name+' → '+da.name+(g2>30?' + ô tô':'')+', ~'+fmtH(h)+' cửa tới cửa'};
+    if(!best || fly.pp+fly.h*2*60000 < best.pp+best.h*2*60000) best=fly;
+  }
+  return best;
+}
 
 /* ---------- Trạng thái ---------- */
 const state = {
-  prov:'Hà Nội', area:'all', tab:'explore', filter:'all', q:'', selected:null, from:'explore',
+  prov:'Hà Nội', area:'all', tab:'home', filter:'all', q:'', selected:null, from:'explore',
   saved:new Set(load('didau.saved',['f1','s2','c7']).filter(id=>BYID[id])),
-  plans:load('didau.plans',[]).filter(pl=>pl.days&&pl.days.every(d=>d.stops.every(s=>BYID[s.id]))),
+  plans:load('didau.plans',[]).filter(pl=>(pl.v===2&&pl.d)||(pl.days&&pl.days.every(d=>d.stops.every(s=>BYID[s.id])))),
   must:new Set(),
-  opts:{prov:'Hà Nội',area:'Nội thành',start:'2026-10-03',days:2,people:2,budget:'vua',pace:'vua',interests:new Set(['food','history'])},
-  plan:null, day:0, loading:false, tiles:'try',
-  me:null, pickMode:false, sortNear:false, rmode:null, route:null
+  opts:null,
+  plan:null, prevPlan:null, undo:null, day:0, loading:false, tiles:'try',
+  me:null, pickMode:false, sortNear:false, rmode:null, route:null,
+  home:{text:'',manual:{},req:null,hit:{},recs:null,loading:false,open:false}
 };
+function normOpts(o){
+  if(o.ad==null) o.ad=Math.max(1,o.people||2);
+  o.kd=o.kd||0; o.el=o.el||0; o.people=o.ad+o.kd+o.el;
+  o.tier=HOTEL_LV[o.tier]?o.tier:'vua'; o.total=o.total||0; o.origin=o.origin||''; o.startMode=o.startMode||'hotel'; o.cheap=!!o.cheap;
+  if(!PACE[o.pace]) o.pace='vua'; if(!BUDGET[o.budget]) o.budget='vua';
+  return o;
+}
+state.opts=normOpts({prov:'Hà Nội',area:'Nội thành',start:tomorrowIso(),days:2,ad:2,budget:'vua',pace:'vua',interests:new Set(['food','history']),origin:'Hà Nội'});
 
 /* ---------- Lập lịch trình (mô phỏng AI) ---------- */
 function kmeans(pts,k){
@@ -1241,6 +1485,10 @@ function scorePlace(p,slot,ctx,o){
   if(p.cat==='food' && o.budget==='tietkiem') sc+=(60000-p.cost)/30000;
   if(slot.kinds.includes('cafe') && p.tags.includes('cafe')) sc+=3;
   if(ctx.today && ctx.today.has(p.id)) sc-=50;
+  if(o.kd && !p.fit.kid) sc-=8;
+  if(o.el && !p.fit.old) sc-=8;
+  if(ctx.rain){ if(p.io==='out') sc-=14; else if(p.io==='in') sc+=4; }
+  if(o.cheap && p.cat!=='food' && p.cost>150000 && !state.must.has(p.id)) sc-=p.cost/100000;
   let reason;
   if(state.must.has(p.id)) reason='Bạn đã chọn ghé điểm này';
   else if(slot.sunset && p.sunset) reason='Đúng giờ hoàng hôn';
@@ -1257,6 +1505,7 @@ function pickOnce(slot,ctx,o,exclude,budget,reuseFood){
   const za=ctx.zones[ctx.zi]&&ctx.zones[ctx.zi].areas;
   for(const p of ctx.pool){
     if(za && !za.includes(p.area)) continue;
+    if(ctx.noOut && p.cat!=='food' && p.io==='out') continue;
     const blocked=exclude.has(p.id) && !(reuseFood && p.cat==='food' && !(ctx.today&&ctx.today.has(p.id)));
     if(blocked || !fits(p,slot,ctx.wd,hour,budget)) continue;
     const r=scorePlace(p,slot,ctx,o);
@@ -1264,64 +1513,482 @@ function pickOnce(slot,ctx,o,exclude,budget,reuseFood){
   }
   return best;
 }
-const pick=(slot,ctx,o,ex)=>pickOnce(slot,ctx,o,ex,o.budget,false)||pickOnce(slot,ctx,o,ex,'thoaimai',false)||pickOnce(slot,ctx,o,ex,'thoaimai',true);
+const MEAL_ALT={sang:['vat','cafe'],trua:['toi','vat'],toi:['trua','vat']};
+const pick1=(slot,ctx,o,ex)=>pickOnce(slot,ctx,o,ex,o.budget,false)||pickOnce(slot,ctx,o,ex,'thoaimai',false)||pickOnce(slot,ctx,o,ex,'thoaimai',true);
+const pick=(slot,ctx,o,ex)=>{ const b=pick1(slot,ctx,o,ex); if(b) return b; const m=slot.kinds.find(k=>MEAL_ALT[k]); return m?pick1({...slot,kinds:MEAL_ALT[m]},ctx,o,ex):null; };
 function planCtx(plan){
   const o=plan.opts, pool=ALL.filter(p=>p.prov===o.prov&&(o.area==='all'||p.area===o.area));
   const zones=plan.zones||zonesFor(o,pool); const zoneOf={}; pool.forEach(p=>zoneOf[p.id]=nearestZone(p,zones));
   return {pool,zones,zoneOf};
 }
 function makePlan(o){
-  const opts={...o,interests:new Set(o.interests)};
+  const opts=normOpts({...o,interests:new Set(o.interests)});
   const plan={opts,days:[]}; const base=planCtx(plan); plan.zones=base.zones;
-  const used=new Set();
-  for(let d=0; d<o.days; d++){
-    const date=addDays(o.start,d), wd=date.getDay(), zi=d%Math.max(1,base.zones.length);
+  const used=new Set(), slots=PACE[opts.pace].slots;
+  for(let d=0; d<opts.days; d++){
+    const date=addDays(opts.start,d), wd=date.getDay(), zi=d%Math.max(1,base.zones.length);
     const stops=[], today=new Set(); let prev=null;
-    for(const slot of PACE[o.pace].slots){
-      const b=pick(slot,{...base,zi,wd,prev,today},opts,used); if(!b) continue;
+    slots.forEach((slot,si)=>{
+      const b=pick(slot,{...base,zi,wd,prev,today},opts,used); if(!b) return;
       used.add(b.p.id); today.add(b.p.id);
-      stops.push({t:slot.t,label:slot.label,slot,id:b.p.id,reason:b.reason,tried:[b.p.id]}); prev=b.p;
-    }
+      stops.push({t:slot.t,label:slot.label,slot,si,id:b.p.id,reason:b.reason,tried:[b.p.id]}); prev=b.p;
+    });
     plan.days.push({date,wd,zi,stops});
   }
+  let saved=0; plan.days.forEach((d,k)=>{const r=optimizeOrder(plan,k,true); saved+=r.cur-r.best;}); plan.optSaved=saved;
   return plan;
 }
-function planStats(plan){
-  let n=0,km=0,cost=0;
-  plan.days.forEach(d=>d.stops.forEach((s,i)=>{n++;const p=byId(s.id);cost+=p.cost;if(i>0)km+=roadKm(byId(d.stops[i-1].id),p);}));
-  return {n,km,cost:cost*plan.opts.people};
+
+/* ---------- V2: thời gian, di chuyển, tối ưu tuyến từng ngày ---------- */
+const MODE_TX={walk:'🚶 Đi bộ',bike:'🛵 Xe máy/Grab bike',car:'🚗 Ô tô/Grab car',hire:'🚐 Thuê xe'};
+function legInfo(a,b,P){
+  const km=roadKm(a,b); let mode,min,cost;
+  if(km<1.2){mode='walk';min=Math.max(3,km/4.5*60);cost=0;}
+  else if(km<40){ if(P<=2){mode='bike';min=km/22*60+5;cost=P*(12000+4500*km);} else {mode='car';min=km/25*60+6;cost=Math.ceil(P/4)*(20000+11000*km);} }
+  else {mode='hire';min=km/45*60+10;cost=Math.ceil(P/6)*(150000+9000*km);}
+  return {km,min:Math.round(min),cost:Math.round(cost/1000)*1000,mode};
 }
+const zoneLabel=z=>String(z.name).replace(/^Quanh /,'gần ');
+const hotelCache={};
+function hotelOf(prov,area){
+  const key=prov+'|'+area; if(hotelCache[key]) return hotelCache[key];
+  const ps=ALL.filter(p=>p.prov===prov&&p.area===area), f=ps.filter(p=>p.cat==='food'), src=f.length>=2?f:ps;
+  const c={lat:src.reduce((s,p)=>s+p.lat,0)/src.length,lng:src.reduce((s,p)=>s+p.lng,0)/src.length};
+  const D=destOf(prov,area);
+  return hotelCache[key]={...c,label:'nơi ở gợi ý – trung tâm '+(area==='Nội thành'?prov:D.name.split(' – ')[0])};
+}
+function dayStart(plan,k){
+  const o=plan.opts, z=plan.zones[plan.days[k].zi]||plan.zones[0];
+  if(o.startMode==='me'&&state.me&&hav(state.me,z)<60) return {lat:state.me.lat,lng:state.me.lng,label:state.me.src==='gps'?'vị trí của bạn':'điểm bạn chọn',me:true};
+  return hotelOf(o.prov,planAreaOf(plan,k));
+}
+const MEAL=['sang','trua','toi'];
+const isFixed=s=>{const sl=s.slot||{}; return !!sl.t&&(sl.sunset||sl.evening||(sl.kinds||[]).some(x=>MEAL.includes(x)));};
+function dayTimeline(plan,k){
+  const o=plan.opts, d=plan.days[k], P=o.ad+o.kd+o.el, st=dayStart(plan,k); let prev=st, end=0; const items=[];
+  d.stops.forEach((s,i)=>{
+    const p=byId(s.id), leg=legInfo(prev,p,P), sl=s.slot||{};
+    let start,arrive;
+    if(i===0){ start=sl.t?toMin(sl.t):480; arrive=start; }
+    else { arrive=end+leg.min; start=isFixed(s)?Math.max(arrive,toMin(sl.t)):arrive; }
+    end=start+p.dur; items.push({s,p,leg,arrive,start,end,gap:start-arrive}); prev=p;
+  });
+  return {start:st,items};
+}
+const pathKm=pts=>{let km=0;for(let i=1;i<pts.length;i++)km+=roadKm(pts[i-1],pts[i]);return km;};
+function permutations(a){ if(a.length<=1) return [a]; const r=[]; a.forEach((x,i)=>permutations([...a.slice(0,i),...a.slice(i+1)]).forEach(p=>r.push([x,...p]))); return r; }
+const isAnchor=s=>isFixed(s)||byId(s.id).morningOnly;
+function optimizeOrder(plan,k,apply){
+  const d=plan.days[k], st=dayStart(plan,k), res=d.stops.slice(); let i=0;
+  while(i<res.length){
+    if(isAnchor(res[i])){i++;continue;}
+    let j=i; while(j<res.length&&!isAnchor(res[j])) j++;
+    const seg=res.slice(i,j);
+    if(seg.length>1&&seg.length<=6){
+      const before=i>0?byId(res[i-1].id):st, after=j<res.length?byId(res[j].id):null;
+      let best=seg,bk=Infinity;
+      for(const pm of permutations(seg)){ const pts=[before,...pm.map(s=>byId(s.id))]; if(after) pts.push(after); const km=pathKm(pts); if(km<bk-1e-6){bk=km;best=pm;} }
+      res.splice(i,seg.length,...best);
+    }
+    i=j;
+  }
+  const cur=pathKm([st,...d.stops.map(s=>byId(s.id))]), best=pathKm([st,...res.map(s=>byId(s.id))]);
+  if(apply) d.stops=res;
+  return {cur,best};
+}
+function dayWarnings(plan,k,tl){
+  const W=[], o=plan.opts, d=plan.days[k], it=tl.items; if(!it.length) return W;
+  const last=it[it.length-1];
+  if(last.end>22*60+30) W.push('Ngày '+(k+1)+' kết thúc khoảng '+hhmm(last.end)+', khá muộn. Nên bỏ bớt 1–2 điểm.');
+  const busy=it.reduce((s,x,i)=>s+x.p.dur+(i?x.leg.min:0),0);
+  if(busy>11*60) W.push('Ngày '+(k+1)+' khá dày: khoảng '+fmtMin(busy)+' tham quan, ăn uống và di chuyển.');
+  if((o.kd||o.el)&&it.length>7) W.push('Đi cùng '+(o.kd?'trẻ nhỏ':'người lớn tuổi')+': ngày này có '+it.length+' điểm, nên chọn nhịp độ thong thả.');
+  it.forEach((x,i)=>{
+    if(i>0&&x.leg.km>25) W.push('Chặng '+it[i-1].p.name+' → '+x.p.name+' dài ~'+fmtKm(x.leg.km)+' ('+fmtMin(x.leg.min)+').');
+    if(x.p.closed&&x.p.closed.includes(d.wd)) W.push(x.p.name+' thường đóng cửa vào '+WD[d.wd]+'.');
+    if(x.p.morningOnly&&x.start>=11*60) W.push(x.p.name+' nên đi buổi sáng nhưng đang xếp lúc '+hhmm(x.start)+'.');
+    if(o.kd&&!x.p.fit.kid) W.push(x.p.name+': đường đi/hoạt động có thể vất vả với trẻ nhỏ.');
+    if(o.el&&!x.p.fit.old) W.push(x.p.name+': nhiều dốc hoặc bậc thang, cân nhắc với người lớn tuổi.');
+    const kk=(x.s.slot&&x.s.slot.kinds)||[];
+    if(kk.includes('trua')&&x.start>14*60) W.push('Bữa trưa đang lùi tới '+hhmm(x.start)+'.');
+    if(kk.includes('toi')&&x.start>21*60+30) W.push('Bữa tối đang lùi tới '+hhmm(x.start)+'.');
+  });
+  const op=optimizeOrder(plan,k,false);
+  if(op.cur-op.best>2.5&&op.cur>op.best*1.2) W.push('Thứ tự hiện tại đi vòng thêm ~'+fmtKm(op.cur-op.best)+'. Bấm "Tối ưu thứ tự" để sắp lại.');
+  return [...new Set(W)];
+}
+
+/* ---------- V2: ngân sách cả chuyến (ước tính) ---------- */
+function planAreaOf(plan,k){ const o=plan.opts, z=plan.zones[plan.days[k].zi]||{}; return z.area||(o.area==='all'?DATA[o.prov].areas[0]:o.area); }
+function tripBudget(plan,tierOverride){
+  const o=plan.opts, tier=tierOverride||o.tier||'vua', ti=HOTEL_LV[tier].i;
+  const P=o.ad+o.kd+o.el, payF=o.ad+o.el+o.kd*0.7, payT=o.ad+o.el+o.kd*0.5;
+  let food=0,tix=0,local=0,km=0,n=0;
+  plan.days.forEach((d,k)=>dayTimeline(plan,k).items.forEach(x=>{ n++; local+=x.leg.cost; km+=x.leg.km; if(x.p.cat==='food') food+=x.p.cost*payF; else tix+=x.p.cost*payT; }));
+  const rooms=Math.max(1,Math.ceil((o.ad+o.el)/2)); let hotel=0, transfer=0;
+  for(let k=0;k<plan.days.length-1;k++){
+    const A=destOf(o.prov,planAreaOf(plan,k)), B=destOf(o.prov,planAreaOf(plan,k+1));
+    hotel+=B.h[ti]*1000*rooms;
+    if(A!==B){ const kx=roadKm(A,B); transfer+=Math.max(60000,kx*800)*P; km+=kx; }
+  }
+  const D0=destOf(o.prov,planAreaOf(plan,0)), tr=o.origin?travelFor(o.origin,D0):null;
+  const arrive=tr?tr.pp*(o.ad+o.el+o.kd*0.75):0, move=arrive+local+transfer;
+  const sub=move+hotel+food+tix, other=Math.round(sub*0.08/10000)*10000;
+  return {move,arrive,local:local+transfer,hotel,food,tix,other,total:sub+other,tr,km,n,rooms,nights:Math.max(0,plan.days.length-1),tier};
+}
+function planStats(plan){ const b=tripBudget(plan); return {n:b.n,km:b.km,cost:b.total}; }
 function swapStop(i){
   const plan=state.plan, day=plan.days[state.day], s=day.stops[i], base=planCtx(plan);
-  const used=new Set(); plan.days.forEach(d=>d.stops.forEach(x=>used.add(x.id))); s.tried.forEach(id=>used.add(id));
-  const prev=i>0?byId(day.stops[i-1].id):null, today=new Set(day.stops.map(x=>x.id)); s.tried.forEach(id=>today.add(id));
-  const ctx={...base,zi:day.zi,wd:day.wd,prev,today};
-  const b=pickOnce(s.slot,ctx,plan.opts,used,plan.opts.budget,false)||pickOnce(s.slot,ctx,plan.opts,used,'thoaimai',true);
+  const used=new Set(); plan.days.forEach(d=>d.stops.forEach(x=>used.add(x.id))); (s.tried||[]).forEach(id=>used.add(id));
+  const prev=i>0?byId(day.stops[i-1].id):null, today=new Set(day.stops.map(x=>x.id)); (s.tried||[]).forEach(id=>today.add(id));
+  const ctx={...base,zi:day.zi,wd:day.wd,prev,today,rain:rainy(plan.wx&&plan.wx[state.day])};
+  const slot=s.slot&&s.slot.kinds?s.slot:{kinds:byId(s.id).kinds};
+  const b=pickOnce(slot,ctx,plan.opts,used,plan.opts.budget,false)||pickOnce(slot,ctx,plan.opts,used,'thoaimai',true);
   if(!b){toast('Không còn gợi ý phù hợp khác cho khung giờ này.');return;}
-  state.must.delete(s.id); s.id=b.p.id; s.reason=b.reason; s.tried.push(b.p.id);
+  state.must.delete(s.id); s.id=b.p.id; s.reason=b.reason; s.tried=[...(s.tried||[]),b.p.id];
   render(); toast('Đã đổi sang '+b.p.name+'.');
 }
-function planTitle(o){return (o.area==='Nội thành'||o.area==='all'?o.prov:o.area+' ('+o.prov+')')+' · '+o.days+' ngày · '+o.people+' người';}
+function planDestName(o){ return o.area==='all'?o.prov:destName(destOf(o.prov,o.area)); }
+function planTitle(o){ const n=o.days; return planDestName(o)+' · '+n+' ngày'+(n>1?' '+(n-1)+' đêm':'')+' · '+(o.ad+(o.kd||0)+(o.el||0))+' người'; }
 function planText(plan){
-  const st=planStats(plan), o=plan.opts, lines=['Đi Đâu? · '+planTitle(o),''];
+  const o=plan.opts, b=tripBudget(plan), lines=['Đi Đâu? · '+planTitle(o),''];
   plan.days.forEach((d,k)=>{
     lines.push('Ngày '+(k+1)+' – '+WD[d.wd]+' '+dm(d.date)+' ('+plan.zones[d.zi].name+')');
-    d.stops.forEach(s=>{const p=byId(s.id);lines.push(s.t+'  '+s.label+': '+p.name+' – '+p.addr);}); lines.push('');
+    dayTimeline(plan,k).items.forEach(x=>lines.push(hhmm(x.start)+'  '+x.s.label+': '+x.p.name+' – '+x.p.addr+' (~'+fmtMin(x.p.dur)+')')); lines.push('');
   });
-  lines.push('Chi phí ước tính: '+fmtVnd(st.cost)+' cho '+o.people+' người (ăn uống, vé; chưa gồm đi lại, lưu trú).');
+  lines.push('Ngân sách dự kiến: '+fmtM(b.total)+' cho '+o.people+' người (di chuyển '+fmtM(b.move)+', khách sạn '+fmtM(b.hotel)+', ăn uống '+fmtM(b.food)+', vé '+fmtM(b.tix)+', khác '+fmtM(b.other)+').');
+  lines.push('Thông tin địa điểm chưa xác minh tại chỗ, nên kiểm tra lại giờ mở cửa và giá trước khi đi.');
   return lines.join('\n');
+}
+
+/* ---------- V2: thời tiết (Open-Meteo, miễn phí, dự báo 16 ngày) ---------- */
+const wxCache={};
+const WX_ICON=c=>c==null?'':c<=1?'☀️':c<=3?'⛅':c<=48?'🌫️':c<=67?'🌧️':c<=77?'🌨️':c<=82?'🌦️':'⛈️';
+const rainy=w=>!!w&&(((w.pp??0)>=60&&(w.psum??0)>=3)||(w.psum??0)>=10);
+async function ensureWeather(plan){
+  if(!plan||plan.wxState) return; plan.wxState='loading'; plan.wx=plan.wx||{};
+  const today=new Date(); today.setHours(0,0,0,0); const lim=new Date(today); lim.setDate(lim.getDate()+15);
+  const groups={};
+  plan.days.forEach((d,k)=>{ if(d.date<today||d.date>lim) return; const z=plan.zones[d.zi]; const key=z.lat.toFixed(2)+','+z.lng.toFixed(2); (groups[key]=groups[key]||{z,ks:[]}).ks.push(k); });
+  if(!Object.keys(groups).length){ plan.wxState='far'; return; }
+  let any=false;
+  await Promise.all(Object.values(groups).map(async g=>{
+    const ds=g.ks.map(k=>isoD(plan.days[k].date)).sort();
+    const url='https://api.open-meteo.com/v1/forecast?latitude='+g.z.lat.toFixed(3)+'&longitude='+g.z.lng.toFixed(3)+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=Asia%2FBangkok&start_date='+ds[0]+'&end_date='+ds[ds.length-1];
+    try{
+      if(!wxCache[url]){ const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),9000); const r=await fetch(url,{signal:ctl.signal}); clearTimeout(t); if(!r.ok) return; wxCache[url]=await r.json(); }
+      const D=wxCache[url].daily; if(!D) return;
+      g.ks.forEach(k=>{ const i=D.time.indexOf(isoD(plan.days[k].date)); if(i<0) return; any=true;
+        plan.wx[k]={code:D.weather_code[i],tmax:D.temperature_2m_max[i],tmin:D.temperature_2m_min[i],psum:D.precipitation_sum[i],pp:D.precipitation_probability_max[i]}; });
+    }catch(e){}
+  }));
+  plan.wxState=any?'ok':'fail';
+  if(state.plan===plan&&state.tab==='plan'&&!state.selected) render();
+}
+function rainReplan(k){
+  const plan=state.plan, d=plan.days[k], base=planCtx(plan), st=dayStart(plan,k);
+  const before=pathKm([st,...d.stops.map(s=>byId(s.id))]);
+  state.undo={k,all:plan.days.map(dd=>dd.stops.map(s=>({...s}))),note:d.rainNote};
+  const used=new Set(); plan.days.forEach(dd=>dd.stops.forEach(x=>used.add(x.id)));
+  const today=new Set(d.stops.map(x=>x.id)), changes=[]; let keep=0;
+  d.stops.forEach((s,i)=>{
+    const p=byId(s.id); if(p.cat==='food'||p.io!=='out') return;
+    const prev=i>0?byId(d.stops[i-1].id):null, ctx={...base,zi:d.zi,wd:d.wd,prev,today,rain:true,noOut:true};
+    const slot={...(s.slot&&s.slot.kinds?s.slot:{kinds:p.kinds}),sunset:false};
+    const b=pickOnce(slot,ctx,plan.opts,used,'thoaimai',false)||pickOnce({...slot,kinds:['sight','check']},ctx,plan.opts,used,'thoaimai',false);
+    if(!b){
+      // Không còn điểm trong nhà chưa dùng: đổi chỗ với một điểm trong nhà của ngày khác không mưa (cùng khu vực)
+      const za=plan.zones[d.zi].areas; let best=null;
+      plan.days.forEach((od,ok)=>{ if(ok===k||rainy(plan.wx&&plan.wx[ok])) return;
+        od.stops.forEach((os,oi)=>{ const q=byId(os.id); if(q.cat==='food'||q.io==='out'||state.must.has(q.id)) return; if(za&&!za.includes(q.area)) return;
+          const dist=hav(prev||st,q); if(!best||dist<best.dist) best={ok,oi,q,dist}; }); });
+      if(!best){keep++;return;}
+      const os=plan.days[best.ok].stops[best.oi];
+      plan.days[best.ok].stops[best.oi]={...s,reason:'Chuyển sang ngày '+(best.ok+1)+' vì ngày '+(k+1)+' mưa'};
+      changes.push([p.name,best.q.name+' (đổi chỗ với ngày '+(best.ok+1)+')']);
+      d.stops[i]={...os,slot,reason:'Đổi từ ngày '+(best.ok+1)+' vì dự báo mưa'};
+      optimizeOrder(plan,best.ok,true); return;
+    }
+    used.add(b.p.id); today.add(b.p.id); changes.push([p.name,b.p.name]);
+    s.id=b.p.id; s.slot=slot; s.reason='Thay cho '+p.name+' vì dự báo mưa'; s.tried=[...(s.tried||[]),b.p.id];
+    if(s.label==='Ngắm hoàng hôn') s.label=CAT[b.p.cat].label;
+  });
+  optimizeOrder(plan,k,true);
+  const after=pathKm([st,...d.stops.map(s=>byId(s.id))]);
+  d.rainNote={changes,keep,dkm:after-before};
+  render();
+}
+
+/* ---------- V2: lưu & chia sẻ ---------- */
+const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/'); while(s.length%4) s+='='; return decodeURIComponent(escape(atob(s)));};
+function serPlan(plan,full){
+  const o=plan.opts, keys=['prov','area','start','days','pace','budget','ad','kd','el','tier','total','origin'];
+  const oo={}; keys.forEach(k=>oo[k]=o[k]); oo.interests=[...o.interests]; oo.days=plan.days.length;
+  const r={v:2,o:oo,d:plan.days.map(d=>({zi:d.zi,s:d.stops.map(s=>full?[s.id,s.si??-1,s.label,s.reason||'']:[s.id,s.si??-1])}))};
+  if(full){ r.z=plan.zones; if(plan.match) r.m=plan.match; }
+  return r;
+}
+function deserPlan(r){
+  if(!r||!r.o||!DATA[r.o.prov]) return null;
+  const o=normOpts({...r.o,interests:new Set(r.o.interests||[])}), slots=PACE[o.pace].slots;
+  if(o.area!=='all'&&!DATA[o.prov].areas.includes(o.area)) o.area=DATA[o.prov].areas[0];
+  const plan={opts:o,days:[]}; plan.zones=r.z||planCtx(plan).zones; if(r.m) plan.match=r.m;
+  (r.d||[]).forEach((dd,k)=>{
+    const date=addDays(o.start,k);
+    const stops=(dd.s||[]).filter(x=>BYID[x[0]]).map(x=>{ const p=byId(x[0]); const sl=x[1]>=0&&slots[x[1]]?slots[x[1]]:{kinds:p.kinds,label:CAT[p.cat].label};
+      return {id:p.id,si:x[1],slot:sl,t:sl.t,label:x[2]||sl.label||CAT[p.cat].label,reason:x[3]||p.why,tried:[p.id]}; });
+    plan.days.push({date,wd:date.getDay(),zi:Math.min(dd.zi||0,plan.zones.length-1),stops});
+  });
+  o.days=plan.days.length;
+  return plan.days.length?plan:null;
+}
+function shareUrl(plan){ return location.href.split('#')[0]+'#trip='+b64e(JSON.stringify(serPlan(plan,false))); }
+function applyPlan(plan){
+  state.plan=plan; state.opts=normOpts({...plan.opts,interests:new Set(plan.opts.interests)});
+  state.prov=plan.opts.prov; state.area='all'; state.tab='plan'; state.day=0; state.selected=null; state.undo=null;
+}
+
+/* ---------- V2: hiểu câu yêu cầu tiếng Việt (quy tắc, không dùng mô hình ngôn ngữ) ---------- */
+const NUMW={mot:1,hai:2,ba:3,bon:4,nam:5,sau:6,bay:7,tam:8,chin:9,muoi:10};
+const NUM='(?:^|[^a-z0-9])(\\d+(?:[.,]\\d+)?|(?:mot|hai|ba|bon|nam|sau|bay|tam|chin|muoi)(?![a-z]))';
+const numOf=s=>s==null?null:(/^\d/.test(s)?parseFloat(String(s).replace(',','.')):(NUMW[s]??null));
+const ORIGIN_ALIAS=(()=>{ const a={'ha noi':'Hà Nội','hn':'Hà Nội','sai gon':'TP. Hồ Chí Minh','sg':'TP. Hồ Chí Minh','hcm':'TP. Hồ Chí Minh','tp hcm':'TP. Hồ Chí Minh','tphcm':'TP. Hồ Chí Minh','ho chi minh':'TP. Hồ Chí Minh','tp ho chi minh':'TP. Hồ Chí Minh','binh duong':'TP. Hồ Chí Minh','vung tau':'TP. Hồ Chí Minh','dn':'Đà Nẵng','hoi an':'Đà Nẵng','quang nam':'Đà Nẵng','nha trang':'Khánh Hòa','vinh':'Nghệ An','da lat':'Lâm Đồng','phan thiet':'Lâm Đồng','quy nhon':'Gia Lai','binh dinh':'Gia Lai','bien hoa':'Đồng Nai','buon ma thuot':'Đắk Lắk','bmt':'Đắk Lắk','ha long':'Quảng Ninh','dong hoi':'Quảng Trị','quang binh':'Quảng Trị','rach gia':'An Giang','kien giang':'An Giang','my tho':'Đồng Tháp','tien giang':'Đồng Tháp','long an':'Tây Ninh','ben tre':'Vĩnh Long','tra vinh':'Vĩnh Long','soc trang':'Cần Thơ','bac lieu':'Cà Mau','yen bai':'Lào Cai','ha giang':'Tuyên Quang','hai duong':'Hải Phòng','bac giang':'Bắc Ninh','vinh phuc':'Phú Thọ','hoa binh':'Phú Thọ','thai binh':'Hưng Yên','nam dinh':'Ninh Bình','ha nam':'Ninh Bình','kon tum':'Quảng Ngãi','phu yen':'Đắk Lắk','ninh thuan':'Khánh Hòa','binh thuan':'Lâm Đồng','dak nong':'Lâm Đồng','binh phuoc':'Đồng Nai','bac kan':'Thái Nguyên','hau giang':'Cần Thơ'};
+  Object.keys(ORIGIN).forEach(n=>a[norm(n).replace(/^tp\.? /,'')]=n); return a; })();
+const DEST_ALIAS=(()=>{ const a=[]; const add=(s,D)=>{s=norm(s).replace(/^tp /,'').trim(); if(s.length>=3&&!a.some(x=>x[0]===s)) a.push([s,D]);};
+  DEST.forEach(D=>{ add(D.name,D); D.area.split(' – ').forEach(x=>add(x,D)); });
+  PROV.forEach(pv=>{ const D=destOf(pv.n,DATA[pv.n].areas[0]); add(pv.n.replace('TP. ',''),D); });
+  [['sapa','Lào Cai|Sa Pa'],['sai gon','TP. Hồ Chí Minh|Trung tâm Sài Gòn'],['hcm','TP. Hồ Chí Minh|Trung tâm Sài Gòn'],['dalat','Lâm Đồng|Đà Lạt'],['ba na','Đà Nẵng|Trung tâm Đà Nẵng'],['ha noi','Hà Nội|Nội thành'],['pho co ha noi','Hà Nội|Nội thành'],['phu quoc','An Giang|Phú Quốc'],['ky co','Gia Lai|Quy Nhơn'],['vinh ha long','Quảng Ninh|Hạ Long'],['bai chay','Quảng Ninh|Hạ Long'],['ban gioc','Cao Bằng|Thác Bản Giốc – Trùng Khánh'],['ba be','Thái Nguyên|Hồ Ba Bể'],['mang den','Quảng Ngãi|Kon Tum – Măng Đen'],['fansipan','Lào Cai|Sa Pa'],['dong van','Tuyên Quang|Hà Giang – Đồng Văn'],['ma pi leng','Tuyên Quang|Hà Giang – Đồng Văn'],['pu luong','Thanh Hóa|Thành nhà Hồ – Pù Luông'],['cu lao cham','Đà Nẵng|Hội An – Mỹ Sơn']].forEach(([s,k])=>DESTMAP[k]&&add(s,DESTMAP[k]));
+  return a.sort((x,y)=>y[0].length-x[0].length); })();
+const wordRx=s=>new RegExp('(^|[^a-z0-9])'+s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z0-9]|$)');
+const INT_KW={beach:/bien|bai tam|tam bien|lan bien|hai dao|ra dao/,nature:/nui|thien nhien|rung|thac|trekking|san may|leo nui|hang dong|ruong bac thang|cam trai|phuot/,food:/an uong|am thuc|an ngon|dac san|an vat|mon ngon|thich an|hai san|an choi/,photo:/chup anh|song ao|check ?in|chup hinh|selfie|anh dep/,history:/lich su|van hoa|di tich|bao tang|co do|di san|tam linh|le chua|di chua/,cafe:/ca phe|cafe|coffee|cf/,relax:/nghi duong|thu gian|resort|chill|nghi ngoi|spa/,cool:/mat me|khi hau mat|se lanh|tron nong|tranh nong|mat lanh|tron mat/};
+function nextSat(){const d=new Date();d.setDate(d.getDate()+((6-d.getDay()+7)%7||7));return isoD(d);}
+function parseReq(text){
+  const t=' '+norm(text).replace(/[“”"!?]/g,' ').replace(/\s+/g,' ')+' ', raw=' '+String(text).toLowerCase()+' ';
+  const hasDia=norm(text)!==String(text).toLowerCase();
+  const r={}, hit={}; let m;
+  // Ngân sách
+  if((m=t.match(/(\d+(?:[.,]\d+)?)\s*(trieu|tr|cu)\s*(\d)?(?![a-z])/))){ let v=parseFloat(m[1].replace(',','.')); if(m[3]) v+=Number(m[3])/10; r.total=Math.round(v*1e6); }
+  else if((m=t.match(/(\d{2,4})\s*(k|nghin|ngan)(?![a-z])/))) r.total=Number(m[1])*1000;
+  if(r.total){ hit.total=1; const after=t.slice(t.indexOf(m[0])+m[0].length,t.indexOf(m[0])+m[0].length+14); if(/^\s*(\/|moi|mot|1)\s*(nguoi|ng)/.test(after)) r.perPerson=true; }
+  // Số ngày
+  if((m=t.match(new RegExp(NUM+'\\s*(ngay|n)(?![a-z])')))) r.days=numOf(m[1]);
+  if((m=t.match(new RegExp(NUM+'\\s*(dem|d)(?![a-z])')))&&!r.days) r.days=numOf(m[1])+1;
+  if(!r.days&&/(^|\s)(1|mot) tuan/.test(t)) r.days=7;
+  if(/cuoi tuan/.test(t)){ if(!r.days) r.days=2; r.start=nextSat(); hit.start=1; }
+  if(r.days){ r.days=Math.max(1,Math.min(MAX_DAYS,Math.round(r.days))); hit.days=1; }
+  // Người đi cùng (tính cả người hỏi)
+  let ad=null,kd=0,el=0,who='';
+  const raw2=raw.replace(/bà xã|ông xã/g,' vợ ');
+  if(/(^|[^a-z])(vo|chong|nguoi yeu|ban gai|ban trai|nguoi ay|trang mat|honeymoon|cap doi|ba xa|ong xa)([^a-z]|$)/.test(t)){ad=2;who='couple';}
+  if(hasDia){
+    if((m=raw2.match(/(\d+|một|hai|ba|bốn)\s*(đứa\s*)?(con|bé|cháu|trẻ em|trẻ nhỏ|nhóc)(?![\p{L}])/u))) kd=numOf(norm(m[1]))||1;
+    else if(/(^|[\s,])(con|bé|cháu|trẻ em|trẻ nhỏ|em bé)(?![\p{L}])/u.test(raw2)) kd=1;
+    if(/bố mẹ|ba mẹ|cha mẹ|ông bà/.test(raw2)) el=2; else if(/(^|[\s,])(bố|mẹ|người già|người lớn tuổi)(?![\p{L}])/u.test(raw2)) el=1;
+  } else {
+    if((m=t.match(new RegExp(NUM+'\\s*(dua\\s*)?(con|be|chau|tre em|tre nho)(?![a-z])(?! dao| son)')))) kd=numOf(m[1])||1;
+    else if(/(^|\s)(con|be|tre em|tre nho|em be|chau)(?![a-z])(?! dao| son)/.test(t)) kd=1;
+    if(/bo me|ba me|cha me|ong ba/.test(t)) el=2;
+  }
+  if((m=t.match(new RegExp(NUM+'\\s*(nguoi|ng)(?![a-z])(?!\\s*ban)')))||(m=t.match(/nhom\s*(\d+)/))){ const N=numOf(m[1]); if(N) ad=Math.max(1,N-kd-el); }
+  if((m=t.match(new RegExp('(cung|voi)?\\s*'+NUM+'\\s*(nguoi\\s*)?ban(?![a-z])')))){ const n=numOf(m[2]); ad=m[1]?n+1:n; who='friends'; }
+  else if(/ban be|nhom ban|hoi ban|dong nghiep|cong ty|team|di phuot/.test(t)){ ad=Math.max(ad||0,4); who='friends'; }
+  if(/mot minh|1 minh|solo/.test(t)){ ad=1; who='solo'; }
+  if(/gia dinh/.test(t)&&ad==null){ ad=2; if(!kd&&!el) kd=1; who=who||'family'; }
+  if(ad!=null||kd||el){ r.ad=Math.max(1,ad??1); r.kd=kd; r.el=el; hit.people=1; if((kd||el)&&who!=='friends') who='family'; }
+  if(who) r.with=who;
+  if(r.perPerson&&r.total) r.total*=((r.ad||2)+(r.kd||0)+(r.el||0));
+  // Sở thích
+  const ints=Object.keys(INT_KW).filter(k=>INT_KW[k].test(t));
+  if(hasDia){ if(/(^|[\s,])đảo(?![\p{L}])/u.test(raw)&&!ints.includes('beach')) ints.push('beach'); if(/chùa|đền/.test(raw)&&!ints.includes('history')) ints.push('history'); }
+  if(ints.length){ r.interests=new Set(ints); hit.interests=1; }
+  // Nhịp độ, khoảng cách
+  if(/khong muon (di chuyen )?(qua )?met|nhe nhang|thong tha|it di chuyen|cham rai|khong voi/.test(t)){ r.pace='thongtha'; hit.pace=1; }
+  else if(/kham pha het|di nhieu|tranh thu|day dac|di that nhieu/.test(t)){ r.pace='day'; hit.pace=1; }
+  if(/(^|\s)gan(\s|$)|khong (muon )?di xa|it di chuyen|gan nha/.test(t)) r.near=true;
+  // Nơi xuất phát
+  let rest=t;
+  if((m=t.match(/(^|\s)(xuat phat tu|tu|(?:toi|minh|nha|dang) o)\s+([a-z0-9 .]+)/))){
+    const s=m[3].replace(/\./g,' ').replace(/\s+/g,' ').trim(); const key=Object.keys(ORIGIN_ALIAS).filter(k=>s===k||s.startsWith(k+' ')).sort((a,b)=>b.length-a.length)[0];
+    if(key){ r.origin=ORIGIN_ALIAS[key]; hit.origin=1; rest=t.replace(m[0],' '+m[3].replace(/\./g,' ').slice(key.length)); }
+  }
+  if((m=rest.match(/(^|\s)(gan|quanh|lan can)\s+([a-z0-9 .]+)/))){
+    const s=m[3].replace(/\./g,' ').replace(/\s+/g,' ').trim(); const key=Object.keys(ORIGIN_ALIAS).filter(k=>s===k||s.startsWith(k+' ')).sort((a,b)=>b.length-a.length)[0];
+    if(key){ if(!r.origin){ r.origin=ORIGIN_ALIAS[key]; hit.origin=1; } r.near=true; rest=rest.replace(m[0],' '+s.slice(key.length)); }
+  }
+  // Điểm đến
+  for(const [s,D] of DEST_ALIAS){ if(wordRx(s).test(rest)){ r.dest=D.key; hit.dest=1; break; } }
+  // Thời điểm
+  if((m=t.match(/(^|\s)(\d{1,2})\s*[\/-]\s*(\d{1,2})(?![\d\/])/))){ const dd=+m[2], mm=+m[3]; if(dd>=1&&dd<=31&&mm>=1&&mm<=12){ const now=new Date(); let y=now.getFullYear(); const c=new Date(y,mm-1,dd); if(c<now) y++; r.start=isoD(new Date(y,mm-1,dd)); hit.start=1; } }
+  else if((m=t.match(/thang\s*(\d{1,2})(?!\s*\d)/))){ const mm=+m[1]; if(mm>=1&&mm<=12){ const now=new Date(); let y=now.getFullYear(); if(mm-1<now.getMonth()) y++; const d=new Date(y,mm-1,1); if(mm-1===now.getMonth()&&y===now.getFullYear()) d.setDate(now.getDate()+1); d.setDate(d.getDate()+((6-d.getDay()+7)%7)); r.start=isoD(d); hit.start=1; } }
+  return {r,hit};
+}
+function defaultReq(){ return {days:3,ad:2,kd:0,el:0,total:0,interests:new Set(),origin:'Hà Nội',start:tomorrowIso(),dest:null,pace:'vua',near:false,with:''}; }
+function buildReq(){
+  const H=state.home, {r,hit}=parseReq(H.text||''), req={...defaultReq(),...r,...H.manual};
+  if(H.manual.interests) req.interests=new Set(H.manual.interests);
+  H.req=req; H.hit={...hit}; Object.keys(H.manual).forEach(k=>H.hit[k]=1);
+  return req;
+}
+function reqToOpts(req,D){
+  return normOpts({prov:D.prov,area:D.area,start:req.start,days:req.days,ad:req.ad,kd:req.kd,el:req.el,budget:'vua',pace:req.kd||req.el?(req.pace==='day'?'vua':req.pace):req.pace,
+    interests:new Set([...req.interests].filter(i=>INTEREST[i])),tier:'vua',total:req.total,origin:req.origin,startMode:'hotel'});
+}
+
+/* ---------- V2: chọn điểm đến (Recommendation Engine) ----------
+   Điểm phù hợp = sở thích 40 + ngân sách 25 + mùa 15 + quãng đường so với số ngày 12 + người đi cùng 8, trừ điểm khi dữ liệu còn mỏng. */
+function fitBudgetTier(plan,req){
+  let b=tripBudget(plan);
+  if(req.total){ for(const t of ['tm','vua','tk']){ b=tripBudget(plan,t); if(b.total<=req.total*(t==='tm'?0.85:1)) break; } plan.opts.tier=b.tier; }
+  return b;
+}
+function scoreDest(D,req,b){
+  const R=[],W=[], month=new Date(req.start+'T00:00:00').getMonth()+1, ints=[...req.interests].filter(i=>INTEREST[i]);
+  const ps=ALL.filter(p=>p.prov===D.prov&&p.area===D.area);
+  let si=27;
+  if(ints.length){ let s=0; const hit=[];
+    ints.forEach(i=>{ const I=INTEREST[i]; let m=0;
+      if(I.v&&[...I.v].some(c=>D.v.includes(c))) m=1; else { const share=ps.filter(p=>p.tags.includes(I.tag)).length/ps.length; m=Math.min(1,share*2.5); }
+      s+=m; if(m>=0.6) hit.push(I.label.toLowerCase()); });
+    si=40*s/ints.length; if(hit.length) R.push('Hợp sở thích: '+hit.join(', ')+'.'); }
+  let sb=18;
+  if(req.total){ const ratio=b.total/req.total; sb=ratio<=0.9?25:ratio<=1?22:ratio<=1.15?12:Math.max(0,12-(ratio-1.15)*40);
+    if(ratio<=1) R.push('Dự kiến '+fmtM(b.total)+', vừa ngân sách '+fmtM(req.total)+(b.tier!=='vua'?' (khách sạn '+HOTEL_LV[b.tier].label.toLowerCase()+')':'')+'.'); else W.push('Vượt ngân sách khoảng '+fmtM(b.total-req.total)+'.'); }
+  const good=D.months.includes(month);
+  const storm=/[bd]/.test(D.v)&&((D.r==='btb'&&[8,9,10,11].includes(month))||(D.r==='trung'&&[9,10,11,12].includes(month)));
+  let ss=good?15:7;
+  if(storm){ ss=2; W.push('Tháng '+month+' là mùa mưa bão ven biển miền Trung, biển dễ động.'); } else if(good) R.push('Tháng '+month+' là thời điểm đẹp để đi.');
+  let se=12; const tr=b.tr;
+  if(tr){ se=12*Math.max(0,1-tr.h*2/(req.days*9)); if(req.near) se-=Math.min(10,tr.h*1.5);
+    if(tr.mode!=='local') R.push('Từ '+req.origin+': '+tr.text+'.');
+    if(req.days<=2&&tr.h>5) W.push('Đi lại mất khoảng '+fmtH(tr.h)+' mỗi chiều, hơi xa cho '+req.days+' ngày.'); }
+  let sc=6;
+  if(req.kd){ sc=D.kid*4; if(D.kid>=2) R.push('Phù hợp gia đình có trẻ nhỏ.'); }
+  if(req.el){ sc=Math.min(sc,D.old*4); if(D.old<1) W.push('Địa hình đồi núi, vất vả với người lớn tuổi.'); }
+  if(!req.kd&&!req.el&&req.with==='couple'&&/[bmr]/.test(D.v)){ sc=8; R.push('Lãng mạn, hợp cặp đôi.'); }
+  if(req.with==='friends'&&/[abn]/.test(D.v)) sc=8;
+  const cap=D.n/(req.days*5); const sd=cap>=1?0:-(1-cap)*10;
+  if(cap<0.7) W.push('Kho dữ liệu nơi này mới có '+D.n+' địa điểm, lịch trình '+req.days+' ngày sẽ hơi thưa.');
+  const total=si+sb+ss+Math.max(0,se)+sc+sd;
+  return {pct:Math.max(30,Math.min(98,Math.round(total))),R,W,si};
+}
+function recommend(req,excludeKey){
+  const oc=ORIGIN[req.origin], O=oc&&{lat:oc[0],lng:oc[1]};
+  const res=DEST.filter(D=>D.n>=5&&D.key!==excludeKey&&!(O&&hav(O,D)<15)).map(D=>{
+    const plan=makePlan(reqToOpts(req,D)), b=fitBudgetTier(plan,req), sc=scoreDest(D,req,b);
+    plan.match=sc.pct; return {D,plan,b,...sc};
+  });
+  res.sort((a,b)=>b.pct-a.pct||b.si-a.si||a.b.total-b.b.total);
+  const out=[],seen=new Set();
+  for(const x of res){ if(seen.has(x.D.prov)) continue; seen.add(x.D.prov); out.push(x); if(out.length===3) break; }
+  return out;
+}
+function planForReq(req){
+  const D=DESTMAP[req.dest]; const plan=makePlan(reqToOpts(req,D)), b=fitBudgetTier(plan,req);
+  plan.match=scoreDest(D,req,b).pct; return plan;
 }
 
 /* ---------- Bảng bên trái ---------- */
 function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
-  $('#savedN').textContent=state.saved.size; $('#provName').textContent=state.prov;
+  $('#savedN').textContent=state.saved.size+state.plans.length; $('#provName').textContent=state.prov;
+  document.querySelector('.app').dataset.tab=state.selected?'detail':state.tab;
   const body=$('#pbody');
   if(state.selected) body.innerHTML=detailHTML(byId(state.selected));
+  else if(state.tab==='home') body.innerHTML=homeHTML();
   else if(state.tab==='explore'){body.innerHTML=exploreHTML(); updateList();}
-  else if(state.tab==='plan') body.innerHTML=plannerHTML();
+  else if(state.tab==='plan'){ body.innerHTML=plannerHTML(); if(state.plan&&!state.loading) ensureWeather(state.plan); }
   else body.innerHTML=savedHTML();
   renderMap();
+}
+
+/* ---------- V2: Trang chủ ---------- */
+const EXAMPLES=['Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển','Cuối tuần đi đâu gần Sài Gòn, 2 người, dưới 3 triệu','Đi Đà Lạt 3N2Đ với người yêu, 6 triệu, thích cà phê, chụp ảnh','Gia đình 4 người có bố mẹ, 5 ngày, 15 triệu, từ TP.HCM, thích núi, khí hậu mát'];
+const ORIGIN_OPTS=cur=>Object.keys(ORIGIN).map(n=>`<option value="${esc(n)}" ${n===cur?'selected':''}>${esc(n)}</option>`).join('');
+function peopleText(r){ const a=[r.ad+' người lớn']; if(r.kd) a.push(r.kd+' trẻ em'); if(r.el) a.push(r.el+' người lớn tuổi'); return (r.ad+r.kd+r.el)+' người ('+a.join(', ')+')'; }
+function parsedChips(){
+  const H=state.home, r=H.req, h=H.hit, D=r.dest&&DESTMAP[r.dest];
+  const c=(ok,txt)=>`<span class="pchip ${ok?'':'miss'}">${txt}</span>`;
+  return [
+    c(!!D,'📍 '+(D?esc(destName(D)):'Điểm đến: để AI chọn')),
+    c(h.days||h.start,'📅 '+r.days+' ngày'+(r.days>1?' '+(r.days-1)+' đêm':'')+' · từ '+dm(new Date(r.start+'T00:00:00'))),
+    c(h.people||h.ad||h.kd||h.el,'👥 '+peopleText(r)),
+    c(h.total,'💰 '+(r.total?fmtM(r.total):'Chưa nhập ngân sách')),
+    c(h.origin,'🚩 Từ '+esc(r.origin||'—')+(h.origin?'':' (mặc định)')),
+    ...(r.interests.size?[...r.interests].map(i=>c(true,INTEREST[i].ic+' '+INTEREST[i].label)):[c(false,'❤️ Chưa chọn sở thích')]),
+    r.pace!=='vua'?c(true,'Nhịp '+PACE[r.pace].label.toLowerCase()):'',
+    r.near?c(true,'📏 Ưu tiên gần'):''
+  ].join('');
+}
+function reqForm(){
+  const r=state.home.req;
+  const st=(k,label)=>`<div class="mini"><span>${label}</span><div class="stepper sm"><button data-rstep="${k}:-1" aria-label="Bớt ${label}">−</button><output>${r[k]}</output><button data-rstep="${k}:1" aria-label="Thêm ${label}">+</button></div></div>`;
+  const dests=DEST.filter(D=>D.n>=3).sort((a,b)=>a.prov.localeCompare(b.prov,'vi')||b.n-a.n);
+  return `<div class="field"><span class="label">Điểm đến</span><select class="select" id="rqDest"><option value="">✨ Để AI chọn giúp tôi</option>${dests.map(D=>`<option value="${esc(D.key)}" ${r.dest===D.key?'selected':''}>${esc(destName(D))} · ${D.n} điểm</option>`).join('')}</select></div>
+    <div class="row2"><div class="field"><span class="label">Ngày đi</span><input class="date" type="date" id="rqStart" value="${r.start}"></div>
+      <div class="field"><span class="label">Số ngày</span><div class="stepper"><button data-rstep="days:-1" aria-label="Bớt ngày">−</button><output>${r.days} ngày</output><button data-rstep="days:1" aria-label="Thêm ngày">+</button></div></div></div>
+    <div class="field"><span class="label">Đi cùng (tính cả bạn)</span><div class="row3">${st('ad','Người lớn')}${st('kd','Trẻ em')}${st('el','Lớn tuổi')}</div></div>
+    <div class="row2"><div class="field"><span class="label">Ngân sách cả chuyến</span><label class="money"><input id="rqTotal" type="number" inputmode="decimal" min="0" step="0.5" placeholder="Không giới hạn" value="${r.total?r.total/1e6:''}"><span>triệu</span></label></div>
+      <div class="field"><span class="label">Xuất phát từ</span><select class="select" id="rqOrigin">${ORIGIN_OPTS(r.origin)}</select></div></div>
+    <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-rint="${k}" aria-pressed="${r.interests.has(k)}">${v.ic} ${v.label}</button>`).join('')}</div></div>
+    <div class="field"><span class="label">Nhịp độ</span><div class="seg" role="group">${Object.entries(PACE).map(([k,v])=>`<button data-rpace="${k}" aria-pressed="${r.pace===k}">${v.label}</button>`).join('')}</div></div>`;
+}
+function homeHTML(){
+  const H=state.home; if(!H.req) buildReq();
+  return `<section class="home-hero">
+    <h1>Bạn muốn đi đâu?</h1>
+    <p class="sub">Kể chuyến đi của bạn bằng một câu. Đi Đâu? chọn điểm đến hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và báo chi phí.</p>
+    <label class="ask"><textarea id="ask" rows="2" aria-label="Mô tả chuyến đi" placeholder="Ví dụ: Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển">${esc(H.text)}</textarea></label>
+    <div class="examples">${EXAMPLES.map((e,i)=>`<button class="ex" data-ex="${i}">${esc(e)}</button>`).join('')}</div>
+    <div class="parsed" id="parsed" aria-live="polite">${parsedChips()}</div>
+    <details class="more" id="reqMore" ${H.open?'open':''}><summary>Chỉnh chi tiết</summary><div id="reqForm">${reqForm()}</div></details>
+    <button class="btn big" data-action="homego">✨ Tạo lịch trình</button>
+    <button class="cta2" data-action="homepick">Không biết đi đâu? Để AI chọn</button>
+  </section>
+  <div id="recs" style="display:flex;flex-direction:column;gap:12px">${recsHTML()}</div>
+  ${H.recs||H.loading?'':featuredHTML()}`;
+}
+function recsHTML(){
+  const H=state.home, r=H.req;
+  if(H.loading) return `<div class="loading" id="loading"><div>Đọc yêu cầu: ${r.days} ngày, ${r.ad+r.kd+r.el} người${r.total?', '+fmtM(r.total):''}, từ ${esc(r.origin)}</div><div>So khớp ${DEST.filter(D=>D.n>=5).length} điểm đến theo sở thích, mùa, người đi cùng</div><div>Tính chi phí đi lại, khách sạn, ăn uống, vé</div><div>Lập thử lịch trình và tối ưu tuyến cho từng nơi</div></div>`;
+  if(!H.recs) return '';
+  if(!H.recs.length) return '<div class="empty"><b>Chưa tìm được điểm đến phù hợp</b>Thử tăng số ngày hoặc ngân sách.</div>';
+  return `<h2 class="section-h">${H.excl?'Chuyến đi tương tự':'Gợi ý cho bạn'}</h2>`+H.recs.map((x,i)=>{
+    const b=x.b, o=x.plan.opts, P=o.ad+o.kd+o.el, over=r.total&&b.total>r.total;
+    return `<article class="rec ${i===0?'best':''}">
+      <div class="rec-h"><div><small>#${i+1} · ${esc(x.D.prov)}</small><h3>${esc(x.D.name)}</h3><small>${esc(x.D.intro||'')}</small></div><div class="match">${x.pct}%<small>phù hợp</small></div></div>
+      <div class="kpis"><div><b>${o.days} ngày${o.days>1?' '+(o.days-1)+' đêm':''}</b><span>${P} người</span></div>
+        <div><b>${fmtM(b.total)}</b><span>${r.total?(over?'vượt ngân sách':'trong ngân sách'):'dự kiến cả chuyến'}</span></div>
+        <div><b>${b.n} điểm · ${fmtKm(b.km)}</b><span>tuyến đã tối ưu</span></div></div>
+      <ul>${x.R.slice(0,4).map(t=>`<li>${esc(t)}</li>`).join('')}${x.W.slice(0,2).map(t=>`<li class="w">${esc(t)}</li>`).join('')}</ul>
+      <div class="actions"><button class="btn" data-recplan="${i}">Xem lịch trình →</button><button class="btn-ghost" data-recexplore="${i}">Xem địa điểm</button></div>
+    </article>`;}).join('')+
+    `<p class="hint">Cách tính % phù hợp: sở thích 40, ngân sách 25, mùa đẹp 15, thời gian đi lại so với số ngày 12, người đi cùng 8; trừ điểm khi kho dữ liệu nơi đó còn ít. Chi phí là ước tính theo mặt bằng giá chung.</p>`;
+}
+function featuredHTML(){
+  const mo=new Date().getMonth()+1;
+  const hot=DEST.filter(D=>D.n>=5&&D.months.includes(mo)).sort((a,b)=>b.n-a.n).slice(0,8);
+  const saved=state.plans.slice(0,3);
+  return `<section class="feat"><h2 class="section-h">Đẹp nhất tháng ${mo}</h2>
+    <div class="chips">${hot.map(D=>`<button class="chip" data-feat="${esc(D.key)}">${esc(destName(D))}</button>`).join('')}</div>
+    <p class="hint">Bấm một điểm đến để chọn làm đích, rồi bấm "Tạo lịch trình".</p></section>
+    ${saved.length?`<section class="feat"><h2 class="section-h">Chuyến đi đã lưu</h2>${saved.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><button class="btn-ghost" data-loadplan="${k}">Mở</button></div>`).join('')}</section>`:''}`;
+}
+function refreshHomeBits(form){ buildReq(); const p=$('#parsed'); if(p) p.innerHTML=parsedChips(); const f=$('#reqForm'); if(f&&form!==false) f.innerHTML=reqForm(); }
+function runRecommend(excludeKey){
+  const H=state.home, req=buildReq(); H.excl=excludeKey||null;
+  H.loading=true; H.recs=null; state.tab='home'; state.selected=null; render();
+  const steps=[...document.querySelectorAll('#loading div')]; let k=0;
+  const tick=()=>{ if(k<steps.length){steps[k].classList.add('done');k++;setTimeout(tick,200);} else {
+    H.recs=recommend(req,excludeKey); H.loading=false; render(); fitView();
+    const el=$('#recs'), pb=$('#pbody'); if(el){ if(pb.scrollHeight>pb.clientHeight+4) pb.scrollTo({top:el.offsetTop-pb.offsetTop-6,behavior:'smooth'}); else el.scrollIntoView({behavior:'smooth',block:'start'}); } } };
+  setTimeout(tick,150);
+}
+function homeGo(){
+  const req=buildReq();
+  if(!req.dest){ runRecommend(); return; }
+  const plan=planForReq(req); applyPlan(plan); render(); fitView();
+  toast('Đã lập lịch trình '+planDestName(plan.opts)+'.');
 }
 function provPlaces(){return ALL.filter(p=>p.prov===state.prov);}
 function filtered(){
@@ -1459,7 +2126,12 @@ function detailHTML(p){
     <div><dt>Giờ mở cửa</dt><dd>${esc(p.hours)}</dd></div>
     <div><dt>Giá tham khảo</dt><dd>${esc(p.price)}</dd></div>
     <div><dt>Thời điểm đẹp</dt><dd>${esc(p.best)}</dd></div>
+    <div><dt>Nên dành</dt><dd>~${fmtMin(p.dur)}</dd></div>
+    <div><dt>Loại hình</dt><dd>${IO_TX[p.io]}</dd></div>
+    <div><dt>Phù hợp (ước tính)</dt><dd>${[p.fit.kid?'trẻ em':'',p.fit.old?'người lớn tuổi':'','cặp đôi','nhóm bạn'].filter(Boolean).join(', ').replace(/^./,c=>c.toUpperCase())}</dd></div>
+    <div><dt>Xác minh</dt><dd>${p.ver?'Đã kiểm tra '+esc(p.ver):'Chưa xác minh tại chỗ'}</dd></div>
   </dl>
+  <p class="hint">Nguồn: ${esc(p.src)}. Thời lượng, loại hình, độ phù hợp do hệ thống ước tính.</p>
   <section class="note"><h3>${p.cat==='food'?'Nên gọi':'Đừng bỏ lỡ'}</h3><p>${esc(p.must)}</p></section>
   <section class="note"><h3>Mẹo</h3><p>${esc(p.tip)}</p></section>
   <div class="actions">
@@ -1478,49 +2150,98 @@ function seg(name,obj,cur){
 function plannerHTML(){
   const o=state.opts, areas=DATA[o.prov].areas, pool=ALL.filter(p=>p.prov===o.prov&&(o.area==='all'||p.area===o.area));
   const mustChips=[...state.must].map(id=>`<span class="chip">${esc(byId(id).name)}<button data-unmust="${id}" aria-label="Bỏ">✕</button></span>`).join('');
+  const st=(k,label)=>`<div class="mini"><span>${label}</span><div class="stepper sm"><button data-pp="${k}:-1" aria-label="Bớt ${label}">−</button><output>${o[k]}</output><button data-pp="${k}:1" aria-label="Thêm ${label}">+</button></div></div>`;
   let out='';
-  if(state.loading) out=`<div class="loading" id="loading"><div>Đọc yêu cầu: ${esc(o.area==='Nội thành'||o.area==='all'?o.prov:o.area)}, ${o.days} ngày, ${o.people} người</div><div>Lọc ${pool.length} địa điểm đã duyệt theo ngân sách, giờ mở cửa</div><div>${o.area==='all'?'Xếp mỗi ngày một điểm đến trong tỉnh':'Chia cụm theo khu vực cho từng ngày'}</div><div>Kiểm tra lại từng điểm trong kho dữ liệu</div></div>`;
+  if(state.loading) out=`<div class="loading" id="loading"><div>Đọc yêu cầu: ${esc(planDestName(o))}, ${o.days} ngày, ${o.people} người</div><div>Lọc ${pool.length} địa điểm theo giờ mở cửa, ngân sách, người đi cùng</div><div>${o.area==='all'?'Xếp mỗi ngày một điểm đến trong tỉnh':'Chia cụm theo khu vực cho từng ngày'}</div><div>Tối ưu thứ tự tuyến và tính chi phí</div></div>`;
   else if(state.plan) out=planHTML(state.plan);
-  return `
+  const form=`
   <div class="field"><span class="label">Điểm đến</span>
     <select class="select" id="planArea">${areas.length>1?`<option value="all" ${o.area==='all'?'selected':''}>Toàn tỉnh – mỗi ngày một điểm đến (${ALL.filter(p=>p.prov===o.prov).length} điểm)</option>`:''}${areas.map(a=>`<option value="${esc(a)}" ${a===o.area?'selected':''}>${esc(a==='Nội thành'?o.prov+' – Nội thành':a)} (${ALL.filter(p=>p.prov===o.prov&&p.area===a).length} điểm)</option>`).join('')}</select>
-    <span class="hint">Đang lập cho ${esc(o.prov)}. Đổi tỉnh bằng nút chọn tỉnh phía trên.</span></div>
+    <span class="hint">Đang lập cho ${esc(o.prov)}. Đổi tỉnh bằng nút chọn tỉnh phía trên, hoặc về Trang chủ để AI chọn điểm đến.</span></div>
   <div class="row2">
     <div class="field"><span class="label">Ngày đi</span><input class="date" type="date" id="startDate" value="${o.start}"></div>
-    <div class="field"><span class="label">Số người</span><div class="stepper"><button data-people="-1" aria-label="Bớt người">−</button><output>${o.people}</output><button data-people="1" aria-label="Thêm người">+</button></div></div>
+    <div class="field"><span class="label">Số ngày</span><div class="stepper"><button data-ndays="-1" aria-label="Bớt một ngày">−</button><output>${o.days} ngày</output><button data-ndays="1" aria-label="Thêm một ngày">+</button></div></div>
   </div>
-  <div class="field"><span class="label">Số ngày</span>
-    <div class="row2"><div class="stepper"><button data-ndays="-1" aria-label="Bớt một ngày">−</button><output>${o.days} ngày</output><button data-ndays="1" aria-label="Thêm một ngày">+</button></div>
-    <div class="chips">${[2,3,5,7].map(n=>`<button class="chip" data-setdays="${n}" aria-pressed="${o.days===n}">${n}</button>`).join('')}</div></div>
-    ${o.days>DATA[o.prov].areas.length*2&&o.days>3?'<span class="hint">Chuyến dài: các ngày sau có thể lặp lại khu vực và ít điểm hơn vì dữ liệu tỉnh này còn ít.</span>':''}</div>
-  <div class="field"><span class="label">Ngân sách ăn uống</span>${seg('budget',BUDGET,o.budget)}</div>
+  <div class="field"><span class="label">Đi cùng (tính cả bạn)</span><div class="row3">${st('ad','Người lớn')}${st('kd','Trẻ em')}${st('el','Lớn tuổi')}</div></div>
+  <div class="row2"><div class="field"><span class="label">Ngân sách cả chuyến</span><label class="money"><input class="js-total" type="number" inputmode="decimal" min="0" step="0.5" placeholder="Không giới hạn" value="${o.total?o.total/1e6:''}"><span>triệu</span></label></div>
+    <div class="field"><span class="label">Xuất phát từ</span><select class="select js-origin"><option value="">Không tính vé tới nơi</option>${ORIGIN_OPTS(o.origin)}</select></div></div>
   <div class="field"><span class="label">Nhịp độ</span>${seg('pace',PACE,o.pace)}</div>
-  <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-int="${k}" aria-pressed="${o.interests.has(k)}">${v.label}</button>`).join('')}</div></div>
-  <div class="field"><span class="label">Muốn ghé</span>${mustChips?`<div class="must">${mustChips}</div>`:'<span class="hint">Mở một địa điểm và bấm "Thêm vào lịch trình" để AI ưu tiên điểm đó.</span>'}</div>
-  <button class="btn big" data-action="gen" ${state.loading?'disabled':''}>✦ ${state.plan?'Lập lại lịch trình':'Lập lịch trình'}</button>
-  ${pool.length<4*o.days?'<p class="hint">Điểm đến này mới có ít dữ liệu nên lịch trình sẽ ngắn. Bản thật sẽ bổ sung thêm địa điểm.</p>':''}
+  <div class="field"><span class="label">Mức ăn uống</span>${seg('budget',BUDGET,o.budget)}</div>
+  <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-int="${k}" aria-pressed="${o.interests.has(k)}">${v.ic} ${v.label}</button>`).join('')}</div></div>
+  <div class="field"><span class="label">Muốn ghé</span>${mustChips?`<div class="must">${mustChips}</div>`:'<span class="hint">Mở một địa điểm và bấm "Thêm vào lịch trình" để ưu tiên điểm đó.</span>'}</div>
+  <button class="btn big" data-action="gen" ${state.loading?'disabled':''}>✨ ${state.plan?'Lập lại lịch trình':'Lập lịch trình'}</button>
+  ${pool.length<4*o.days?'<p class="hint">Điểm đến này mới có ít dữ liệu nên lịch trình sẽ thưa, có thời gian tự do.</p>':''}`;
+  return `${state.plan&&!state.loading?`<details class="more"><summary>Yêu cầu chuyến đi · ${o.days} ngày, ${o.people} người${o.total?', '+fmtM(o.total):''}</summary><div>${form}</div></details>`:form}
   <div style="display:flex;flex-direction:column;gap:14px">${out}</div>`;
 }
+function wxLine(w){ return w?`${WX_ICON(w.code)} ${Math.round(w.tmin)}–${Math.round(w.tmax)}°C${w.pp!=null?' · mưa '+w.pp+'%':''}`:''; }
+function weatherBox(plan,k){
+  const d=plan.days[k], w=plan.wx&&plan.wx[k];
+  if(plan.wxState==='loading') return '<p class="hint">Đang lấy dự báo thời tiết…</p>';
+  if(plan.wxState==='far') return `<div class="wbox">Ngày đi còn xa hơn 16 ngày nên chưa có dự báo. ${esc(SEASON_NOTE[PROVMAP[plan.opts.prov].r]||'')}</div>`;
+  if(plan.wxState==='fail'||!w){ return plan.wxState==='fail'?'<p class="hint">Chưa lấy được dự báo thời tiết (mạng hoặc máy chủ thời tiết không phản hồi).</p>':''; }
+  if(d.rainNote){ const n=d.rainNote;
+    return `<div class="wbox rain"><b>🌧️ Ngày ${k+1} dự báo mưa (${w.pp}%, ${w.psum} mm).</b> ${n.changes.length?`Đã đổi ${n.changes.length} điểm ngoài trời:<ul>${n.changes.map(c=>`<li>${esc(c[0])} → ${esc(c[1])}</li>`).join('')}</ul>Quãng đường trong ngày ${n.dkm<=0?'giảm':'tăng'} ${fmtKm(Math.abs(n.dkm))}.`:'Chưa có điểm trong nhà phù hợp để thay.'}${n.keep?` Còn ${n.keep} điểm ngoài trời chưa có phương án thay, nhớ mang áo mưa.`:''}
+      ${state.undo&&state.undo.k===k?'<div class="actions"><button class="btn-ghost" data-action="undo">↶ Hoàn tác</button></div>':''}</div>`; }
+  const outN=d.stops.filter(s=>{const p=byId(s.id);return p.cat!=='food'&&p.io==='out';}).length;
+  if(rainy(w)) return `<div class="wbox rain"><b>🌧️ Ngày ${k+1} dự báo mưa ${w.pp}% (${w.psum} mm).</b> ${outN?`Có ${outN} điểm ngoài trời trong lịch trình.`:'Lịch trình ngày này chủ yếu trong nhà.'}
+    ${outN?`<div class="actions"><button class="btn" data-rain="${k}">Đổi sang điểm trong nhà</button></div>`:''}</div>`;
+  return `<p class="hint">Dự báo ngày ${k+1}: ${wxLine(w)}. Thời tiết thuận lợi.</p>`;
+}
+function budgetHTML(plan){
+  const o=plan.opts, b=tripBudget(plan), over=o.total&&b.total>o.total;
+  return `<section class="budget"><h2 class="section-h">Ngân sách dự kiến</h2>
+    <table>
+      <tr><td>Di chuyển<small>${b.tr?esc(b.tr.text)+' (khứ hồi '+fmtM(b.arrive)+')':'Chưa tính vé tới nơi, hãy chọn nơi xuất phát'} · đi lại tại chỗ ${fmtM(b.local)}</small></td><td>${fmtM(b.move)}</td></tr>
+      <tr><td>Khách sạn<small>${b.nights} đêm · ${b.rooms} phòng · mức ${HOTEL_LV[b.tier].label.toLowerCase()}</small></td><td>${fmtM(b.hotel)}</td></tr>
+      <tr><td>Ăn uống<small>Theo các quán trong lịch trình${o.kd?', trẻ em tính ~70%':''}</small></td><td>${fmtM(b.food)}</td></tr>
+      <tr><td>Vé tham quan<small>Giá vé người lớn tham khảo</small></td><td>${fmtM(b.tix)}</td></tr>
+      <tr><td>Khác<small>Nước uống, quà, phát sinh (~8%)</small></td><td>${fmtM(b.other)}</td></tr>
+      <tr class="total"><td>Tổng cho ${o.people} người</td><td>${fmtM(b.total)}</td></tr>
+    </table>
+    ${o.total?(over?`<div class="wbox"><b>Vượt ngân sách ${fmtM(o.total)} khoảng ${fmtM(b.total-o.total)}.</b> Thử "Tối ưu lại để giảm chi phí", bớt một ngày hoặc chọn khách sạn tiết kiệm.</div>`:`<div class="wbox good">Trong ngân sách ${fmtM(o.total)}, còn dư khoảng ${fmtM(o.total-b.total)}.</div>`):''}
+    <div class="row2"><div class="field"><span class="label">Ngân sách</span><label class="money"><input class="js-total" type="number" inputmode="decimal" min="0" step="0.5" placeholder="Không giới hạn" value="${o.total?o.total/1e6:''}"><span>triệu</span></label></div>
+      <div class="field"><span class="label">Xuất phát từ</span><select class="select js-origin"><option value="">Không tính vé tới nơi</option>${ORIGIN_OPTS(o.origin)}</select></div></div>
+    <div class="field"><span class="label">Mức khách sạn</span><div class="seg" role="group">${Object.entries(HOTEL_LV).map(([k,v])=>`<button data-tier="${k}" aria-pressed="${o.tier===k}">${v.label}</button>`).join('')}</div></div>
+    <button class="btn-ghost" data-action="cheaper">💸 Tối ưu lại để giảm chi phí</button>
+    <p class="hint">Giá là ước tính theo mặt bằng chung, chưa phải báo giá. Vé máy bay, khách sạn thay đổi theo ngày đặt.</p></section>`;
+}
+function gmapsDay(plan,k){
+  const tl=dayTimeline(plan,k), pts=tl.items.map(x=>x.p); if(!pts.length) return '';
+  const ll=p=>p.lat+','+p.lng, st=tl.start, mid=pts.slice(0,-1).slice(0,9);
+  return 'https://www.google.com/maps/dir/?api=1&origin='+st.lat.toFixed(5)+','+st.lng.toFixed(5)+'&destination='+ll(pts[pts.length-1])+(mid.length?'&waypoints='+encodeURIComponent(mid.map(ll).join('|')):'')+'&travelmode=driving';
+}
 function planHTML(plan){
-  const st=planStats(plan), o=plan.opts, day=plan.days[state.day];
-  const ints=[...o.interests].map(i=>INTEREST[i].label).join(', ')||'không chọn';
-  let prev=null;
-  const items=day.stops.map((s,i)=>{
-    const p=byId(s.id), leg=prev?`<div class="leg">${legText(prev,p)}</div>`:''; prev=p;
-    return `<li>${leg}<div class="tl-row"><span class="tl-time">${s.t}</span><span class="tl-dot" style="--c:${CAT[p.cat].c}">${i+1}</span>
-      <div class="tl-body"><span class="tl-label">${s.label}</span><button class="tl-name" data-open="${p.id}">${esc(p.name)}</button><span class="tl-why">${esc(s.reason)}</span><span class="tl-cost">${p.cost?fmtVnd(p.cost)+'/người':'Miễn phí'} · ${esc(p.hours)}</span></div>
-      <button class="swap" data-swap="${i}" aria-label="Đổi gợi ý khác cho ${esc(p.name)}">↻ Đổi</button></div></li>`;
+  const o=plan.opts, b=tripBudget(plan), k=state.day, day=plan.days[k], tl=dayTimeline(plan,k), W=dayWarnings(plan,k,tl);
+  const ints=[...o.interests].map(i=>INTEREST[i].label.toLowerCase()).join(', ')||'không chọn';
+  const n=day.stops.length;
+  const items=tl.items.map((x,i)=>{
+    const p=x.p, leg=`<div class="leg">${i===0?'Từ '+esc(tl.start.label)+' · ':''}${MODE_TX[x.leg.mode]} ~${fmtMin(x.leg.min)} · ${fmtKm(x.leg.km)}${x.leg.cost?' · ~'+fmtVnd(x.leg.cost):''}</div>`;
+    const free=x.gap>=40?`<div class="free">Thời gian tự do ~${fmtMin(x.gap)}: nghỉ ngơi hoặc dạo quanh</div>`:'';
+    return `<li>${leg}${free}<div class="tl-row"><span class="tl-time">${hhmm(x.start)}</span><span class="tl-dot" style="--c:${CAT[p.cat].c}">${i+1}</span>
+      <div class="tl-body"><span class="tl-label">${esc(x.s.label)}</span><button class="tl-name" data-open="${p.id}">${esc(p.name)}</button><span class="tl-why">${esc(x.s.reason||p.why)}</span>
+        <span class="tl-meta">⏱ ~${fmtMin(p.dur)} · ${p.cost?fmtVnd(p.cost)+'/người':'Miễn phí'} · ${IO_TX[p.io]}</span></div>
+      <div class="tl-ctl"><button class="swap" data-swap="${i}" aria-label="Đổi gợi ý khác cho ${esc(p.name)}">↻ Đổi</button>
+        <div class="row"><button class="ic-btn" data-mv="${i}:-1" ${i===0?'disabled':''} aria-label="Đưa lên">↑</button><button class="ic-btn" data-mv="${i}:1" ${i===n-1?'disabled':''} aria-label="Đưa xuống">↓</button><button class="ic-btn" data-rm="${i}" aria-label="Bỏ ${esc(p.name)}">✕</button></div></div></div></li>`;
   }).join('');
+  const D=o.area==='all'?null:destOf(o.prov,o.area);
   return `
-  <div class="plan-sum"><div><span class="ai-badge">✦ Gợi ý bởi AI · mô phỏng</span>
+  ${plan.note?`<div class="wbox good">${esc(plan.note)}${state.prevPlan?' <button class="btn-ghost" data-action="prevplan" style="margin-left:6px;padding:4px 10px">↶ Quay lại bản trước</button>':''}</div>`:''}
+  <div class="plan-sum"><div><span class="ai-badge">✨ Đi Đâu? Planner${plan.match?' · '+plan.match+'% phù hợp':''}</span>
     <h3>${esc(planTitle(o))}</h3>
-    <span style="font-size:12.5px;opacity:.85">Ngân sách ${BUDGET[o.budget].label.toLowerCase()} · Sở thích: ${esc(ints)} · Nhịp độ ${PACE[o.pace].label.toLowerCase()}</span></div>
-    <div class="stats"><div><b>${st.n}</b><span>điểm dừng</span></div><div><b>${fmtKm(st.km)}</b><span>di chuyển</span></div><div><b>${Math.round(st.cost/1000).toLocaleString('vi-VN')}k</b><span>ăn uống, vé cho ${o.people} người</span></div></div></div>
-  <div class="daytabs">${plan.days.map((d,k)=>`<button class="daytab" data-day="${k}" aria-pressed="${k===state.day}">Ngày ${k+1}<small>${WD[d.wd]} ${dm(d.date)} · ${esc(plan.zones[d.zi].name)}</small></button>`).join('')}</div>
-  ${day.stops.length?`<ol class="timeline">${items}</ol>`:'<div class="empty"><b>Không đủ địa điểm cho ngày này</b>Thử giảm số ngày hoặc chọn nhịp độ khác.</div>'}
-  <div class="actions"><button class="btn-ghost" data-action="copyplan">Sao chép lịch trình</button><button class="btn-ghost" data-action="saveplan">Lưu lịch trình</button></div>
+    <span style="font-size:12.5px;opacity:.88">Từ ${dm(plan.days[0].date)} · ${o.origin?'xuất phát từ '+esc(o.origin)+' · ':''}nhịp ${PACE[o.pace].label.toLowerCase()} · sở thích: ${esc(ints)}</span></div>
+    <div class="stats"><div><b>${b.n}</b><span>địa điểm</span></div><div><b>${fmtKm(b.km)}</b><span>di chuyển tại chỗ</span></div><div><b>${fmtM(b.total)}</b><span>dự kiến cả chuyến</span></div></div>
+    <span class="opt-note">✓ ${plan.optSaved>0.4?'Đã tối ưu thứ tự các điểm, bớt ~'+fmtKm(plan.optSaved)+' đi lại':'Các điểm đã xếp theo thứ tự gần nhau'}${o.total?' · '+(b.total>o.total?'⚠ vượt ngân sách':'✓ trong ngân sách'):''}</span></div>
+  <div class="daytabs">${plan.days.map((d,j)=>{const w=plan.wx&&plan.wx[j];return `<button class="daytab" data-day="${j}" aria-pressed="${j===k}">Ngày ${j+1}<small>${WD[d.wd]} ${dm(d.date)} · ${esc(plan.zones[d.zi].name)}</small>${w?`<span class="wx">${WX_ICON(w.code)} ${Math.round(w.tmax)}°${rainy(w)?' · mưa':''}</span>`:''}</button>`;}).join('')}</div>
+  <div class="startpt">🏨 <span>Xuất phát mỗi sáng: <b>${esc(tl.start.label)}</b></span>${o.startMode==='me'?'<button class="chip" data-action="starthotel">Dùng nơi ở gợi ý</button>':'<button class="chip" data-action="startme">📍 Từ vị trí của tôi</button>'}</div>
+  ${weatherBox(plan,k)}
+  ${W.length?`<div class="wbox"><b>Lưu ý ngày ${k+1}</b><ul>${W.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></div>`:''}
+  ${n?`<ol class="timeline">${items}</ol>`:'<div class="empty"><b>Ngày này chưa có điểm nào</b>Bấm "Lập lại lịch trình" hoặc thêm địa điểm từ tab Khám phá.</div>'}
+  <div class="actions"><button class="btn-ghost" data-action="optday">✨ Tối ưu thứ tự</button>${state.undo&&state.undo.k===k&&!day.rainNote?'<button class="btn-ghost" data-action="undo">↶ Hoàn tác</button>':''}${n?`<a class="btn-ghost" href="${gmapsDay(plan,k)}" target="_blank" rel="noopener">Tuyến ngày ${k+1} trên Google Maps ↗</a>`:''}</div>
+  ${budgetHTML(plan)}
+  <div class="actions"><button class="btn" data-action="saveplan">♡ Lưu chuyến đi</button><button class="btn-ghost" data-action="share">🔗 Chia sẻ link</button><button class="btn-ghost" data-action="print">🖨 In / PDF</button><button class="btn-ghost" data-action="copyplan">Sao chép</button><button class="btn-ghost" data-action="similar">Tạo chuyến đi tương tự</button></div>
   ${stayBox(plan)}
-  <p class="fine">Bản thật: mô hình AI chỉ được chọn trong kho địa điểm đã duyệt. Hệ thống kiểm tra lại giờ mở cửa, tính lại chi phí và quãng đường trước khi hiển thị.</p>`;
+  <p class="fine">Lịch trình do thuật toán của Đi Đâu? lập từ kho địa điểm (chưa dùng mô hình ngôn ngữ lớn): chọn điểm theo sở thích, giờ mở cửa, người đi cùng; tối ưu thứ tự để giảm đi lại; tính thời gian và chi phí theo ước tính. Quãng đường tính theo đường chim bay × 1,3. Thời tiết: Open-Meteo.com. Thông tin địa điểm chưa xác minh tại chỗ.</p>`;
 }
 function stayBox(plan){
   const o=plan.opts, z=plan.zones[plan.days[state.day].zi];
@@ -1534,12 +2255,12 @@ function stayBox(plan){
 }
 function savedHTML(){
   const places=ALL.filter(p=>state.saved.has(p.id));
-  const plans=state.plans.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><button class="btn-ghost" data-loadplan="${k}">Mở</button></div>`).join('');
+  const plans=state.plans.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><div class="actions"><button class="btn-ghost" data-loadplan="${k}">Mở</button><button class="ic-btn" data-delplan="${k}" aria-label="Xóa chuyến đi">✕</button></div></div>`).join('');
   return `
+  <h2 class="section-h">Chuyến đi của tôi</h2>
+  ${plans||'<div class="empty"><b>Chưa có chuyến đi nào</b>Lập lịch trình rồi bấm "♡ Lưu chuyến đi". Chuyến đi được lưu trên trình duyệt này.</div>'}
   <h2 class="section-h">Địa điểm đã lưu</h2>
-  ${places.length?`<ul class="plist">${places.map(p=>cardHTML(p,true)).join('')}</ul>`:'<div class="empty"><b>Chưa lưu địa điểm nào</b>Bấm ♡ Lưu ở trang chi tiết để gom các điểm muốn đến.</div>'}
-  <h2 class="section-h">Lịch trình đã lưu</h2>
-  ${plans||'<div class="empty"><b>Chưa có lịch trình</b>Lập lịch trình ở tab Lịch trình AI rồi bấm "Lưu lịch trình".</div>'}`;
+  ${places.length?`<ul class="plist">${places.map(p=>cardHTML(p,true)).join('')}</ul>`:'<div class="empty"><b>Chưa lưu địa điểm nào</b>Bấm ♡ Lưu ở trang chi tiết để gom các điểm muốn đến.</div>'}`;
 }
 
 /* ---------- Bản đồ thật (Leaflet) ---------- */
@@ -1608,7 +2329,7 @@ function markProv(){
 function visibleItems(){
   if(state.tab==='plan' && state.plan && !state.loading && state.plan.opts.prov===state.prov){
     const day=state.plan.days[state.day];
-    return {route:day.stops.map(s=>byId(s.id)),others:provPlaces().filter(p=>!day.stops.some(s=>s.id===p.id))};
+    return {route:day.stops.map(s=>byId(s.id)),start:dayStart(state.plan,state.day),others:provPlaces().filter(p=>!day.stops.some(s=>s.id===p.id))};
   }
   if(state.tab==='saved') {const s=ALL.filter(p=>state.saved.has(p.id));return {route:null,main:s,others:provPlaces().filter(p=>!state.saved.has(p.id))};}
   const main=filtered(); return {route:null,main,others:provPlaces().filter(p=>!main.includes(p))};
@@ -1616,12 +2337,15 @@ function visibleItems(){
 function renderMap(){
   if(!map) return;
   markProv(); placeLayer.clearLayers(); drawRoute(false);
+  if(state.tab==='home'&&!state.selected){ homeMap(); return; }
   const vi=visibleItems(), sel=state.selected?byId(state.selected):null;
   const add=(p,r,cls)=>{const m=L.circleMarker([p.lat,p.lng],{radius:r,className:'mk mk-'+p.cat+(cls?' '+cls:''),bubblingMouseEvents:false});
     m.bindTooltip(esc(p.name),{direction:'top',offset:[0,-r],className:'tip'}); m.on('click',()=>openPlace(p.id)); m.addTo(placeLayer); return m;};
   vi.others.forEach(p=>add(p,4,'faint'));
   if(vi.route){
-    if(vi.route.length>1) L.polyline(vi.route.map(p=>[p.lat,p.lng]),{className:'route',interactive:false}).addTo(placeLayer);
+    const line=(vi.start&&!vi.start.me?[vi.start]:vi.start?[vi.start]:[]).concat(vi.route);
+    if(line.length>1) L.polyline(line.map(p=>[p.lat,p.lng]),{className:'route',interactive:false}).addTo(placeLayer);
+    if(vi.start&&!vi.start.me) L.marker([vi.start.lat,vi.start.lng],{icon:L.divIcon({className:'',html:'<span class="num-ic sight" style="background:var(--moss)">🏨</span>',iconSize:[24,24],iconAnchor:[12,12]}),interactive:true}).bindTooltip('Xuất phát: '+esc(vi.start.label),{direction:'top',offset:[0,-12],className:'tip'}).addTo(placeLayer);
     vi.route.forEach((p,i)=>{const m=L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:`<span class="num-ic ${p.cat}">${i+1}</span>`,iconSize:[24,24],iconAnchor:[12,12]}),riseOnHover:true});
       m.bindTooltip(esc(p.name),{direction:'top',offset:[0,-12],className:'tip'}); m.on('click',()=>openPlace(p.id)); m.addTo(placeLayer);});
   } else vi.main.forEach(p=>add(p,sel&&sel.id===p.id?10:7));
@@ -1630,6 +2354,21 @@ function renderMap(){
     const t=L.tooltip({permanent:true,direction:'top',offset:[0,-16],className:'tip'}).setLatLng([sel.lat,sel.lng]).setContent(esc(sel.name)); placeLayer.addLayer(t);
   }
 }
+function homeMap(){
+  const H=state.home, r=H.req||buildReq(), oc=ORIGIN[r.origin];
+  if(H.recs&&H.recs.length){
+    H.recs.forEach((x,i)=>{ L.marker([x.D.lat,x.D.lng],{icon:L.divIcon({className:'',html:`<span class="mk-dest">${i+1} · ${esc(x.D.name)} ${x.pct}%</span>`,iconSize:null,iconAnchor:[14,14]}),riseOnHover:true})
+      .on('click',()=>openRecPlan(i)).addTo(placeLayer); });
+    if(oc) L.circleMarker(oc,{radius:7,className:'me',interactive:true}).bindTooltip('Xuất phát: '+esc(r.origin),{direction:'top',className:'tip'}).addTo(placeLayer);
+    return;
+  }
+  const mo=new Date().getMonth()+1;
+  DEST.filter(D=>D.n>=5).forEach(D=>{ const good=D.months.includes(mo);
+    L.marker([D.lat,D.lng],{icon:L.divIcon({className:'',html:`<span class="mk-dest dim" style="${good?'':'background:var(--muted);opacity:.6'}"></span>`,iconSize:[14,14],iconAnchor:[7,7]})})
+      .bindTooltip(esc(destName(D))+(good?' · đẹp tháng '+mo:''),{direction:'top',className:'tip'}).on('click',()=>pickDest(D.key)).addTo(placeLayer); });
+}
+function pickDest(key){ const H=state.home; H.manual.dest=key; buildReq(); if(state.tab!=='home'){state.tab='home';state.selected=null;} H.recs=null; render(); toast('Điểm đến: '+destName(DESTMAP[key])+'. Bấm "Tạo lịch trình".'); }
+function openRecPlan(i){ const x=state.home.recs[i]; if(!x) return; applyPlan(x.plan); render(); fitView(); }
 function fitPlaces(places,maxZoom=15){
   if(!map||!places.length) return;
   if(places.length===1){map.setView([places[0].lat,places[0].lng],Math.min(maxZoom,14));return;}
@@ -1637,6 +2376,10 @@ function fitPlaces(places,maxZoom=15){
 }
 function fitProv(){ const l=provPaths[state.prov]; if(l) map.fitBounds(l.getBounds(),{padding:[20,20]}); }
 function fitView(){
+  if(!map) return;
+  if(state.tab==='home'&&!state.selected){ const H=state.home, oc=H.req&&ORIGIN[H.req.origin];
+    if(H.recs&&H.recs.length){ const pts=H.recs.map(x=>[x.D.lat,x.D.lng]); if(oc) pts.push(oc); map.fitBounds(L.latLngBounds(pts),{padding:[60,60],maxZoom:9}); }
+    else map.fitBounds([[8.3,102.1],[23.4,114.6]],{padding:[10,10]}); return; }
   if(state.tab==='plan'&&state.plan&&state.plan.opts.prov===state.prov) fitPlaces(state.plan.days[state.day].stops.map(s=>byId(s.id)));
   else if(state.tab==='explore'&&state.area!=='all') fitPlaces(filtered());
   else if(state.prov==='Hà Nội'&&state.tab==='explore') fitPlaces(provPlaces());
@@ -1648,7 +2391,7 @@ function selectProv(name){
   state.prov=name; state.area='all'; state.q=''; state.filter='all'; state.selected=null;
   state.opts.prov=name; state.opts.area=DATA[name].areas.length>1?'all':DATA[name].areas[0]; state.must.clear(); state.day=0;
   state.plan=makePlan(state.opts);
-  if(state.tab==='saved') state.tab='explore';
+  if(state.tab==='saved'||state.tab==='home') state.tab='explore';
   render(); fitView(); toast('Đang xem '+name+'.');
 }
 function provHTML(q){
@@ -1668,8 +2411,8 @@ function openProv(){
     <p class="hint">34 tỉnh thành theo địa giới mới từ 1/7/2025. Tìm bằng tên tỉnh cũ vẫn ra tỉnh mới. Có thể bấm trực tiếp lên bản đồ để chọn tỉnh.</p><div id="provList">${provHTML('')}</div>`;
   $('#sheet').hidden=false; setTimeout(()=>{const i=$('#provq'); if(i) i.focus();},30);
 }
-function openCopy(text){
-  $('#sheetTitle').textContent='Sao chép lịch trình';
+function openCopy(text,title){
+  $('#sheetTitle').textContent=title||'Sao chép lịch trình';
   $('#sheetBody').innerHTML=`<p class="hint">Không sao chép tự động được. Hãy chọn và sao chép văn bản dưới đây.</p><textarea class="copy" id="copyText" readonly>${esc(text)}</textarea>`;
   $('#sheet').hidden=false; setTimeout(()=>{const t=$('#copyText'); t.focus(); t.select();},30);
 }
@@ -1681,7 +2424,7 @@ function openIntro(){
     <h3>Đi đâu, ăn gì, chơi gì – hỏi Đi Đâu?</h3>
     <ul><li><b>1</b><span>Chọn tỉnh thành (34 tỉnh theo địa giới mới) để xem món ngon, điểm check-in, tham quan.</span></li>
     <li><b>2</b><span>Bấm <strong>📍 Vị trí của tôi</strong> để biết khoảng cách và chỉ đường.</span></li>
-    <li><b>3</b><span>Mở tab <strong>Lịch trình AI</strong> để có kế hoạch theo ngày, ngân sách và sở thích.</span></li></ul>
+    <li><b>3</b><span>Ở <strong>Trang chủ</strong>, kể chuyến đi bằng một câu (ngân sách, số ngày, đi cùng ai) để AI chọn điểm đến và lập lịch trình.</span></li></ul>
     <button class="btn big" data-action="closeintro">Bắt đầu khám phá</button>`;
   $('#sheet').hidden=false;
 }
@@ -1698,57 +2441,145 @@ function openPlace(id){
 }
 function generate(){
   if(state.loading) return;
-  state.loading=true; state.day=0; render();
+  state.loading=true; state.day=0; state.undo=null; state.prevPlan=null; render();
   const steps=[...document.querySelectorAll('#loading div')]; let k=0;
-  const tick=()=>{ if(k<steps.length){steps[k].classList.add('done');k++;setTimeout(tick,240);} else {
+  const tick=()=>{ if(k<steps.length){steps[k].classList.add('done');k++;setTimeout(tick,220);} else {
     state.plan=makePlan(state.opts); state.loading=false; render(); fitView(); } };
-  setTimeout(tick,180);
+  setTimeout(tick,160);
+}
+function setPlanOpt(k,v){ state.opts[k]=v; if(state.plan) state.plan.opts[k]=v; render(); }
+function moveStop(i,dir){
+  const d=state.plan.days[state.day], j=i+dir; if(j<0||j>=d.stops.length) return;
+  state.undo={k:state.day,stops:d.stops.map(s=>({...s}))}; [d.stops[i],d.stops[j]]=[d.stops[j],d.stops[i]]; render();
+}
+function removeStop(i){
+  const d=state.plan.days[state.day], s=d.stops[i]; state.undo={k:state.day,stops:d.stops.map(x=>({...x}))};
+  d.stops.splice(i,1); state.must.delete(s.id); render(); toast('Đã bỏ '+byId(s.id).name+'. Bấm "Hoàn tác" nếu muốn lấy lại.');
+}
+function addToPlan(p){
+  const plan=state.plan, o=plan&&plan.opts;
+  if(!plan||o.prov!==p.prov||(o.area!=='all'&&o.area!==p.area)) return false;
+  const k0=plan.days.findIndex(d=>d.stops.some(s=>s.id===p.id)); if(k0>=0){ state.day=k0; toast(p.name+' đã có trong Ngày '+(k0+1)+'.'); return true; }
+  let k=state.day; if(o.area==='all'){ const zi=plan.zones.findIndex(z=>z.areas&&z.areas.includes(p.area)); const kk=plan.days.findIndex(d=>d.zi===zi); if(kk>=0) k=kk; }
+  const d=plan.days[k], st=dayStart(plan,k), pts=[st,...d.stops.map(s=>byId(s.id))]; let best=pts.length-1, bk=Infinity;
+  for(let i=0;i<pts.length;i++){ const a=pts[i], b=pts[i+1]; const add=roadKm(a,p)+(b?roadKm(p,b)-roadKm(a,b):0); if(add<bk){bk=add;best=i;} }
+  state.undo={k,stops:d.stops.map(s=>({...s}))};
+  d.stops.splice(best,0,{id:p.id,si:-1,slot:{kinds:p.kinds,label:CAT[p.cat].label},label:CAT[p.cat].label,reason:'Bạn chọn thêm',tried:[p.id]});
+  state.day=k; toast('Đã thêm '+p.name+' vào Ngày '+(k+1)+', ở vị trí ít phải đi vòng nhất.'); return true;
+}
+function cheaper(){
+  const plan=state.plan, o=plan.opts, before=tripBudget(plan).total;
+  const o2={...o,interests:new Set(o.interests),cheap:true,budget:'tietkiem',tier:o.tier==='tm'?'vua':'tk',pace:o.pace==='day'?'vua':o.pace};
+  const p2=makePlan(o2); p2.match=plan.match; const after=tripBudget(p2).total;
+  if(after>=before-20000){ const bb=tripBudget(plan); const big=bb.arrive>bb.total*0.35?'vé đi lại tới nơi ('+fmtM(bb.arrive)+')':bb.hotel>bb.total*0.35?'khách sạn ('+fmtM(bb.hotel)+')':'';
+    toast('Lịch trình đã ở mức tiết kiệm nhất với dữ liệu hiện có.'+(big?' Khoản lớn nhất là '+big+': thử bớt ngày hoặc chọn điểm đến gần hơn.':'')); return; }
+  state.prevPlan=plan; state.plan=p2; state.opts=normOpts({...o2,interests:new Set(o2.interests)}); state.undo=null;
+  p2.note='Đã giảm khoảng '+fmtM(before-after)+' ('+fmtM(before)+' → '+fmtM(after)+'): hạ mức khách sạn, ưu tiên quán bình dân và điểm miễn phí, bớt vé đắt.';
+  render(); fitView();
+}
+function savePlan(){
+  const pl=state.plan, rec={title:planTitle(pl.opts),at:new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}),...serPlan(pl,true)};
+  state.plans.unshift(rec); state.plans=state.plans.slice(0,20); store('didau.plans',state.plans); render(); toast('Đã lưu vào "Chuyến đi của tôi" (tab Đã lưu).');
+}
+function loadSaved(k){
+  const pl=state.plans[k]; if(!pl) return;
+  let plan;
+  if(pl.v===2) plan=deserPlan(pl);
+  else { const o=normOpts({...pl.opts,interests:new Set(pl.opts.interests)});
+    plan={opts:o,zones:pl.zones,days:pl.days.map(dd=>({date:new Date(dd.date),wd:dd.wd,zi:dd.zi,stops:dd.stops.map(s=>{const si=PACE[o.pace].slots.findIndex(x=>x.t===s.t);return {...s,si,slot:PACE[o.pace].slots[Math.max(0,si)],tried:[s.id]};})}))}; }
+  if(!plan){ toast('Không mở được chuyến đi này.'); return; }
+  applyPlan(plan); render(); fitView();
+}
+function sharePlan(){
+  const url=shareUrl(state.plan), title='Đi Đâu? · '+planTitle(state.plan.opts);
+  if(navigator.share){ navigator.share({title,url}).catch(()=>{}); return; }
+  try{ navigator.clipboard.writeText(url).then(()=>toast('Đã sao chép link chia sẻ. Ai mở link sẽ thấy đúng lịch trình này.'),()=>openCopy(url,'Link chia sẻ')); }catch(e){ openCopy(url,'Link chia sẻ'); }
+}
+function printPlan(){
+  const plan=state.plan, o=plan.opts, b=tripBudget(plan);
+  let h=`<h1>Đi Đâu? · ${esc(planTitle(o))}</h1><p>Khởi hành ${dm(plan.days[0].date)}/${plan.days[0].date.getFullYear()}${o.origin?' từ '+esc(o.origin):''} · Dự kiến ${fmtM(b.total)} cho ${o.people} người</p>`;
+  plan.days.forEach((d,k)=>{ const tl=dayTimeline(plan,k), w=plan.wx&&plan.wx[k];
+    h+=`<h2>Ngày ${k+1} – ${WD[d.wd]} ${dm(d.date)} · ${esc(plan.zones[d.zi].name)}${w?' · '+wxLine(w):''}</h2><table>`+tl.items.map(x=>`<tr><td style="width:52pt"><b>${hhmm(x.start)}</b></td><td><b>${esc(x.p.name)}</b> · ${esc(x.s.label)}<br>${esc(x.p.addr)}<br><small>~${fmtMin(x.p.dur)} · ${x.p.cost?fmtVnd(x.p.cost)+'/người':'Miễn phí'} · ${esc(x.p.hours||'')}</small></td><td style="width:120pt"><small>${esc(MODE_TX[x.leg.mode])} ${fmtKm(x.leg.km)}, ~${fmtMin(x.leg.min)}</small></td></tr>`).join('')+'</table>'; });
+  h+=`<h2>Ngân sách dự kiến</h2><table><tr><td>Di chuyển</td><td>${fmtM(b.move)}</td></tr><tr><td>Khách sạn (${b.nights} đêm, ${b.rooms} phòng)</td><td>${fmtM(b.hotel)}</td></tr><tr><td>Ăn uống</td><td>${fmtM(b.food)}</td></tr><tr><td>Vé tham quan</td><td>${fmtM(b.tix)}</td></tr><tr><td>Khác</td><td>${fmtM(b.other)}</td></tr><tr><td><b>Tổng</b></td><td><b>${fmtM(b.total)}</b></td></tr></table>
+    <p><small>Lập bằng Đi Đâu? – AI Travel Planner Việt Nam. Giá và giờ mở cửa là ước tính, chưa xác minh tại chỗ.</small></p>`;
+  $('#printArea').innerHTML=h;
+  try{ window.print(); }catch(e){ toast('Trình duyệt chặn lệnh in ở đây. Hãy mở trang trên web để in hoặc lưu PDF.'); }
 }
 document.querySelector('.tabs').addEventListener('click',e=>{
   const t=e.target.closest('.tab'); if(!t) return;
   state.tab=t.dataset.tab; state.selected=null; render(); fitView();
 });
-$('#pbody').addEventListener('input',e=>{ if(e.target.id==='q'){state.q=e.target.value;updateList();renderMap();} });
-$('#pbody').addEventListener('change',e=>{
-  if(e.target.id==='startDate'&&e.target.value) state.opts.start=e.target.value;
-  if(e.target.id==='planArea'){state.opts.area=e.target.value;state.must.clear();generate();}
+$('#pbody').addEventListener('input',e=>{
+  if(e.target.id==='q'){state.q=e.target.value;updateList();renderMap();return;}
+  if(e.target.id==='ask'){ state.home.text=e.target.value; state.home.manual={}; refreshHomeBits(); if(!state.home.recs) renderMap(); }
 });
+$('#pbody').addEventListener('change',e=>{
+  const t=e.target, H=state.home;
+  if(t.id==='startDate'&&t.value) state.opts.start=t.value;
+  if(t.id==='planArea'){state.opts.area=t.value;state.must.clear();generate();}
+  if(t.classList.contains('js-total')) setPlanOpt('total',Math.max(0,Math.round(parseFloat(String(t.value).replace(',','.'))*1e6)||0));
+  if(t.classList.contains('js-origin')) setPlanOpt('origin',t.value);
+  if(t.id==='rqDest'){ H.manual.dest=t.value||null; refreshHomeBits(false); }
+  if(t.id==='rqStart'&&t.value){ H.manual.start=t.value; refreshHomeBits(false); }
+  if(t.id==='rqTotal'){ H.manual.total=Math.max(0,Math.round(parseFloat(String(t.value).replace(',','.'))*1e6)||0); refreshHomeBits(false); }
+  if(t.id==='rqOrigin'){ H.manual.origin=t.value; refreshHomeBits(false); }
+});
+$('#pbody').addEventListener('toggle',e=>{ if(e.target.id==='reqMore') state.home.open=e.target.open; },true);
 $('#pbody').addEventListener('click',e=>{
   const el=e.target.closest('button,a'); if(!el) return;
-  const d=el.dataset;
+  const d=el.dataset, H=state.home;
   if(d.open){openPlace(d.open);return;}
+  // Trang chủ
+  if(d.ex){ H.text=EXAMPLES[Number(d.ex)]; H.manual={}; H.recs=null; buildReq(); render(); return; }
+  if(d.rstep){ const [k,dv]=d.rstep.split(':'); const r=H.req, lim={days:[1,MAX_DAYS],ad:[1,12],kd:[0,8],el:[0,6]}[k]; H.manual[k]=Math.min(lim[1],Math.max(lim[0],r[k]+Number(dv))); refreshHomeBits(); return; }
+  if(d.rint){ const s=new Set(H.req.interests); s.has(d.rint)?s.delete(d.rint):s.add(d.rint); H.manual.interests=[...s]; refreshHomeBits(); return; }
+  if(d.rpace){ H.manual.pace=d.rpace; refreshHomeBits(); return; }
+  if(d.feat){ pickDest(d.feat); return; }
+  if(d.recplan){ openRecPlan(Number(d.recplan)); return; }
+  if(d.recexplore){ const x=H.recs[Number(d.recexplore)]; state.prov=x.D.prov; state.area=x.D.area; state.filter='all'; state.q=''; state.tab='explore'; render(); fitView(); return; }
+  // Khám phá
   if(d.area){state.area=d.area;render();fitView();return;}
   if(d.rmode){state.rmode=d.rmode;requestRoute();refreshRouteUI();return;}
   if(d.filter){state.filter=d.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===state.filter)));updateList();renderMap();return;}
-  if(d.opt){state.opts[d.opt]=d.opt==='days'?Number(d.val):d.val;render();return;}
+  // Lập lịch trình
+  if(d.opt){state.opts[d.opt]=d.val;render();return;}
+  if(d.tier){setPlanOpt('tier',d.tier);return;}
   if(d.int){const s=state.opts.interests;s.has(d.int)?s.delete(d.int):s.add(d.int);render();return;}
   if(d.ndays){state.opts.days=Math.min(MAX_DAYS,Math.max(1,state.opts.days+Number(d.ndays)));render();return;}
-  if(d.setdays){state.opts.days=Number(d.setdays);render();return;}
-  if(d.people){state.opts.people=Math.min(10,Math.max(1,state.opts.people+Number(d.people)));render();return;}
+  if(d.pp){const [k,dv]=d.pp.split(':'); const lim={ad:[1,12],kd:[0,8],el:[0,6]}[k]; state.opts[k]=Math.min(lim[1],Math.max(lim[0],state.opts[k]+Number(dv))); normOpts(state.opts); render(); return;}
   if(d.unmust){state.must.delete(d.unmust);render();return;}
   if(d.day){state.day=Number(d.day);render();fitView();return;}
   if(d.swap){swapStop(Number(d.swap));return;}
-  if(d.loadplan){const pl=state.plans[Number(d.loadplan)];
-    const o={...pl.opts,interests:new Set(pl.opts.interests)};
-    state.prov=o.prov; state.area='all'; state.opts={...o,interests:new Set(o.interests)};
-    state.plan={opts:o,zones:pl.zones,days:pl.days.map(dd=>({date:new Date(dd.date),wd:dd.wd,zi:dd.zi,stops:dd.stops.map(s=>({...s,slot:PACE[o.pace].slots.find(x=>x.t===s.t)||PACE[o.pace].slots[0],tried:[s.id]}))}))};
-    state.tab='plan';state.day=0;render();fitView();return;}
+  if(d.mv){const [i,dv]=d.mv.split(':').map(Number); moveStop(i,dv); return;}
+  if(d.rm){removeStop(Number(d.rm)); return;}
+  if(d.rain){rainReplan(Number(d.rain)); return;}
+  if(d.loadplan){loadSaved(Number(d.loadplan)); return;}
+  if(d.delplan){state.plans.splice(Number(d.delplan),1); store('didau.plans',state.plans); render(); toast('Đã xóa chuyến đi.'); return;}
   const a=d.action; if(!a) return;
+  if(a==='homego'){homeGo();return;}
+  if(a==='homepick'){ H.manual.dest=null; runRecommend(); return; }
   if(a==='locate'){locate();return;}
   if(a==='pick'){setPick(true);toast('Bấm lên bản đồ để chọn điểm xuất phát.');return;}
   if(a==='sortnear'){state.sortNear=!state.sortNear;render();return;}
   if(a==='back'){state.selected=null;state.tab=state.from;render();fitView();}
   else if(a==='save'){const id=state.selected;state.saved.has(id)?state.saved.delete(id):state.saved.add(id);store('didau.saved',[...state.saved]);render();toast(state.saved.has(id)?'Đã lưu vào danh sách.':'Đã bỏ lưu.');}
   else if(a==='addplan'){const p=byId(state.selected);
+    if(addToPlan(p)){ state.selected=null; state.tab='plan'; render(); fitView(); return; }
     if(state.opts.prov!==p.prov||state.opts.area!==p.area){state.opts.prov=p.prov;state.opts.area=p.area;state.must.clear();}
-    state.must.add(p.id);state.selected=null;state.tab='plan';render();fitView();toast('Đã thêm '+p.name+'. Bấm "Lập lại lịch trình" để AI sắp xếp.');}
+    state.must.add(p.id);state.selected=null;state.tab='plan';render();fitView();toast('Đã thêm '+p.name+'. Bấm "Lập lịch trình" để sắp xếp.');}
   else if(a==='gen'){generate();}
+  else if(a==='optday'){ const r=optimizeOrder(state.plan,state.day,false); if(r.cur-r.best<0.05){toast('Thứ tự ngày này đã tối ưu.');return;} state.undo={k:state.day,stops:state.plan.days[state.day].stops.map(s=>({...s}))}; optimizeOrder(state.plan,state.day,true); render(); toast('Đã sắp lại, bớt ~'+fmtKm(r.cur-r.best)+' đi lại.'); }
+  else if(a==='undo'){ const u=state.undo; if(!u) return; const d0=state.plan.days[u.k]; if(u.all) state.plan.days.forEach((dd,j)=>dd.stops=u.all[j]); else d0.stops=u.stops; if(u.note) d0.rainNote=u.note; else delete d0.rainNote; state.undo=null; render(); }
+  else if(a==='startme'){ if(!state.me){ toast('Hãy bấm "📍 Vị trí của tôi" trên bản đồ hoặc chọn điểm xuất phát trước.'); setPick(true); state.opts.startMode='me'; if(state.plan) state.plan.opts.startMode='me'; return; } setPlanOpt('startMode','me'); }
+  else if(a==='starthotel'){ setPlanOpt('startMode','hotel'); }
+  else if(a==='cheaper'){cheaper();}
+  else if(a==='prevplan'){ if(state.prevPlan){ state.plan=state.prevPlan; state.prevPlan=null; state.opts=normOpts({...state.plan.opts,interests:new Set(state.plan.opts.interests)}); render(); fitView(); } }
+  else if(a==='similar'){ const o=state.plan.opts; H.text=''; H.manual={days:o.days,ad:o.ad,kd:o.kd,el:o.el,total:o.total,origin:o.origin||'Hà Nội',start:o.start,interests:[...o.interests],pace:o.pace,dest:null}; runRecommend(o.area==='all'?null:o.prov+'|'+o.area); }
+  else if(a==='share'){sharePlan();}
+  else if(a==='print'){printPlan();}
   else if(a==='copyplan'){const txt=planText(state.plan);
     try{navigator.clipboard.writeText(txt).then(()=>toast('Đã sao chép lịch trình.'),()=>openCopy(txt));}catch(err){openCopy(txt);}}
-  else if(a==='saveplan'){const pl=state.plan,o=pl.opts;
-    const rec={title:planTitle(o),at:new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}),
-      opts:{...o,interests:[...o.interests]},zones:pl.zones,days:pl.days.map(dd=>({date:dd.date.toISOString(),wd:dd.wd,zi:dd.zi,stops:dd.stops.map(s=>({t:s.t,label:s.label,id:s.id,reason:s.reason}))}))};
-    state.plans.unshift(rec);state.plans=state.plans.slice(0,10);store('didau.plans',state.plans);toast('Đã lưu lịch trình vào tab Đã lưu.');}
+  else if(a==='saveplan'){savePlan();}
 });
 $('#provBtn').onclick=openProv; $('#brandBtn').onclick=openIntro; $('#sheetClose').onclick=closeSheet;
 $('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'||e.target.closest('[data-action="closeintro"]')){closeSheet();return;}
@@ -1765,7 +2596,14 @@ $('#totalN').textContent=ALL.length.toLocaleString('vi-VN');
 state.plan=makePlan(state.opts);
 if(window.L){ initMap(); }
 else { $('#map').innerHTML='<div class="empty" style="margin:16px">Không tải được thư viện bản đồ. Kiểm tra kết nối mạng rồi tải lại trang.</div>'; }
-render(); if(!load('didau.intro',false)){ openIntro(); store('didau.intro',true); }
+function loadHash(){
+  const m=location.hash.match(/^#trip=([A-Za-z0-9_-]+)/); if(!m) return false;
+  try{ const plan=deserPlan(JSON.parse(b64d(m[1]))); if(plan){ applyPlan(plan); toast('Đã mở lịch trình được chia sẻ.'); return true; } }catch(e){}
+  toast('Link chia sẻ không hợp lệ hoặc đã cũ.'); return false;
+}
+loadHash();
+window.addEventListener('hashchange',()=>{ if(loadHash()){ render(); fitView(); } });
+buildReq(); render();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
 
