@@ -1,5 +1,5 @@
 /* Đi Đâu? – service worker: chạy offline cơ bản cho bản app & PWA */
-const VER = 'didau-v2';
+const VER = 'didau-v3';
 const SHELL = [
   '/', '/manifest.webmanifest', '/offline.html',
   '/icons/icon-192.png', '/icons/icon-512.png',
