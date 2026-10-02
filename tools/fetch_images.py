@@ -57,7 +57,8 @@ def get(url, binary=False, tries=5):
                 continue
             return None
         except Exception as e:
-            STATS[f'{host} {type(e).__name__}'] = STATS.get(f'{host} {type(e).__name__}', 0) + 1
+            k = f'{host} {type(e).__name__}: {str(e)[:60]}'
+            STATS[k] = STATS.get(k, 0) + 1
             time.sleep(3)
     return None
 
@@ -87,10 +88,10 @@ def summary(lang, title):
 
 def from_summary(j):
     if not j:
-        return None
+        WHY.append('no-summary'); return None
     src = (j.get('originalimage') or j.get('thumbnail') or {}).get('source', '')
     if not src or src.lower().endswith('.svg') or '/svg' in src.lower():
-        return None
+        WHY.append('summary-img=' + src[-40:]); return None
     fname = urllib.parse.unquote(src.split('/')[-1])
     m = re.search(r'/wikipedia/([a-z]+)/', src)
     wiki = m.group(1) if m else 'commons'
@@ -106,21 +107,26 @@ def commons_search(q):
     return [(p.get('title', ''), (p.get('imageinfo') or [None])[0]) for p in pages]
 
 
+WHY = []
+
+
 def save(ii, rel, width):
-    if not ii or not re.match(r'image/(jpeg|png|webp)', ii.get('mime', '')):
-        return None
+    if not ii:
+        WHY.append('no-imageinfo'); return None
+    if not re.match(r'image/(jpeg|png|webp)', ii.get('mime', '')):
+        WHY.append('mime=' + str(ii.get('mime'))); return None
     src = ii.get('thumburl') or ii.get('url')
     if not src or not src.startswith('https://upload.wikimedia.org/'):
-        return None
+        WHY.append('src=' + str(src)[:60]); return None
     data = get(src, binary=True)
     if not data:
-        return None
+        WHY.append('download-fail ' + src[-50:]); return None
     try:
         im = Image.open(io.BytesIO(data)).convert('RGB')
-    except Exception:
-        return None
+    except Exception as e:
+        WHY.append('pil ' + type(e).__name__ + ' ' + str(len(data))); return None
     if im.width < 300:
-        return None
+        WHY.append('small'); return None
     if im.width > width:
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     path = os.path.join(PUB, rel)
@@ -146,6 +152,7 @@ def main():
             key = d['key']
             if key in cred:
                 continue
+            WHY.clear()
             slug = hashlib.md5(key.encode()).hexdigest()[:10]
             res = None
             cands = [('en', t) for t in d['titles']] + [('vi', re.sub(r'^TP ', '', d['name']))]
@@ -163,13 +170,14 @@ def main():
             if res:
                 cred[key] = res; got += 1; print('OK  ', key, res['credit'])
             else:
-                miss += 1; print('MISS', key)
+                miss += 1; print('MISS', key, WHY[:4])
 
     if only in ('all', 'place'):
         for p in targets['places']:
             key = 'p:' + str(p['id'])
             if key in cred:
                 continue
+            WHY.clear()
             name = re.split(r'\s[–&-]\s', re.sub(r'\s*\(.*?\)\s*', ' ', p['name']))[0].strip()
             res = None
             if p['cat'] != 'food':
@@ -188,7 +196,7 @@ def main():
             if res:
                 cred[key] = res; got += 1; print('OK  ', key, name)
             else:
-                miss += 1; print('MISS', key, name)
+                miss += 1; print('MISS', key, name, WHY[:3])
             if got and got % 25 == 0:
                 json.dump(cred, open(CRED_PATH, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 
