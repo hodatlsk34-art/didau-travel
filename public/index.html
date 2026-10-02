@@ -719,7 +719,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3{margin:0;text-wrap:balance}
 p{margin:0}
 
-.app{display:grid;grid-template-rows:auto auto 1fr;height:100%}
+.app{display:grid;grid-template-rows:auto auto 1fr;grid-template-columns:minmax(0,1fr);height:100%}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;min-width:0;border:0;background:none;padding:0;text-align:left}
 .brand-mark{display:flex;align-items:center;gap:6px;border-radius:12px;padding:2px 6px 2px 2px;background:var(--logo-bg)}
@@ -732,13 +732,14 @@ p{margin:0}
 .proto{font-size:12px;color:var(--muted);padding:6px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
 .proto strong{color:var(--ink);font-weight:600}
 
-.main{display:grid;grid-template-columns:minmax(340px,430px) 1fr;min-height:0}
-.panel{display:flex;flex-direction:column;min-height:0;background:var(--surface);border-right:1px solid var(--line)}
+.main{display:grid;grid-template-columns:minmax(0,1fr);min-height:0}
+.panel{display:flex;flex-direction:column;min-height:0;background:var(--surface)}
 .tabs{display:flex;gap:4px;padding:6px 10px 0;border-bottom:1px solid var(--line)}
 .tab{flex:1;border:0;background:none;padding:10px 6px 11px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sun)}
 .tab .n{font-size:11px;font-weight:600;background:var(--surface-2);border-radius:999px;padding:1px 7px;margin-left:4px}
-.pbody{flex:1;min-height:0;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+.pbody{flex:1;min-height:0;overflow:auto;padding:18px max(16px,calc((100% - 880px)/2)) 90px;display:flex;flex-direction:column;gap:14px}
+.tabs{padding-left:max(10px,calc((100% - 880px)/2));padding-right:max(10px,calc((100% - 880px)/2))}
 
 .phead{display:flex;flex-direction:column;gap:2px}
 .phead h2{font-family:var(--font-display);font-size:24px;line-height:1.15}
@@ -835,7 +836,7 @@ p{margin:0}
 .daytab[aria-pressed="true"]{border-color:var(--lacquer);box-shadow:inset 0 0 0 1px var(--lacquer)}
 .timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .leg{margin:0 0 0 62px;padding:5px 0 5px 14px;border-left:2px dashed var(--line);font-size:12px;color:var(--muted)}
-.tl-row{display:grid;grid-template-columns:42px 24px 1fr auto;gap:8px;align-items:start;padding:4px 0}
+.tl-row{display:grid;grid-template-columns:42px 24px minmax(0,1fr) auto;gap:8px;align-items:start;padding:4px 0}
 .tl-time{font-weight:600;font-variant-numeric:tabular-nums;font-size:13px;padding-top:2px}
 .tl-dot{width:24px;height:24px;border-radius:50%;background:var(--c);color:var(--surface);font-size:12px;font-weight:700;display:grid;place-items:center}
 .tl-body{display:flex;flex-direction:column;min-width:0}
@@ -853,6 +854,18 @@ p{margin:0}
 
 /* map */
 .mapwrap{position:relative;min-height:0;overflow:hidden;background:var(--sea)}
+/* Bản đồ 3 trạng thái: ẩn · nhỏ nhúng trong nội dung · mở rộng (ngăn kéo/toàn màn hình) */
+.mapwrap.off{position:fixed;left:-9999px;top:0;width:600px;height:400px;visibility:hidden}
+.minihost{display:block}
+.mapwrap.mini{height:320px;border-radius:16px;border:1px solid var(--line)}
+.mapwrap.overlay{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);z-index:1500;box-shadow:-10px 0 40px rgba(0,0,0,.25);border-left:1px solid var(--line)}
+.mapctl .ov-only,.mapctl .mini-only{display:none}
+.mapwrap.overlay .mapctl .ov-only,.mapwrap.mini .mapctl .mini-only{display:inline-block}
+.mapwrap.mini .mapctl .full-only,.mapwrap.mini .legend,.mapwrap.mini .tilenote{display:none!important}
+.mapctl .ov-only,.mapctl .mini-only{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)!important}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1400;border:0;border-radius:999px;background:var(--ink);color:var(--paper);padding:12px 18px;font-weight:700;font-size:14.5px;box-shadow:var(--shadow)}
+.map-scrim{position:fixed;inset:0;background:rgba(10,20,16,.35);z-index:1450}
+@media (min-width:900px){ .plist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px} }
 #map{position:absolute;inset:0}
 .leaflet-container{background:var(--sea);font-family:var(--font-body)}
 .leaflet-control-zoom a{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--line)!important}
@@ -1006,12 +1019,10 @@ details.more>div{display:flex;flex-direction:column;gap:12px;padding-bottom:14px
   #printArea tr{break-inside:avoid}
 }
 @media (max-width:899px){
-  .app[data-tab="home"] .mapwrap{order:1;height:42vh}
   html,body{height:auto}
   .app{height:auto}
-  .main{grid-template-columns:1fr}
-  .mapwrap{order:-1;height:48vh;min-height:300px}
-  .panel{border-right:0}
+  .mapwrap.mini{height:230px}
+  .mapwrap.overlay{top:auto;left:0;width:100%;height:86vh;border-left:0;border-radius:18px 18px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.3)}
   .pbody{overflow:visible}
   .tagline{display:none}
 }
@@ -1044,8 +1055,10 @@ details.more>div{display:flex;flex-direction:column;gap:12px;padding-bottom:14px
     <section class="mapwrap" id="mapwrap" aria-label="Bản đồ">
       <div id="map"></div>
       <div class="mapctl">
-        <button id="btnTiles" aria-pressed="true">Bản đồ đường phố</button>
-        <button id="btnVN">Toàn quốc</button>
+        <button id="btnCloseMap" class="ov-only">✕ Đóng bản đồ</button>
+        <button id="btnExpand" class="mini-only">⤢ Mở rộng</button>
+        <button id="btnTiles" class="full-only" aria-pressed="true">Đường phố</button>
+        <button id="btnVN" class="full-only">Toàn quốc</button>
         <button id="btnMe">📍 Vị trí của tôi</button>
       </div>
       <div class="tilenote" id="tilenote" hidden></div>
@@ -1058,6 +1071,8 @@ details.more>div{display:flex;flex-direction:column;gap:12px;padding-bottom:14px
     </section>
   </main>
 </div>
+<div class="map-scrim" id="mapScrim" hidden></div>
+<button class="fab" id="fabMap" hidden>🗺 Bản đồ</button>
 
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
   <div class="sheet-card">
@@ -1417,7 +1432,7 @@ const state = {
   must:new Set(),
   opts:null,
   plan:null, prevPlan:null, undo:null, day:0, loading:false, tiles:'try',
-  me:null, pickMode:false, sortNear:false, rmode:null, route:null,
+  me:null, pickMode:false, sortNear:false, rmode:null, route:null, mapOpen:false,
   home:{text:'',manual:{},req:null,hit:{},recs:null,loading:false,open:false}
 };
 function normOpts(o){
@@ -1893,14 +1908,28 @@ function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
   $('#savedN').textContent=state.saved.size+state.plans.length; $('#provName').textContent=state.prov;
   document.querySelector('.app').dataset.tab=state.selected?'detail':state.tab;
-  const body=$('#pbody');
+  const body=$('#pbody'), mw=$('#mapwrap'); if(mw.closest('#pbody')) $('.main').appendChild(mw);
   if(state.selected) body.innerHTML=detailHTML(byId(state.selected));
   else if(state.tab==='home') body.innerHTML=homeHTML();
   else if(state.tab==='explore'){body.innerHTML=exploreHTML(); updateList();}
   else if(state.tab==='plan'){ body.innerHTML=plannerHTML(); if(state.plan&&!state.loading) ensureWeather(state.plan); }
   else body.innerHTML=savedHTML();
+  placeMap();
   renderMap();
 }
+let mapMode='off';
+function placeMap(){
+  const w=$('#mapwrap'), host=$('#miniHost'), prev=mapMode;
+  if(state.mapOpen){ mapMode='overlay'; if(w.parentNode!==document.body) document.body.appendChild(w); }
+  else if(host){ mapMode='mini'; host.appendChild(w); }
+  else { mapMode='off'; if(!w.parentNode.classList||!w.parentNode.classList.contains('main')) $('.main').appendChild(w); }
+  ['off','mini','overlay'].forEach(m=>w.classList.toggle(m,m===mapMode));
+  $('#mapScrim').hidden=mapMode!=='overlay';
+  $('#fabMap').hidden=!(mapMode==='off'&&!state.selected&&(state.tab==='explore'||state.tab==='saved'||state.tab==='home'));
+  $('#fabMap').textContent=state.tab==='home'?'🗺 Bản đồ điểm đến':'🗺 Bản đồ';
+  if(map){ map.invalidateSize(false); if(prev==='off'&&mapMode!=='off') setTimeout(()=>{map.invalidateSize(false);fitView();},30); }
+}
+function openMap(on){ state.mapOpen=on; if(!on) setPick(false); placeMap(); renderMap(); if(on) fitView(); }
 
 /* ---------- V2: Trang chủ ---------- */
 const EXAMPLES=['Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển','Cuối tuần đi đâu gần Sài Gòn, 2 người, dưới 3 triệu','Đi Đà Lạt 3N2Đ với người yêu, 6 triệu, thích cà phê, chụp ảnh','Gia đình 4 người có bố mẹ, 5 ngày, 15 triệu, từ TP.HCM, thích núi, khí hậu mát'];
@@ -2104,7 +2133,7 @@ function setMe(lat,lng,src,acc){
   if(state.selected) requestRoute(); else if(map) map.setView([lat,lng],Math.max(map.getZoom(),13));
   toast(src==='gps'?'Đã lấy vị trí của bạn.':'Đã đặt điểm xuất phát.');
 }
-function setPick(on){ state.pickMode=on; const b=$('#pickbar'); if(b) b.hidden=!on; $('#mapwrap').classList.toggle('picking',on); }
+function setPick(on){ if(on&&mapMode!=='overlay'&&mapMode!=='mini'){ state.mapOpen=true; placeMap(); renderMap(); } state.pickMode=on; const b=$('#pickbar'); if(b) b.hidden=!on; $('#mapwrap').classList.toggle('picking',on); }
 function locate(){
   const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
   if(!navigator.geolocation){toast('Trình duyệt không hỗ trợ định vị. Hãy chọn điểm xuất phát trên bản đồ.');setPick(true);return;}
@@ -2121,6 +2150,7 @@ function detailHTML(p){
   <button class="back" data-action="back">← ${backLabel}</button>
   <div class="hero" style="--c:${c.c}"><span class="hero-ic">${ICON[p.cat]}</span>
     <div><span class="cat-chip">${c.label} · ${esc(p.area==='Nội thành'?p.prov:p.area)}${p.season?' · Đúng mùa':''}</span><h2>${esc(p.name)}</h2><p>${esc(p.why)}</p></div></div>
+  <div class="minihost" id="miniHost"></div>
   <dl class="facts">
     <div><dt>Địa chỉ</dt><dd>${esc(p.addr)}</dd></div>
     <div><dt>Giờ mở cửa</dt><dd>${esc(p.hours)}</dd></div>
@@ -2233,6 +2263,7 @@ function planHTML(plan){
     <div class="stats"><div><b>${b.n}</b><span>địa điểm</span></div><div><b>${fmtKm(b.km)}</b><span>di chuyển tại chỗ</span></div><div><b>${fmtM(b.total)}</b><span>dự kiến cả chuyến</span></div></div>
     <span class="opt-note">✓ ${plan.optSaved>0.4?'Đã tối ưu thứ tự các điểm, bớt ~'+fmtKm(plan.optSaved)+' đi lại':'Các điểm đã xếp theo thứ tự gần nhau'}${o.total?' · '+(b.total>o.total?'⚠ vượt ngân sách':'✓ trong ngân sách'):''}</span></div>
   <div class="daytabs">${plan.days.map((d,j)=>{const w=plan.wx&&plan.wx[j];return `<button class="daytab" data-day="${j}" aria-pressed="${j===k}">Ngày ${j+1}<small>${WD[d.wd]} ${dm(d.date)} · ${esc(plan.zones[d.zi].name)}</small>${w?`<span class="wx">${WX_ICON(w.code)} ${Math.round(w.tmax)}°${rainy(w)?' · mưa':''}</span>`:''}</button>`;}).join('')}</div>
+  <div class="minihost" id="miniHost"></div>
   <div class="startpt">🏨 <span>Xuất phát mỗi sáng: <b>${esc(tl.start.label)}</b></span>${o.startMode==='me'?'<button class="chip" data-action="starthotel">Dùng nơi ở gợi ý</button>':'<button class="chip" data-action="startme">📍 Từ vị trí của tôi</button>'}</div>
   ${weatherBox(plan,k)}
   ${W.length?`<div class="wbox"><b>Lưu ý ngày ${k+1}</b><ul>${W.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></div>`:''}
@@ -2376,7 +2407,7 @@ function fitPlaces(places,maxZoom=15){
 }
 function fitProv(){ const l=provPaths[state.prov]; if(l) map.fitBounds(l.getBounds(),{padding:[20,20]}); }
 function fitView(){
-  if(!map) return;
+  if(!map||mapMode==='off') return;
   if(state.tab==='home'&&!state.selected){ const H=state.home, oc=H.req&&ORIGIN[H.req.origin];
     if(H.recs&&H.recs.length){ const pts=H.recs.map(x=>[x.D.lat,x.D.lng]); if(oc) pts.push(oc); map.fitBounds(L.latLngBounds(pts),{padding:[60,60],maxZoom:9}); }
     else map.fitBounds([[8.3,102.1],[23.4,114.6]],{padding:[10,10]}); return; }
@@ -2432,6 +2463,7 @@ let toastT; function toast(msg){const t=$('#toast');t.textContent=msg;t.hidden=f
 
 /* ---------- Sự kiện ---------- */
 function openPlace(id){
+  if(state.mapOpen){ state.mapOpen=false; }
   const p=byId(id);
   if(!state.selected) state.from=state.tab;
   if(p.prov!==state.prov){state.prov=p.prov;state.area='all';}
@@ -2507,7 +2539,7 @@ function printPlan(){
 }
 document.querySelector('.tabs').addEventListener('click',e=>{
   const t=e.target.closest('.tab'); if(!t) return;
-  state.tab=t.dataset.tab; state.selected=null; render(); fitView();
+  state.tab=t.dataset.tab; state.selected=null; state.mapOpen=false; render(); fitView();
 });
 $('#pbody').addEventListener('input',e=>{
   if(e.target.id==='q'){state.q=e.target.value;updateList();renderMap();return;}
@@ -2585,7 +2617,8 @@ $('#provBtn').onclick=openProv; $('#brandBtn').onclick=openIntro; $('#sheetClose
 $('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'||e.target.closest('[data-action="closeintro"]')){closeSheet();return;}
   const b=e.target.closest('[data-prov]'); if(!b) return; closeSheet(); selectProv(b.dataset.prov); });
 $('#sheet').addEventListener('input',e=>{ if(e.target.id==='provq') $('#provList').innerHTML=provHTML(e.target.value); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !$('#sheet').hidden) closeSheet(); });
+document.addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if(!$('#sheet').hidden) closeSheet(); else if(state.mapOpen) openMap(false); });
+$('#fabMap').onclick=()=>openMap(true); $('#btnExpand').onclick=()=>openMap(true); $('#btnCloseMap').onclick=()=>openMap(false); $('#mapScrim').onclick=()=>openMap(false);
 $('#btnTiles').onclick=()=>{ if(map.hasLayer(tileLayer)){disableTiles(false);store('didau.tiles',false);} else {tileOk=false;enableTiles();store('didau.tiles',true);} };
 $('#btnMe').onclick=()=>{ if(state.me&&state.me.src==='gps'){map.setView([state.me.lat,state.me.lng],15);} else locate(); };
 $('#pickCancel').onclick=()=>setPick(false);
