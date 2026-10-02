@@ -1292,6 +1292,15 @@ html,body{height:auto!important}
 @media (max-width:899px){ .tab{font-size:10.5px} .tab .ti{width:44px} }
 @media (max-width:1400px){ .tagline{display:none!important} }
 .book-card b{text-align:center}
+/* Logo nét hơn + cậu bé */
+.hx-word svg{filter:none!important;width:clamp(240px,36vw,450px)}
+.hx-art{width:clamp(110px,15vw,210px);height:auto;margin-right:-6px;filter:drop-shadow(0 6px 10px rgba(10,40,90,.28))}
+.hx-logo{gap:2px;align-items:flex-end}
+.hx-word{margin-bottom:clamp(4px,1.4vw,18px)}
+.hx-tag{text-shadow:none!important;background:rgba(255,255,255,.88);color:#0E2F66;padding:6px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(10,40,80,.15)}
+.hx-hint{text-shadow:0 1px 2px rgba(0,25,50,.85)}
+.lw2{background:none!important;-webkit-text-stroke:0!important;color:#F08A00!important}
+@media (max-width:480px){ .hx-art{width:96px} .hx-word svg{width:230px} .hx-tag{font-size:14px;padding:5px 12px} .hx-plane{display:none} }
 </style>
 
 <div class="app">
@@ -1306,7 +1315,6 @@ html,body{height:auto!important}
       <button class="tab" role="tab" data-tab="plan" style="--tc:#C9660A"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="M8 14h3M8 17h6"/></svg></span><span class="tl">Lịch trình</span></button>
       <button class="tab" role="tab" data-tab="book" style="--tc:#0A84D6"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2.5A3.5 3.5 0 0 0 17.5 8H11v6"/><circle cx="7" cy="10.5" r="2"/></svg></span><span class="tl">Đặt chỗ</span></button>
       <button class="tab" role="tab" data-tab="blog" style="--tc:#7A3FC4"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5z"/><path d="M8 7.5h8M8 11h6"/></svg></span><span class="tl">Blog</span></button>
-      <button class="tab" role="tab" data-tab="saved" style="--tc:var(--lacquer)"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg></span><span class="tl">Đã lưu</span><span class="n" id="savedN">0</span></button>
     </nav>
     <button class="prov" id="provBtn" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -1318,8 +1326,8 @@ html,body{height:auto!important}
     <div class="hx-in">
       <div class="hx-logo">
         <svg class="hx-plane" viewBox="0 0 300 120" aria-hidden="true"><path d="M20 100C90 95 150 70 200 40" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" opacity=".9"/><g transform="translate(196 -6) rotate(35) scale(3.1)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="#fff" stroke="#0E3F86" stroke-width=".9" stroke-linejoin="round"/></g></svg>
-        <svg class="pin-svg big" viewBox="0 0 64 80" aria-hidden="true"><defs><linearGradient id="pinSky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9A3C"/><stop offset=".55" stop-color="#FFD15C"/><stop offset="1" stop-color="#8FD3F4"/></linearGradient><clipPath id="pinClip2"><circle cx="32" cy="30" r="19"/></clipPath></defs><path d="M32 77C32 77 6 50.5 6 30a26 26 0 0 1 52 0c0 20.5-26 47-26 47z" fill="#0E3F86" stroke="#fff" stroke-width="3.5"/><g clip-path="url(#pinClip2)"><rect x="10" y="8" width="44" height="44" fill="url(#pinSky2)"/><circle cx="38" cy="25" r="6.5" fill="#FFF3B0"/><path d="M10 44 22 26l8 10 7-8 17 16v10H10z" fill="#1F6FD1"/><path d="M10 47c8-6 14-7 22-3s16 3 22-1v11H10z" fill="#2E9E4F"/></g></svg>
-        <h1 class="hx-word"><span class="sr">Đi Đâu?</span><svg viewBox="0 0 470 150" aria-hidden="true"><defs><linearGradient id="hxGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE45C"/><stop offset=".5" stop-color="#FFC21A"/><stop offset="1" stop-color="#F7891E"/></linearGradient></defs><text x="235" y="118" text-anchor="middle" font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="118" letter-spacing="-3" stroke="#0E2F66" stroke-width="16" stroke-linejoin="round" paint-order="stroke"><tspan fill="#fff">Đi</tspan><tspan dx="18" fill="url(#hxGold)">Đâu?</tspan></text></svg></h1>
+        <img class="hx-art" src="/images/logo-art-520.webp" width="520" height="488" alt="" decoding="async">
+        <h1 class="hx-word"><span class="sr">Đi Đâu?</span><svg viewBox="0 0 470 156" aria-hidden="true"><text x="235" y="124" font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="118" letter-spacing="-2" text-anchor="middle" stroke-linejoin="round" paint-order="stroke" fill="#0A2552" stroke="#0A2552" stroke-width="16"><tspan>Đi</tspan><tspan dx="18">Đâu?</tspan></text><text x="235" y="118" font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="118" letter-spacing="-2" text-anchor="middle" stroke-linejoin="round" paint-order="stroke" stroke="#0E3F86" stroke-width="15"><tspan fill="#FFFFFF">Đi</tspan><tspan dx="18" fill="#FFC20E">Đâu?</tspan></text></svg></h1>
       </div>
       <p class="hx-tag">Trợ lý du lịch AI dành cho người Việt</p>
       <form class="hx-search" id="hxForm" role="search" autocomplete="off">
@@ -2265,7 +2273,7 @@ function blogHash(){ const m=/^#blog(?:\/([a-z0-9-]{1,80}))?$/.exec(location.has
 /* ---------- Bảng bên trái ---------- */
 function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
-  $('#savedN').textContent=state.saved.size+state.plans.length; $('#provName').textContent=state.prov;
+  { const sn=$('#savedN'); if(sn) sn.textContent=state.saved.size+state.plans.length; } $('#provName').textContent=state.prov;
   document.querySelector('.app').dataset.tab=state.selected?'detail':state.tab;
   const hx=$('#heroX'); if(hx){ hx.hidden=!(state.tab==='home'&&!state.selected); const hq=$('#hxq'); if(hq&&document.activeElement!==hq) hq.value=state.home.text||''; }
   const hb=$('#homeBanner'); if(hb){ hb.hidden=false; const sp=$('#bannerSpots'); if(sp&&!sp.dataset.done){ sp.dataset.done=1; sp.innerHTML=BANNER_SPOTS.filter(x=>DESTMAP[x[0]]).map(x=>`<button class="hs" style="left:${x[1]}%;width:${x[2]}%" data-dexp="${esc(x[0])}" aria-label="Khám phá ${esc(DESTMAP[x[0]].name)}"></button>`).join(''); } }
