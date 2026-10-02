@@ -35,21 +35,30 @@ def ok_title(title, name):
     return sum(1 for w in t if w in nt) >= min(2, len(t))
 
 
-def get(url, binary=False, tries=3):
+STATS = {}
+
+
+def get(url, binary=False, tries=5):
+    host = urllib.parse.urlparse(url).hostname
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers={'User-Agent': UA, 'Api-User-Agent': UA})
             with urllib.request.urlopen(req, timeout=30) as r:
                 data = r.read()
+                time.sleep(0.6)
                 return data if binary else json.loads(data.decode('utf-8'))
         except urllib.error.HTTPError as e:
+            STATS[f'{host} {e.code}'] = STATS.get(f'{host} {e.code}', 0) + 1
             if e.code == 404:
                 return None
-            if e.code == 429:
-                time.sleep(5 * (i + 1))
+            if e.code in (429, 503, 403):
+                wait = int(e.headers.get('Retry-After') or 0) or 10 * (i + 1)
+                time.sleep(min(wait, 90))
                 continue
-        except Exception:
-            time.sleep(2)
+            return None
+        except Exception as e:
+            STATS[f'{host} {type(e).__name__}'] = STATS.get(f'{host} {type(e).__name__}', 0) + 1
+            time.sleep(3)
     return None
 
 
@@ -185,6 +194,7 @@ def main():
 
     json.dump(cred, open(CRED_PATH, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     print(f'\nTải mới: {got} · Không tìm được: {miss} · Tổng đã có: {len(cred)}')
+    print('Lỗi mạng:', STATS)
 
 
 if __name__ == '__main__':
