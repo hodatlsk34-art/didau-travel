@@ -719,7 +719,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3{margin:0;text-wrap:balance}
 p{margin:0}
 
-.app{display:grid;grid-template-rows:auto auto 1fr;grid-template-columns:minmax(0,1fr);height:100%}
+.app{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr);height:100%}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--surface);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--moss),var(--teal) 45%,var(--sun)) 1}
 .brand{display:flex;align-items:center;gap:10px;min-width:0;border:0;background:none;padding:0;text-align:left}
 .brand-mark{display:flex;align-items:center;gap:6px;border-radius:12px;padding:2px 6px 2px 2px;background:var(--logo-bg)}
@@ -869,8 +869,9 @@ p{margin:0}
 .mapctl .ov-only,.mapctl .mini-only{display:none}
 .mapwrap.overlay .mapctl .ov-only,.mapwrap.mini .mapctl .mini-only{display:inline-block}
 .mapwrap.mini .mapctl .full-only,.mapwrap.mini .legend,.mapwrap.mini .tilenote{display:none!important}
-.mapctl .ov-only,.mapctl .mini-only{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)!important}
-.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1400;border:0;border-radius:999px;background:var(--ink);color:var(--paper);padding:12px 18px;font-weight:700;font-size:14.5px;box-shadow:var(--shadow)}
+.mapctl .ov-only,.mapctl .mini-only{background:#0E4C8E!important;color:#fff!important;border-color:#0E4C8E!important}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1400;border:2px solid #fff;border-radius:999px;background:#0E4C8E;color:#fff;padding:12px 18px;font-weight:700;font-size:15px;box-shadow:0 6px 20px rgba(14,76,142,.4)}
+.fab:hover{filter:brightness(1.08)}
 .map-scrim{position:fixed;inset:0;background:rgba(10,20,16,.35);z-index:1450}
 @media (min-width:900px){ .plist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px} }
 #map{position:absolute;inset:0}
@@ -1060,7 +1061,6 @@ details.more>div{display:flex;flex-direction:column;gap:12px;padding-bottom:14px
       <span class="nm" id="provName">Hà Nội</span> <span aria-hidden="true">▾</span>
     </button>
   </header>
-  <div class="proto"><strong>Bản beta</strong> · <span id="totalN"></span> địa điểm tại 34 tỉnh thành do Đi Đâu? tổng hợp, chưa xác minh tại chỗ: giá, giờ mở cửa chỉ để tham khảo. Lịch trình do thuật toán của Đi Đâu? lập từ kho dữ liệu này.</div>
   <main class="main">
     <section class="panel">
       <nav class="tabs" role="tablist">
@@ -2643,7 +2643,7 @@ $('#pickCancel').onclick=()=>setPick(false);
 $('#btnVN').onclick=()=>map.fitBounds([[8.3,102.1],[23.4,114.6]],{padding:[10,10]});
 
 /* ---------- Khởi tạo ---------- */
-$('#totalN').textContent=ALL.length.toLocaleString('vi-VN');
+
 state.plan=makePlan(state.opts);
 if(window.L){ initMap(); }
 else { $('#map').innerHTML='<div class="empty" style="margin:16px">Không tải được thư viện bản đồ. Kiểm tra kết nối mạng rồi tải lại trang.</div>'; }
