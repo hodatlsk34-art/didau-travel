@@ -18,6 +18,9 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}</script>
 <link rel="canonical" href="https://didautravel.id.vn/">
 </head>
 <body style="margin:0">
@@ -2218,7 +2221,7 @@ function statsHTML(){
     <small>Số lượt xem trang, đếm bằng GoatCounter (không lưu thông tin cá nhân).</small></section>`;
 }
 function footerHTML(){
-  return `<footer class="site-foot">${statsHTML()}<p class="hint">© ${new Date().getFullYear()} Đi Đâu? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh điểm đến: Wikimedia Commons · Thời tiết: Open-Meteo</p></footer>`;
+  return `<footer class="site-foot">${statsHTML()}<p class="hint">© ${new Date().getFullYear()} Đi Đâu? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh điểm đến: Wikimedia Commons · Thời tiết: Open-Meteo · <a href="https://didautravel.id.vn/chinh-sach-bao-mat.html" target="_blank" rel="noopener">Chính sách bảo mật</a></p></footer>`;
 }
 /* ---------- V2: Trang chủ ---------- */
 const EXAMPLES=['Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển','Cuối tuần đi đâu gần Sài Gòn, 2 người, dưới 3 triệu','Đi Đà Lạt 3N2Đ với người yêu, 6 triệu, thích cà phê, chụp ảnh','Gia đình 4 người có bố mẹ, 5 ngày, 15 triệu, từ TP.HCM, thích núi, khí hậu mát'];

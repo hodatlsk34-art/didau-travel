@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "Đi Đâu? – AI Travel Planner Việt Nam",
+  "short_name": "Đi Đâu?",
+  "description": "Món ngon, điểm check-in, tham quan và lịch trình AI cho 34 tỉnh thành Việt Nam.",
+  "lang": "vi",
+  "dir": "ltr",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EAF6FA",
+  "theme_color": "#0E4C8E",
+  "categories": ["travel", "navigation", "lifestyle"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
