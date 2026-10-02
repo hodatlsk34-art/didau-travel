@@ -1,0 +1,35 @@
+name: Tải ảnh địa danh
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/image_targets.json'
+      - 'tools/fetch_images.py'
+      - '.github/workflows/images.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: images
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: python tools/fetch_images.py | tee tools/last_run.log
+      - name: Commit ảnh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images tools/last_run.log
+          git diff --cached --quiet || git commit -m "Cập nhật ảnh địa danh (tự động)"
+          git push
