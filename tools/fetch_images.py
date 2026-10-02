@@ -161,7 +161,9 @@ def main():
             WHY.clear()
             slug = hashlib.md5(key.encode()).hexdigest()[:10]
             res = None
-            cands = [('en', t) for t in d['titles']] + [('vi', re.sub(r'^TP ', '', d['name']))]
+            nm = re.sub(r'^TP ', '', d['name'])
+            segs = [x.strip() for x in nm.split(' – ')] if ' – ' in nm else []
+            cands = [('en', t) for t in d['titles']] + [('vi', nm)] + [(l, x) for x in segs for l in ('vi', 'en')]
             for lang, t in cands:
                 res = save(from_summary(summary(lang, t)), f'images/dest/{slug}.webp', 960)
                 time.sleep(0.4)
