@@ -1,5 +1,5 @@
 /* Đi Đâu? – service worker: chạy offline cơ bản cho bản app & PWA */
-const VER = 'didau-v1';
+const VER = 'didau-v2';
 const SHELL = [
   '/', '/manifest.webmanifest', '/offline.html',
   '/icons/icon-192.png', '/icons/icon-512.png',
@@ -37,10 +37,10 @@ self.addEventListener('fetch', e => {
 
   // Tài nguyên cùng tên miền + ảnh Wikimedia + thư viện bản đồ: ưu tiên bộ nhớ đệm
   const cacheable = url.origin === location.origin
-    || url.hostname === 'upload.wikimedia.org'
+    || url.hostname === 'upload.wikimedia.org' || url.hostname === 'thumb.wikimedia.org'
     || url.hostname === 'cdnjs.cloudflare.com'
     || url.hostname === 'fonts.gstatic.com';
-  if (!cacheable) return;
+  if (!cacheable || url.pathname.endsWith('.json')) return;  // danh sách ảnh luôn lấy bản mới
 
   e.respondWith(
     caches.match(req).then(hit => hit || fetch(req).then(r => {

@@ -17,7 +17,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://thumb.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
 <script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}</script>
@@ -2112,7 +2112,13 @@ const DIMG={
  'An Giang|Châu Đốc – Núi Sam':['Sam_Mountain','Châu_Đốc'],'An Giang|Phú Quốc':['Phú_Quốc']
 };
 const imgMem={}, imgStore=load('didau.img2',{});
-function destImg(key){
+/* Ảnh đã tải sẵn về máy chủ (public/images/credits.json) – ưu tiên dùng, nhanh và không phụ thuộc API */
+const localImgs=/^https?:$/.test(location.protocol)?fetch('/images/credits.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({})):Promise.resolve({});
+function localImg(key){ return localImgs.then(m=>{ const x=m&&m[key]; if(!x||typeof x.f!=='string'||!/^\/images\/(dest2?|place)\/[\w.-]+\.webp$/.test(x.f)) return null;
+  const page=typeof x.page==='string'&&/^https:\/\/[a-z.]*(wikipedia|wikimedia)\.org\//.test(x.page)?x.page:'https://commons.wikimedia.org';
+  return {src:x.f,big:x.f,page,credit:String(x.credit||'Wikimedia').slice(0,90)}; }); }
+function destImg(key){ return localImg(key).then(l=>l||destImgApi(key)); }
+function destImgApi(key){
   if(imgStore[key]) return Promise.resolve(imgStore[key]);
   if(imgMem[key]) return imgMem[key];
   const D=DESTMAP[key]; if(!D) return Promise.resolve(null);
@@ -2121,10 +2127,10 @@ function destImg(key){
     for(const [lang,t] of cands){
       try{
         const r=await fetch('https://'+lang+'.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t)); if(!r.ok) continue;
-        const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source; if(typeof src!=='string'||!/^https:\/\/upload\.wikimedia\.org\//.test(src)||/\.svg/i.test(src)) continue;
+        const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source; if(typeof src!=='string'||!/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(src)||/\.svg/i.test(src)) continue;
         const m=src.match(/\/wikipedia\/([a-z]+)\/thumb\/[0-9a-f]\/[0-9a-f]{2}\/([^/]+)\//);
         let page=m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:((j.content_urls&&j.content_urls.desktop&&j.content_urls.desktop.page)||''); if(!/^https:\/\/[a-z.]*(wikipedia|wikimedia)\.org\//.test(page)) page='https://commons.wikimedia.org';
-        const res={src,big:m?src.replace(/\/\d+px-/,'/640px-'):src,page};
+        const res={src,big:m?src.replace(/\/\d+px-/,'/960px-'):src,page};
         imgStore[key]=res; store('didau.img2',imgStore); return res;
       }catch(e){}
     }
@@ -2134,7 +2140,8 @@ function destImg(key){
 /* Ảnh từng địa điểm: thử bài Wikipedia tiếng Việt trùng tên, sau đó tìm ảnh trên Wikimedia Commons (giấy phép tự do, có ghi tác giả) */
 const STOPW=new Set(['cho','pho','quan','nha','chua','den','bai','bien','ho','nui','ca','phe','tp','thanh','khu','di','tich','va','cau','dong','doi']);
 const keyTok=n=>norm(n).replace(/\(.*?\)/g,' ').split(/[^a-z0-9]+/).filter(w=>w.length>=3&&!STOPW.has(w));
-function placeImg(p){
+function placeImg(p){ return localImg('p:'+p.id).then(l=>l||placeImgApi(p)); }
+function placeImgApi(p){
   const key='p:'+p.id;
   if(imgStore[key]!==undefined&&imgStore[key]!==0) return Promise.resolve(imgStore[key]);
   if(imgMem[key]) return imgMem[key];
@@ -2145,19 +2152,19 @@ function placeImg(p){
     if(p.cat!=='food') try{
       const r=await fetch('https://vi.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(name.replace(/ /g,'_')));
       if(r.ok){ const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source;
-        if(typeof src==='string'&&/^https:\/\/upload\.wikimedia\.org\//.test(src)&&!/\.svg/i.test(src)&&okTitle(j.title||'')){
+        if(typeof src==='string'&&/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(src)&&!/\.svg/i.test(src)&&okTitle(j.title||'')){
           const m=src.match(/\/wikipedia\/([a-z]+)\/thumb\/[0-9a-f]\/[0-9a-f]{2}\/([^/]+)\//);
-          const res={src,big:m?src.replace(/\/\d+px-/,'/640px-'):src,page:m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:'https://commons.wikimedia.org',credit:'Wikimedia'};
+          const res={src,big:m?src.replace(/\/\d+px-/,'/960px-'):src,page:m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:'https://commons.wikimedia.org',credit:'Wikimedia'};
           imgStore[key]=res; store('didau.img2',imgStore); return res; } }
     }catch(e){}
     // 2) Wikimedia Commons
     try{
       const q=name+' '+(p.area==='Nội thành'?p.prov:p.area.split(' – ')[0]);
-      const u='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch='+encodeURIComponent(q+' filetype:bitmap')+'&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=640';
+      const u='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch='+encodeURIComponent(q+' filetype:bitmap')+'&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=960';
       const r=await fetch(u); if(r.ok){ const j=await r.json(); const pages=Object.values((j.query&&j.query.pages)||{}).sort((a,b)=>(a.index||0)-(b.index||0));
         for(const pg of pages){ const ii=pg.imageinfo&&pg.imageinfo[0]; if(!ii||!/^image\/(jpeg|png|webp)/.test(ii.mime||'')) continue;
           if(!okTitle(pg.title||'')) continue;
-          const src=ii.thumburl||ii.url; if(typeof src!=='string'||!/^https:\/\/upload\.wikimedia\.org\//.test(src)) continue;
+          const src=ii.thumburl||ii.url; if(typeof src!=='string'||!/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(src)) continue;
           const md=ii.extmetadata||{}, strip=v=>String((v&&v.value)||'').replace(/<[^>]*>/g,'').trim().slice(0,60);
           const lic=strip(md.LicenseShortName), au=strip(md.Artist);
           const page=typeof ii.descriptionurl==='string'&&/^https:\/\/commons\.wikimedia\.org\//.test(ii.descriptionurl)?ii.descriptionurl:'https://commons.wikimedia.org';
@@ -2187,7 +2194,7 @@ function applyImgs(){
       const img=document.createElement('img'); img.className='wimg'; img.alt=''; img.loading='lazy'; img.decoding='async';
       img.onerror=()=>{ if(img.src!==im.src) img.src=im.src; else img.remove(); };
       img.onload=()=>el.classList.add('has-img'); img.src=im.big;
-      const a=document.createElement('a'); a.className='wcredit'; a.href=im.page; a.target='_blank'; a.rel='noopener'; a.textContent='Ảnh: Wikimedia';
+      const a=document.createElement('a'); a.className='wcredit'; a.href=im.page; a.target='_blank'; a.rel='noopener'; a.textContent='Ảnh: '+(im.credit||'Wikimedia'); a.title=a.textContent;
       el.prepend(img); el.appendChild(a);
     });
   });
