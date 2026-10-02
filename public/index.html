@@ -12,11 +12,13 @@
 <meta property="og:site_name" content="Đi Đâu?">
 <meta property="og:title" content="Đi Đâu? – AI Travel Planner Việt Nam">
 <meta property="og:description" content="Món ngon, điểm check-in, tham quan và lịch trình AI cho 34 tỉnh thành Việt Nam.">
-<meta property="og:url" content="https://didau-travel.onrender.com/">
-<meta property="og:image" content="https://didau-travel.onrender.com/og.jpg">
+<meta property="og:url" content="https://didautravel.id.vn/">
+<meta property="og:image" content="https://didautravel.id.vn/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<link rel="canonical" href="https://didautravel.id.vn/">
 </head>
 <body style="margin:0">
 <title>Đi Đâu?</title>
@@ -1216,7 +1218,7 @@ html,body{height:auto!important}
 <div class="toast" id="toast" hidden role="status"></div>
 <div id="printArea"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>(function(){var c='';try{c=(document.documentElement.innerHTML.match(/const GC_CODE='([a-z0-9-]*)'/)||[])[1]||'';}catch(e){} if(!c||location.protocol==='file:') return; var g=document.createElement('script'); g.async=true; g.src='https://gc.zgo.at/count.js'; g.setAttribute('data-goatcounter','https://'+c+'.goatcounter.com/count'); document.head.appendChild(g);})();</script>
 <script>
 /* ---------- Dữ liệu ---------- */
@@ -1828,7 +1830,7 @@ async function ensureWeather(plan){
       if(!wxCache[url]){ const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),9000); const r=await fetch(url,{signal:ctl.signal}); clearTimeout(t); if(!r.ok) return; wxCache[url]=await r.json(); }
       const D=wxCache[url].daily; if(!D) return;
       g.ks.forEach(k=>{ const i=D.time.indexOf(isoD(plan.days[k].date)); if(i<0) return; any=true;
-        plan.wx[k]={code:D.weather_code[i],tmax:D.temperature_2m_max[i],tmin:D.temperature_2m_min[i],psum:D.precipitation_sum[i],pp:D.precipitation_probability_max[i]}; });
+        const N=v=>Number.isFinite(+v)?+v:null; plan.wx[k]={code:N(D.weather_code[i]),tmax:N(D.temperature_2m_max[i]),tmin:N(D.temperature_2m_min[i]),psum:N(D.precipitation_sum[i]),pp:N(D.precipitation_probability_max[i])}; });
     }catch(e){}
   }));
   plan.wxState=any?'ok':'fail';
@@ -1879,13 +1881,21 @@ function serPlan(plan,full){
   return r;
 }
 function deserPlan(r){
-  if(!r||!r.o||!DATA[r.o.prov]) return null;
-  const o=normOpts({...r.o,interests:new Set(r.o.interests||[])}), slots=PACE[o.pace].slots;
+  if(!r||typeof r!=='object'||!r.o||typeof r.o!=='object'||!Object.prototype.hasOwnProperty.call(DATA,r.o.prov)) return null;
+  const I=(v,lo,hi,d)=>{v=parseInt(v,10);return Number.isFinite(v)?Math.min(hi,Math.max(lo,v)):d;}, S=(v,n)=>typeof v==='string'?v.slice(0,n):'';
+  const ro=r.o, safe={prov:ro.prov,area:typeof ro.area==='string'?ro.area:'all',
+    start:/^\d{4}-\d{2}-\d{2}$/.test(ro.start)?ro.start:tomorrowIso(),days:I(ro.days,1,MAX_DAYS,2),
+    ad:I(ro.ad,1,12,2),kd:I(ro.kd,0,8,0),el:I(ro.el,0,6,0),total:Math.max(0,Math.min(1e10,Number(ro.total)||0)),
+    origin:Object.prototype.hasOwnProperty.call(ORIGIN,ro.origin)?ro.origin:'',pace:ro.pace,budget:ro.budget,tier:ro.tier,
+    interests:new Set((Array.isArray(ro.interests)?ro.interests:[]).filter(i=>Object.prototype.hasOwnProperty.call(INTEREST,i)))};
+  r={...r,d:(Array.isArray(r.d)?r.d:[]).slice(0,MAX_DAYS).map(dd=>({zi:I(dd&&dd.zi,0,40,0),s:(Array.isArray(dd&&dd.s)?dd.s:[]).slice(0,20).filter(x=>Array.isArray(x)&&typeof x[0]==='string').map(x=>[x[0],I(x[1],-1,20,-1),S(x[2],40),S(x[3],160)])})),
+    m:r.m==null?null:I(r.m,0,100,null),z:Array.isArray(r.z)?r.z:null};
+  const o=normOpts(safe), slots=PACE[o.pace].slots;
   if(o.area!=='all'&&!DATA[o.prov].areas.includes(o.area)) o.area=DATA[o.prov].areas[0];
-  const plan={opts:o,days:[]}; plan.zones=r.z||planCtx(plan).zones; if(r.m) plan.match=r.m;
+  const plan={opts:o,days:[]}; plan.zones=(r.z&&r.z.every(z=>z&&Number.isFinite(z.lat)&&Number.isFinite(z.lng)&&typeof z.name==='string'))?r.z:planCtx(plan).zones; if(r.m) plan.match=r.m;
   (r.d||[]).forEach((dd,k)=>{
     const date=addDays(o.start,k);
-    const stops=(dd.s||[]).filter(x=>BYID[x[0]]).map(x=>{ const p=byId(x[0]); const sl=x[1]>=0&&slots[x[1]]?slots[x[1]]:{kinds:p.kinds,label:CAT[p.cat].label};
+    const stops=(dd.s||[]).filter(x=>Object.prototype.hasOwnProperty.call(BYID,x[0])).map(x=>{ const p=byId(x[0]); const sl=x[1]>=0&&slots[x[1]]?slots[x[1]]:{kinds:p.kinds,label:CAT[p.cat].label};
       return {id:p.id,si:x[1],slot:sl,t:sl.t,label:x[2]||sl.label||CAT[p.cat].label,reason:x[3]||p.why,tried:[p.id]}; });
     plan.days.push({date,wd:date.getDay(),zi:Math.min(dd.zi||0,plan.zones.length-1),stops});
   });
@@ -2095,9 +2105,9 @@ function destImg(key){
     for(const [lang,t] of cands){
       try{
         const r=await fetch('https://'+lang+'.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t)); if(!r.ok) continue;
-        const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source; if(!src||/\.svg/i.test(src)) continue;
+        const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source; if(typeof src!=='string'||!/^https:\/\/upload\.wikimedia\.org\//.test(src)||/\.svg/i.test(src)) continue;
         const m=src.match(/\/wikipedia\/([a-z]+)\/thumb\/[0-9a-f]\/[0-9a-f]{2}\/([^/]+)\//);
-        const page=m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:((j.content_urls&&j.content_urls.desktop&&j.content_urls.desktop.page)||'https://commons.wikimedia.org');
+        let page=m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:((j.content_urls&&j.content_urls.desktop&&j.content_urls.desktop.page)||''); if(!/^https:\/\/[a-z.]*(wikipedia|wikimedia)\.org\//.test(page)) page='https://commons.wikimedia.org';
         const res={src,big:m?src.replace(/\/\d+px-/,'/640px-'):src,page};
         imgStore[key]=res; store('didau.img2',imgStore); return res;
       }catch(e){}
@@ -2862,11 +2872,12 @@ if(window.L){ initMap(); }
 else { $('#map').innerHTML='<div class="empty" style="margin:16px">Không tải được thư viện bản đồ. Kiểm tra kết nối mạng rồi tải lại trang.</div>'; }
 function loadHash(){
   const m=location.hash.match(/^#trip=([A-Za-z0-9_-]+)/); if(!m) return false;
-  try{ const plan=deserPlan(JSON.parse(b64d(m[1]))); if(plan){ applyPlan(plan); toast('Đã mở lịch trình được chia sẻ.'); return true; } }catch(e){}
+  try{ const raw=JSON.parse(b64d(m[1])); if(raw&&Array.isArray(raw.d)) raw.d.forEach(dd=>{ if(dd&&Array.isArray(dd.s)) dd.s=dd.s.map(x=>Array.isArray(x)?[x[0],x[1]]:x); }); delete raw.z; const plan=deserPlan(raw); if(plan){ applyPlan(plan); toast('Đã mở lịch trình được chia sẻ.'); return true; } }catch(e){}
   toast('Link chia sẻ không hợp lệ hoặc đã cũ.'); return false;
 }
 /* Nạp ảnh nền nếu có; chưa có ảnh thì giữ nền họa tiết */
 (()=>{ const im=new Image(); im.onload=()=>document.body.classList.add('has-bgimg'); im.src='/images/didau-bg-v2-1920x1080.webp'; })();
+if(/\.onrender\.com$/.test(location.hostname)) location.replace('https://didautravel.id.vn'+location.pathname+location.search+location.hash);
 loadHash();
 window.addEventListener('hashchange',()=>{ if(loadHash()){ render(); fitView(); } });
 buildReq(); render();
