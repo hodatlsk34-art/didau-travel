@@ -184,10 +184,37 @@ def save(ii, rel, width, strict=True):
     return {'f': '/' + rel.replace(os.sep, '/'), 'page': page, 'credit': ' · '.join(x for x in (au, lic or 'Wikimedia') if x)}
 
 
+def hero_candidates(queries):
+    """Tải ảnh xem trước (480px) cho các ảnh nền ứng viên để chọn ảnh tươi sáng."""
+    outdir = os.path.join(ROOT, 'tools', 'hero_cand'); os.makedirs(outdir, exist_ok=True)
+    meta = []; seen = set()
+    for q in queries:
+        u = ('https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6'
+             '&gsrlimit=14&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=500&gsrsearch=' + urllib.parse.quote(q))
+        j = get(u)
+        for pg in ((j or {}).get('query', {}).get('pages', {}) or {}).values():
+            ii = (pg.get('imageinfo') or [None])[0]; t = pg.get('title', '')
+            if not ii or t in seen or ii.get('mime') != 'image/jpeg': continue
+            if ii.get('width', 0) < 2400 or ii['width'] / max(1, ii.get('height', 1)) < 1.3: continue
+            if BAD_NAME.search(t): continue
+            data = get(ii.get('thumburl'), binary=True)
+            if not data: continue
+            seen.add(t); k = len(meta)
+            Image.open(io.BytesIO(data)).convert('RGB').save(os.path.join(outdir, f'{k:02d}.jpg'), quality=80)
+            md = ii.get('extmetadata') or {}
+            meta.append({'k': k, 'title': t, 'w': ii['width'], 'h': ii['height'], 'q': q, 'page': ii.get('descriptionurl'),
+                         'credit': ' · '.join(x for x in (strip_html((md.get('Artist') or {}).get('value')), strip_html((md.get('LicenseShortName') or {}).get('value'))) if x)})
+            print('CAND', k, t)
+    json.dump(meta, open(os.path.join(outdir, 'meta.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+
+
 def main():
     targets = json.load(open(os.path.join(ROOT, 'tools', 'image_targets.json'), encoding='utf-8'))
     cred = json.load(open(CRED_PATH, encoding='utf-8')) if os.path.exists(CRED_PATH) else {}
     only = sys.argv[1] if len(sys.argv) > 1 else 'all'
+    hq = os.path.join(ROOT, 'tools', 'hero_queries.json')
+    if os.path.exists(hq):
+        hero_candidates(json.load(open(hq, encoding='utf-8'))); return
     got = miss = 0
 
     if only in ('all', 'hero'):

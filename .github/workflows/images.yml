@@ -6,6 +6,7 @@ on:
     paths:
       - 'tools/image_targets.json'
       - 'tools/fetch_images.py'
+      - 'tools/hero_queries.json'
       - '.github/workflows/images.yml'
 
 permissions:
@@ -30,6 +31,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images tools/last_run.log tools/hero_cand || true
           git add public/images tools/last_run.log
           git diff --cached --quiet || git commit -m "Cập nhật ảnh địa danh (tự động)"
           git push
