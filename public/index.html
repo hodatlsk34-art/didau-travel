@@ -2132,13 +2132,13 @@ async function loadStats(){
   const num=v=>Number(String(v??'').replace(/[^\d]/g,''))||0;
   await Promise.all(gcRanges().map(async([k,,a,b])=>{
     try{ const r=await fetch(GC_BASE+'/counter/TOTAL.json'+(a?'?start='+a+'&end='+b:''));
-      if(!r.ok) return; const j=await r.json(); gcStats[k]={n:num(j.count),u:num(j.count_unique)}; }catch(e){}
+      if(r.status===404){ gcStats[k]={n:0,u:0}; return; } if(!r.ok) return; const j=await r.json(); gcStats[k]={n:num(j.count),u:num(j.count_unique)}; }catch(e){}
   }));
   const el=$('#siteStats'); if(el) el.outerHTML=statsHTML();
 }
 function statsHTML(){
   if(!GC_BASE) return '';
-  const fmt=k=>gcStats&&gcStats[k]?gcStats[k].n.toLocaleString('vi-VN'):'…';
+  const done=gcStats&&Object.keys(gcStats).length>0, fmt=k=>gcStats&&gcStats[k]?gcStats[k].n.toLocaleString('vi-VN'):(done?'–':'…');
   const R=gcRanges();
   return `<section class="stats-box" id="siteStats" aria-label="Thống kê truy cập"><h3>📊 Thống kê truy cập</h3>
     <div class="stats-grid">${R.map(([k,l])=>`<div class="${k==='total'?'tot':''}"><b>${fmt(k)}</b><span>${l}</span></div>`).join('')}</div>
