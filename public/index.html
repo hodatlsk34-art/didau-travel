@@ -1065,9 +1065,23 @@ const byId=id=>BYID[id];
 /* ---------- Liên kết đối tác (affiliate) ----------
    Điền mã sau khi đăng ký chương trình đối tác. Để trống thì nút vẫn dẫn tới trang tìm kiếm thường (chưa có hoa hồng). */
 const AFF = {
+  agodaCid: '',     // mã "Site ID" (cid) do Agoda Partners cấp, ví dụ '1234567'
   bookingAid: '',   // mã "aid" do Booking.com Affiliate Partner Program cấp
   deeplink: ''      // mẫu deeplink của mạng affiliate (AccessTrade, Ecomobi…), dùng {url} làm chỗ chèn link gốc
 };
+/* Mã thành phố Agoda (city ID). Chỉ ghi mã đã kiểm chứng; điểm đến chưa có mã sẽ dùng Booking.com.
+   Cách lấy mã: tìm thành phố trên agoda.com, xem tham số city=... trên thanh địa chỉ, hoặc dùng công cụ tạo link trong trang Agoda Partners. */
+const AGODA_CITY = {
+  'TP. Hồ Chí Minh':13170, 'Trung tâm Sài Gòn':13170,
+  'Đà Nẵng':16440, 'Trung tâm Đà Nẵng':16440
+};
+function agodaUrl(keys,checkin,nights,adults){
+  if(!AFF.agodaCid) return null;
+  const k=keys.find(x=>AGODA_CITY[x]); if(!k) return null;
+  let u='https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid='+encodeURIComponent(AFF.agodaCid)+'&hl=vi-vn&city='+AGODA_CITY[k];
+  if(checkin) u+='&checkIn='+checkin+'&los='+Math.max(1,nights)+'&adults='+(adults||2)+'&rooms=1';
+  return u;
+}
 const affWrap = url => AFF.deeplink ? AFF.deeplink.replace('{url}',encodeURIComponent(url)) : url;
 function bookingUrl(q,checkin,nights,adults){
   let u='https://www.booking.com/searchresults.vi.html?ss='+encodeURIComponent(q+', Việt Nam');
@@ -1304,7 +1318,7 @@ function detailHTML(p){
     <a class="btn-ghost" href="https://www.openstreetmap.org/directions?to=${p.lat}%2C${p.lng}" target="_blank" rel="noopener">Chỉ đường ↗</a>
   </div>
   <section class="aff"><h3>Ở gần đây & hoạt động</h3>
-    <div class="actions"><a class="btn-ghost" href="${bookingUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Khách sạn quanh ${esc(placeQuery(p))} ↗</a>
+    <div class="actions">${(()=>{const ag=agodaUrl([p.area,p.prov]);return ag?`<a class="btn-ghost" href="${ag}" target="_blank" rel="noopener sponsored">Khách sạn trên Agoda ↗</a>`:'';})()}<a class="btn-ghost" href="${bookingUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Khách sạn quanh ${esc(placeQuery(p))} ↗</a>
     <a class="btn-ghost" href="${klookUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Vé, tour ${esc(placeQuery(p))} ↗</a></div>
     <p class="hint">${AFF_NOTE}</p></section>
   <p class="photo-note">Ảnh tự chụp và video review của bạn sẽ hiển thị ở đây.</p>`;
@@ -1363,7 +1377,9 @@ function stayBox(plan){
   const start=plan.days[state.day].date, iso=start.getFullYear()+'-'+String(start.getMonth()+1).padStart(2,'0')+'-'+String(start.getDate()).padStart(2,'0');
   return `<section class="aff stay"><h3>Đặt chỗ cho ngày ${state.day+1} · ${esc(q)}</h3>
     <p>Khách sạn ${nights} đêm từ ${dm(start)} cho ${o.people} người, đã điền sẵn ngày.</p>
-    <div class="actions"><a class="btn" href="${bookingUrl(q,iso,nights,o.people)}" target="_blank" rel="noopener sponsored">Xem khách sạn ↗</a>
+    <div class="actions">${(()=>{const ag=agodaUrl([z.area,...(z.areas||[]),o.prov].filter(Boolean),iso,nights,o.people);
+      return ag?`<a class="btn" href="${ag}" target="_blank" rel="noopener sponsored">Khách sạn trên Agoda ↗</a><a class="btn-ghost" href="${bookingUrl(q,iso,nights,o.people)}" target="_blank" rel="noopener sponsored">So sánh trên Booking ↗</a>`
+      :`<a class="btn" href="${bookingUrl(q,iso,nights,o.people)}" target="_blank" rel="noopener sponsored">Xem khách sạn ↗</a>`;})()}
     <a class="btn-ghost" href="${klookUrl(q)}" target="_blank" rel="noopener sponsored">Vé tham quan, tour ↗</a></div>
     <p class="hint">${AFF_NOTE}</p></section>`;
 }
