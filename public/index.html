@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Đi Đâu? – AI Travel Planner Việt Nam: bản đồ ăn uống, check-in, tham quan và lịch trình cho 34 tỉnh thành.">
 </head>
 <body style="margin:0">
@@ -1398,7 +1399,7 @@ let map, provLayer, tileLayer, placeLayer, labelLayer, tileErrs=0, tileOk=false,
 const OSM_ATTR='© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
 const TILE_PROVIDERS=[
   {name:'OpenStreetMap',url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',opt:{maxZoom:19,attribution:OSM_ATTR}},
-  {name:'CARTO Voyager',url:'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',opt:{subdomains:'abcd',maxZoom:20,attribution:OSM_ATTR+' © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}}
+  {name:'OSM Humanitarian',url:'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',opt:{subdomains:'abc',maxZoom:19,attribution:OSM_ATTR+', nền <a href="https://www.hotosm.org/" target="_blank" rel="noopener">HOT</a> / OSM France'}}
 ];
 function makeTileLayer(i){
   tileIdx=i; tileErrs=0; tileOk=false;
@@ -1444,8 +1445,8 @@ function disableTiles(blocked){
     const n=$('#tilenote'); n.hidden=false;
     const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
     n.innerHTML=inFrame?'<b>Lớp bản đồ đường phố chưa tải được ở đây.</b> Khung xem trước chặn ảnh bản đồ từ máy chủ ngoài. Mở trang trên web thật để thấy bản đồ đường phố. Ranh giới tỉnh và tọa độ địa điểm vẫn chính xác.'
-      :'<b>Không tải được ảnh bản đồ đường phố.</b> Mạng hoặc trình duyệt đang chặn máy chủ bản đồ (OpenStreetMap, CARTO). Thử tải lại trang, tắt trình chặn quảng cáo hoặc đổi mạng. Bấm "Bản đồ đường phố" để thử lại.';
-    setTimeout(()=>{n.hidden=true;},12000);
+      :'<b>Không tải được ảnh bản đồ đường phố.</b> Máy chủ OpenStreetMap không phản hồi cho trình duyệt này. Thử mở <a href="https://tile.openstreetmap.org/5/25/14.png" target="_blank" rel="noopener">ảnh bản đồ mẫu</a>: nếu thấy chữ "Access blocked" hoặc trang trắng thì mạng/trình duyệt đang chặn. Ranh giới tỉnh và địa điểm vẫn chính xác.';
+    setTimeout(()=>{n.hidden=true;},20000);
   }
 }
 function markProv(){
