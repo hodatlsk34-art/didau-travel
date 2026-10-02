@@ -1303,6 +1303,24 @@ html,body{height:auto!important}
 @media (max-width:480px){ .hx-art{width:96px} .hx-word svg{width:230px} .hx-tag{font-size:14px;padding:5px 12px} .hx-plane{display:none} }
 .hx-word svg{width:clamp(250px,38vw,470px)!important}
 @media (max-width:480px){ .hx-word svg{width:235px!important} }
+/* Chọn ngôn ngữ */
+.top-r{justify-self:end;display:flex;align-items:center;gap:10px}
+.langsw{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:3px;gap:2px}
+.langsw button{border:0;background:none;border-radius:999px;padding:5px 10px;font:600 12.5px/1 var(--font-body);color:var(--muted);cursor:pointer}
+.langsw button[aria-pressed="true"]{background:#0E4C8E;color:#fff}
+.hx-lang{position:absolute;top:14px;right:16px;z-index:3}
+.hx-lang .langsw{background:rgba(255,255,255,.9);border-color:transparent;box-shadow:0 4px 12px rgba(0,30,60,.18)}
+.app:not([data-tab="home"]) .hx-lang{display:none}
+@media (min-width:900px){ .app[data-tab="home"] .top .langsw{display:none} }
+@media (max-width:899px){ .top .langsw button{padding:5px 8px} .app[data-tab="home"] .top-r{display:none} }
+/* Cảm nhận */
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.rv-card{margin:0;display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.rv-card blockquote{margin:0;line-height:1.6}
+.rv-card figcaption{font-size:13.5px;color:var(--muted)} .rv-card figcaption small{display:block}
+.rv-stars{color:#F5A623;letter-spacing:2px} .rv-stars i{color:var(--line);font-style:normal}
+.rv-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,#F5A623 12%,var(--surface)),var(--surface));border:1px solid var(--line)}
+.rv-cta p{margin:0} .rv-cta small{color:var(--muted)}
 </style>
 
 <div class="app">
@@ -1318,13 +1336,15 @@ html,body{height:auto!important}
       <button class="tab" role="tab" data-tab="book" style="--tc:#0A84D6"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2.5A3.5 3.5 0 0 0 17.5 8H11v6"/><circle cx="7" cy="10.5" r="2"/></svg></span><span class="tl">Đặt chỗ</span></button>
       <button class="tab" role="tab" data-tab="blog" style="--tc:#7A3FC4"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5z"/><path d="M8 7.5h8M8 11h6"/></svg></span><span class="tl">Blog</span></button>
     </nav>
+    <div class="top-r"><div class="langsw" role="group" aria-label="Ngôn ngữ" data-notr><button type="button" data-lang="vi" aria-pressed="true">VI</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
     <button class="prov" id="provBtn" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
       <span class="nm" id="provName">Hà Nội</span> <span aria-hidden="true">▾</span>
-    </button>
+    </button></div>
   </header>
   <section class="hx" id="heroX" hidden aria-label="Tìm điểm đến">
     <div class="hx-bg" aria-hidden="true"></div>
+    <div class="hx-lang"><div class="langsw" role="group" aria-label="Ngôn ngữ" data-notr><button type="button" data-lang="vi" aria-pressed="true">VI</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div></div>
     <div class="hx-in">
       <div class="hx-logo">
         <svg class="hx-plane" viewBox="0 0 300 120" aria-hidden="true"><path d="M20 100C90 95 150 70 200 40" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="7 8" stroke-linecap="round" opacity=".9"/><g transform="translate(196 -6) rotate(35) scale(3.1)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="#fff" stroke="#0E3F86" stroke-width=".9" stroke-linejoin="round"/></g></svg>
@@ -2272,6 +2292,188 @@ function postHTML(slug){
 function openPost(slug){ state.tab='blog'; state.post=slug; state.selected=null; try{history.replaceState(null,'','#blog/'+slug);}catch(e){} render(); window.scrollTo(0,0); }
 function blogHash(){ const m=/^#blog(?:\/([a-z0-9-]{1,80}))?$/.exec(location.hash); if(!m) return false; state.tab='blog'; state.post=m[1]||null; state.selected=null; return true; }
 
+/* ---------- Đa ngôn ngữ (giao diện): Tiếng Việt / English / 中文 ---------- */
+const I18N_EXACT=[
+['AI Travel Planner Việt Nam','AI Travel Planner Vietnam','越南AI旅行规划'],
+['Trang chủ','Home','首页'],['Khám phá','Explore','探索'],['Lịch trình','Itinerary','行程'],['Đặt chỗ','Booking','预订'],['Blog','Blog','博客'],
+['Trợ lý du lịch AI dành cho người Việt','Your AI travel assistant for Vietnam','您的越南AI旅行助手'],
+['Gõ tên nơi muốn đến, hoặc kể chuyến đi: “3 ngày, 5 triệu, đi cùng con nhỏ, thích biển”','Type a place name (e.g. Da Lat, Hoi An), or describe your trip in Vietnamese','输入地名（如 Da Lat、Hoi An），或用越南语描述您的行程'],
+['Điểm đến hấp dẫn','Top destinations','热门目的地'],['Lịch trình AI','AI Itinerary','AI行程'],['Lên kế hoạch thông minh','Smart trip planning','智能行程规划'],
+['Bản đồ','Map','地图'],['Hành trình trực quan','See your route','路线一目了然'],
+['Bạn muốn đi đâu?','Where do you want to go?','你想去哪里？'],['Tìm','Search','搜索'],['Tìm điểm đến','Find a destination','查找目的地'],
+['✨ Gợi ý nhanh','✨ Quick picks','✨ 快速推荐'],['📍 Điểm đến: để AI chọn','📍 Destination: let AI choose','📍 目的地：由AI选择'],
+['💰 Chưa nhập ngân sách','💰 No budget set','💰 未设置预算'],['❤️ Chưa chọn sở thích','❤️ No interests selected','❤️ 未选择兴趣'],
+['Không biết đi đâu? Để AI chọn','Not sure where to go? Let AI pick','不知道去哪？让AI来选'],['✨ Chưa biết đi đâu? Để AI chọn','✨ Not sure where to go? Let AI pick','✨ 不知道去哪？让AI来选'],
+['Thử:','Try (Vietnamese):','试试（越南语）：'],['Chỉnh chi tiết','Customize details','详细设置'],['Điểm đến','Destination','目的地'],
+['✨ Để AI chọn giúp tôi','✨ Let AI choose for me','✨ 让AI帮我选'],['Ngày đi','Departure date','出发日期'],['Số ngày','Number of days','天数'],
+['Đi cùng (tính cả bạn)','Travellers (including you)','同行人数（含您）'],['Người lớn','Adults','成人'],['Trẻ em','Children','儿童'],['Lớn tuổi','Seniors','老人'],
+['Ngân sách cả chuyến','Total trip budget','总预算'],['triệu','million VND','百万越南盾'],['Xuất phát từ','Departing from','出发地'],['Sở thích','Interests','兴趣'],
+['🍜 Ẩm thực','🍜 Food','🍜 美食'],['🏖️ Biển – đảo','🏖️ Beaches & islands','🏖️ 海滩海岛'],['⛰️ Núi – thiên nhiên','⛰️ Mountains & nature','⛰️ 山川自然'],
+['🏯 Lịch sử – văn hóa','🏯 History & culture','🏯 历史文化'],['📸 Chụp ảnh','📸 Photography','📸 拍照'],['☕ Cà phê','☕ Coffee','☕ 咖啡'],
+['🌴 Nghỉ dưỡng','🌴 Relaxation','🌴 度假休闲'],['🌲 Khí hậu mát','🌲 Cool climate','🌲 凉爽气候'],
+['Nhịp độ','Pace','节奏'],['Thong thả','Relaxed','悠闲'],['Vừa','Moderate','适中'],['Dày','Packed','紧凑'],
+['Khám phá điểm đến','Explore destinations','探索目的地'],['✨ Lịch trình','✨ Itinerary','✨ 行程'],['🗺️ Bản đồ điểm đến','🗺️ Destination map','🗺️ 目的地地图'],
+['Chấm vàng: đang vào mùa đẹp. Bấm một chấm để chọn làm điểm đến.','Yellow dots are in season now. Tap a dot to choose it as your destination.','黄点表示当季最佳。点击圆点即可选为目的地。'],
+['Không tải được thư viện bản đồ. Kiểm tra kết nối mạng rồi tải lại trang.','Could not load the map. Check your connection and reload the page.','地图加载失败，请检查网络后刷新页面。'],
+['✕ Đóng bản đồ','✕ Close map','✕ 关闭地图'],['⤢ Mở rộng','⤢ Expand','⤢ 展开'],['Đường phố','Streets','街道'],['Toàn quốc','Whole country','全国'],
+['📍 Vị trí của tôi','📍 My location','📍 我的位置'],['Bấm lên bản đồ để chọn điểm xuất phát','Tap the map to choose a starting point','点击地图选择出发点'],['Hủy','Cancel','取消'],
+['Ăn uống','Food & drink','餐饮'],['Check-in','Photo spots','打卡'],['Tham quan','Sightseeing','观光'],
+['📊 Thống kê truy cập','📊 Visitor stats','📊 访问统计'],['Thống kê truy cập','Visitor stats','访问统计'],['Hôm nay','Today','今天'],['Hôm qua','Yesterday','昨天'],
+['7 ngày qua','Last 7 days','近7天'],['Tháng này','This month','本月'],['Tổng lượt truy cập','Total visits','总访问量'],
+['Số lượt xem trang, đếm bằng GoatCounter (không lưu thông tin cá nhân).','Page views counted by GoatCounter (no personal data stored).','页面浏览量由GoatCounter统计（不存储个人信息）。'],
+['Chính sách bảo mật','Privacy policy','隐私政策'],['🗺 Bản đồ','🗺 Map','🗺 地图'],['Chọn tỉnh thành','Choose a province','选择省市'],['Đi Đâu? – giới thiệu','About Đi Đâu?','关于 Đi Đâu?'],
+['Bớt ngày','Fewer days','减少天数'],['Thêm ngày','More days','增加天数'],['Không giới hạn','No limit','不限'],['Đóng','Close','关闭'],
+['Gợi ý cho bạn','Recommended for you','为您推荐'],['Chuyến đi tương tự','Similar trips','类似行程'],['phù hợp','match','匹配度'],['vượt ngân sách','over budget','超出预算'],
+['trong ngân sách','within budget','预算内'],['dự kiến cả chuyến','estimated total','预计总花费'],['tuyến đã tối ưu','optimized route','路线已优化'],
+['Xem lịch trình →','View itinerary →','查看行程 →'],['Xem địa điểm','View places','查看地点'],['Phù hợp gia đình có trẻ nhỏ.','Good for families with young children.','适合带小孩的家庭。'],
+['Cách tính % phù hợp: sở thích 40, ngân sách 25, mùa đẹp 15, thời gian đi lại so với số ngày 12, người đi cùng 8; trừ điểm khi kho dữ liệu nơi đó còn ít. Chi phí là ước tính theo mặt bằng giá chung.',
+ 'How the match % works: interests 40, budget 25, season 15, travel time vs. trip length 12, travel companions 8; minus points where we have little data. Costs are general estimates.',
+ '匹配度计算：兴趣40、预算25、季节15、路程与天数12、同行人员8；数据较少的地方会扣分。费用为一般估算。'],
+['Đổi tỉnh ▾','Change province ▾','切换省份 ▾'],['Đổi tỉnh','Change province','切换省份'],['Tất cả','All','全部'],
+['📍 Tính khoảng cách từ chỗ tôi','📍 Distance from me','📍 计算离我的距离'],['Đúng mùa','In season','当季'],
+['Tìm quán, món ăn, địa điểm… (gõ không dấu được)','Search places or dishes… (Vietnamese names)','搜索餐馆、美食、地点…（越南语名称）'],['Tìm kiếm','Search','搜索'],
+['Đã lưu','Saved','已保存'],['← Danh sách','← List','← 列表'],['Địa chỉ','Address','地址'],['Giờ mở cửa','Opening hours','营业时间'],['Giá tham khảo','Typical price','参考价格'],
+['Thời điểm đẹp','Best time','最佳时间'],['Nên dành','Suggested time','建议停留'],['Loại hình','Setting','类型'],['Trong nhà','Indoor','室内'],['Ngoài trời','Outdoor','户外'],
+['Trong nhà & ngoài trời','Indoor & outdoor','室内外'],['Phù hợp (ước tính)','Suitable for (estimate)','适合人群（估计）'],['Xác minh','Verification','核实'],
+['Chưa xác minh tại chỗ','Not verified on site','未经实地核实'],['Nên gọi','Call ahead','建议先致电'],['Mẹo','Tip','小贴士'],['♥ Đã lưu','♥ Saved','♥ 已收藏'],['♡ Lưu','♡ Save','♡ 收藏'],
+['+ Thêm vào lịch trình','+ Add to itinerary','+ 加入行程'],['Đường đi','Directions','路线'],
+['Cho phép lấy vị trí để tính quãng đường, thời gian và vẽ đường đi từ chỗ bạn đến đây.','Allow location access to see distance, travel time and directions from where you are.','允许获取位置，即可计算距离、时间并显示从您所在位置出发的路线。'],
+['📍 Dùng vị trí của tôi','📍 Use my location','📍 使用我的位置'],['Chọn điểm xuất phát trên bản đồ','Pick a starting point on the map','在地图上选择出发点'],
+['Mở chỉ đường trên Google Maps ↗','Open directions in Google Maps ↗','在Google地图中打开路线 ↗'],['Ở gần đây & hoạt động','Stay nearby & activities','附近住宿与活动'],
+['Khách sạn trên Traveloka ↗','Hotels on Traveloka ↗','Traveloka 酒店 ↗'],['Vé, tour trên Traveloka ↗','Tickets & tours on Traveloka ↗','Traveloka 门票与旅游 ↗'],
+['Liên kết đối tác: Đi Đâu? có thể nhận hoa hồng khi bạn đặt qua đây, giá bạn trả không đổi.','Partner links: Đi Đâu? may earn a commission when you book here, at no extra cost to you.','合作链接：通过此处预订，Đi Đâu? 可能获得佣金，您支付的价格不变。'],
+['Liên kết đối tác: Đi Đâu? có thể nhận hoa hồng khi bạn đặt qua đây, giá bạn trả không đổi. Giá, phòng trống và chính sách do Traveloka cung cấp.','Partner links: Đi Đâu? may earn a commission when you book here, at no extra cost to you. Prices, availability and policies are provided by Traveloka.','合作链接：通过此处预订，Đi Đâu? 可能获得佣金，您支付的价格不变。价格、房态和政策由 Traveloka 提供。'],
+['Ảnh tự chụp và video review của bạn sẽ hiển thị ở đây.','Your own photos and video reviews will appear here.','您的照片和视频评价将显示在这里。'],
+[', hoặc về Trang chủ để AI chọn điểm đến.',', or go Home to let AI pick a destination.','，或回到首页让AI选择目的地。'],
+['Không tính vé tới nơi','Excluding travel to the destination','不含往返交通'],['Mức ăn uống','Food budget','餐饮档次'],['Bình dân','Budget','平价'],['Vừa phải','Mid-range','中档'],['Thoải mái','Generous','宽裕'],
+['Muốn ghé','Must-visit','想去'],['Mở một địa điểm và bấm "Thêm vào lịch trình" để ưu tiên điểm đó.','Open a place and tap "Add to itinerary" to prioritize it.','打开一个地点并点击“加入行程”即可优先安排。'],
+['✨ Lập lại lịch trình','✨ Rebuild itinerary','✨ 重新生成行程'],['địa điểm','places','个地点'],['di chuyển tại chỗ','local travel','当地交通'],
+['Ăn sáng','Breakfast','早餐'],['Ăn trưa','Lunch','午餐'],['Ăn tối','Dinner','晚餐'],['Cà phê','Coffee','咖啡'],['Dạo tối & ăn vặt','Evening stroll & snacks','夜游与小吃'],
+['↻ Đổi','↻ Swap','↻ 换一个'],['Đúng giờ hoàng hôn','Right at sunset','正值日落'],['Mở tối cuối tuần','Open on weekend evenings','周末晚上开放'],['✨ Tối ưu thứ tự','✨ Optimize order','✨ 优化顺序'],
+['Xuất phát mỗi sáng:','Start each morning from:','每天早上出发地：'],['📍 Từ vị trí của tôi','📍 From my location','📍 从我的位置出发'],
+['Chưa lấy được dự báo thời tiết (mạng hoặc máy chủ thời tiết không phản hồi).','Weather forecast unavailable (network or weather server not responding).','暂时无法获取天气预报（网络或天气服务器无响应）。'],
+['Ngân sách dự kiến','Estimated budget','预计预算'],['Di chuyển','Transport','交通'],['Khách sạn','Hotels','酒店'],['Vé tham quan','Entrance tickets','门票'],
+['Giá vé người lớn tham khảo','Reference adult ticket prices','成人参考票价'],['Khác','Other','其他'],['Nước uống, quà, phát sinh (~8%)','Drinks, gifts, extras (~8%)','饮料、礼品、杂费（约8%）'],
+['Theo các quán trong lịch trình','Based on eateries in the itinerary','按行程中的餐馆计算'],['Ngân sách','Budget','预算'],['Mức khách sạn','Hotel level','酒店档次'],
+['Tiết kiệm','Budget','经济'],['Tầm trung','Mid-range','中档'],['Cao cấp','Luxury','高档'],['💸 Tối ưu lại để giảm chi phí','💸 Re-optimize to cut costs','💸 重新优化以降低费用'],
+['Giá là ước tính theo mặt bằng chung, chưa phải báo giá. Vé máy bay, khách sạn thay đổi theo ngày đặt.','Prices are general estimates, not quotes. Flight and hotel prices vary by booking date.','价格为一般估算，并非报价。机票和酒店价格随预订日期变化。'],
+['♡ Lưu chuyến đi','♡ Save trip','♡ 保存行程'],['🔗 Chia sẻ link','🔗 Share link','🔗 分享链接'],['🖨 In / PDF','🖨 Print / PDF','🖨 打印 / PDF'],['Sao chép','Copy','复制'],
+['Tạo chuyến đi tương tự','Create a similar trip','创建类似行程'],['Đưa lên','Move up','上移'],['Đưa xuống','Move down','下移'],['Bớt một ngày','One day fewer','减少一天'],['Thêm một ngày','One more day','增加一天'],
+['🧳 Đặt chỗ','🧳 Booking','🧳 预订'],['Đặt khách sạn, vé máy bay, vé vui chơi qua đối tác','Book hotels, flights and activities with our partner','通过合作伙伴预订酒店、机票和游玩项目：'],
+['. Trang sẽ mở trong tab mới.','. Opens in a new tab.','。将在新标签页中打开。'],['Phòng khách sạn, homestay, resort khắp Việt Nam','Hotels, homestays and resorts across Vietnam','越南各地的酒店、民宿和度假村'],
+['Vé máy bay','Flights','机票'],['So sánh giá vé nội địa và quốc tế','Compare domestic and international fares','比较国内和国际机票价格'],['Vé vui chơi & tour','Activities & tours','门票与旅游'],
+['Vé tham quan, công viên, tour trong ngày','Attractions, theme parks, day tours','景点、主题公园、一日游'],['💡 Mẹo đặt chỗ','💡 Booking tips','💡 预订小贴士'],
+['Lên lịch trình trên Đi Đâu? trước để biết nên ở khu nào, rồi mới đặt khách sạn gần các điểm tham quan.','Plan your itinerary on Đi Đâu? first to see which area to stay in, then book a hotel near the sights.','先在 Đi Đâu? 上规划行程，了解住哪个区域，再预订靠近景点的酒店。'],
+['Mùa cao điểm (hè, lễ, Tết, mùa hoa) nên đặt sớm 2–4 tuần.','In peak season (summer, holidays, Tết, flower season) book 2–4 weeks ahead.','旺季（夏季、节假日、春节、花季）请提前2–4周预订。'],
+['Đọc kỹ điều kiện hoàn hủy trước khi thanh toán.','Read the cancellation policy carefully before paying.','付款前请仔细阅读退改政策。'],
+['📖 Blog Đi Đâu?','📖 Đi Đâu? Blog','📖 Đi Đâu? 博客'],['Cẩm nang, kinh nghiệm và lịch trình gợi ý cho chuyến đi của bạn.','Travel guides, tips and sample itineraries (articles in Vietnamese).','旅行指南、经验和推荐行程（文章为越南语）。'],
+['← Tất cả bài viết','← All posts','← 所有文章'],['Bài viết khác','More posts','更多文章'],
+['34 tỉnh thành theo địa giới mới từ 1/7/2025. Tìm bằng tên tỉnh cũ vẫn ra tỉnh mới. Có thể bấm trực tiếp lên bản đồ để chọn tỉnh.','34 provinces under the new boundaries from 1 July 2025. Searching an old province name finds the new one. You can also tap the map to choose.','按2025年7月1日起的新行政区划共34个省市。搜索旧省名也能找到新省。也可以直接点击地图选择。'],
+['Gõ tên tỉnh mới, tỉnh cũ hoặc điểm đến (Hội An, Đà Lạt…)','Type a province or destination (Hoi An, Da Lat…)','输入省名或目的地（Hoi An、Da Lat…）'],['Tìm tỉnh thành','Find a province','查找省市'],
+['Chào mừng bạn','Welcome','欢迎'],['Đi đâu, ăn gì, chơi gì – hỏi Đi Đâu?','Where to go, what to eat, what to do – ask Đi Đâu?','去哪儿、吃什么、玩什么——问 Đi Đâu?'],
+['Chọn tỉnh thành (34 tỉnh theo địa giới mới) để xem món ngon, điểm check-in, tham quan.','Choose a province (34 under the new boundaries) to see food, photo spots and sights.','选择省市（新区划共34个）查看美食、打卡点和景点。'],
+['Bấm','Tap','点击'],['để biết khoảng cách và chỉ đường.','to see distance and directions.','查看距离和路线。'],['Ở','In','在'],['Bắt đầu khám phá','Start exploring','开始探索'],
+['💬 Cảm nhận của du khách','💬 Traveller reviews','💬 游客评价'],['✍️ Viết cảm nhận','✍️ Write a review','✍️ 写评价'],
+['Bạn đã dùng Đi Đâu? cho chuyến đi của mình? Hãy chia sẻ cảm nhận để giúp người khác.','Used Đi Đâu? for your trip? Share your experience to help others.','用 Đi Đâu? 规划过旅行吗？分享您的感受，帮助其他人。'],
+['Cảm nhận được Đi Đâu? duyệt trước khi hiển thị.','Reviews are checked by Đi Đâu? before being shown.','评价经 Đi Đâu? 审核后显示。'],['Góp ý','Feedback','意见反馈'],
+['Ngôn ngữ','Language','语言']
+];
+const WD_EN={T2:'Mon',T3:'Tue',T4:'Wed',T5:'Thu',T6:'Fri',T7:'Sat',CN:'Sun'}, WD_ZH={T2:'周一',T3:'周二',T4:'周三',T5:'周四',T6:'周五',T7:'周六',CN:'周日'};
+const plural=(n,w)=>n+' '+w+(String(n).replace(',','.')==='1'?'':'s');
+const I18N_RE={
+ en:[[/^Đẹp tháng (\d+)$/,'Best in month $1'],[/^Xem tất cả (\d+) điểm đến$/,'See all $1 destinations'],[/^Ảnh: (.+)$/,'Photo: $1'],[/^Gồm: (.+)$/,'Includes: $1'],
+   [/^(\d+) thành phố$/,'$1 cities'],[/^(\d+) tỉnh$/,'$1 provinces'],[/^Bớt (.+)$/,(m,a)=>'Fewer '+trExact(a)],[/^Thêm (.+)$/,(m,a)=>'More '+trExact(a)],
+   [/^Đổi gợi ý khác cho (.+)$/,'Suggest another instead of $1'],[/^Bỏ (.+)$/,'Remove $1'],[/^Tháng (\d+) là thời điểm đẹp để đi\.$/,'Month $1 is a great time to go.'],
+   [/^Đang lập cho (.+)\.$/,'Planning for $1.'],[/^Ngày (\d+)$/,'Day $1'],[/^Lưu ý ngày (\d+)$/,'Note for day $1'],[/^Tháng (\d+) ở (.+)$/,'Month $1 in $2'],
+   [/^Đặt chỗ cho ngày (\d+) · (.+)$/,'Bookings for day $1 · $2'],[/^Tổng cho (\d+) người$/,(m,a)=>'Total for '+plural(a,'person').replace('persons','people')],
+   [/^© (\d+) Đi Đâu\? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh điểm đến: Wikimedia Commons · Thời tiết: Open-Meteo ·$/,'© $1 Đi Đâu? – AI Travel Planner Vietnam · Map © OpenStreetMap · Photos: Wikimedia Commons · Weather: Open-Meteo ·']],
+ zh:[[/^Đẹp tháng (\d+)$/,'$1月最佳'],[/^Xem tất cả (\d+) điểm đến$/,'查看全部$1个目的地'],[/^Ảnh: (.+)$/,'图片：$1'],[/^Gồm: (.+)$/,'包括：$1'],
+   [/^(\d+) thành phố$/,'$1个城市'],[/^(\d+) tỉnh$/,'$1个省'],[/^Bớt (.+)$/,(m,a)=>'减少'+trExact(a)],[/^Thêm (.+)$/,(m,a)=>'增加'+trExact(a)],
+   [/^Đổi gợi ý khác cho (.+)$/,'换掉 $1'],[/^Bỏ (.+)$/,'删除 $1'],[/^Tháng (\d+) là thời điểm đẹp để đi\.$/,'$1月是出行的好时节。'],
+   [/^Đang lập cho (.+)\.$/,'正在为 $1 规划。'],[/^Ngày (\d+)$/,'第$1天'],[/^Lưu ý ngày (\d+)$/,'第$1天注意事项'],[/^Tháng (\d+) ở (.+)$/,'$2 的$1月'],
+   [/^Đặt chỗ cho ngày (\d+) · (.+)$/,'第$1天预订 · $2'],[/^Tổng cho (\d+) người$/,'$1人总计'],
+   [/^© (\d+) Đi Đâu\? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh điểm đến: Wikimedia Commons · Thời tiết: Open-Meteo ·$/,'© $1 Đi Đâu? – 越南AI旅行规划 · 地图 © OpenStreetMap · 图片：Wikimedia Commons · 天气：Open-Meteo ·']]
+};
+const I18N_FRAG={
+ en:[[/ẩm thực/g,'food'],[/biển – đảo/g,'beaches & islands'],[/núi – thiên nhiên/g,'mountains & nature'],[/lịch sử – văn hóa/g,'history & culture'],[/chụp ảnh/g,'photography'],[/cà phê/g,'coffee'],[/nghỉ dưỡng/g,'relaxation'],[/khí hậu mát/g,'cool climate'],[/(\d+) ngày (\d+) đêm/g,(m,a,b)=>plural(a,'day')+' '+plural(b,'night')],[/(\d+) ngày/g,(m,a)=>plural(a,'day')],[/(\d+) đêm/g,(m,a)=>plural(a,'night')],
+   [/(\d+) người lớn/g,(m,a)=>plural(a,'adult')],[/(\d+) trẻ em/g,(m,a)=>a+(a==='1'?' child':' children')],[/(\d+) lớn tuổi/g,(m,a)=>plural(a,'senior')],[/(\d+) người/g,(m,a)=>a+(a==='1'?' person':' people')],
+   [/([\d.,]+) triệu/g,'$1M VND'],[/(\d+) địa điểm/g,(m,a)=>plural(a,'place')],[/(\d+) điểm/g,(m,a)=>plural(a,'stop')],[/(\d+) giờ/g,'$1 h'],[/(\d+) phút/g,'$1 min'],
+   [/Đi bộ/g,'Walk'],[/Xe máy\/Grab bike/g,'Motorbike/Grab'],[/Ô tô\/Grab car/g,'Car/Grab'],[/Miễn phí/g,'Free'],[/\/người/g,'/person'],[/Trong nhà & ngoài trời/g,'Indoor & outdoor'],[/Trong nhà/g,'Indoor'],[/Ngoài trời/g,'Outdoor'],
+   [/\b(T[2-7]|CN) (\d\d\/\d\d)/g,(m,a,b)=>WD_EN[a]+' '+b],[/Thời gian tự do/g,'Free time'],[/nghỉ ngơi hoặc dạo quanh/g,'rest or wander around'],[/Hợp sở thích:/g,'Matches interests:'],
+   [/Vượt ngân sách khoảng/g,'Over budget by about'],[/xuất phát từ/g,'departing from'],[/Xuất phát từ/g,'Departing from'],[/nhịp vừa/g,'moderate pace'],[/nhịp thong thả/g,'relaxed pace'],[/nhịp dày/g,'packed pace'],[/sở thích:/g,'interests:'],
+   [/\(mặc định\)/g,'(default)'],[/^(📅 .*)· từ /g,'$1· from '],[/(^|🚩 )Từ /,'$1From '],[/ · Từ /g,' · From '],[/mỗi chiều/g,'each way'],[/Xe khách giường nằm/g,'Sleeper bus'],[/Máy bay/g,'Flight'],[/Tàu hỏa/g,'Train'],
+   [/nơi ở gợi ý/g,'suggested stay'],[/trung tâm/g,'centre'],[/Ngày (\d+) khá dày: khoảng/g,'Day $1 is quite full: about'],[/tham quan, ăn uống và di chuyển/g,'of sightseeing, meals and travel'],
+   [/Chỉ cách điểm trước/g,'Only'],[/Đã tối ưu thứ tự các điểm, bớt/g,'Stops reordered, saving'],[/km đi lại/g,'km of travel'],[/Kho dữ liệu nơi này mới có/g,'We only have'],[/lịch trình (\d+ days?) sẽ hơi thưa/g,'so a $1 itinerary will be light'],
+   [/là mùa mưa bão ven biển miền Trung, biển dễ động/g,'is storm season on the central coast; seas can be rough'],[/Phù hợp gia đình có trẻ nhỏ/g,'Good for families with young children'],
+   [/Khách sạn (\d+ nights?) từ/g,'Hotel for $1 from'],[/cho (\d+ (?:people|person))/g,'for $1'],[/Ngay tại/g,'Right in'],[/khứ hồi/g,'round trip'],[/đi lại tại chỗ/g,'local travel'],[/phòng/g,'room(s)'],[/mức tầm trung/g,'mid-range'],[/mức tiết kiệm/g,'budget'],[/mức cao cấp/g,'luxury'],
+   [/Tuyến ngày (\d+) trên Google Maps/g,'Day $1 route on Google Maps'],[/Yêu cầu chuyến đi/g,'Trip request'],[/Lưu lúc/g,'Saved at'],[/Tháng (\d+)/g,'Month $1']],
+ zh:[[/ẩm thực/g,'美食'],[/biển – đảo/g,'海滩海岛'],[/núi – thiên nhiên/g,'山川自然'],[/lịch sử – văn hóa/g,'历史文化'],[/chụp ảnh/g,'拍照'],[/cà phê/g,'咖啡'],[/nghỉ dưỡng/g,'度假休闲'],[/khí hậu mát/g,'凉爽气候'],[/(\d+) ngày (\d+) đêm/g,'$1天$2晚'],[/(\d+) ngày/g,'$1天'],[/(\d+) đêm/g,'$1晚'],[/(\d+) người lớn/g,'$1名成人'],[/(\d+) trẻ em/g,'$1名儿童'],[/(\d+) lớn tuổi/g,'$1名老人'],[/(\d+) người/g,'$1人'],
+   [/([\d.,]+) triệu/g,'$1百万越南盾'],[/(\d+) địa điểm/g,'$1个地点'],[/(\d+) điểm/g,'$1站'],[/(\d+) giờ/g,'$1小时'],[/(\d+) phút/g,'$1分钟'],
+   [/Đi bộ/g,'步行'],[/Xe máy\/Grab bike/g,'摩托/Grab'],[/Ô tô\/Grab car/g,'汽车/Grab'],[/Miễn phí/g,'免费'],[/\/người/g,'/人'],[/Trong nhà & ngoài trời/g,'室内外'],[/Trong nhà/g,'室内'],[/Ngoài trời/g,'户外'],
+   [/\b(T[2-7]|CN) (\d\d\/\d\d)/g,(m,a,b)=>WD_ZH[a]+' '+b],[/Thời gian tự do/g,'自由时间'],[/nghỉ ngơi hoặc dạo quanh/g,'休息或随意逛逛'],[/Hợp sở thích:/g,'符合兴趣：'],
+   [/Vượt ngân sách khoảng/g,'超出预算约'],[/xuất phát từ/g,'出发地'],[/Xuất phát từ/g,'出发地'],[/nhịp vừa/g,'节奏适中'],[/nhịp thong thả/g,'节奏悠闲'],[/nhịp dày/g,'节奏紧凑'],[/sở thích:/g,'兴趣：'],
+   [/\(mặc định\)/g,'（默认）'],[/^(📅 .*)· từ /g,'$1· 自 '],[/(^|🚩 )Từ /,'$1从 '],[/ · Từ /g,' · 从 '],[/mỗi chiều/g,'单程'],[/Xe khách giường nằm/g,'卧铺大巴'],[/Máy bay/g,'飞机'],[/Tàu hỏa/g,'火车'],
+   [/nơi ở gợi ý/g,'推荐住处'],[/trung tâm/g,'市中心'],[/Ngày (\d+) khá dày: khoảng/g,'第$1天安排较满：约'],[/tham quan, ăn uống và di chuyển/g,'的游览、用餐和交通'],
+   [/Đã tối ưu thứ tự các điểm, bớt/g,'已优化顺序，减少'],[/km đi lại/g,'公里路程'],[/Kho dữ liệu nơi này mới có/g,'此地目前仅有'],[/lịch trình (\d+天) sẽ hơi thưa/g,'，$1行程会略显稀疏'],
+   [/là mùa mưa bão ven biển miền Trung, biển dễ động/g,'是中部沿海风暴季，海况多变'],[/Phù hợp gia đình có trẻ nhỏ/g,'适合带小孩的家庭'],
+   [/Khách sạn (\d+晚) từ/g,'酒店$1，自'],[/cho (\d+人)/g,'，$1'],[/Ngay tại/g,'就在'],[/khứ hồi/g,'往返'],[/đi lại tại chỗ/g,'当地交通'],[/phòng/g,'间房'],[/mức tầm trung/g,'中档'],[/mức tiết kiệm/g,'经济'],[/mức cao cấp/g,'高档'],
+   [/Tuyến ngày (\d+) trên Google Maps/g,'Google地图上的第$1天路线'],[/Yêu cầu chuyến đi/g,'行程需求'],[/Lưu lúc/g,'保存于'],[/Tháng (\d+)/g,'$1月']]
+};
+const I18N_MAP={en:new Map(),zh:new Map()};
+I18N_EXACT.forEach(([vi,en,zh])=>{ I18N_MAP.en.set(vi,en); I18N_MAP.zh.set(vi,zh); });
+let LANG='vi';
+try{ const q=new URLSearchParams(location.search).get('lang'); LANG=['vi','en','zh'].includes(q)?q:(localStorage.getItem('didau.lang')||'vi'); if(!['vi','en','zh'].includes(LANG)) LANG='vi'; }catch(e){}
+function trExact(s){ return (LANG!=='vi'&&I18N_MAP[LANG].get(s))||s; }
+function trText(raw){
+  if(LANG==='vi') return raw;
+  const t=raw.replace(/\s+/g,' ').trim(); if(!t) return raw;
+  const lead=raw.match(/^\s*/)[0], tail=raw.match(/\s*$/)[0];
+  let out=I18N_MAP[LANG].get(t);
+  if(out===undefined){ for(const [re,rep] of I18N_RE[LANG]){ if(re.test(t)){ out=t.replace(re,rep); break; } } }
+  if(out===undefined&&t.length<=140){ let x=t; for(const [re,rep] of I18N_FRAG[LANG]) x=x.replace(re,rep); if(x!==t) out=x; }
+  return out===undefined?raw:lead+out+tail;
+}
+const TR_ATTRS=['placeholder','aria-label','title'];
+function trNode(root){
+  if(!root) return;
+  if(root.nodeType===3){ trTextNode(root); return; }
+  if(root.nodeType!==1||root.closest&&root.closest('script,style,[data-notr]')) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT|NodeFilter.SHOW_ELEMENT,{acceptNode:n=>n.nodeType===1&&n.matches('script,style,[data-notr]')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+  let n=root; do{ if(n.nodeType===3) trTextNode(n); else trAttrs(n); }while((n=w.nextNode()));
+}
+function trTextNode(n){
+  if(n.__tr!==undefined&&n.nodeValue===n.__tr) { const v=n.__vi; const o=trText(v); if(o!==n.nodeValue){ n.__tr=o; n.nodeValue=o; } return; }
+  n.__vi=n.nodeValue; const o=trText(n.__vi); n.__tr=o; if(o!==n.nodeValue) n.nodeValue=o;
+}
+function trAttrs(el){
+  for(const a of TR_ATTRS){ if(!el.hasAttribute(a)) continue; const k='data-vi-'+a; let v=el.getAttribute(k);
+    const cur=el.getAttribute(a); if(v===null||(cur!==el.__trA?.[a])){ v=cur; el.setAttribute(k,v); }
+    const o=trText(v); el.__trA=el.__trA||{}; el.__trA[a]=o; if(o!==cur) el.setAttribute(a,o); }
+}
+let trBusy=false;
+const trObs=new MutationObserver(ms=>{ if(LANG==='vi'||trBusy) return; trBusy=true;
+  try{ for(const m of ms){ if(m.type==='characterData') trTextNode(m.target); else m.addedNodes.forEach(trNode); } } finally{ trBusy=false; } });
+function setLang(l){
+  if(!['vi','en','zh'].includes(l)) l='vi'; LANG=l; try{ localStorage.setItem('didau.lang',l); }catch(e){}
+  document.documentElement.lang=l==='zh'?'zh-CN':l;
+  document.querySelectorAll('.langsw button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+  trBusy=true; try{ trNode(document.body); } finally{ trBusy=false; }
+}
+
+/* ---------- Cảm nhận người dùng (Google Form + danh sách đã duyệt) ----------
+   FEEDBACK_FORM: dán link Google Form vào đây. REVIEWS: lấy từ /reviews.json (bạn duyệt rồi thêm vào). */
+const FEEDBACK_FORM='';
+let REVIEWS=[];
+const cleanRev=r=>(r&&typeof r.text==='string'&&r.text.trim())?{name:String(r.name||'Du khách').slice(0,40),from:String(r.from||'').slice(0,40),stars:Math.max(1,Math.min(5,Math.round(Number(r.stars)||5))),text:r.text.slice(0,600),date:String(r.date||'').slice(0,10),trip:String(r.trip||'').slice(0,60)}:null;
+if(/^https?:$/.test(location.protocol)) fetch('/reviews.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(a=>{ if(Array.isArray(a)){ REVIEWS=a.map(cleanRev).filter(Boolean).slice(0,30); if(REVIEWS.length&&state.tab==='home'&&!state.selected) render(); } }).catch(()=>{});
+const formOk=()=>/^https:\/\/(docs\.google\.com\/forms\/|forms\.gle\/)/.test(FEEDBACK_FORM);
+function reviewsHTML(){
+  if(!formOk()&&!REVIEWS.length) return '';
+  const st=n=>'<span class="rv-stars" aria-label="'+n+'/5">'+'★'.repeat(n)+'<i>'+'★'.repeat(5-n)+'</i></span>';
+  return `<section class="feat rv"><h2 class="section-h">💬 Cảm nhận của du khách</h2>
+    ${REVIEWS.length?`<div class="rv-grid">${REVIEWS.map(r=>`<figure class="rv-card">${st(r.stars)}<blockquote data-notr>${esc(r.text)}</blockquote><figcaption><b data-notr>${esc(r.name)}</b>${r.from?` · <span data-notr>${esc(r.from)}</span>`:''}${r.trip?`<small data-notr>${esc(r.trip)}</small>`:''}</figcaption></figure>`).join('')}</div>`:''}
+    <div class="rv-cta"><p>Bạn đã dùng Đi Đâu? cho chuyến đi của mình? Hãy chia sẻ cảm nhận để giúp người khác.</p>${formOk()?`<a class="btn" href="${esc(FEEDBACK_FORM)}" target="_blank" rel="noopener">✍️ Viết cảm nhận</a>`:''}<small>Cảm nhận được Đi Đâu? duyệt trước khi hiển thị.</small></div></section>`;
+}
 /* ---------- Bảng bên trái ---------- */
 function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
@@ -2481,11 +2683,12 @@ function homeHTML(){
     <h2>✨ Gợi ý nhanh</h2>
     <div class="parsed" id="parsed" aria-live="polite">${parsedChips()}</div>
     <button class="cta2" data-action="homepick">Không biết đi đâu? Để AI chọn</button>
-    <div class="examples"><span class="ex-h">Thử:</span>${EXAMPLES.map((e,i)=>`<button class="ex" data-ex="${i}">${esc(e)}</button>`).join('')}</div>
+    <div class="examples"><span class="ex-h">Thử:</span>${EXAMPLES.map((e,i)=>`<button class="ex" data-notr data-ex="${i}">${esc(e)}</button>`).join('')}</div>
     <details class="more" id="reqMore" ${H.open?'open':''}><summary>Chỉnh chi tiết</summary><div id="reqForm">${reqForm()}</div></details>
   </section>
   <div id="recs" style="display:flex;flex-direction:column;gap:12px">${recsHTML()}</div>
   ${H.recs||H.loading?'':featuredHTML()}
+  ${reviewsHTML()}
   <section class="feat"><h2 class="section-h">🗺️ Bản đồ điểm đến</h2><p class="hint">Chấm vàng: đang vào mùa đẹp. Bấm một chấm để chọn làm điểm đến.</p><div class="minihost home-map" id="miniHost"></div></section>`;
 }
 function recsHTML(){
@@ -3181,6 +3384,8 @@ $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]');
   if(k==='plan'){ if((state.home.text||'').trim()){ homeGo(); window.scrollTo(0,0); } else { state.tab='plan'; state.selected=null; render(); fitView(); window.scrollTo(0,0); } }
 });
 buildReq(); render();
+trObs.observe(document.body,{childList:true,subtree:true,characterData:true}); setLang(LANG);
+document.addEventListener('click',e=>{ const b=e.target.closest('.langsw [data-lang]'); if(b){ setLang(b.dataset.lang); } });
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
 
