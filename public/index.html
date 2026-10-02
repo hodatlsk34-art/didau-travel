@@ -1103,7 +1103,8 @@ const byId=id=>BYID[id];
 const AFF = {
   agodaCid: '',     // mã "Site ID" (cid) do Agoda Partners cấp, ví dụ '1234567'
   bookingAid: '',   // mã "aid" do Booking.com Affiliate Partner Program cấp
-  deeplink: ''      // mẫu deeplink của mạng affiliate (AccessTrade, Ecomobi…), dùng {url} làm chỗ chèn link gốc
+  // Đăng ký qua mạng trung gian (AccessTrade, Ecomobi…): mỗi nhãn hàng một mẫu deep link, {url} là chỗ chèn link gốc.
+  wrap: { agoda:'', booking:'', klook:'' }
 };
 /* Mã thành phố Agoda (city ID). Chỉ ghi mã đã kiểm chứng; điểm đến chưa có mã sẽ dùng Booking.com.
    Cách lấy mã: tìm thành phố trên agoda.com, xem tham số city=... trên thanh địa chỉ, hoặc dùng công cụ tạo link trong trang Agoda Partners. */
@@ -1112,22 +1113,22 @@ const AGODA_CITY = {
   'Đà Nẵng':16440, 'Trung tâm Đà Nẵng':16440
 };
 function agodaUrl(keys,checkin,nights,adults){
-  if(!AFF.agodaCid) return null;
+  if(!AFF.agodaCid && !AFF.wrap.agoda) return null;
   const k=keys.find(x=>AGODA_CITY[x]); if(!k) return null;
-  let u='https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid='+encodeURIComponent(AFF.agodaCid)+'&hl=vi-vn&city='+AGODA_CITY[k];
-  if(checkin) u+='&checkIn='+checkin+'&los='+Math.max(1,nights)+'&adults='+(adults||2)+'&rooms=1';
-  return u;
+  const q=checkin?'&checkIn='+checkin+'&los='+Math.max(1,nights)+'&adults='+(adults||2)+'&rooms=1':'';
+  if(AFF.agodaCid) return 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid='+encodeURIComponent(AFF.agodaCid)+'&hl=vi-vn&city='+AGODA_CITY[k]+q;
+  return affWrap('agoda','https://www.agoda.com/vi-vn/search?city='+AGODA_CITY[k]+q);
 }
-const affWrap = url => AFF.deeplink ? AFF.deeplink.replace('{url}',encodeURIComponent(url)) : url;
+const affWrap = (m,url) => AFF.wrap[m] ? AFF.wrap[m].replace('{url}',encodeURIComponent(url)) : url;
 function bookingUrl(q,checkin,nights,adults){
   let u='https://www.booking.com/searchresults.vi.html?ss='+encodeURIComponent(q+', Việt Nam');
   if(checkin){const out=new Date(checkin+'T00:00:00');out.setDate(out.getDate()+Math.max(1,nights));
     const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     u+='&checkin='+checkin+'&checkout='+iso(out)+'&group_adults='+(adults||2)+'&no_rooms=1';}
   if(AFF.bookingAid) u+='&aid='+encodeURIComponent(AFF.bookingAid);
-  return AFF.bookingAid?u:affWrap(u);
+  return AFF.bookingAid?u:affWrap('booking',u);
 }
-const klookUrl = q => affWrap('https://www.klook.com/vi/search/result/?query='+encodeURIComponent(q));
+const klookUrl = q => affWrap('klook','https://www.klook.com/vi/search/result/?query='+encodeURIComponent(q));
 const placeQuery = p => p.area==='Nội thành' ? p.prov : p.area.split(' – ')[0].replace(/^TP /,'');
 const AFF_NOTE = 'Liên kết đối tác: Đi Đâu? có thể nhận hoa hồng khi bạn đặt qua đây, giá bạn trả không đổi.';
 
