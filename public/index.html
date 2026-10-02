@@ -1104,7 +1104,11 @@ const AFF = {
   agodaCid: '',     // mã "Site ID" (cid) do Agoda Partners cấp, ví dụ '1234567'
   bookingAid: '',   // mã "aid" do Booking.com Affiliate Partner Program cấp
   // Đăng ký qua mạng trung gian (AccessTrade, Ecomobi…): mỗi nhãn hàng một mẫu deep link, {url} là chỗ chèn link gốc.
-  wrap: { agoda:'', booking:'', klook:'' }
+  wrap: {
+    agoda:'', booking:'', klook:'',
+    // Ecomobi – chiến dịch Traveloka Việt Nam (advertiser_id=traveloka.com.vn)
+    traveloka:'https://goeco.mobi/?token=jAAsklqtdBozRAjUNkPga&url={url}&sub1=didau-app&sub2=web&sub3={sub3}&advertiser_id=traveloka.com.vn&global_domain=traveloka.com'
+  }
 };
 /* Mã thành phố Agoda (city ID). Chỉ ghi mã đã kiểm chứng; điểm đến chưa có mã sẽ dùng Booking.com.
    Cách lấy mã: tìm thành phố trên agoda.com, xem tham số city=... trên thanh địa chỉ, hoặc dùng công cụ tạo link trong trang Agoda Partners. */
@@ -1119,7 +1123,27 @@ function agodaUrl(keys,checkin,nights,adults){
   if(AFF.agodaCid) return 'https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid='+encodeURIComponent(AFF.agodaCid)+'&hl=vi-vn&city='+AGODA_CITY[k]+q;
   return affWrap('agoda','https://www.agoda.com/vi-vn/search?city='+AGODA_CITY[k]+q);
 }
-const affWrap = (m,url) => AFF.wrap[m] ? AFF.wrap[m].replace('{url}',encodeURIComponent(url)) : url;
+const slugTag = s => norm(s||'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
+let affTag='';  // tên tỉnh/điểm đến của lượt bấm, ghi vào sub3 để xem báo cáo theo tỉnh
+const affWrap = (m,url) => AFF.wrap[m] ? AFF.wrap[m].replace('{url}',encodeURIComponent(url)).replace('{sub3}',encodeURIComponent(affTag||'chung')) : url;
+const monetized = m => !!(AFF.wrap[m] || (m==='booking'&&AFF.bookingAid) || (m==='agoda'&&AFF.agodaCid));
+const travelokaHotelUrl = () => affWrap('traveloka','https://www.traveloka.com/vi-vn/hotel');
+const travelokaActUrl = () => affWrap('traveloka','https://www.traveloka.com/vi-vn/activities');
+function hotelLinks(keys,q,checkin,nights,adults){
+  affTag=slugTag(q);
+  const out=[]; const ag=agodaUrl(keys,checkin,nights,adults);
+  if(ag) out.push({label:'Khách sạn trên Agoda',href:ag});
+  if(monetized('traveloka')) out.push({label:'Khách sạn trên Traveloka',href:travelokaHotelUrl()});
+  if(monetized('booking')||!out.length) out.push({label:out.length?'So sánh trên Booking':'Khách sạn quanh '+q,href:bookingUrl(q,checkin,nights,adults)});
+  return out;
+}
+function activityLinks(q){
+  affTag=slugTag(q); const out=[];
+  if(monetized('klook')||!monetized('traveloka')) out.push({label:'Vé, tour trên Klook',href:klookUrl(q)});
+  if(monetized('traveloka')) out.push({label:'Vé, tour trên Traveloka',href:travelokaActUrl()});
+  return out;
+}
+const linkBtns = (arr,firstCls) => arr.map((l,i)=>`<a class="${i===0&&firstCls?firstCls:'btn-ghost'}" href="${l.href}" target="_blank" rel="noopener sponsored">${esc(l.label)} ↗</a>`).join('');
 function bookingUrl(q,checkin,nights,adults){
   let u='https://www.booking.com/searchresults.vi.html?ss='+encodeURIComponent(q+', Việt Nam');
   if(checkin){const out=new Date(checkin+'T00:00:00');out.setDate(out.getDate()+Math.max(1,nights));
@@ -1444,8 +1468,7 @@ function detailHTML(p){
   </div>
   ${routeBoxHTML(p)}
   <section class="aff"><h3>Ở gần đây & hoạt động</h3>
-    <div class="actions">${(()=>{const ag=agodaUrl([p.area,p.prov]);return ag?`<a class="btn-ghost" href="${ag}" target="_blank" rel="noopener sponsored">Khách sạn trên Agoda ↗</a>`:'';})()}<a class="btn-ghost" href="${bookingUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Khách sạn quanh ${esc(placeQuery(p))} ↗</a>
-    <a class="btn-ghost" href="${klookUrl(placeQuery(p))}" target="_blank" rel="noopener sponsored">Vé, tour ${esc(placeQuery(p))} ↗</a></div>
+    <div class="actions">${linkBtns(hotelLinks([p.area,p.prov],placeQuery(p)))}${linkBtns(activityLinks(placeQuery(p)))}</div>
     <p class="hint">${AFF_NOTE}</p></section>
   <p class="photo-note">Ảnh tự chụp và video review của bạn sẽ hiển thị ở đây.</p>`;
 }
@@ -1505,11 +1528,8 @@ function stayBox(plan){
   const nights=plan.days.filter(d=>d.zi===plan.days[state.day].zi).length;
   const start=plan.days[state.day].date, iso=start.getFullYear()+'-'+String(start.getMonth()+1).padStart(2,'0')+'-'+String(start.getDate()).padStart(2,'0');
   return `<section class="aff stay"><h3>Đặt chỗ cho ngày ${state.day+1} · ${esc(q)}</h3>
-    <p>Khách sạn ${nights} đêm từ ${dm(start)} cho ${o.people} người, đã điền sẵn ngày.</p>
-    <div class="actions">${(()=>{const ag=agodaUrl([z.area,...(z.areas||[]),o.prov].filter(Boolean),iso,nights,o.people);
-      return ag?`<a class="btn" href="${ag}" target="_blank" rel="noopener sponsored">Khách sạn trên Agoda ↗</a><a class="btn-ghost" href="${bookingUrl(q,iso,nights,o.people)}" target="_blank" rel="noopener sponsored">So sánh trên Booking ↗</a>`
-      :`<a class="btn" href="${bookingUrl(q,iso,nights,o.people)}" target="_blank" rel="noopener sponsored">Xem khách sạn ↗</a>`;})()}
-    <a class="btn-ghost" href="${klookUrl(q)}" target="_blank" rel="noopener sponsored">Vé tham quan, tour ↗</a></div>
+    <p>Khách sạn ${nights} đêm từ ${dm(start)} cho ${o.people} người.${monetized('traveloka')&&!agodaUrl([z.area,o.prov].filter(Boolean))?' Trên Traveloka, bạn chọn lại điểm đến và ngày khi trang mở ra.':''}</p>
+    <div class="actions">${linkBtns(hotelLinks([z.area,...(z.areas||[]),o.prov].filter(Boolean),q,iso,nights,o.people),'btn')}${linkBtns(activityLinks(q))}</div>
     <p class="hint">${AFF_NOTE}</p></section>`;
 }
 function savedHTML(){
