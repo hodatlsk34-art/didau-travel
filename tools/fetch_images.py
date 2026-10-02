@@ -190,6 +190,35 @@ def main():
     only = sys.argv[1] if len(sys.argv) > 1 else 'all'
     got = miss = 0
 
+    if only in ('all', 'hero'):
+        # Ảnh nền lớn cho trang chủ (1920px + bản dọc cho điện thoại)
+        HERO = {'halong': 'File:Ha_Long_Bay_in_2019.jpg'}
+        for name, ft in HERO.items():
+            out = os.path.join(PUB, 'images', 'hero', name + '-1920.webp')
+            if os.path.exists(out):
+                continue
+            host = 'commons.wikimedia.org'
+            j = get(f'https://{host}/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=1920&titles=' + urllib.parse.quote(ft))
+            ii = None
+            for pg in ((j or {}).get('query', {}).get('pages', {}) or {}).values():
+                ii = (pg.get('imageinfo') or [None])[0]
+            data = ii and get(ii.get('thumburl') or ii['url'], binary=True)
+            if not data:
+                print('HERO MISS', name); continue
+            im = Image.open(io.BytesIO(data)).convert('RGB')
+            if im.width > 1920:
+                im = im.resize((1920, round(im.height * 1920 / im.width)), Image.LANCZOS)
+            os.makedirs(os.path.dirname(out), exist_ok=True)
+            im.save(out, 'WEBP', quality=78, method=6)
+            # bản điện thoại: cắt dọc phần giữa, rộng 900
+            w, h = im.size; cw = min(w, round(h * 0.72)); x0 = (w - cw) // 2
+            m = im.crop((x0, 0, x0 + cw, h)); m = m.resize((900, round(m.height * 900 / m.width)), Image.LANCZOS)
+            m.save(os.path.join(PUB, 'images', 'hero', name + '-900.webp'), 'WEBP', quality=76, method=6)
+            md = ii.get('extmetadata') or {}
+            cred['hero:' + name] = {'f': f'/images/hero/{name}-1920.webp', 'page': ii.get('descriptionurl', 'https://commons.wikimedia.org'),
+                                    'credit': ' · '.join(x for x in (strip_html((md.get('Artist') or {}).get('value')), strip_html((md.get('LicenseShortName') or {}).get('value'))) if x)}
+            print('HERO OK', name, im.size)
+
     if only in ('all', 'dest'):
         marks = json.load(open(os.path.join(ROOT, 'tools', 'dest_landmarks.json'), encoding='utf-8'))
         for d in targets['dests']:
