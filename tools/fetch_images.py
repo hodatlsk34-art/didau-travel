@@ -36,6 +36,7 @@ def ok_title(title, name):
 
 
 STATS = {}
+WHY = []
 
 
 def get(url, binary=False, tries=5):
@@ -83,19 +84,27 @@ def file_info(file_title, lang='commons'):
 
 
 def summary(lang, title):
-    return get(f'https://{lang}.wikipedia.org/api/rest_v1/page/summary/' + urllib.parse.quote(title.replace(' ', '_')))
+    """Trả về {'title','file','lang'} của ảnh đại diện bài viết (pageimages), hoặc None."""
+    u = (f'https://{lang}.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=pageimages'
+         f'&piprop=name&titles=' + urllib.parse.quote(title.replace('_', ' ')))
+    j = get(u)
+    for pg in ((j or {}).get('query', {}).get('pages', {}) or {}).values():
+        if 'missing' in pg:
+            return None
+        return {'title': pg.get('title', ''), 'file': pg.get('pageimage'), 'lang': lang}
+    return None
 
 
 def from_summary(j):
     if not j:
         WHY.append('no-summary'); return None
-    src = (j.get('originalimage') or j.get('thumbnail') or {}).get('source', '')
-    if not src or src.lower().endswith('.svg') or '/svg' in src.lower():
-        WHY.append('summary-img=' + src[-40:]); return None
-    fname = urllib.parse.unquote(src.split('/')[-1])
-    m = re.search(r'/wikipedia/([a-z]+)/', src)
-    wiki = m.group(1) if m else 'commons'
-    return file_info('File:' + fname, 'commons' if wiki == 'commons' else wiki)
+    f = j.get('file')
+    if not f or f.lower().endswith('.svg'):
+        WHY.append('no-pageimage'); return None
+    ii = file_info('File:' + f, 'commons') or file_info('File:' + f, j['lang'])
+    if not ii:
+        WHY.append('no-imageinfo ' + f[:40])
+    return ii
 
 
 def commons_search(q):
@@ -107,16 +116,13 @@ def commons_search(q):
     return [(p.get('title', ''), (p.get('imageinfo') or [None])[0]) for p in pages]
 
 
-WHY = []
-
-
 def save(ii, rel, width):
     if not ii:
         WHY.append('no-imageinfo'); return None
     if not re.match(r'image/(jpeg|png|webp)', ii.get('mime', '')):
         WHY.append('mime=' + str(ii.get('mime'))); return None
     src = ii.get('thumburl') or ii.get('url')
-    if not src or not src.startswith('https://upload.wikimedia.org/'):
+    if not src or not re.match(r'https://(upload|thumb)\.wikimedia\.org/', src):
         WHY.append('src=' + str(src)[:60]); return None
     data = get(src, binary=True)
     if not data:
