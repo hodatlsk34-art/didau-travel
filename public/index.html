@@ -1096,6 +1096,12 @@ html,body{height:auto!important}
   .app[data-tab="home"] .top{position:static;height:0;padding:0!important;border:0;background:none!important;display:block!important}
   .app[data-tab="home"] .top .prov{display:none}
 }
+/* Banner + menu đứng yên khi cuộn (Trang chủ) */
+:root{--bh:clamp(86px,11.55vw,240px)}
+.home-banner{position:sticky;top:0;z-index:1201}
+.home-banner img{height:var(--bh)!important}
+.app[data-tab="home"] .top{top:var(--bh)}
+#recs,.feat{scroll-margin-top:calc(var(--bh) + 80px)}
 #printArea{display:none}
 @media print{
   .app,.sheet,.toast{display:none!important}
