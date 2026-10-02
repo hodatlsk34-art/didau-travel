@@ -17,7 +17,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="canonical" href="https://didautravel.id.vn/">
 </head>
 <body style="margin:0">
@@ -1130,6 +1130,19 @@ html,body{height:auto!important}
 .stats-grid .tot{background:var(--moss);border-color:var(--moss)} .stats-grid .tot b,.stats-grid .tot span{color:#fff}
 .stats-box small{font-size:11.5px;color:var(--muted)}
 @media (max-width:640px){ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .stats-grid .tot{grid-column:1/-1} }
+.ico{width:1.15em;height:1.15em;vertical-align:-.2em;flex:none}
+.pic{position:relative;overflow:hidden}
+.pic .wimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.pic.has-img .wimg{opacity:1}
+.pic.has-img svg{display:none}
+.pcard{grid-template-columns:64px 1fr auto!important}
+.pcard .pic{width:64px;height:64px;border-radius:14px}
+.phero{position:relative;height:0;border-radius:16px;overflow:hidden;transition:height .3s}
+.phero.has-img{height:230px}
+.phero .wimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.phero.has-img .wimg{opacity:1}
+.phero .wcredit{max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:640px){ .phero.has-img{height:190px} }
 #printArea{display:none}
 @media print{
   .app,.sheet,.toast{display:none!important}
@@ -1265,7 +1278,7 @@ const INTEREST = {
   food:{label:'Ẩm thực',tag:'street',ic:'🍜',v:'a'}, beach:{label:'Biển – đảo',tag:'beach',ic:'🏖️',v:'bd'},
   nature:{label:'Núi – thiên nhiên',tag:'nature',ic:'⛰️',v:'n'}, history:{label:'Lịch sử – văn hóa',tag:'history',ic:'🏯',v:'v'},
   photo:{label:'Chụp ảnh',tag:'photo',ic:'📸'}, cafe:{label:'Cà phê',tag:'cafe',ic:'☕'},
-  relax:{label:'Nghỉ dưỡng',tag:'relax',ic:'🧘',v:'r'}, cool:{label:'Khí hậu mát',tag:'cool',ic:'🌲',v:'m'}
+  relax:{label:'Nghỉ dưỡng',tag:'relax',ic:'🌴',v:'r'}, cool:{label:'Khí hậu mát',tag:'cool',ic:'🌲',v:'m'}
 };
 const BUDGET = {tietkiem:{label:'Bình dân',max:80000},vua:{label:'Vừa phải',max:150000},thoaimai:{label:'Thoải mái',max:Infinity}};
 const HOTEL_LV = {tk:{label:'Tiết kiệm',i:0},vua:{label:'Tầm trung',i:1},tm:{label:'Cao cấp',i:2}};
@@ -2062,7 +2075,7 @@ function render(){
   if(!state.selected) body.insertAdjacentHTML('beforeend',footerHTML());
   placeMap();
   renderMap();
-  applyImgs(); loadStats();
+  applyImgs(); applyPlaceImgs(); loadStats();
 }
 let mapMode='off';
 function placeMap(){
@@ -2114,6 +2127,56 @@ function destImg(key){
     }
     return null;
   })();
+}
+/* Ảnh từng địa điểm: thử bài Wikipedia tiếng Việt trùng tên, sau đó tìm ảnh trên Wikimedia Commons (giấy phép tự do, có ghi tác giả) */
+const STOPW=new Set(['cho','pho','quan','nha','chua','den','bai','bien','ho','nui','ca','phe','tp','thanh','khu','di','tich','va','cau','dong','doi']);
+const keyTok=n=>norm(n).replace(/\(.*?\)/g,' ').split(/[^a-z0-9]+/).filter(w=>w.length>=3&&!STOPW.has(w));
+function placeImg(p){
+  const key='p:'+p.id;
+  if(imgStore[key]!==undefined&&imgStore[key]!==0) return Promise.resolve(imgStore[key]);
+  if(imgMem[key]) return imgMem[key];
+  return imgMem[key]=(async()=>{
+    const name=p.name.replace(/\s*\(.*?\)\s*/g,' ').split(/\s[–&-]\s/)[0].trim(), toks=keyTok(name);
+    const okTitle=t=>{ const nt=norm(t); return toks.length?toks.filter(w=>nt.includes(w)).length>=Math.min(2,toks.length):nt.includes(norm(name)); };
+    // 1) Wikipedia tiếng Việt
+    if(p.cat!=='food') try{
+      const r=await fetch('https://vi.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(name.replace(/ /g,'_')));
+      if(r.ok){ const j=await r.json(); const src=j.thumbnail&&j.thumbnail.source;
+        if(typeof src==='string'&&/^https:\/\/upload\.wikimedia\.org\//.test(src)&&!/\.svg/i.test(src)&&okTitle(j.title||'')){
+          const m=src.match(/\/wikipedia\/([a-z]+)\/thumb\/[0-9a-f]\/[0-9a-f]{2}\/([^/]+)\//);
+          const res={src,big:m?src.replace(/\/\d+px-/,'/640px-'):src,page:m?(m[1]==='commons'?'https://commons.wikimedia.org/wiki/File:':'https://'+m[1]+'.wikipedia.org/wiki/File:')+m[2]:'https://commons.wikimedia.org',credit:'Wikimedia'};
+          imgStore[key]=res; store('didau.img2',imgStore); return res; } }
+    }catch(e){}
+    // 2) Wikimedia Commons
+    try{
+      const q=name+' '+(p.area==='Nội thành'?p.prov:p.area.split(' – ')[0]);
+      const u='https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch='+encodeURIComponent(q+' filetype:bitmap')+'&prop=imageinfo&iiprop=url|mime|extmetadata&iiurlwidth=640';
+      const r=await fetch(u); if(r.ok){ const j=await r.json(); const pages=Object.values((j.query&&j.query.pages)||{}).sort((a,b)=>(a.index||0)-(b.index||0));
+        for(const pg of pages){ const ii=pg.imageinfo&&pg.imageinfo[0]; if(!ii||!/^image\/(jpeg|png|webp)/.test(ii.mime||'')) continue;
+          if(!okTitle(pg.title||'')) continue;
+          const src=ii.thumburl||ii.url; if(typeof src!=='string'||!/^https:\/\/upload\.wikimedia\.org\//.test(src)) continue;
+          const md=ii.extmetadata||{}, strip=v=>String((v&&v.value)||'').replace(/<[^>]*>/g,'').trim().slice(0,60);
+          const lic=strip(md.LicenseShortName), au=strip(md.Artist);
+          const page=typeof ii.descriptionurl==='string'&&/^https:\/\/commons\.wikimedia\.org\//.test(ii.descriptionurl)?ii.descriptionurl:'https://commons.wikimedia.org';
+          const res={src,big:src,page,credit:(au?au+' · ':'')+(lic||'Wikimedia')};
+          imgStore[key]=res; store('didau.img2',imgStore); return res; } }
+    }catch(e){ return null; }
+    imgStore[key]=0; return null;  // không có ảnh phù hợp: thôi, không hỏi lại trong phiên này
+  })();
+}
+const imgIO=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ imgIO.unobserve(e.target); fillImg(e.target); } }),{rootMargin:'200px'}):null;
+function fillImg(el){
+  const p=BYID[el.dataset.pimg]; if(!p) return;
+  placeImg(p).then(im=>{ if(!im||!el.isConnected) return;
+    const img=document.createElement('img'); img.className='wimg'; img.alt=''; img.decoding='async';
+    img.onerror=()=>{ if(img.src!==im.src) img.src=im.src; else img.remove(); };
+    img.onload=()=>el.classList.add('has-img'); img.src=im.big;
+    el.prepend(img);
+    if(el.dataset.credit!==undefined){ const a=document.createElement('a'); a.className='wcredit'; a.href=im.page; a.target='_blank'; a.rel='noopener'; a.textContent='Ảnh: '+(im.credit||'Wikimedia'); el.appendChild(a); }
+  });
+}
+function applyPlaceImgs(){
+  document.querySelectorAll('[data-pimg]:not([data-done])').forEach(el=>{ el.dataset.done=1; if(imgIO) imgIO.observe(el); else fillImg(el); });
 }
 function applyImgs(){
   document.querySelectorAll('[data-img]:not([data-done])').forEach(el=>{ el.dataset.done=1;
@@ -2195,7 +2258,7 @@ function homeHTML(){
     <h1>✨ Bạn muốn đi đâu?</h1>
     <p class="sub">Nhập điểm đến, hoặc kể chuyến đi bằng một câu. Đi Đâu? chọn nơi hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và báo chi phí.</p>
     <label class="ask"><textarea id="ask" rows="2" aria-label="Mô tả chuyến đi" placeholder="Nhập điểm đến hoặc &quot;Tôi có 3 ngày, 5 triệu, đi cùng vợ và con, thích biển…&quot;">${esc(H.text)}</textarea></label>
-    <div class="hero-cta"><button class="btn big" data-action="homego">✨ Lịch trình AI</button><button class="btn big alt" data-action="homeexplore">🧭 Khám phá</button></div>
+    <div class="hero-cta"><button class="btn big" data-action="homego">✨ Lịch trình AI</button><button class="btn big alt" data-action="homeexplore">${IC_COMPASS} Khám phá</button></div>
     <button class="cta2" data-action="homepick">Không biết đi đâu? Để AI chọn</button>
     <div class="parsed" id="parsed" aria-live="polite">${parsedChips()}</div>
     <div class="examples"><span class="ex-h">Thử:</span>${EXAMPLES.map((e,i)=>`<button class="ex" data-ex="${i}">${esc(e)}</button>`).join('')}</div>
@@ -2222,18 +2285,19 @@ function recsHTML(){
     </article>`;}).join('')+
     `<p class="hint">Cách tính % phù hợp: sở thích 40, ngân sách 25, mùa đẹp 15, thời gian đi lại so với số ngày 12, người đi cùng 8; trừ điểm khi kho dữ liệu nơi đó còn ít. Chi phí là ước tính theo mặt bằng giá chung.</p>`;
 }
-const VIBE_LOOK={b:['🏖️','#1E88C8','#7FD1E8'],d:['🏝️','#0E7FA8','#76D6C9'],n:['⛰️','#2E8B57','#A8D98A'],m:['🌲','#3E7D5A','#B9DDB0'],v:['🏯','#C2571A','#F4C27A'],c:['🏙️','#4B5BB5','#A9B8F0'],s:['🛶','#1F8F86','#9ADBC9'],a:['🍜','#C9452E','#F6B48A'],r:['🧘','#8A5FB0','#D5BDF0']};
+const IC_COMPASS='<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>';
+const VIBE_LOOK={b:['🏖️','#1E88C8','#7FD1E8'],d:['🏝️','#0E7FA8','#76D6C9'],n:['⛰️','#2E8B57','#A8D98A'],m:['🌲','#3E7D5A','#B9DDB0'],v:['🏯','#C2571A','#F4C27A'],c:['🏙️','#4B5BB5','#A9B8F0'],s:['🛶','#1F8F86','#9ADBC9'],a:['🍜','#C9452E','#F6B48A'],r:['🌴','#8A5FB0','#D5BDF0']};
 function destCard(D,mo){
   const k=(D.v||'v')[0], lk=VIBE_LOOK[k]||VIBE_LOOK.v, good=D.months.includes(mo);
   return `<article class="dcard"><div class="dcard-top" data-img="${esc(D.key)}" style="--a:${lk[1]};--b:${lk[2]}"><span class="dcard-ic">${lk[0]}</span>${good?`<span class="dcard-badge">Đẹp tháng ${mo}</span>`:''}</div>
     <div class="dcard-body"><small>${esc(D.prov)}</small><h3>${esc(D.name)}</h3><p>${esc(D.intro||'')}</p><span class="hint">${D.n} địa điểm</span></div>
-    <div class="dcard-act"><button class="btn-ghost" data-dexp="${esc(D.key)}">🧭 Khám phá</button><button class="btn" data-dplan="${esc(D.key)}">✨ Lịch trình</button></div></article>`;
+    <div class="dcard-act"><button class="btn-ghost" data-dexp="${esc(D.key)}">${IC_COMPASS} Khám phá</button><button class="btn" data-dplan="${esc(D.key)}">✨ Lịch trình</button></div></article>`;
 }
 function featuredHTML(){
   const mo=new Date().getMonth()+1, H=state.home;
   const list=DEST.filter(D=>D.n>=5).sort((a,b)=>(b.months.includes(mo)-a.months.includes(mo))||b.n-a.n);
   const show=H.allDest?list:list.slice(0,9), saved=state.plans.slice(0,3);
-  return `<section class="feat"><h2 class="section-h">🧭 Khám phá điểm đến</h2>
+  return `<section class="feat"><h2 class="section-h">${IC_COMPASS} Khám phá điểm đến</h2>
     <div class="dgrid">${show.map(D=>destCard(D,mo)).join('')}</div>
     ${list.length>9?`<button class="btn-ghost" data-action="alldest" style="align-self:center">${H.allDest?'Thu gọn':'Xem tất cả '+list.length+' điểm đến'}</button>`:''}</section>
     ${saved.length?`<section class="feat"><h2 class="section-h">Chuyến đi đã lưu</h2>${saved.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><button class="btn-ghost" data-loadplan="${k}">Mở</button></div>`).join('')}</section>`:''}`;
@@ -2282,7 +2346,7 @@ function exploreHTML(){
 function cardHTML(p,showProv){
   const multi=DATA[p.prov].areas.length>1;
   return `<li><button class="pcard" data-open="${p.id}">
-    <span class="pic" style="--c:${CAT[p.cat].c}">${ICON[p.cat]}</span>
+    <span class="pic" data-pimg="${p.id}" style="--c:${CAT[p.cat].c}">${ICON[p.cat]}</span>
     <span class="pmain"><span class="pname">${esc(p.name)}</span><span class="psub">${esc(p.addr)}</span>
       <span class="pmeta"><span>${esc(p.price)}</span><span class="dot">•</span><span>${esc(p.best)}</span>${p.season?'<span class="tag-season">Đúng mùa</span>':''}${state.me?`<span class="dist-tag">📍 ~${fmtKm(roadKm(state.me,p))}</span>`:''}${showProv?`<span class="tag-area">${esc(p.prov)}</span>`:(multi&&state.area==='all'?`<span class="tag-area">${esc(p.area)}</span>`:'')}</span></span>
     ${state.saved.has(p.id)?'<span class="heart" aria-label="Đã lưu">♥</span>':'<span></span>'}
@@ -2291,7 +2355,7 @@ function cardHTML(p,showProv){
 function updateList(){
   const list=filtered(), ul=$('#plist'); if(!ul) return;
   $('#count').textContent=list.length+' địa điểm';
-  ul.innerHTML=list.length?list.map(p=>cardHTML(p)).join(''):'<li class="empty"><b>Không tìm thấy địa điểm</b>Thử từ khóa khác hoặc chọn "Tất cả".</li>';
+  ul.innerHTML=list.length?list.map(p=>cardHTML(p)).join(''):'<li class="empty"><b>Không tìm thấy địa điểm</b>Thử từ khóa khác hoặc chọn "Tất cả".</li>'; applyPlaceImgs();
 }
 /* ---------- Vị trí người dùng & chỉ đường ---------- */
 const ROUTERS={
@@ -2383,6 +2447,7 @@ function detailHTML(p){
   const backLabel={explore:'Danh sách',plan:'Lịch trình',saved:'Đã lưu'}[state.from];
   return `
   <button class="back" data-action="back">← ${backLabel}</button>
+  <div class="phero" data-pimg="${p.id}" data-credit></div>
   <div class="hero" style="--c:${c.c}"><span class="hero-ic">${ICON[p.cat]}</span>
     <div><span class="cat-chip">${c.label} · ${esc(p.area==='Nội thành'?p.prov:p.area)}${p.season?' · Đúng mùa':''}</span><h2>${esc(p.name)}</h2><p>${esc(p.why)}</p></div></div>
   <div class="minihost" id="miniHost"></div>
