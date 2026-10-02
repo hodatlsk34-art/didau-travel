@@ -712,7 +712,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --shadow:0 8px 28px rgba(0,0,0,.45); color-scheme:dark;
 }
 [hidden]{display:none!important}
-html,body{height:100%}
+html,body{height:100%;margin:0}
 body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:14px;line-height:1.5}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--moss);outline-offset:2px}
@@ -1045,6 +1045,34 @@ body.has-bgimg::before{top:0;height:auto;background:linear-gradient(rgba(244,249
 }
 @media (max-width:899px){ .top{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--surface)} }
 @media (min-width:900px) and (max-width:1180px){ .tagline{display:none} .top .tab{padding:8px 11px} }
+/* Trang chủ V3: banner · ô nhập · khám phá điểm đến · bản đồ */
+.pbody{overflow-x:hidden}
+.app{overflow-x:clip}
+.home-banner{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-top:-18px;margin-bottom:4px;box-shadow:0 6px 18px rgba(14,76,142,.15)}
+.home-banner img{display:block;width:100%;height:clamp(86px,11.55vw,240px);object-fit:cover;object-position:left center}
+.home-banner .hs{position:absolute;top:22%;height:74%;border:0;background:transparent;border-radius:10px;cursor:pointer}
+.home-banner .hs:hover{background:rgba(255,255,255,.18);box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+@media (max-width:760px){ .home-banner .hs{display:none} }
+.home-hero h1{text-align:center}
+.home-hero .sub{text-align:center;max-width:640px;margin:0 auto}
+.hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn.alt{background:#22803A}
+.cta2{align-self:center}
+.ex-h{font-size:12.5px;color:var(--muted);font-weight:600;align-self:center}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.dcard{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 4px 14px rgba(16,40,34,.08);transition:transform .15s,box-shadow .15s}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,40,34,.14)}
+.dcard-top{position:relative;height:74px;background:linear-gradient(135deg,var(--a),var(--b));display:flex;align-items:center;justify-content:center}
+.dcard-ic{font-size:34px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.dcard-badge{position:absolute;top:8px;right:8px;background:#fff;color:#B7500F;font-size:11px;font-weight:700;border-radius:999px;padding:2px 9px}
+.dcard-body{padding:12px 14px 6px;display:flex;flex-direction:column;gap:2px;flex:1}
+.dcard-body small{color:var(--muted);font-size:12px}
+.dcard-body h3{font-family:var(--font-display);font-size:18px;line-height:1.2}
+.dcard-body p{font-size:13px;color:var(--muted)}
+.dcard-act{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 14px 14px}
+.dcard-act .btn,.dcard-act .btn-ghost{padding:8px 10px;font-size:13.5px}
+.minihost.home-map .mapwrap.mini{height:440px}
+@media (max-width:899px){ .minihost.home-map .mapwrap.mini{height:340px} .hero-cta{grid-template-columns:1fr} }
 #printArea{display:none}
 @media print{
   .app,.sheet,.toast{display:none!important}
@@ -2010,20 +2038,24 @@ function reqForm(){
     <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-rint="${k}" aria-pressed="${r.interests.has(k)}">${v.ic} ${v.label}</button>`).join('')}</div></div>
     <div class="field"><span class="label">Nhịp độ</span><div class="seg" role="group">${Object.entries(PACE).map(([k,v])=>`<button data-rpace="${k}" aria-pressed="${r.pace===k}">${v.label}</button>`).join('')}</div></div>`;
 }
+const BANNER_SPOTS=[['Hà Nội|Nội thành',59.8,6.9],['Đà Nẵng|Trung tâm Đà Nẵng',67.2,6.6],['Lâm Đồng|Đà Lạt',74,6.6],['Khánh Hòa|Nha Trang',81,7],['An Giang|Phú Quốc',88.4,7.1]];
 function homeHTML(){
   const H=state.home; if(!H.req) buildReq();
-  return `<section class="home-hero">
-    <h1>Bạn muốn đi đâu?</h1>
-    <p class="sub">Kể chuyến đi của bạn bằng một câu. Đi Đâu? chọn điểm đến hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và báo chi phí.</p>
-    <label class="ask"><textarea id="ask" rows="2" aria-label="Mô tả chuyến đi" placeholder="Ví dụ: Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển">${esc(H.text)}</textarea></label>
-    <div class="examples">${EXAMPLES.map((e,i)=>`<button class="ex" data-ex="${i}">${esc(e)}</button>`).join('')}</div>
-    <div class="parsed" id="parsed" aria-live="polite">${parsedChips()}</div>
-    <details class="more" id="reqMore" ${H.open?'open':''}><summary>Chỉnh chi tiết</summary><div id="reqForm">${reqForm()}</div></details>
-    <button class="btn big" data-action="homego">✨ Tạo lịch trình</button>
+  return `<div class="home-banner"><img src="/images/didau-banner-1672x193.webp" width="1672" height="193" alt="Đi Đâu? – AI Travel Planner Việt Nam. Không biết đi đâu? Để AI chọn!" onerror="this.parentNode.hidden=true">
+    ${BANNER_SPOTS.filter(x=>DESTMAP[x[0]]).map(x=>`<button class="hs" style="left:${x[1]}%;width:${x[2]}%" data-dexp="${esc(x[0])}" aria-label="Khám phá ${esc(DESTMAP[x[0]].name)}"></button>`).join('')}</div>
+  <section class="home-hero">
+    <h1>✨ Bạn muốn đi đâu?</h1>
+    <p class="sub">Nhập điểm đến, hoặc kể chuyến đi bằng một câu. Đi Đâu? chọn nơi hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và báo chi phí.</p>
+    <label class="ask"><textarea id="ask" rows="2" aria-label="Mô tả chuyến đi" placeholder="Nhập điểm đến hoặc &quot;Tôi có 3 ngày, 5 triệu, đi cùng vợ và con, thích biển…&quot;">${esc(H.text)}</textarea></label>
+    <div class="hero-cta"><button class="btn big" data-action="homego">✨ Lịch trình AI</button><button class="btn big alt" data-action="homeexplore">🧭 Khám phá</button></div>
     <button class="cta2" data-action="homepick">Không biết đi đâu? Để AI chọn</button>
+    <div class="parsed" id="parsed" aria-live="polite">${parsedChips()}</div>
+    <div class="examples"><span class="ex-h">Thử:</span>${EXAMPLES.map((e,i)=>`<button class="ex" data-ex="${i}">${esc(e)}</button>`).join('')}</div>
+    <details class="more" id="reqMore" ${H.open?'open':''}><summary>Chỉnh chi tiết</summary><div id="reqForm">${reqForm()}</div></details>
   </section>
   <div id="recs" style="display:flex;flex-direction:column;gap:12px">${recsHTML()}</div>
-  ${H.recs||H.loading?'':featuredHTML()}`;
+  ${H.recs||H.loading?'':featuredHTML()}
+  <section class="feat"><h2 class="section-h">🗺️ Bản đồ điểm đến</h2><p class="hint">Chấm vàng: đang vào mùa đẹp. Bấm một chấm để chọn làm điểm đến.</p><div class="minihost home-map" id="miniHost"></div></section>`;
 }
 function recsHTML(){
   const H=state.home, r=H.req;
@@ -2042,13 +2074,20 @@ function recsHTML(){
     </article>`;}).join('')+
     `<p class="hint">Cách tính % phù hợp: sở thích 40, ngân sách 25, mùa đẹp 15, thời gian đi lại so với số ngày 12, người đi cùng 8; trừ điểm khi kho dữ liệu nơi đó còn ít. Chi phí là ước tính theo mặt bằng giá chung.</p>`;
 }
+const VIBE_LOOK={b:['🏖️','#1E88C8','#7FD1E8'],d:['🏝️','#0E7FA8','#76D6C9'],n:['⛰️','#2E8B57','#A8D98A'],m:['🌲','#3E7D5A','#B9DDB0'],v:['🏯','#C2571A','#F4C27A'],c:['🏙️','#4B5BB5','#A9B8F0'],s:['🛶','#1F8F86','#9ADBC9'],a:['🍜','#C9452E','#F6B48A'],r:['🧘','#8A5FB0','#D5BDF0']};
+function destCard(D,mo){
+  const k=(D.v||'v')[0], lk=VIBE_LOOK[k]||VIBE_LOOK.v, good=D.months.includes(mo);
+  return `<article class="dcard"><div class="dcard-top" style="--a:${lk[1]};--b:${lk[2]}"><span class="dcard-ic">${lk[0]}</span>${good?`<span class="dcard-badge">Đẹp tháng ${mo}</span>`:''}</div>
+    <div class="dcard-body"><small>${esc(D.prov)}</small><h3>${esc(D.name)}</h3><p>${esc(D.intro||'')}</p><span class="hint">${D.n} địa điểm</span></div>
+    <div class="dcard-act"><button class="btn-ghost" data-dexp="${esc(D.key)}">🧭 Khám phá</button><button class="btn" data-dplan="${esc(D.key)}">✨ Lịch trình</button></div></article>`;
+}
 function featuredHTML(){
-  const mo=new Date().getMonth()+1;
-  const hot=DEST.filter(D=>D.n>=5&&D.months.includes(mo)).sort((a,b)=>b.n-a.n).slice(0,8);
-  const saved=state.plans.slice(0,3);
-  return `<section class="feat"><h2 class="section-h">Đẹp nhất tháng ${mo}</h2>
-    <div class="chips">${hot.map(D=>`<button class="chip" data-feat="${esc(D.key)}">${esc(destName(D))}</button>`).join('')}</div>
-    <p class="hint">Bấm một điểm đến để chọn làm đích, rồi bấm "Tạo lịch trình".</p></section>
+  const mo=new Date().getMonth()+1, H=state.home;
+  const list=DEST.filter(D=>D.n>=5).sort((a,b)=>(b.months.includes(mo)-a.months.includes(mo))||b.n-a.n);
+  const show=H.allDest?list:list.slice(0,9), saved=state.plans.slice(0,3);
+  return `<section class="feat"><h2 class="section-h">🧭 Khám phá điểm đến</h2>
+    <div class="dgrid">${show.map(D=>destCard(D,mo)).join('')}</div>
+    ${list.length>9?`<button class="btn-ghost" data-action="alldest" style="align-self:center">${H.allDest?'Thu gọn':'Xem tất cả '+list.length+' điểm đến'}</button>`:''}</section>
     ${saved.length?`<section class="feat"><h2 class="section-h">Chuyến đi đã lưu</h2>${saved.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><button class="btn-ghost" data-loadplan="${k}">Mở</button></div>`).join('')}</section>`:''}`;
 }
 function refreshHomeBits(form){ buildReq(); const p=$('#parsed'); if(p) p.innerHTML=parsedChips(); const f=$('#reqForm'); if(f&&form!==false) f.innerHTML=reqForm(); }
@@ -2615,6 +2654,8 @@ $('#pbody').addEventListener('click',e=>{
   if(d.rint){ const s=new Set(H.req.interests); s.has(d.rint)?s.delete(d.rint):s.add(d.rint); H.manual.interests=[...s]; refreshHomeBits(); return; }
   if(d.rpace){ H.manual.pace=d.rpace; refreshHomeBits(); return; }
   if(d.feat){ pickDest(d.feat); return; }
+  if(d.dexp){ const D=DESTMAP[d.dexp]; if(!D) return; state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); $('#pbody').scrollTop=0; window.scrollTo(0,0); return; }
+  if(d.dplan){ H.manual.dest=d.dplan; homeGo(); return; }
   if(d.recplan){ openRecPlan(Number(d.recplan)); return; }
   if(d.recexplore){ const x=H.recs[Number(d.recexplore)]; state.prov=x.D.prov; state.area=x.D.area; state.filter='all'; state.q=''; state.tab='explore'; render(); fitView(); return; }
   // Khám phá
@@ -2637,6 +2678,8 @@ $('#pbody').addEventListener('click',e=>{
   if(d.delplan){state.plans.splice(Number(d.delplan),1); store('didau.plans',state.plans); render(); toast('Đã xóa chuyến đi.'); return;}
   const a=d.action; if(!a) return;
   if(a==='homego'){homeGo();return;}
+  if(a==='homeexplore'){ const r=buildReq(), D=r.dest&&DESTMAP[r.dest]; if(D){ state.prov=D.prov; state.area=D.area; } else state.area='all'; state.filter='all'; state.q=''; state.tab='explore'; render(); fitView(); window.scrollTo(0,0); return; }
+  if(a==='alldest'){ H.allDest=!H.allDest; render(); return; }
   if(a==='homepick'){ H.manual.dest=null; runRecommend(); return; }
   if(a==='locate'){locate();return;}
   if(a==='pick'){setPick(true);toast('Bấm lên bản đồ để chọn điểm xuất phát.');return;}
