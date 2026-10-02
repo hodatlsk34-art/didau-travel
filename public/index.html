@@ -1325,6 +1325,36 @@ html,body{height:auto!important}
 @media (max-width:899px){ .hx-robot{width:62px} .hx-ask{gap:2px} }
 @media (max-width:480px){ .hx-robot{width:52px} .hx-slogan{font-size:23px;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:0 6px} .hx-slogan svg{width:70%;flex-basis:100%;height:10px} }
 @media (prefers-reduced-motion:reduce){ .hx-robot,.rb-hand,.rb-bulb{animation:none} }
+/* Ảnh đầu trang phủ kín màn hình đầu tiên */
+.hx{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px)}
+@media (max-width:899px){ .hx{min-height:calc(100svh - 72px);padding-bottom:56px} }
+.hx-more{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0;border:0;background:none;color:#fff;font:600 13px/1.2 var(--font-body);cursor:pointer;text-shadow:0 1px 3px rgba(0,25,50,.8)}
+.hx-more svg{width:28px;height:28px;filter:drop-shadow(0 1px 2px rgba(0,25,50,.7));animation:hxBounce 1.8s ease-in-out infinite}
+@keyframes hxBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media (prefers-reduced-motion:reduce){ .hx-more svg{animation:none} }
+/* Menu: mỗi mục luôn có hộp màu riêng */
+@media (min-width:900px){
+  .top .tab{background:var(--tc)!important;color:#fff!important;box-shadow:0 3px 8px color-mix(in srgb,var(--tc) 35%,transparent);transition:transform .15s,box-shadow .15s,filter .15s}
+  .top .tab .ti{color:#fff!important}
+  .top .tab:not([aria-selected="true"]):hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .top .tab[aria-selected="true"]{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--tc),0 6px 14px color-mix(in srgb,var(--tc) 45%,transparent)!important;transform:translateY(-1px)}
+  .top .tabs{gap:8px!important}
+}
+@media (max-width:899px){
+  .tab{color:var(--tc)!important}
+  .tab .ti{background:var(--tc)!important;color:#fff!important}
+  .tab[aria-selected="true"]{font-weight:700}
+  .tab[aria-selected="true"] .ti{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--tc)}
+}
+@media (min-width:900px) and (max-height:1000px){
+  .hx{padding:20px 16px 58px}
+  .hx-in{gap:10px}
+  .hx-art{width:150px} .hx-word svg{width:380px!important}
+  .hx-card{min-height:138px;padding:16px 12px 22px} .hx-ic{width:40px;height:40px}
+  .hx-cards{margin-top:6px}
+}
+@media (min-width:900px) and (max-height:760px){ .hx-art{width:120px} .hx-word svg{width:320px!important} .hx-card{min-height:110px} .hx-card span{display:none} }
+.hx{box-sizing:border-box}
 </style>
 
 <div class="app">
@@ -1378,6 +1408,7 @@ html,body{height:auto!important}
         <button class="hx-card c2" data-hx="plan"><svg class="hx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01" stroke-width="3"/></svg><b>Lịch trình AI</b><span>Lên kế hoạch thông minh</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M60 60c10-20 40-34 90-40" fill="none" stroke="#fff" stroke-width="10" opacity=".16"/><path d="M150 60V34l8-6v-8h6v8l10 6v26z" fill="#fff" opacity=".16"/></svg></button>
         <button class="hx-card c3" data-hx="map"><svg class="hx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></svg><b>Bản đồ</b><span>Hành trình trực quan</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V40l40-18 30 14 40-24 50 30 40-10v28z" fill="#fff" opacity=".14"/><path d="M40 50c30-10 60 4 100-12" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="5 6" opacity=".5"/></svg></button>
       </div>
+      <button class="hx-more" type="button" data-hx="more" aria-label="Xem thêm bên dưới"><span>Xem gợi ý bên dưới</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     </div>
   </section>
   <main class="main">
@@ -3223,6 +3254,7 @@ $('#hxForm').addEventListener('submit',e=>{ e.preventDefault(); const v=$('#hxq'
   $('#hxq').blur(); homeGo(); const r=$('#recs'); if(state.tab==='home'&&r) setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),400); else window.scrollTo(0,0); });
 $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]'); if(!b) return; const k=b.dataset.hx;
   if(k==='map'){ openMap(true); return; }
+  if(k==='more'){ const q=document.querySelector('#pbody'); if(q) window.scrollTo({top:q.getBoundingClientRect().top+scrollY-(innerWidth>899?72:0),behavior:'smooth'}); return; }
   if(k==='explore'){ const r=buildReq(), D=r.dest&&DESTMAP[r.dest]; if(D){ state.prov=D.prov; state.area=D.area; } else state.area='all'; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); window.scrollTo(0,0); return; }
   if(k==='plan'){ if((state.home.text||'').trim()){ homeGo(); window.scrollTo(0,0); } else { state.tab='plan'; state.selected=null; render(); fitView(); window.scrollTo(0,0); } }
 });
