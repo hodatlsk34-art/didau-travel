@@ -1556,6 +1556,14 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .top .tagline{display:none!important}
 .brandA{background:rgba(255,255,255,.55);border-radius:22px;padding:4px 14px 4px 6px;box-shadow:0 4px 14px rgba(0,30,60,.12)}
 .top:not(.over) .brandA{background:none;box-shadow:none;padding:0}
+/* 4 thẻ, nhỏ gọn hơn */
+.hx-cards{grid-template-columns:repeat(4,minmax(0,1fr))!important;width:min(860px,100%)!important;gap:clamp(8px,1.4vw,16px)!important}
+.hx-card{min-height:128px!important;padding:14px 10px 20px!important;border-radius:20px!important;gap:4px!important}
+.hx-card .hx-ic{width:36px!important;height:36px!important}
+.hx-card b{font-size:clamp(14px,1.5vw,19px)!important}
+.hx-card span{font-size:clamp(11px,1.05vw,13px)!important}
+.hx-card.c4{background:linear-gradient(160deg,#B47CFF 0%,#8A4FE8 55%,#6A33CF 100%)}
+@media (max-width:899px){ .hx-cards{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important} .hx-card{min-height:88px!important;padding:10px 4px 12px!important;border-radius:14px!important} .hx-card .hx-ic{width:26px!important;height:26px!important} .hx-card b{font-size:11.5px!important;text-align:center} .hx-card span{display:none!important} }
 </style>
 
 <div class="app">
@@ -1614,6 +1622,7 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
         <button class="hx-card c1" data-hx="explore"><svg class="hx-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7.5 7.5 0 0 0-7.5 7.5c0 5.4 6.6 11.9 6.9 12.2a.85.85 0 0 0 1.2 0c.3-.3 6.9-6.8 6.9-12.2A7.5 7.5 0 0 0 12 2zm0 10.3a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z"/></svg><b>Khám phá</b><span>Điểm đến hấp dẫn</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V38l30-22 26 20 34-28 40 34 22-14 48 30z" fill="#fff" opacity=".16"/><path d="M0 60c40-18 80-6 110-14s60-10 90-6v20z" fill="#fff" opacity=".14"/></svg></button>
         <button class="hx-card c2" data-hx="plan"><svg class="hx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01" stroke-width="3"/></svg><b>Lịch trình AI</b><span>Lên kế hoạch thông minh</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M60 60c10-20 40-34 90-40" fill="none" stroke="#fff" stroke-width="10" opacity=".16"/><path d="M150 60V34l8-6v-8h6v8l10 6v26z" fill="#fff" opacity=".16"/></svg></button>
         <button class="hx-card c3" data-hx="map"><svg class="hx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></svg><b>Bản đồ</b><span>Hành trình trực quan</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V40l40-18 30 14 40-24 50 30 40-10v28z" fill="#fff" opacity=".14"/><path d="M40 50c30-10 60 4 100-12" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="5 6" opacity=".5"/></svg></button>
+        <button class="hx-card c4" data-hx="book"><svg class="hx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2.5A3.5 3.5 0 0 0 17.5 8H11v6"/><circle cx="7" cy="10.5" r="2"/></svg><b>Đặt chỗ</b><span>Khách sạn, vé, tour</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V42l30-10 30 8 40-20 40 18 60-12v34z" fill="#fff" opacity=".15"/></svg></button>
       </div>
       <button class="hx-more" type="button" data-hx="more" aria-label="Xem thêm bên dưới"><span>Xem thêm</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     </div>
@@ -3464,6 +3473,7 @@ $('#hxForm').addEventListener('submit',e=>{ e.preventDefault(); const v=$('#hxq'
   $('#hxq').blur(); homeGo(); const r=$('#recs'); if(state.tab==='home'&&r) setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),400); else window.scrollTo(0,0); });
 $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]'); if(!b) return; const k=b.dataset.hx;
   if(k==='map'){ openMap(true); return; }
+  if(k==='book'){ state.tab='book'; state.selected=null; render(); window.scrollTo(0,0); return; }
   if(k==='ex'||k==='pick'){ const H=state.home; if(k==='ex'){ H.text=EXAMPLES[Number(b.dataset.ex)]||''; $('#hxq').value=H.text; } H.manual={}; if(k==='pick') H.manual.dest=null; buildReq(); runRecommend(); setTimeout(()=>{ const r=$('#recs'); if(r) window.scrollTo({top:r.getBoundingClientRect().top+scrollY-(innerWidth>899?80:10),behavior:'smooth'}); },700); return; }
   if(k==='more'){ const q=document.querySelector('#pbody'); if(q) window.scrollTo({top:q.getBoundingClientRect().top+scrollY-(innerWidth>899?72:0),behavior:'smooth'}); return; }
   if(k==='explore'){ const r=buildReq(), D=r.dest&&DESTMAP[r.dest]; if(D){ state.prov=D.prov; state.area=D.area; } else state.area='all'; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); window.scrollTo(0,0); return; }
