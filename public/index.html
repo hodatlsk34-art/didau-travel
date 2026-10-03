@@ -1384,6 +1384,37 @@ html,body{height:auto!important}
 @media (max-width:899px){ .top{background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),url("/images/hero/halong3-900.webp") center 4%/cover no-repeat!important}
   .app[data-tab="home"] .top{background:none!important} .hx{min-height:calc(100svh - 72px)} }
 .top .brand{background:rgba(255,255,255,.88)!important;border-radius:999px!important;padding:4px 14px 4px 8px!important;box-shadow:0 3px 10px rgba(0,30,60,.18);gap:8px}
+/* ===== Banner chung cho mọi mục + menu nổi trên trời ===== */
+.bnr{position:relative;margin-top:calc(-1 * var(--toph,72px));background:#bfe3f7;line-height:0}
+.bnr img{display:block;width:100%;height:auto;max-height:64vh;object-fit:cover;object-position:28% 45%}
+.hx-mini{display:none!important}
+.blog-h h1{display:block!important}
+/* khu tìm kiếm trang chủ dưới banner */
+.hx{margin-top:0!important;min-height:0!important;padding:26px 16px 30px!important;background:linear-gradient(180deg,#D6EFFD 0%,#EEF8FE 60%,rgba(244,250,253,0) 100%)!important}
+.hx-bg,.hx::before,.hx-logo,.hx-more,.hx-credit{display:none!important}
+.hx-slogan{position:static!important;transform:rotate(-3deg);text-shadow:none;margin:0 0 2px!important;flex-direction:row!important;flex-wrap:wrap;justify-content:center;gap:0 10px;align-items:baseline!important}
+.hx-slogan span:last-of-type{padding-left:0!important}
+.hx-slogan svg{flex-basis:100%;width:min(420px,80%)!important}
+.hx-try-h{color:#0E2F66!important;text-shadow:none!important}
+.hx-tag{box-shadow:none;background:#fff}
+/* menu desktop: dồn sang phải, nằm trên vùng trời của banner */
+@media (min-width:900px){
+  .top{grid-template-columns:auto 1fr auto!important}
+  .top .tabs{justify-self:end!important;margin-right:12px!important}
+  .top.over .brand{visibility:hidden!important}
+  .app[data-tab] .top:not(.over) .brand{visibility:visible!important}
+}
+/* điện thoại: thanh trên nổi trên banner ở mọi mục */
+@media (max-width:899px){
+  .app[data-tab] .top{height:auto!important;padding:8px 12px!important;display:flex!important;justify-content:space-between;align-items:center;border:0!important}
+  .app[data-tab] .top-r,.app[data-tab] .top .prov{display:inline-flex!important}
+  .app[data-tab] .top .brand{display:flex!important}
+  .app[data-tab] .top.over{background:transparent!important}
+  .app[data-tab] .top.over .brand{visibility:hidden}
+  .app[data-tab] .top:not(.over){background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),url("/images/hero/halong3-900.webp") center 4%/cover no-repeat!important}
+  .bnr img{max-height:none}
+  .hx{padding:18px 12px 22px!important}
+}
 </style>
 
 <div class="app">
@@ -1404,6 +1435,7 @@ html,body{height:auto!important}
       <span class="nm" id="provName">Hà Nội</span> <span aria-hidden="true">▾</span>
     </button></div>
   </header>
+  <section class="bnr" id="bnr"><picture><source media="(max-width:760px)" srcset="/images/banner-didau-m.webp"><img src="/images/banner-didau-2000.webp" width="2172" height="724" alt="Đi Đâu? – AI Travel Planner Việt Nam" fetchpriority="high"></picture></section>
   <section class="hx" id="heroX" hidden aria-label="Tìm điểm đến">
     <div class="hx-bg" aria-hidden="true"></div>
     <div class="hx-in">
@@ -3299,7 +3331,7 @@ $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]');
 buildReq(); render();
 (()=>{ const top=document.querySelector('.top');
   const upd=()=>{ document.documentElement.style.setProperty('--toph',top.offsetHeight+'px');
-    const hx=$('#heroX'), hm=$('#heroMini'); const banner=(hx&&!hx.hidden)||(hm&&!hm.hidden);
+    const banner=!!$('#bnr');
     top.classList.toggle('over',!!banner&&scrollY<8); };
   window.__topUpd=upd; upd(); addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); })();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
