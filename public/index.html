@@ -1502,6 +1502,23 @@ body::before,body.has-bgimg::before{top:0!important;bottom:0!important;height:au
   .top{height:calc(100vw * 711 / 2560)!important;align-items:start!important;padding:14px 18px 0!important}
 }
 @media (min-width:900px){ .top{height:calc(100vw / 6)!important;padding-top:12px!important} }
+/* ===== Một ảnh nền chung cho banner + toàn trang ===== */
+body::before,body.has-bgimg::before{background:url("/images/page-bg.webp") left top/cover no-repeat!important;filter:none!important}
+.bnr picture{visibility:hidden}
+.bnr{background:none!important;height:auto!important;position:relative!important}
+.bnr picture,.bnr img{display:block}
+@media (min-width:900px){ .bnr img{height:clamp(260px,40vh,420px)!important;width:100%!important;object-fit:cover} }
+@media (max-width:899px){ .bnr img{height:34vh!important;width:100%!important;object-fit:cover} body::before{background-position:12% top!important} }
+.hx{background:none!important}
+body::before,body.has-bgimg::before{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) calc(100vw/3 - 60px),rgba(240,248,253,.35) calc(100vw/3)),url("/images/page-bg.webp") center top/100% auto no-repeat,url("/images/page-bg-blur.webp") center/cover no-repeat!important}
+@media (min-width:900px){ .bnr img{height:calc(100vw / 3 * .55)!important} }
+@media (max-width:899px){ body::before{background-position:center top,center top,center!important} .bnr img{height:calc(100vw / 3)!important} }
+.bnr{position:relative!important;top:auto!important}
+@media (min-width:900px){
+  .top{height:auto!important;padding:12px 18px!important;align-items:center!important}
+  .top:not(.over){background:linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.25)),url("/images/page-bg.webp") center 8%/cover no-repeat!important;box-shadow:0 2px 12px rgba(0,30,60,.15)!important}
+  .top:not(.over) .brand{visibility:visible!important}
+}
 </style>
 
 <div class="app">
@@ -3419,7 +3436,7 @@ buildReq(); render();
 (()=>{ const top=document.querySelector('.top');
   const upd=()=>{ document.documentElement.style.setProperty('--toph',top.offsetHeight+'px');
     const banner=!!$('#bnr');
-    const bn=$('#bnr'); top.classList.toggle('over',!!bn); };
+    const bn=$('#bnr'); top.classList.toggle('over',!!bn&&scrollY<Math.max(8,(bn?bn.offsetHeight:0)-70)); };
   window.__topUpd=upd; upd(); addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); })();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
