@@ -1370,6 +1370,20 @@ html,body{height:auto!important}
 .hx-mini p{margin:4px 0 0;font-weight:600;font-size:clamp(13px,1.4vw,16px);text-shadow:0 1px 4px rgba(0,20,40,.7)}
 @media (max-width:899px){ .hx-mini{height:112px;background-image:linear-gradient(180deg,rgba(0,30,60,.15),rgba(0,30,60,.35)),url("/images/hero/halong3-900.webp")} }
 .blog-h h1{display:none}
+/* Ảnh vịnh chạy ra phía sau thanh menu */
+.top{background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),url("/images/hero/halong3-1920.webp") center 4%/cover no-repeat!important;transition:background .25s}
+.top.over{background:transparent!important;border-bottom-color:transparent!important;border-image:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.top .tabs{background:transparent!important;box-shadow:none!important;border:0!important}
+.top .brand .lw1{color:#0E2F66;text-shadow:0 0 6px rgba(255,255,255,.9)}
+.top .brand .lw2{text-shadow:0 0 6px rgba(255,255,255,.9)}
+.top .tagline{text-shadow:0 0 6px rgba(255,255,255,.95)}
+.top .prov{box-shadow:0 3px 10px rgba(0,30,60,.18)}
+.hx,.hx-mini{margin-top:calc(-1 * var(--toph,72px))}
+.hx{padding-top:calc(22px + var(--toph,72px))!important;min-height:100vh;min-height:100svh}
+.hx-mini{box-sizing:content-box;padding-top:var(--toph,72px)}
+@media (max-width:899px){ .top{background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),url("/images/hero/halong3-900.webp") center 4%/cover no-repeat!important}
+  .app[data-tab="home"] .top{background:none!important} .hx{min-height:calc(100svh - 72px)} }
+.top .brand{background:rgba(255,255,255,.88)!important;border-radius:999px!important;padding:4px 14px 4px 8px!important;box-shadow:0 3px 10px rgba(0,30,60,.18);gap:8px}
 </style>
 
 <div class="app">
@@ -2392,6 +2406,7 @@ function render(){
   placeMap();
   renderMap();
   applyImgs(); applyPlaceImgs(); loadStats();
+  if(window.__topUpd) window.__topUpd();
 }
 let mapMode='off';
 function placeMap(){
@@ -3282,6 +3297,11 @@ $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]');
   if(k==='plan'){ if((state.home.text||'').trim()){ homeGo(); window.scrollTo(0,0); } else { state.tab='plan'; state.selected=null; render(); fitView(); window.scrollTo(0,0); } }
 });
 buildReq(); render();
+(()=>{ const top=document.querySelector('.top');
+  const upd=()=>{ document.documentElement.style.setProperty('--toph',top.offsetHeight+'px');
+    const hx=$('#heroX'), hm=$('#heroMini'); const banner=(hx&&!hx.hidden)||(hm&&!hm.hidden);
+    top.classList.toggle('over',!!banner&&scrollY<8); };
+  window.__topUpd=upd; upd(); addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); })();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
 
