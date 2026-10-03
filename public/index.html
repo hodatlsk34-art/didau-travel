@@ -1290,6 +1290,7 @@ html,body{height:auto!important}
 .post-body a{color:var(--moss)}
 .post-cta{margin:8px 0 16px}
 .post-back{align-self:flex-start}
+.post-share{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px}.post-share.end{margin-top:18px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--moss) 8%,var(--surface))}.post-share.end span{flex:1 1 220px;font-weight:600}
 .book-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .book-card{text-decoration:none;min-height:190px}
 .book-card span{display:block!important;text-align:center}
@@ -2586,7 +2587,9 @@ function postHTML(slug){
     <div class="bcover" ${DESTMAP[b.cover]?`data-img="${esc(b.cover)}"`:''}></div>
     <div class="btags">${b.tags.map(t=>`<span class="btag">${esc(t)}</span>`).join('')}</div>
     <h1>${esc(b.title)}</h1><span class="bmeta">${esc(fmtDate(b.date))} · ${esc(b.author)}</span>
-    <div class="post-body">${mdHTML(b.body)}</div></article>
+    <div class="post-share"><button class="btn" data-sharepost="${esc(b.slug)}">🔗 Chia sẻ bài viết</button><a class="btn-ghost" href="/blog/${esc(b.slug)}/" target="_blank" rel="noopener">Mở trang bài viết ↗</a></div>
+    <div class="post-body">${mdHTML(b.body)}</div>
+    <div class="post-share end"><span>Thấy bài hữu ích? Gửi cho bạn bè cùng đi nhé.</span><button class="btn" data-sharepost="${esc(b.slug)}">🔗 Chia sẻ bài viết</button></div></article>
     ${more.length?`<section class="feat"><h2 class="section-h">Bài viết khác</h2><div class="bgrid">${more.map(blogCard).join('')}</div></section>`:''}`;
 }
 function openPost(slug){ state.tab='blog'; state.post=slug; state.selected=null; try{history.replaceState(null,'','#blog/'+slug);}catch(e){} render(); window.scrollTo(0,0); }
@@ -3496,6 +3499,9 @@ $('#pbody').addEventListener('click',e=>{
   const el=e.target.closest('button,a'); if(!el) return;
   const d=el.dataset, H=state.home;
   if(d.open){openPlace(d.open);return;}
+  if(d.sharepost){ const b=BLOG.find(x=>x.slug===d.sharepost); if(!b) return; const url=location.origin+'/blog/'+b.slug+'/'; track('share',{method:navigator.share?'native':'copy',content_type:'blog',item_id:b.slug});
+    if(navigator.share){ navigator.share({title:b.title,text:b.excerpt,url}).catch(()=>{}); return; }
+    try{ navigator.clipboard.writeText(url).then(()=>toast('Đã sao chép link bài viết. Dán vào Zalo, Facebook để gửi.'),()=>openCopy(url,'Link bài viết')); }catch(err){ openCopy(url,'Link bài viết'); } return; }
   // Trang chủ
   if(d.ex){ H.text=EXAMPLES[Number(d.ex)]; H.manual={}; H.recs=null; buildReq(); render(); return; }
   if(d.rstep){ const [k,dv]=d.rstep.split(':'); const r=H.req, lim={days:[1,MAX_DAYS],ad:[1,12],kd:[0,8],el:[0,6]}[k]; H.manual[k]=Math.min(lim[1],Math.max(lim[0],r[k]+Number(dv))); refreshHomeBits(); return; }
