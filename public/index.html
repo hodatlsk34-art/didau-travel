@@ -1267,7 +1267,7 @@ html,body{height:auto!important}
 .blog-h h1{font-family:var(--font-display);font-size:28px;margin:0}
 .blog-h p{color:var(--muted);margin:0}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.bcard{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 18px rgba(16,40,34,.08);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .15s,box-shadow .15s}
+.bcard{text-decoration:none;display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 18px rgba(16,40,34,.08);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .15s,box-shadow .15s}
 .bcard:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(16,40,34,.14)}
 .bcover{position:relative;height:160px;background:linear-gradient(135deg,#7A3FC4,#3D9BFF);overflow:hidden}
 .bcover .wimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
@@ -2572,8 +2572,8 @@ function mdHTML(src){
   flush(); return out.join('');
 }
 function blogCard(b){
-  return `<article class="bcard" role="link" tabindex="0" data-post="${esc(b.slug)}"><div class="bcover" ${DESTMAP[b.cover]?`data-img="${esc(b.cover)}"`:''}></div>
-    <div class="bbody"><div class="btags">${b.tags.map(t=>`<span class="btag">${esc(t)}</span>`).join('')}</div><h3>${esc(b.title)}</h3><p>${esc(b.excerpt)}</p><span class="bmeta">${esc(fmtDate(b.date))} · ${esc(b.author)}</span></div></article>`;
+  return `<a class="bcard" href="/blog/${esc(b.slug)}/" data-post="${esc(b.slug)}"><div class="bcover" ${DESTMAP[b.cover]?`data-img="${esc(b.cover)}"`:''}></div>
+    <div class="bbody"><div class="btags">${b.tags.map(t=>`<span class="btag">${esc(t)}</span>`).join('')}</div><h3>${esc(b.title)}</h3><p>${esc(b.excerpt)}</p><span class="bmeta">${esc(fmtDate(b.date))} · ${esc(b.author)}</span></div></a>`;
 }
 function blogHTML(){
   return `<section class="blog-h"><h1>📖 Blog Đi Đâu?</h1><p>Cẩm nang, kinh nghiệm và lịch trình gợi ý cho chuyến đi của bạn.</p></section>
@@ -3491,7 +3491,7 @@ $('#pbody').addEventListener('click',e=>{
   { const ai=e.target.closest('[data-addr]'); if(ai&&Array.isArray(state.addrRes)){ const x=state.addrRes[Number(ai.dataset.addr)]; if(x) useAddr(x); return; }
     const rc=e.target.closest('[data-recent]'); if(rc){ const x=recentFrom[Number(rc.dataset.recent)]; if(x) useAddr({name:x.label,lat:x.lat,lng:x.lng}); return; }
     if(e.target.closest('[data-action="addrchange"]')){ state.addrOpen=!state.addrOpen; state.addrRes=null; render(); setTimeout(()=>{ const i=document.querySelector('.addr-change input'); if(i) i.focus(); },50); return; } }
-  { const bc=e.target.closest('[data-post]'); if(bc&&!e.target.closest('a')){ openPost(bc.dataset.post); return; }
+  { const bc=e.target.closest('[data-post]'); if(bc){ const a=e.target.closest('a'); if(!a||a===bc){ if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey) return; e.preventDefault(); openPost(bc.dataset.post); return; } }
     if(e.target.closest('[data-action="blogback"]')){ state.post=null; try{history.replaceState(null,'','#blog');}catch(err){} render(); window.scrollTo(0,0); return; } }
   const el=e.target.closest('button,a'); if(!el) return;
   const d=el.dataset, H=state.home;
@@ -3581,9 +3581,16 @@ function loadHash(){
 /* Nạp ảnh nền nếu có; chưa có ảnh thì giữ nền họa tiết */
 (()=>{ const im=new Image(); im.onload=()=>document.body.classList.add('has-bgimg'); im.src='/images/didau-bg-v2-1920x1080.webp'; })();
 if(/\.onrender\.com$/.test(location.hostname)) location.replace('https://didautravel.id.vn'+location.pathname+location.search+location.hash);
-if(!blogHash()) loadHash();
-window.addEventListener('hashchange',()=>{ if(blogHash()){ render(); window.scrollTo(0,0); return; } if(loadHash()){ render(); fitView(); } });
-$('#pbody').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const bc=e.target.closest&&e.target.closest('[data-post]'); if(bc){ e.preventDefault(); openPost(bc.dataset.post); } } });
+/* Liên kết từ trang Blog: #go=plan:<điểm đến> hoặc #go=dest:<điểm đến> */
+function goHash(){ const m=/^#go=(plan|dest):(.+)$/.exec(location.hash); if(!m) return false; let key; try{ key=decodeURIComponent(m[2]); }catch(e){ return false; }
+  try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  const D=DESTMAP[key]; if(!D) return false;
+  if(m[1]==='plan'){ state.home.manual={dest:key}; homeGo(); }
+  else { state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); }
+  window.scrollTo(0,0); return true; }
+if(!blogHash()&&!goHash()) loadHash();
+window.addEventListener('hashchange',()=>{ if(goHash()) return; if(blogHash()){ render(); window.scrollTo(0,0); return; } if(loadHash()){ render(); fitView(); } });
+$('#pbody').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const bc=e.target.closest&&e.target.closest('[data-post]'); if(bc&&bc.tagName!=='A'){ e.preventDefault(); openPost(bc.dataset.post); } } });
 /* Hero trang chủ */
 $('#hxq').addEventListener('input',e=>{ state.home.text=e.target.value; state.home.manual={}; refreshHomeBits(); if(!state.home.recs) renderMap(); });
 $('#hxForm').addEventListener('submit',e=>{ e.preventDefault(); const v=$('#hxq').value.trim(); state.home.text=v; state.home.manual={};

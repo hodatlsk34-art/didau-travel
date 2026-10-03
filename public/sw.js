@@ -1,5 +1,5 @@
 /* Đi Đâu? – service worker: chạy offline cơ bản cho bản app & PWA */
-const VER = 'didau-v3';
+const VER = 'didau-v4';
 const SHELL = [
   '/', '/manifest.webmanifest', '/offline.html',
   '/icons/icon-192.png', '/icons/icon-512.png',
@@ -27,10 +27,9 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     e.respondWith(
       fetch(req).then(r => {
-        const copy = r.clone();
-        caches.open(VER).then(c => c.put('/', copy));
+        if (r.ok) { const copy = r.clone(); caches.open(VER).then(c => c.put(url.pathname === '/' ? '/' : req, copy)); }
         return r;
-      }).catch(() => caches.match('/').then(r => r || caches.match('/offline.html')))
+      }).catch(() => caches.match(url.pathname === '/' ? '/' : req).then(r => r || caches.match('/offline.html')))
     );
     return;
   }
