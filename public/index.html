@@ -1470,6 +1470,16 @@ body::before,body.has-bgimg::before{top:0!important;bottom:0!important;height:au
 .bnr::before{filter:blur(28px) saturate(1.1)!important;opacity:.4!important}
 .bnr img{filter:drop-shadow(0 4px 14px rgba(0,40,80,.18))}
 @media (max-width:899px){ .app[data-tab] .top-r,.app[data-tab] .top .prov{margin-left:auto} .app[data-tab] .top{justify-content:flex-end!important} }
+/* Banner liền mạch hai bên: ảnh vịnh nối dài, viền banner hòa vào */
+.bnr{background:url("/images/hero/halong3-1920.webp") center 30%/cover no-repeat!important}
+.bnr::before{display:none!important}
+.bnr img{filter:none!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+@media (max-width:899px){ .bnr img{-webkit-mask-image:none;mask-image:none} }
+.bnr picture{display:flex!important;justify-content:center;height:100%}
+.bnr img{width:auto!important;max-width:none!important;height:100%!important;object-fit:fill!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.bnr{background:linear-gradient(180deg,rgba(150,210,250,.35),rgba(255,255,255,0) 60%),url("/images/hero/halong3-1920.webp") center 22%/cover no-repeat!important}
+@media (max-width:899px){ .bnr img{width:100%!important;-webkit-mask-image:none;mask-image:none} }
+@media (min-width:900px){ .bnr img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 86%,transparent 100%)!important;mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 86%,transparent 100%)!important} }
 </style>
 
 <div class="app">
