@@ -1571,6 +1571,25 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .addr-item{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:1px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit}
 .addr-item:hover{border-color:var(--moss)} .addr-item small{color:var(--muted);font-size:12px}
 .addr-change{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+/* Chân trang */
+.foot-grid{display:grid;grid-template-columns:1.3fr 1.4fr 1fr;gap:16px}
+.foot-col{background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.foot-col h4{margin:0 0 8px;font-family:var(--font-display);font-size:15px;color:var(--moss)}
+.foot-col p{margin:0 0 6px;font-size:13.5px;line-height:1.55;color:var(--ink)}
+.foot-dest{display:flex;flex-wrap:wrap;gap:6px}
+.foot-dest button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px;font:500 13px var(--font-body);color:var(--ink);cursor:pointer}
+.foot-dest button:hover{border-color:var(--moss);color:var(--moss)}
+.foot-contact{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.foot-contact a{display:inline-flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;font-size:13.5px}
+.foot-contact svg,.foot-social svg{width:18px;height:18px}
+.foot-fb{display:inline-flex;margin:4px 0 8px;font-size:13.5px}
+.foot-social{display:flex;gap:8px}
+.foot-social a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;color:#fff}
+.s-fb{background:#1877F2}.s-tt{background:#111}.s-yt{background:#FF0000}
+.foot-legal{font-size:12.5px;line-height:1.55;color:var(--muted);background:color-mix(in srgb,var(--surface) 80%,transparent);border-radius:12px;padding:10px 14px}
+.foot-links{display:block;margin-top:4px}.foot-links a{color:var(--moss)}
+.foot-copy{text-align:center}
+@media (max-width:899px){ .foot-grid{grid-template-columns:1fr} }
 </style>
 
 <div class="app">
@@ -2747,8 +2766,45 @@ function statsHTML(){
     <div class="stats-grid">${R.map(([k,l])=>`<div class="${k==='total'?'tot':''}"><b>${fmt(k)}</b><span>${l}</span></div>`).join('')}</div>
     <small>Số lượt xem trang, đếm bằng GoatCounter (không lưu thông tin cá nhân).</small></section>`;
 }
+/* ---------- Chân trang ----------
+   SITE: điền thông tin liên hệ / mạng xã hội. Mục nào để trống sẽ tự ẩn. */
+const SITE={
+  email:'',        // ví dụ 'lienhe@didautravel.id.vn'
+  zalo:'',         // số Zalo, ví dụ '0912345678'
+  facebook:'',     // link Fanpage, ví dụ 'https://facebook.com/didautravel'
+  tiktok:'',       // ví dụ 'https://tiktok.com/@didautravel'
+  youtube:'',      // ví dụ 'https://youtube.com/@didautravel'
+  feedback:''      // link Google Form góp ý / báo lỗi (nếu trống sẽ dùng FEEDBACK_FORM)
+};
+const FOOT_DEST=['Hà Nội|Nội thành','Quảng Ninh|Hạ Long','Lào Cai|Sa Pa','Tuyên Quang|Hà Giang – Đồng Văn','Ninh Bình|Tràng An – Tam Cốc','Huế|Cố đô Huế','Đà Nẵng|Trung tâm Đà Nẵng','Đà Nẵng|Hội An – Mỹ Sơn','Lâm Đồng|Đà Lạt','Khánh Hòa|Nha Trang','TP. Hồ Chí Minh|Trung tâm Sài Gòn','An Giang|Phú Quốc'];
+const okUrl=u=>/^https:\/\/[\w.-]+\.[a-z]{2,}(\/[^\s"'<>]*)?$/i.test(u||'');
+const IC={
+  fb:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21z"/></svg>',
+  tt:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.2 1.6 3.6 3.8 3.8v3a7 7 0 0 1-3.8-1.2v6.1A5.8 5.8 0 1 1 10.7 9v3.1a2.8 2.8 0 1 0 2 2.7V3z"/></svg>',
+  yt:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  zalo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5A8.5 8.5 0 1 1 21 12z"/></svg>'
+};
 function footerHTML(){
-  return `<footer class="site-foot">${statsHTML()}<p class="hint">© ${new Date().getFullYear()} Đi Đâu? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh điểm đến: Wikimedia Commons · Thời tiết: Open-Meteo · <a href="https://didautravel.id.vn/chinh-sach-bao-mat.html" target="_blank" rel="noopener">Chính sách bảo mật</a></p></footer>`;
+  const fb=SITE.feedback||FEEDBACK_FORM, mail=/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(SITE.email)?SITE.email:'', zalo=String(SITE.zalo||'').replace(/[^\d]/g,'');
+  const contacts=[mail&&`<a href="mailto:${esc(mail)}">${IC.mail}<span>${esc(mail)}</span></a>`, zalo&&`<a href="https://zalo.me/${esc(zalo)}" target="_blank" rel="noopener">${IC.zalo}<span>Zalo ${esc(zalo)}</span></a>`].filter(Boolean);
+  const socials=[[SITE.facebook,'fb','Facebook'],[SITE.tiktok,'tt','TikTok'],[SITE.youtube,'yt','YouTube']].filter(x=>okUrl(x[0]));
+  const dests=FOOT_DEST.filter(k=>DESTMAP[k]);
+  return `<footer class="site-foot">${statsHTML()}
+  <div class="foot-grid">
+    <section class="foot-col foot-about"><h4>Về Đi Đâu?</h4>
+      <p>Đi Đâu? là trợ lý du lịch AI dành cho người Việt: gợi ý điểm đến hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và ước tính chi phí cho 34 tỉnh thành theo địa giới mới.</p>
+      <p>Dữ liệu tổng hợp từ nguồn công khai và đang được cập nhật liên tục. Mọi góp ý giúp Đi Đâu? chính xác hơn đều rất đáng quý.</p></section>
+    <section class="foot-col"><h4>Điểm đến nổi bật</h4>
+      <div class="foot-dest">${dests.map(k=>`<button type="button" data-dexp="${esc(k)}">${esc(DESTMAP[k].name)}</button>`).join('')}</div></section>
+    <section class="foot-col"><h4>Liên hệ &amp; góp ý</h4>
+      ${contacts.length?`<div class="foot-contact">${contacts.join('')}</div>`:'<p class="hint">Thông tin liên hệ đang được cập nhật.</p>'}
+      ${okUrl(fb)?`<a class="btn foot-fb" href="${esc(fb)}" target="_blank" rel="noopener">✍️ Góp ý / báo thông tin sai</a>`:''}
+      ${socials.length?`<div class="foot-social">${socials.map(([u,ic,n])=>`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${n}" title="${n}" class="s-${ic}">${IC[ic]}</a>`).join('')}</div>`:''}</section>
+  </div>
+  <div class="foot-legal"><b>Lưu ý:</b> Giá, giờ mở cửa, thời gian di chuyển và chi phí trên Đi Đâu? là ước tính theo mặt bằng chung, có thể thay đổi và chưa được xác minh tại chỗ. Hãy kiểm tra lại với nơi cung cấp dịch vụ trước khi đi. Một số liên kết đặt chỗ là liên kết đối tác.
+    <span class="foot-links"><a href="https://didautravel.id.vn/dieu-khoan.html" target="_blank" rel="noopener">Điều khoản sử dụng</a> · <a href="https://didautravel.id.vn/chinh-sach-bao-mat.html" target="_blank" rel="noopener">Chính sách bảo mật</a></span></div>
+  <p class="hint foot-copy">© ${new Date().getFullYear()} Đi Đâu? – AI Travel Planner Việt Nam · Bản đồ © OpenStreetMap · Ảnh: Wikimedia Commons · Thời tiết: Open-Meteo</p></footer>`;
 }
 /* ---------- V2: Trang chủ ---------- */
 const EXAMPLES=['Tôi có 5 triệu, 3 ngày, đi cùng vợ và con, từ Hà Nội, thích biển','Cuối tuần đi đâu gần Sài Gòn, 2 người, dưới 3 triệu','Đi Đà Lạt 3N2Đ với người yêu, 6 triệu, thích cà phê, chụp ảnh','Gia đình 4 người có bố mẹ, 5 ngày, 15 triệu, từ TP.HCM, thích núi, khí hậu mát'];
