@@ -17,13 +17,21 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://thumb.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://nominatim.openstreetmap.org https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://thumb.wikimedia.org https://didau.goatcounter.com https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://nominatim.openstreetmap.org https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
 <script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}</script>
 <link rel="canonical" href="https://didautravel.id.vn/">
 </head>
 <body style="margin:0">
+<!-- Google Analytics 4: điền mã đo lường dạng G-XXXXXXXXXX vào GA_ID. Để trống thì không tải. -->
+<script>
+window.GA_ID='';
+(function(){ if(!window.GA_ID||location.protocol!=='https:') return;
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){ dataLayer.push(arguments); };
+  gtag('js',new Date()); gtag('config',window.GA_ID);
+  var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+window.GA_ID; document.head.appendChild(s); })();
+</script>
 <title>Đi Đâu?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3588,6 +3596,34 @@ $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]');
   if(k==='explore'){ const r=buildReq(), D=r.dest&&DESTMAP[r.dest]; if(D){ state.prov=D.prov; state.area=D.area; } else state.area='all'; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); window.scrollTo(0,0); return; }
   if(k==='plan'){ if((state.home.text||'').trim()){ homeGo(); window.scrollTo(0,0); } else { state.tab='plan'; state.selected=null; render(); fitView(); window.scrollTo(0,0); } }
 });
+/* ---------- Đo lường (Google Analytics 4) ----------
+   Mã GA nằm ở <head> của public/index.html (window.GA_ID). Để trống thì không gửi gì. */
+const track=(ev,p)=>{ try{ if(window.GA_ID&&typeof window.gtag==='function') window.gtag('event',ev,p||{}); }catch(e){} };
+let gaLast='';
+function gaView(){
+  const T={home:'Trang chủ',explore:'Khám phá',plan:'Lịch trình',book:'Đặt chỗ',blog:'Blog'};
+  let path, title;
+  const pv=slugTag(state.prov);
+  if(state.selected){ const p=byId(state.selected); path='/dia-diem/'+pv+'/'+slugTag(p&&p.name); title=(p?p.name:'Địa điểm')+' – '+state.prov; }
+  else if(state.tab==='blog'){ path=state.post?'/blog/'+state.post:'/blog'; const b=state.post&&BLOG.find(x=>x.slug===state.post); title=b?b.title:'Blog'; }
+  else if(state.tab==='explore'||state.tab==='plan'){ path=(state.tab==='explore'?'/kham-pha/':'/lich-trinh/')+pv; title=T[state.tab]+' – '+state.prov; }
+  else { path=state.tab==='home'?'/':'/'+(state.tab==='book'?'dat-cho':state.tab); title=T[state.tab]||state.tab; }
+  if(path===gaLast) return; const first=!gaLast; gaLast=path; if(first) return;  // lượt đầu đã được GA tự ghi
+  track('page_view',{page_location:location.origin+path,page_path:path,page_title:title+' | Đi Đâu?'});
+}
+{ const _r=render; render=function(){ const out=_r.apply(this,arguments); try{ gaView(); }catch(e){} return out; }; }
+const gaSearch=(term,where)=>{ term=String(term||'').trim().slice(0,100); if(term.length<2) return; track('search',{search_term:term,search_place:where,province:state.prov}); };
+{ const timers={}; const later=(k,fn)=>{ clearTimeout(timers[k]); timers[k]=setTimeout(fn,1500); };
+  $('#pbody').addEventListener('input',e=>{ if(e.target.id==='q') later('q',()=>gaSearch(e.target.value,'kham-pha')); });
+  $('#sheet').addEventListener('input',e=>{ if(e.target.id==='provq') later('prov',()=>gaSearch(e.target.value,'chon-tinh')); });
+  $('#hxForm').addEventListener('submit',()=>gaSearch($('#hxq').value,'trang-chu'));
+  $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx="ex"]'); if(b) gaSearch(EXAMPLES[Number(b.dataset.ex)],'goi-y-mau'); });
+  document.addEventListener('click',e=>{ const a=e.target.closest&&e.target.closest('a[href]'); if(!a) return; let u; try{ u=new URL(a.href,location.href); }catch(x){ return; }
+    if(u.origin===location.origin||!/^https?:$/.test(u.protocol)) return;
+    const h=u.hostname+' '+decodeURIComponent(u.search), partner=/traveloka/.test(h)?'traveloka':/agoda/.test(h)?'agoda':/booking\.com/.test(h)?'booking':/klook/.test(h)?'klook':/google\.[a-z.]+\/maps|maps\.google|goo\.gl\/maps/.test(h)?'google-maps':/zalo/.test(h)?'zalo':/facebook/.test(h)?'facebook':'';
+    if(partner) track('click_partner',{partner,province:state.prov,link_text:(a.textContent||'').trim().slice(0,60)});
+  },true);
+}
 buildReq(); render();
 (()=>{ const top=document.querySelector('.top');
   const upd=()=>{ document.documentElement.style.setProperty('--toph',top.offsetHeight+'px');
