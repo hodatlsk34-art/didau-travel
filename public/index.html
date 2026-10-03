@@ -1415,6 +1415,21 @@ html,body{height:auto!important}
   .bnr img{max-height:none}
   .hx{padding:18px 12px 22px!important}
 }
+/* Banner thấp lại; phần dưới dùng ảnh vịnh làm nền */
+.bnr img{height:clamp(150px,19vw,330px)!important;max-height:none!important;object-position:30% 38%}
+.hx{background:none!important;padding:34px 16px 40px!important;min-height:calc(100vh - clamp(150px,19vw,330px))!important;box-sizing:border-box}
+.hx-bg{display:block!important;background-position:center 45%!important}
+.hx::before{display:block!important;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 40%,rgba(0,30,50,.12) 100%)!important}
+.hx-slogan{text-shadow:0 0 2px #fff,0 0 8px rgba(255,255,255,.95),0 0 16px rgba(255,255,255,.85)!important}
+.hx-try-h{color:#fff!important;text-shadow:0 1px 3px rgba(0,25,50,.85)!important}
+.hx-tag{box-shadow:0 4px 14px rgba(10,40,80,.15)!important}
+@media (max-width:760px){ .bnr img{height:auto!important} .hx{min-height:0!important;padding:24px 12px 30px!important} }
+@media (min-width:900px){
+  .bnr{margin-top:0!important}
+  .top.over{background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),url("/images/hero/halong3-1920.webp") center 4%/cover no-repeat!important}
+  .top.over .brand{visibility:visible!important}
+  .bnr img{object-position:30% 22%!important;height:clamp(150px,17vw,300px)!important}
+}
 </style>
 
 <div class="app">
