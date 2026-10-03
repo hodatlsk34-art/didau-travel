@@ -2751,7 +2751,7 @@ function gcRanges(){
   const d=new Date(), iso=x=>isoD(x), t=iso(d), y=new Date(d); y.setDate(d.getDate()-1);
   const tm=new Date(d); tm.setDate(d.getDate()+1); const n=iso(tm);
   const w=new Date(d); w.setDate(d.getDate()-6); const m=new Date(d.getFullYear(),d.getMonth(),1);
-  return [['today','Hôm nay',t,n],['yday','Hôm qua',iso(y),t],['week','7 ngày qua',iso(w),n],['month','Tháng này',iso(m),n],['total','Tổng lượt truy cập',null,null]];
+  return [['today','Hôm nay',t,n],['yday','Hôm qua',iso(y),t],['week','7 ngày qua',iso(w),n],['month','Tháng này',iso(m),n],['total','Tổng lượt truy cập','2025-01-01',n]];
 }
 async function loadStats(){
   if(!GC_BASE||gcStats) return; gcStats={};
