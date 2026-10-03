@@ -1430,6 +1430,15 @@ html,body{height:auto!important}
   .top.over .brand{visibility:visible!important}
   .bnr img{object-position:30% 22%!important;height:clamp(150px,17vw,300px)!important}
 }
+/* Gộp menu vào banner (một khối) */
+@media (min-width:900px){
+  .bnr{margin-top:calc(-1 * var(--toph,72px))!important}
+  .bnr img{height:clamp(190px,19vw,300px)!important;object-position:30% 0%!important}
+  .top.over{background:transparent!important}
+  .top.over .brand{visibility:hidden!important}
+  .top .tabs{gap:6px!important;margin-right:8px!important}
+  .top .tab{padding:7px 13px!important;font-size:13.5px!important}
+}
 </style>
 
 <div class="app">
