@@ -2763,7 +2763,7 @@ function gcRanges(){
   const d=new Date(), iso=x=>isoD(x), t=iso(d), y=new Date(d); y.setDate(d.getDate()-1);
   const tm=new Date(d); tm.setDate(d.getDate()+1); const n=iso(tm);
   const w=new Date(d); w.setDate(d.getDate()-6); const m=new Date(d.getFullYear(),d.getMonth(),1);
-  return [['today','Hôm nay',t,n],['yday','Hôm qua',iso(y),t],['week','7 ngày qua',iso(w),n],['month','Tháng này',iso(m),n],['total','Tổng lượt truy cập','2025-01-01',n]];
+  return [['today','Hôm nay',t,n],['yday','Hôm qua',iso(y),t],['week','7 ngày qua',iso(w),n],['month','Tháng này',iso(m),n],['total','Tổng người truy cập','2025-01-01',n]];
 }
 async function loadStats(){
   if(!GC_BASE||gcStats) return; gcStats={};
@@ -2780,7 +2780,7 @@ function statsHTML(){
   const R=gcRanges();
   return `<section class="stats-box" id="siteStats" aria-label="Thống kê truy cập"><h3>📊 Thống kê truy cập</h3>
     <div class="stats-grid">${R.map(([k,l])=>`<div class="${k==='total'?'tot':''}"><b>${fmt(k)}</b><span>${l}</span></div>`).join('')}</div>
-    <small>Số lượt xem trang, đếm bằng GoatCounter (không lưu thông tin cá nhân).</small></section>`;
+    <small>Số người truy cập (mỗi người tính 1 lần trong ngày), đếm bằng GoatCounter, không lưu thông tin cá nhân. Số liệu được cập nhật sau tối đa 4 giờ.</small></section>`;
 }
 /* ---------- Chân trang ----------
    SITE: điền thông tin liên hệ / mạng xã hội. Mục nào để trống sẽ tự ẩn. */
