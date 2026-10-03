@@ -1519,12 +1519,49 @@ body::before,body.has-bgimg::before{background:linear-gradient(180deg,rgba(255,2
   .top:not(.over){background:linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.25)),url("/images/page-bg.webp") center 8%/cover no-repeat!important;box-shadow:0 2px 12px rgba(0,30,60,.15)!important}
   .top:not(.over) .brand{visibility:visible!important}
 }
+/* ===================== HƯỚNG A: một nền phong cảnh + thanh logo/menu nổi ===================== */
+#bnr{display:none!important}
+body,body.has-bgimg{background:#9fd3f2!important}
+body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;height:auto!important;top:0!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0) 40%,rgba(235,246,252,.25)),url("/images/bg-scene-1920.webp") center/cover no-repeat!important;filter:none!important}
+@media (max-width:899px){ body::before,body.has-bgimg::before{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(235,246,252,.2)),url("/images/bg-scene-900.webp") center top/cover no-repeat!important} }
+/* thanh trên */
+.top,.top.over,.top:not(.over),.app[data-tab] .top,.app[data-tab] .top.over,.app[data-tab] .top:not(.over){
+  position:sticky!important;top:0!important;z-index:1200!important;height:auto!important;margin:0!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px;
+  padding:10px clamp(12px,2vw,28px)!important;border:0!important;border-image:none!important;pointer-events:auto!important;
+  background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:background .25s,box-shadow .25s}
+.top:not(.over),.app[data-tab] .top:not(.over){background:rgba(255,255,255,.72)!important;backdrop-filter:blur(12px) saturate(1.2)!important;-webkit-backdrop-filter:blur(12px) saturate(1.2)!important;box-shadow:0 4px 18px rgba(0,30,60,.14)!important}
+.top .brand,.top.over .brand,.top:not(.over) .brand,.app[data-tab] .top .brand,.app[data-tab="home"] .top .brand{visibility:visible!important;display:flex!important;background:none!important;box-shadow:none!important;padding:0!important;flex:none}
+.brandA{display:flex;align-items:center;gap:6px}
+.brandA-art{width:auto;height:84px;filter:drop-shadow(0 4px 8px rgba(0,40,90,.25));transition:height .25s}
+.brandA-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+.brandA-word{width:auto;height:52px;overflow:visible;transition:height .25s}
+.brandA-tag{margin-top:2px;font:700 12.5px/1 var(--font-display);letter-spacing:.3px;color:#fff;background:#1E8C3A;padding:4px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,40,20,.2)}
+.top:not(.over) .brandA-art{height:56px} .top:not(.over) .brandA-word{height:38px} .top:not(.over) .brandA-tag{display:none}
+.top .tabs{margin:0 0 0 auto!important;justify-self:auto!important}
+.top-r,.top .prov{display:inline-flex!important}
+@media (max-width:899px){
+  .top,.app[data-tab] .top{padding:6px 10px!important}
+  .brandA-art{height:56px} .brandA-word{height:34px} .brandA-tag{font-size:10px;padding:3px 7px}
+  .top:not(.over) .brandA-art{height:42px} .top:not(.over) .brandA-word{height:28px}
+  .top .prov{padding:5px 10px;font-size:12.5px}
+}
+/* khu tìm kiếm trang chủ: nằm trên vùng trời */
+.hx{margin-top:0!important;background:none!important;padding:clamp(28px,7vh,80px) 16px 40px!important;min-height:0!important}
+.hx-bg,.hx::before,.hx-logo,.hx-credit,.hx-more{display:none!important}
+.hx-slogan{position:static!important;transform:rotate(-3deg)!important;background:rgba(255,255,255,.82);padding:6px 18px 2px;border-radius:16px;text-shadow:none!important;box-shadow:0 4px 14px rgba(10,40,80,.12)}
+.hx-try-h{color:#0E2F66!important;text-shadow:0 0 6px #fff!important}
+.panel,.pbody{background:transparent!important}
+.top .tagline{display:none!important}
+.brandA{background:rgba(255,255,255,.55);border-radius:22px;padding:4px 14px 4px 6px;box-shadow:0 4px 14px rgba(0,30,60,.12)}
+.top:not(.over) .brandA{background:none;box-shadow:none;padding:0}
 </style>
 
 <div class="app">
   <header class="top">
     <button class="brand" id="brandBtn" aria-label="Đi Đâu? – giới thiệu">
-      <span class="logo-mini"><svg class="pin-svg" viewBox="0 0 64 80" aria-hidden="true"><defs><linearGradient id="pinSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9A3C"/><stop offset=".55" stop-color="#FFD15C"/><stop offset="1" stop-color="#8FD3F4"/></linearGradient><clipPath id="pinClip"><circle cx="32" cy="30" r="19"/></clipPath></defs><path d="M32 77C32 77 6 50.5 6 30a26 26 0 0 1 52 0c0 20.5-26 47-26 47z" fill="#0E3F86" stroke="#fff" stroke-width="3.5"/><g clip-path="url(#pinClip)"><rect x="10" y="8" width="44" height="44" fill="url(#pinSky)"/><circle cx="38" cy="25" r="6.5" fill="#FFF3B0"/><path d="M10 44 22 26l8 10 7-8 17 16v10H10z" fill="#1F6FD1"/><path d="M10 47c8-6 14-7 22-3s16 3 22-1v11H10z" fill="#2E9E4F"/></g></svg><span class="lw"><span class="lw1">Đi</span><span class="lw2">Đâu?</span></span></span>
+      <span class="brandA"><img class="brandA-art" src="/images/logo-art-520.webp" alt="" width="520" height="488"><span class="brandA-txt"><svg class="brandA-word" viewBox="0 0 300 92" aria-hidden="true"><text x="4" y="74" font-family="Lexend, 'Be Vietnam Pro', sans-serif" font-weight="800" font-size="76" letter-spacing="-1" stroke="#0E3F86" stroke-width="12" stroke-linejoin="round" paint-order="stroke"><tspan fill="#fff">Đi</tspan><tspan dx="12" fill="#FFC20E">Đâu?</tspan></text></svg><span class="brandA-tag">AI Travel Planner Việt Nam</span></span></span>
       <span class="tagline">AI Travel Planner Việt Nam</span>
     </button>
     <nav class="tabs" role="tablist">
@@ -3436,7 +3473,7 @@ buildReq(); render();
 (()=>{ const top=document.querySelector('.top');
   const upd=()=>{ document.documentElement.style.setProperty('--toph',top.offsetHeight+'px');
     const banner=!!$('#bnr');
-    const bn=$('#bnr'); top.classList.toggle('over',!!bn&&scrollY<Math.max(8,(bn?bn.offsetHeight:0)-70)); };
+    top.classList.toggle('over',scrollY<10); };
   window.__topUpd=upd; upd(); addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); })();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
