@@ -2717,9 +2717,11 @@ const GC_CODE='didau';
 const GC_BASE=GC_CODE?'https://'+GC_CODE+'.goatcounter.com':'';
 let gcStats=null;
 function gcRanges(){
+  /* GoatCounter: end là mốc 00:00 nên phải lấy ngày hôm sau để tính trọn ngày */
   const d=new Date(), iso=x=>isoD(x), t=iso(d), y=new Date(d); y.setDate(d.getDate()-1);
+  const tm=new Date(d); tm.setDate(d.getDate()+1); const n=iso(tm);
   const w=new Date(d); w.setDate(d.getDate()-6); const m=new Date(d.getFullYear(),d.getMonth(),1);
-  return [['today','Hôm nay',t,t],['yday','Hôm qua',iso(y),iso(y)],['week','7 ngày qua',iso(w),t],['month','Tháng này',iso(m),t],['total','Tổng lượt truy cập',null,null]];
+  return [['today','Hôm nay',t,n],['yday','Hôm qua',iso(y),t],['week','7 ngày qua',iso(w),n],['month','Tháng này',iso(m),n],['total','Tổng lượt truy cập',null,null]];
 }
 async function loadStats(){
   if(!GC_BASE||gcStats) return; gcStats={};
@@ -3440,6 +3442,9 @@ $('#pbody').addEventListener('click',e=>{
 });
 $('#homeBanner')&&$('#homeBanner').addEventListener('click',e=>{ const b=e.target.closest('[data-dexp]'); if(!b) return; const D=DESTMAP[b.dataset.dexp]; state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); window.scrollTo(0,0); });
 $('#provBtn').onclick=openProv; $('#brandBtn').onclick=openIntro; $('#sheetClose').onclick=closeSheet;
+/* Popup chào mừng: tự hiện khi mở web (1 lần mỗi phiên), không hiện khi mở link chia sẻ lịch trình */
+(()=>{ let seen=false; try{ seen=sessionStorage.getItem('didau.welcome')==='1'; sessionStorage.setItem('didau.welcome','1'); }catch(e){}
+  if(!seen && !/^#trip=/.test(location.hash)) setTimeout(()=>{ if($('#sheet').hidden) openIntro(); },600); })();
 $('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'||e.target.closest('[data-action="closeintro"]')){closeSheet();return;}
   const b=e.target.closest('[data-prov]'); if(!b) return; closeSheet(); selectProv(b.dataset.prov); });
 $('#sheet').addEventListener('input',e=>{ if(e.target.id==='provq') $('#provList').innerHTML=provHTML(e.target.value); });
