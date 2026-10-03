@@ -17,7 +17,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://thumb.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://*.tile.openstreetmap.fr https://upload.wikimedia.org https://thumb.wikimedia.org https://didau.goatcounter.com; connect-src 'self' https://nominatim.openstreetmap.org https://api.open-meteo.com https://*.wikipedia.org https://commons.wikimedia.org https://didau.goatcounter.com https://routing.openstreetmap.de https://router.project-osrm.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
 <script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}</script>
@@ -1564,6 +1564,13 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .hx-card span{font-size:clamp(11px,1.05vw,13px)!important}
 .hx-card.c4{background:linear-gradient(160deg,#B47CFF 0%,#8A4FE8 55%,#6A33CF 100%)}
 @media (max-width:899px){ .hx-cards{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important} .hx-card{min-height:88px!important;padding:10px 4px 12px!important;border-radius:14px!important} .hx-card .hx-ic{width:26px!important;height:26px!important} .hx-card b{font-size:11.5px!important;text-align:center} .hx-card span{display:none!important} }
+.addr-form{display:flex;gap:8px;margin:6px 0}
+.addr-form input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:15px var(--font-body);background:var(--surface);color:var(--ink)}
+.addr-form input:focus{outline:none;border-color:var(--moss)}
+.addr-res{display:flex;flex-direction:column;gap:6px;margin:4px 0 8px}
+.addr-item{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:1px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit}
+.addr-item:hover{border-color:var(--moss)} .addr-item small{color:var(--muted);font-size:12px}
+.addr-change{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
 </style>
 
 <div class="app">
@@ -2155,7 +2162,7 @@ function hotelOf(prov,area){
 }
 function dayStart(plan,k){
   const o=plan.opts, z=plan.zones[plan.days[k].zi]||plan.zones[0];
-  if(o.startMode==='me'&&state.me&&hav(state.me,z)<60) return {lat:state.me.lat,lng:state.me.lng,label:state.me.src==='gps'?'vị trí của bạn':'điểm bạn chọn',me:true};
+  if(o.startMode==='me'&&state.me&&hav(state.me,z)<60) return {lat:state.me.lat,lng:state.me.lng,label:meLabel(),me:true};
   return hotelOf(o.prov,planAreaOf(plan,k));
 }
 const MEAL=['sang','trua','toi'];
@@ -2888,8 +2895,10 @@ function fmtMin(m){m=Math.max(1,Math.round(m));return m>=60?Math.floor(m/60)+' g
 function autoMode(p){return state.rmode||(state.me&&roadKm(state.me,p)<1.5?'foot':'car');}
 function routeBoxHTML(p){
   if(!state.me) return `<section class="route-box"><h3>Đường đi</h3>
-    <p class="hint">Cho phép lấy vị trí để tính quãng đường, thời gian và vẽ đường đi từ chỗ bạn đến đây.</p>
-    <div class="actions"><button class="btn" data-action="locate">📍 Dùng vị trí của tôi</button><button class="btn-ghost" data-action="pick">Chọn điểm xuất phát trên bản đồ</button></div>
+    <p class="hint">Nhập nơi bạn sẽ xuất phát (nhà, khách sạn, bến xe…), hoặc dùng vị trí hiện tại, để tính quãng đường, thời gian và vẽ đường đi.</p>
+    <form class="addr-form" data-addrform autocomplete="off"><input name="q" type="text" placeholder="Nhập điểm xuất phát: số nhà, đường, khách sạn…" aria-label="Nhập địa chỉ xuất phát" value="${esc(state.addrQ||'')}"><button class="btn" type="submit">Tìm</button></form>
+    ${addrResHTML()}
+    <div class="actions"><button class="btn-ghost" data-action="locate">📍 Dùng vị trí hiện tại</button><button class="btn-ghost" data-action="pick">Chọn trên bản đồ</button></div>
     <a class="btn-ghost" href="${gmapsDir(null,p,'car')}" target="_blank" rel="noopener">Mở chỉ đường trên Google Maps ↗</a></section>`;
   const mode=autoMode(p), straight=hav(state.me,p), rt=state.route&&state.route.id===p.id&&state.route.mode===mode?state.route:null;
   let res;
@@ -2898,11 +2907,13 @@ function routeBoxHTML(p){
   else {const ek=straight*1.3, em=mode==='foot'?ek/4.5*60:ek/25*60+5;
     res=`<div class="route-res"><b>~${fmtKm(ek)}</b><b>~${fmtMin(em)}</b><span>ước tính theo đường chim bay ${fmtKm(straight)}, chưa kết nối được máy chủ tính đường.</span></div>`;}
   const footOk=straight<30;
-  return `<section class="route-box"><h3>Đường đi từ ${state.me.src==='gps'?'vị trí của bạn':'điểm bạn chọn'}</h3>
+  return `<section class="route-box"><h3>Đường đi từ ${esc(meLabel())}</h3>
     <div class="seg" role="group"><button data-rmode="car" aria-pressed="${mode==='car'}">Xe máy / ô tô</button>${footOk?`<button data-rmode="foot" aria-pressed="${mode==='foot'}">Đi bộ</button>`:''}</div>
     ${res}
     <div class="actions"><a class="btn" href="${gmapsDir(state.me,p,mode)}" target="_blank" rel="noopener">Dẫn đường từng bước (Google Maps) ↗</a>
-    <button class="btn-ghost" data-action="pick">Đổi điểm xuất phát</button></div></section>`;
+    <button class="btn-ghost" data-action="addrchange">Đổi điểm xuất phát</button></div>
+    ${state.addrOpen?`<div class="addr-change">${`<form class="addr-form" data-addrform autocomplete="off"><input name="q" type="text" placeholder="Nhập điểm xuất phát: số nhà, đường, khách sạn…" aria-label="Nhập địa chỉ xuất phát" value="${esc(state.addrQ||'')}"><button class="btn" type="submit">Tìm</button></form>
+    ${addrResHTML()}`}<div class="actions"><button class="btn-ghost" data-action="locate">📍 Vị trí hiện tại</button><button class="btn-ghost" data-action="pick">Chọn trên bản đồ</button></div></div>`:''}</section>`;
 }
 async function fetchRoute(from,to,mode){
   const key=[from.lat.toFixed(4),from.lng.toFixed(4),to.id,mode].join('|'); if(routeCache[key]) return routeCache[key];
@@ -2946,11 +2957,34 @@ function drawMe(){
   if(state.me.acc) L.circle([state.me.lat,state.me.lng],{radius:state.me.acc,className:'me-acc',interactive:false}).addTo(meLayer);
   L.circleMarker([state.me.lat,state.me.lng],{radius:8,className:'me',interactive:true}).bindTooltip(state.me.src==='gps'?'Bạn đang ở đây':'Điểm xuất phát',{direction:'top',className:'tip'}).addTo(meLayer);
 }
-function setMe(lat,lng,src,acc){
-  state.me={lat,lng,src,acc}; state.route=null; state.rmode=null; setPick(false);
+
+/* ---------- Điểm xuất phát tùy chọn: nhập địa chỉ (OpenStreetMap Nominatim) ---------- */
+const meLabel=()=>!state.me?'':state.me.src==='gps'?'vị trí của bạn':(state.me.label||'điểm bạn chọn');
+let recentFrom=load('didau.from',[]); if(!Array.isArray(recentFrom)) recentFrom=[];
+recentFrom=recentFrom.filter(x=>x&&typeof x.label==='string'&&isFinite(x.lat)&&isFinite(x.lng)).slice(0,4);
+function addrResHTML(){
+  const R=state.addrRes;
+  if(R==='loading') return '<p class="hint">Đang tìm địa chỉ…</p>';
+  if(R==='err') return '<p class="hint">Chưa tìm được (mạng lỗi hoặc máy chủ bận). Thử lại, hoặc chọn trên bản đồ.</p>';
+  if(Array.isArray(R)) return R.length?`<div class="addr-res">${R.map((x,i)=>`<button type="button" class="addr-item" data-addr="${i}"><b>📍 ${esc(x.name)}</b><small>${esc(x.sub)}</small></button>`).join('')}</div>`:'<p class="hint">Không thấy địa chỉ phù hợp. Thử ghi rõ hơn, ví dụ "12 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội".</p>';
+  return recentFrom.length?`<div class="addr-res"><small class="hint">Đã dùng gần đây:</small>${recentFrom.map((x,i)=>`<button type="button" class="addr-item" data-recent="${i}"><b>🕘 ${esc(x.label)}</b></button>`).join('')}</div>`:'';
+}
+async function geocode(q){
+  const vb=state.selected&&byId(state.selected), near=vb?`&viewbox=${vb.lng-1},${vb.lat+1},${vb.lng+1},${vb.lat-1}`:'';
+  const u='https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=0&limit=5&countrycodes=vn&accept-language=vi'+near+'&q='+encodeURIComponent(q);
+  const r=await fetch(u,{headers:{'Accept':'application/json'}}); if(!r.ok) throw 0;
+  const j=await r.json(); if(!Array.isArray(j)) return [];
+  return j.map(x=>{ const parts=String(x.display_name||'').split(', '); return {lat:Number(x.lat),lng:Number(x.lon),name:(x.name||parts[0]||'').slice(0,80),sub:parts.slice(1,4).join(', ').slice(0,120)}; }).filter(x=>isFinite(x.lat)&&isFinite(x.lng)&&x.lat>7&&x.lat<24&&x.lng>101&&x.lng<118);
+}
+function useAddr(x){
+  recentFrom=[{label:x.name,lat:x.lat,lng:x.lng},...recentFrom.filter(r=>r.label!==x.name)].slice(0,4); store('didau.from',recentFrom);
+  state.addrQ=''; setMe(x.lat,x.lng,'addr',0,x.name);
+}
+function setMe(lat,lng,src,acc,label){
+  state.me={lat,lng,src,acc,label:label||''}; state.addrOpen=false; state.addrRes=null; state.route=null; state.rmode=null; setPick(false);
   drawMe(); render();
   if(state.selected) requestRoute(); else if(map) map.setView([lat,lng],Math.max(map.getZoom(),13));
-  toast(src==='gps'?'Đã lấy vị trí của bạn.':'Đã đặt điểm xuất phát.');
+  toast(src==='gps'?'Đã lấy vị trí của bạn.':label?'Xuất phát từ: '+label:'Đã đặt điểm xuất phát.');
 }
 function setPick(on){ if(on&&mapMode!=='overlay'&&mapMode!=='mini'){ state.mapOpen=true; placeMap(); renderMap(); } state.pickMode=on; const b=$('#pickbar'); if(b) b.hidden=!on; $('#mapwrap').classList.toggle('picking',on); }
 function locate(){
@@ -3377,7 +3411,15 @@ $('#pbody').addEventListener('change',e=>{
   if(t.id==='rqOrigin'){ H.manual.origin=t.value; refreshHomeBits(false); }
 });
 $('#pbody').addEventListener('toggle',e=>{ if(e.target.id==='reqMore') state.home.open=e.target.open; },true);
+$('#pbody').addEventListener('submit',async e=>{ const f=e.target.closest('[data-addrform]'); if(!f) return; e.preventDefault();
+  const q=(f.q.value||'').trim(); if(q.length<3){ toast('Nhập địa chỉ cụ thể hơn.'); return; }
+  state.addrQ=q; state.addrRes='loading'; render();
+  try{ state.addrRes=await geocode(q); }catch(err){ state.addrRes='err'; } render();
+});
 $('#pbody').addEventListener('click',e=>{
+  { const ai=e.target.closest('[data-addr]'); if(ai&&Array.isArray(state.addrRes)){ const x=state.addrRes[Number(ai.dataset.addr)]; if(x) useAddr(x); return; }
+    const rc=e.target.closest('[data-recent]'); if(rc){ const x=recentFrom[Number(rc.dataset.recent)]; if(x) useAddr({name:x.label,lat:x.lat,lng:x.lng}); return; }
+    if(e.target.closest('[data-action="addrchange"]')){ state.addrOpen=!state.addrOpen; state.addrRes=null; render(); setTimeout(()=>{ const i=document.querySelector('.addr-change input'); if(i) i.focus(); },50); return; } }
   { const bc=e.target.closest('[data-post]'); if(bc&&!e.target.closest('a')){ openPost(bc.dataset.post); return; }
     if(e.target.closest('[data-action="blogback"]')){ state.post=null; try{history.replaceState(null,'','#blog');}catch(err){} render(); window.scrollTo(0,0); return; } }
   const el=e.target.closest('button,a'); if(!el) return;
