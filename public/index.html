@@ -1592,6 +1592,8 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 @media (max-width:899px){ .foot-grid{grid-template-columns:1fr} }
 .foot-qr{margin:4px 0 8px;display:flex;align-items:center;gap:10px}.foot-qr img{width:92px;height:92px;border-radius:10px;background:#fff;padding:4px;border:1px solid var(--line)}.foot-qr figcaption{font-size:12.5px;color:var(--muted)}
 @media (max-width:899px){ .foot-qr{display:none} }
+.foot-social{align-items:center}.foot-social span{font-size:13px;color:var(--muted);margin-right:2px}
+@media (max-width:899px){ .top,.top:not(.over),.app[data-tab] .top:not(.over){backdrop-filter:none!important;-webkit-backdrop-filter:none!important} .top:not(.over),.app[data-tab] .top:not(.over){background:rgba(255,255,255,.94)!important} }
 </style>
 
 <div class="app">
@@ -2774,7 +2776,7 @@ const SITE={
   email:'holindahouse@gmail.com',
   zalo:'https://zaloapp.com/qr/p/uo7klikr9884',   // link Zalo (lấy từ mã QR)
   zaloQR:'/images/zalo-qr.png?v=2',
-  facebook:'',     // link Fanpage, ví dụ 'https://facebook.com/didautravel'
+  facebook:'https://www.facebook.com/profile.php?id=61592228634628',
   tiktok:'',       // ví dụ 'https://tiktok.com/@didautravel'
   youtube:'',      // ví dụ 'https://youtube.com/@didautravel'
   feedback:''      // link Google Form góp ý / báo lỗi (nếu trống sẽ dùng FEEDBACK_FORM)
@@ -2804,7 +2806,7 @@ function footerHTML(){
       ${contacts.length?`<div class="foot-contact">${contacts.join('')}</div>`:'<p class="hint">Thông tin liên hệ đang được cập nhật.</p>'}
       ${okUrl(fb)?`<a class="btn foot-fb" href="${esc(fb)}" target="_blank" rel="noopener">✍️ Góp ý / báo thông tin sai</a>`:mail?`<a class="btn foot-fb" href="mailto:${esc(mail)}?subject=${encodeURIComponent('Góp ý cho Đi Đâu?')}&body=${encodeURIComponent('Nội dung góp ý / thông tin sai (tên địa điểm, tỉnh):\n\n')}">✍️ Góp ý / báo thông tin sai</a>`:''}
       ${zalo&&SITE.zaloQR?`<figure class="foot-qr"><img src="${esc(SITE.zaloQR)}" alt="Mã QR Zalo liên hệ Đi Đâu?" width="120" height="120" loading="lazy"><figcaption>Quét mã để nhắn Zalo</figcaption></figure>`:''}
-      ${socials.length?`<div class="foot-social">${socials.map(([u,ic,n])=>`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${n}" title="${n}" class="s-${ic}">${IC[ic]}</a>`).join('')}</div>`:''}</section>
+      ${socials.length?`<div class="foot-social"><span>Theo dõi Đi Đâu?</span>${socials.map(([u,ic,n])=>`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${n}" title="${n}" class="s-${ic}">${IC[ic]}</a>`).join('')}</div>`:''}</section>
   </div>
   <div class="foot-legal"><b>Lưu ý:</b> Giá, giờ mở cửa, thời gian di chuyển và chi phí trên Đi Đâu? là ước tính theo mặt bằng chung, có thể thay đổi và chưa được xác minh tại chỗ. Hãy kiểm tra lại với nơi cung cấp dịch vụ trước khi đi. Một số liên kết đặt chỗ là liên kết đối tác.
     <span class="foot-links"><a href="https://didautravel.id.vn/dieu-khoan.html" target="_blank" rel="noopener">Điều khoản sử dụng</a> · <a href="https://didautravel.id.vn/chinh-sach-bao-mat.html" target="_blank" rel="noopener">Chính sách bảo mật</a></span></div>
