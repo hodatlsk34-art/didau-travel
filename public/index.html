@@ -1590,6 +1590,8 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .foot-links{display:block;margin-top:4px}.foot-links a{color:var(--moss)}
 .foot-copy{text-align:center}
 @media (max-width:899px){ .foot-grid{grid-template-columns:1fr} }
+.foot-qr{margin:4px 0 8px;display:flex;align-items:center;gap:10px}.foot-qr img{width:92px;height:92px;border-radius:10px;background:#fff;padding:4px;border:1px solid var(--line)}.foot-qr figcaption{font-size:12.5px;color:var(--muted)}
+@media (max-width:899px){ .foot-qr{display:none} }
 </style>
 
 <div class="app">
@@ -2769,8 +2771,9 @@ function statsHTML(){
 /* ---------- Chân trang ----------
    SITE: điền thông tin liên hệ / mạng xã hội. Mục nào để trống sẽ tự ẩn. */
 const SITE={
-  email:'',        // ví dụ 'lienhe@didautravel.id.vn'
-  zalo:'',         // số Zalo, ví dụ '0912345678'
+  email:'holindahouse@gmail.com',
+  zalo:'https://zaloapp.com/qr/p/uo7klikr9884',   // link Zalo (lấy từ mã QR)
+  zaloQR:'/images/zalo-qr.png',
   facebook:'',     // link Fanpage, ví dụ 'https://facebook.com/didautravel'
   tiktok:'',       // ví dụ 'https://tiktok.com/@didautravel'
   youtube:'',      // ví dụ 'https://youtube.com/@didautravel'
@@ -2786,8 +2789,8 @@ const IC={
   zalo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5A8.5 8.5 0 1 1 21 12z"/></svg>'
 };
 function footerHTML(){
-  const fb=SITE.feedback||FEEDBACK_FORM, mail=/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(SITE.email)?SITE.email:'', zalo=String(SITE.zalo||'').replace(/[^\d]/g,'');
-  const contacts=[mail&&`<a href="mailto:${esc(mail)}">${IC.mail}<span>${esc(mail)}</span></a>`, zalo&&`<a href="https://zalo.me/${esc(zalo)}" target="_blank" rel="noopener">${IC.zalo}<span>Zalo ${esc(zalo)}</span></a>`].filter(Boolean);
+  const fb=SITE.feedback||FEEDBACK_FORM, mail=/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(SITE.email)?SITE.email:'', zalo=okUrl(SITE.zalo)?SITE.zalo:'';
+  const contacts=[mail&&`<a href="mailto:${esc(mail)}">${IC.mail}<span>${esc(mail)}</span></a>`, zalo&&`<a href="${esc(zalo)}" target="_blank" rel="noopener">${IC.zalo}<span>Nhắn Zalo: Hồ Sỹ Đạt</span></a>`].filter(Boolean);
   const socials=[[SITE.facebook,'fb','Facebook'],[SITE.tiktok,'tt','TikTok'],[SITE.youtube,'yt','YouTube']].filter(x=>okUrl(x[0]));
   const dests=FOOT_DEST.filter(k=>DESTMAP[k]);
   return `<footer class="site-foot">${statsHTML()}
@@ -2799,7 +2802,8 @@ function footerHTML(){
       <div class="foot-dest">${dests.map(k=>`<button type="button" data-dexp="${esc(k)}">${esc(DESTMAP[k].name)}</button>`).join('')}</div></section>
     <section class="foot-col"><h4>Liên hệ &amp; góp ý</h4>
       ${contacts.length?`<div class="foot-contact">${contacts.join('')}</div>`:'<p class="hint">Thông tin liên hệ đang được cập nhật.</p>'}
-      ${okUrl(fb)?`<a class="btn foot-fb" href="${esc(fb)}" target="_blank" rel="noopener">✍️ Góp ý / báo thông tin sai</a>`:''}
+      ${okUrl(fb)?`<a class="btn foot-fb" href="${esc(fb)}" target="_blank" rel="noopener">✍️ Góp ý / báo thông tin sai</a>`:mail?`<a class="btn foot-fb" href="mailto:${esc(mail)}?subject=${encodeURIComponent('Góp ý cho Đi Đâu?')}&body=${encodeURIComponent('Nội dung góp ý / thông tin sai (tên địa điểm, tỉnh):\n\n')}">✍️ Góp ý / báo thông tin sai</a>`:''}
+      ${zalo&&SITE.zaloQR?`<figure class="foot-qr"><img src="${esc(SITE.zaloQR)}" alt="Mã QR Zalo liên hệ Đi Đâu?" width="120" height="120" loading="lazy"><figcaption>Quét mã để nhắn Zalo</figcaption></figure>`:''}
       ${socials.length?`<div class="foot-social">${socials.map(([u,ic,n])=>`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${n}" title="${n}" class="s-${ic}">${IC[ic]}</a>`).join('')}</div>`:''}</section>
   </div>
   <div class="foot-legal"><b>Lưu ý:</b> Giá, giờ mở cửa, thời gian di chuyển và chi phí trên Đi Đâu? là ước tính theo mặt bằng chung, có thể thay đổi và chưa được xác minh tại chỗ. Hãy kiểm tra lại với nơi cung cấp dịch vụ trước khi đi. Một số liên kết đặt chỗ là liên kết đối tác.
