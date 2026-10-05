@@ -250,12 +250,13 @@ def build_intl():
                 + f'<div class="facts2"><div><b>{"Miễn visa" if k.get("visaFree") else "Cần visa"}</b><span>Hộ chiếu Việt Nam</span></div>'
                 + f'<div><b>{esc(months_txt(c["best"]).capitalize())}</b><span>Mùa đẹp</span></div><div><b>{esc(c["days"])}</b><span>Thời gian gợi ý</span></div>'
                 + f'<div><b>{esc(k["rate"])}</b><span>{esc(k["currency"])}</span></div></div>'
-                + f'<div class="ctas"><a class="btn" href="/#quoc-te/{c["id"]}" data-ev="intl-app">🗺 Xem bản đồ {esc(name)}</a>'
+                + f'<div class="ctas"><a class="btn" href="/#go=iplan:{c["id"]}" data-ev="intl-plan">✨ Lập lịch trình {esc(name)} miễn phí</a><a class="btn ghost" href="/#quoc-te/{c["id"]}" data-ev="intl-app">🗺 Xem bản đồ</a>'
                 + f'<a class="btn ghost" href="{esc(aff("activities", c["id"]))}" target="_blank" rel="noopener sponsored" data-ev="tour">🎟 Tour & vé</a>'
                 + f'<a class="btn ghost" href="{esc(aff("hotel", c["id"]))}" target="_blank" rel="noopener sponsored" data-ev="hotel">🏨 Khách sạn</a></div>'
                 + ''.join(sections)
                 + f'<h2>Kinh nghiệm đi {esc(k["name"])}</h2><ul>' + ''.join(f'<li>{esc(t)}</li>' for t in k.get('tips', [])) + '</ul>'
                 + '<section class="faq"><h2>Câu hỏi thường gặp</h2>' + ''.join(f'<h3>{esc(q)}</h3><p>{esc(a)}</p>' for q, a in faq) + '</section>'
+                + f'<section class="cta"><h2>Lập lịch trình {esc(name)} theo giờ</h2><p>Chọn số ngày, số người và nơi xuất phát: Đi Đâu? xếp điểm ăn uống, tham quan theo giờ, vẽ tuyến trên bản đồ và ước tính chi phí vé máy bay, khách sạn, đi lại.</p><a class="btn" href="/#go=iplan:{c["id"]}" data-ev="intl-plan-bottom">✨ Bắt đầu ngay</a></section>'
                 + (f'<h2>Điểm khác ở {esc(k["name"])}</h2><div class="near">' + ''.join(f'<a href="/quoc-te/{x["id"]}/">{esc(x["name"])}</a>' for x in same) + '</div>' if same else '')
                 + '<h2>Điểm đến quốc tế khác</h2><div class="near">' + ''.join(f'<a href="/quoc-te/{x["id"]}/">{esc(x["name"])}</a>' for x in others) + '</div>')
         ld = {'@context': 'https://schema.org', '@graph': [

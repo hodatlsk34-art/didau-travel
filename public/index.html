@@ -1645,6 +1645,8 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .ikpis div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
 .ikpis b{display:block;font-size:14px}
 .ikpis span{font-size:11.5px;color:var(--muted)}
+.iplanbox{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1.5px solid var(--moss);background:color-mix(in srgb,var(--moss) 7%,var(--surface));border-radius:14px;padding:12px 14px;margin:12px 0}
+.iplanbox div{display:flex;flex-direction:column;gap:3px;flex:1 1 260px}.iplanbox b{font-size:16px}.iplanbox span{font-size:13px;color:var(--muted)}
 .ibook{display:flex;flex-wrap:wrap;gap:8px}
 .imapbox{position:relative;height:320px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--sea)}
 .imap{position:absolute;inset:0;background:var(--sea)}
@@ -1975,14 +1977,15 @@ function activityLinks(q){
 }
 const linkBtns = (arr,firstCls) => arr.map((l,i)=>`<a class="${i===0&&firstCls?firstCls:'btn-ghost'}" href="${l.href}" target="_blank" rel="noopener sponsored">${esc(l.label)} ↗</a>`).join('');
 function bookingUrl(q,checkin,nights,adults){
-  let u='https://www.booking.com/searchresults.vi.html?ss='+encodeURIComponent(q+', Việt Nam');
+  let u='https://www.booking.com/searchresults.vi.html?ss='+encodeURIComponent(INTL_Q[q]||q+', Việt Nam');
   if(checkin){const out=new Date(checkin+'T00:00:00');out.setDate(out.getDate()+Math.max(1,nights));
     const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     u+='&checkin='+checkin+'&checkout='+iso(out)+'&group_adults='+(adults||2)+'&no_rooms=1';}
   if(AFF.bookingAid) u+='&aid='+encodeURIComponent(AFF.bookingAid);
   return AFF.bookingAid?u:affWrap('booking',u);
 }
-const klookUrl = q => affWrap('klook','https://www.klook.com/vi/search/result/?query='+encodeURIComponent(q));
+const INTL_Q={};   // tên điểm đến quốc tế -> từ khóa tìm kiếm tiếng Anh
+const klookUrl = q => affWrap('klook','https://www.klook.com/vi/search/result/?query='+encodeURIComponent((INTL_Q[q]||q).split(',')[0]));
 const placeQuery = p => p.area==='Nội thành' ? p.prov : p.area.split(' – ')[0].replace(/^TP /,'');
 const AFF_NOTE = 'Liên kết đối tác: Đi Đâu? có thể nhận hoa hồng khi bạn đặt qua đây, giá bạn trả không đổi.';
 
@@ -2137,6 +2140,7 @@ const ORIGIN={'Hà Nội':[21.028,105.854],'TP. Hồ Chí Minh':[10.776,106.7],'
 const nearestAir=pt=>AIRPORTS.reduce((a,b)=>hav(a,pt)<=hav(b,pt)?a:b);
 function travelFor(origin,dest){
   const oc=ORIGIN[origin]; if(!oc||!dest) return null;
+  if(dest.fly) return intlTravelFor(oc,dest);
   const O={lat:oc[0],lng:oc[1]}, dkm=hav(O,dest);
   if(dkm<15) return {mode:'local',h:0.3,pp:0,text:'Ngay tại '+origin};
   const rk=dkm*1.3, rh=rk/45+0.3;
@@ -2153,7 +2157,7 @@ function travelFor(origin,dest){
 /* ---------- Trạng thái ---------- */
 const state = {
   prov:'Hà Nội', area:'all', tab:'home', filter:'all', q:'', selected:null, from:'explore',
-  saved:new Set(load('didau.saved',['f1','s2','c7']).filter(id=>BYID[id])),
+  saved:new Set(load('didau.saved',['f1','s2','c7']).filter(id=>BYID[id]||/^i:[a-z]+-\d+$/.test(id))),
   plans:load('didau.plans',[]).filter(pl=>(pl.v===2&&pl.d)||(pl.days&&pl.days.every(d=>d.stops.every(s=>BYID[s.id])))),
   must:new Set(),
   opts:null,
@@ -2187,15 +2191,15 @@ function zonesFor(o,pool){
   const pre=PRESET_ZONES[o.prov+'|'+o.area]; if(pre) return pre;
   if(o.area==='all'){
     const cnt=a=>pool.filter(p=>p.area===a).length;
-    const cent=a=>{const ps=pool.filter(p=>p.area===a&&p.cat!=='food'); const src=ps.length?ps:pool.filter(p=>p.area===a);
+    const cent=a=>{const ps=pool.filter(p=>p.area===a&&p.cat!=='food'&&!p.trip); const src=ps.length?ps:pool.filter(p=>p.area===a);
       return {lat:src.reduce((s,p)=>s+p.lat,0)/src.length,lng:src.reduce((s,p)=>s+p.lng,0)/src.length};};
-    const all=[...DATA[o.prov].areas].sort((a,b)=>cnt(b)-cnt(a));
+    const all=isIntlProv(o.prov)?[...DATA[o.prov].areas]:[...DATA[o.prov].areas].sort((a,b)=>cnt(b)-cnt(a));   // Quốc tế: giữ thứ tự đi (sân bay → nơi xa)
     let big=all.filter(a=>cnt(a)>=3); if(!big.length) big=all.slice(0,1);
     const zones=big.map(a=>({area:a,areas:[a],name:a==='Nội thành'?o.prov:a,...cent(a)}));
     all.filter(a=>!big.includes(a)).forEach(a=>{const c=cent(a); const z=zones.reduce((x,y)=>hav(x,c)<=hav(y,c)?x:y); z.areas.push(a); z.name+=' + '+a;});
     return zones;
   }
-  const anchors=pool.filter(p=>p.cat!=='food');
+  const anchors=pool.filter(p=>p.cat!=='food'&&!p.trip);
   const cen=kmeans(anchors.length?anchors:pool,o.days);
   return cen.map(c=>{const near=(anchors.length?anchors:pool).reduce((a,b)=>hav(a,c)<=hav(b,c)?a:b);return {lat:c.lat,lng:c.lng,name:'Quanh '+near.name};});
 }
@@ -2204,6 +2208,8 @@ function fits(p,slot,wd,hour,budget){
   if(!slot.kinds.some(k=>p.kinds.includes(k))) return false;
   if(p.closed && p.closed.includes(wd)) return false;
   if(p.morningOnly && hour>=11) return false;
+  if(p.eveningOnly && hour<16) return false;
+  if(p.intl && (slot.sunset||slot.evening) && p.dur>180) return false;   // Quốc tế: hoàng hôn/buổi tối chỉ xếp điểm ngắn
   if(slot.sunset && !p.sunset) return false;
   if(slot.evening && p.cat!=='food' && p.evening==='weekend' && ![5,6,0].includes(wd)) return false;
   if(p.cat==='food' && p.cost>BUDGET[budget].max) return false;
@@ -2256,34 +2262,97 @@ function pickOnce(slot,ctx,o,exclude,budget,reuseFood){
 }
 const MEAL_ALT={sang:['vat','cafe'],trua:['toi','vat'],toi:['trua','vat']};
 const pick1=(slot,ctx,o,ex)=>pickOnce(slot,ctx,o,ex,o.budget,false)||pickOnce(slot,ctx,o,ex,'thoaimai',false)||pickOnce(slot,ctx,o,ex,'thoaimai',true);
-const pick=(slot,ctx,o,ex)=>{ const b=pick1(slot,ctx,o,ex); if(b) return b; const m=slot.kinds.find(k=>MEAL_ALT[k]); return m?pick1({...slot,kinds:MEAL_ALT[m]},ctx,o,ex):null; };
+const pick=(slot,ctx,o,ex)=>{
+  const m=slot.kinds.find(k=>MEAL_ALT[k]);
+  let b=pick1(slot,ctx,o,ex); if(!b&&m) b=pick1({...slot,kinds:MEAL_ALT[m]},ctx,o,ex);
+  /* Quốc tế: dữ liệu quán ăn còn thưa – nếu quán gần nhất cách điểm trước hơn 5 km thì gợi ý "ăn quanh đây" */
+  if(m&&m!=='sang'&&isIntlProv(o.prov)&&ctx.prev&&(!b||hav(ctx.prev,b.p)>5)){ const q=nearMeal(ctx.prev,o.prov); if(q) return {p:q,sc:0,reason:q.why}; }
+  if(b&&!m&&slot.kinds.includes('cafe')&&isIntlProv(o.prov)&&ctx.prev&&hav(ctx.prev,b.p)>4) return null;   // quán cà phê quá xa: để thời gian tự do
+  return b; };
 function planCtx(plan){
-  const o=plan.opts, pool=ALL.filter(p=>p.prov===o.prov&&(o.area==='all'||p.area===o.area));
+  const o=plan.opts, pool=DATA[o.prov].places.filter(p=>o.area==='all'||p.area===o.area);
   const zones=plan.zones||zonesFor(o,pool); const zoneOf={}; pool.forEach(p=>zoneOf[p.id]=nearestZone(p,zones));
   return {pool,zones,zoneOf};
 }
 function makePlan(o){
   const opts=normOpts({...o,interests:new Set(o.interests)});
-  const plan={opts,days:[]}; const base=planCtx(plan); plan.zones=base.zones;
-  const used=new Set(), slots=PACE[opts.pace].slots;
+  const plan={opts,days:[]};
+  /* Quốc tế: chọn trước ngày "đi trong ngày" để các ngày còn lại chia cụm cho đủ điểm */
+  const pool0=DATA[opts.prov].places.filter(p=>opts.area==='all'||p.area===opts.area);
+  const trips=opts.days>=3?pool0.filter(p=>p.trip&&(!opts.kd||p.fit.kid)&&(!opts.el||p.fit.old)):[];
+  const nTrip=Math.min(trips.length,opts.days>=6?2:opts.days>=3?1:0), tripIdx=nTrip===2?[1,opts.days-2]:nTrip===1?[1]:[];
+  if(nTrip) plan.zones=zonesFor({...opts,days:opts.days-nTrip},pool0);
+  const base=planCtx(plan); plan.zones=base.zones;
+  const used=new Set(), slots=PACE[opts.pace].slots, nd=opts.days-nTrip;
+  const nz=Math.max(1,base.zones.length), seq=isIntlProv(opts.prov)&&opts.area==='all'&&nd>=nz;   // Quốc tế nhiều nơi: ở liền mạch từng nơi, không quay lại
+  let j=0;
   for(let d=0; d<opts.days; d++){
-    const date=addDays(opts.start,d), wd=date.getDay(), zi=d%Math.max(1,base.zones.length);
-    const stops=[], today=new Set(); let prev=null;
+    const date=addDays(opts.start,d), wd=date.getDay();
+    if(tripIdx.includes(d)){ plan.days.push({date,wd,zi:0,stops:[],tripSlot:true}); continue; }
+    const zi=seq?Math.floor(j*nz/nd):j%nz; j++;
+    const stops=[], today=new Set(); let prev=null, busy=0;
+    const IT=isIntlProv(opts.prov), LT=IT?localOf(opts.prov):null, P=opts.ad+opts.kd+opts.el;
     slots.forEach((slot,si)=>{
+      /* Quốc tế: điểm cần nửa ngày trở lên (công viên giải trí, núi…) thì bỏ các khung giờ bị chồng, trừ bữa tối */
+      if(IT&&busy&&toMin(slot.t)<busy-20&&!slot.kinds.includes('toi')) return;
       const b=pick(slot,{...base,zi,wd,prev,today},opts,used); if(!b) return;
       used.add(b.p.id); today.add(b.p.id);
+      if(IT) busy=Math.max(toMin(slot.t),busy+(prev?legInfo(prev,b.p,P,LT).min:0))+b.p.dur;
       stops.push({t:slot.t,label:slot.label,slot,si,id:b.p.id,reason:b.reason,tried:[b.p.id]}); prev=b.p;
     });
     plan.days.push({date,wd,zi,stops});
   }
+  if(nTrip) fillTripDays(plan,base,opts,used,trips,tripIdx);
   let saved=0; plan.days.forEach((d,k)=>{const r=optimizeOrder(plan,k,true); saved+=r.cur-r.best;}); plan.optSaved=saved;
+  if(isIntlProv(opts.prov)) plan.days.forEach((d,k)=>{   // Quốc tế: ngày kết thúc quá 23:00 thì bớt điểm cuối (giữ bữa ăn và điểm đi trong ngày)
+    for(let g=0;g<6;g++){ const it=dayTimeline(plan,k).items; if(!it.length||it[it.length-1].end<=23*60) break;
+      const keep=x=>byId(x.s.id).trip||((x.s.slot&&x.s.slot.kinds)||[]).some(y=>y==='sang'||y==='toi');
+      let i=it.length-1; while(i>=0&&keep(it[i])) i--; if(i<0) break;
+      d.stops.splice(d.stops.indexOf(it[i].s),1); }
+  });
   return plan;
 }
 
+/* Quốc tế: điểm xa trung tâm (Trường Thành, Ayutthaya, núi Phú Sĩ…) được xếp thành "ngày đi trong ngày":
+   ăn sáng gần nơi ở → cả ngày ở điểm xa → về lại ăn tối. Chỉ thêm khi chuyến đi từ 3 ngày (từ 6 ngày: 2 chuyến). */
+function tripZone(p,z0){ return {lat:p.lat,lng:p.lng,name:'Đi trong ngày: '+p.name.split(/\s[–(]/)[0],trip:p.id,area:p.area,areas:z0&&z0.areas?[p.area]:undefined}; }
+function baseZones(o){   // cụm như makePlan (trừ ngày đi trong ngày) – dùng khi mở link chia sẻ
+  const pool=DATA[o.prov].places.filter(p=>o.area==='all'||p.area===o.area);
+  const nT=o.days>=3?Math.min(pool.filter(p=>p.trip&&(!o.kd||p.fit.kid)&&(!o.el||p.fit.old)).length,o.days>=6?2:1):0;
+  return zonesFor({...o,days:o.days-nT},pool);
+}
+function fillTripDays(plan,base,o,used,trips,tripIdx){
+  const slots=PACE[o.pace].slots, sang=slots.find(x=>x.kinds.includes('sang')), toi=slots.find(x=>x.kinds.includes('toi'));
+  const zonesN=plan.zones.length;
+  tripIdx.forEach(k=>{
+    const d=plan.days[k], nb=plan.days[k-1]&&!plan.days[k-1].tripSlot?plan.days[k-1]:plan.days[k+1], baseZi=nb?nb.zi:0, nbArea=(plan.zones[baseZi]||{}).area;
+    const sc=p=>(used.has(p.id)?-999:0)+(state.must.has(p.id)?50:0)+(nbArea&&p.area===nbArea?6:0)+3*[...o.interests].filter(i=>p.tags.includes(INTEREST[i].tag)).length+(p.tags.includes('classic')?2:0)-(o.cheap?p.cost/200000:0);
+    const tp=trips.slice().sort((a,b)=>sc(b)-sc(a))[0]; if(!tp||used.has(tp.id)){ d.tripSlot=false; d.zi=baseZi; return; }
+    plan.zones.push(tripZone(tp,plan.zones[0])); const zi=plan.zones.length-1;
+    const stops=[], today=new Set([tp.id]); let prev=null;
+    const ctx=()=>({...base,zones:plan.zones.slice(0,zonesN),zi:baseZi,wd:d.wd,prev,today});
+    const meal=slot=>{ if(!slot) return; const b=pick(slot,ctx(),o,used); if(!b) return; used.add(b.p.id); today.add(b.p.id);
+      stops.push({t:slot.t,label:slot.label,slot,si:slots.indexOf(slot),id:b.p.id,reason:b.reason,tried:[b.p.id]}); };
+    meal(sang);
+    stops.push({t:'08:30',label:'Đi trong ngày',slot:{t:'08:30',label:'Đi trong ngày',kinds:['trip']},si:-1,id:tp.id,reason:'Chuyến đi trong ngày: '+tp.why,tried:[tp.id]}); used.add(tp.id);
+    { const z=plan.zones[baseZi]; prev=hotelOf(o.prov,(z&&z.area)||tp.area); }   // tối về lại nơi ở
+    meal(toi);
+    d.stops=stops; d.zi=zi; d.trip=tp.id; delete d.tripSlot;
+  });
+}
+
 /* ---------- V2: thời gian, di chuyển, tối ưu tuyến từng ngày ---------- */
-const MODE_TX={walk:'🚶 Đi bộ',bike:'🛵 Xe máy/Grab bike',car:'🚗 Ô tô/Grab car',hire:'🚐 Thuê xe'};
-function legInfo(a,b,P){
+const MODE_TX={walk:'🚶 Đi bộ',bike:'🛵 Xe máy/Grab bike',car:'🚗 Ô tô/Grab car',hire:'🚐 Thuê xe',metro:'🚇 Tàu điện/xe buýt',taxi:'🚕 Taxi/Grab',train:'🚆 Tàu/xe khách'};
+function legInfo(a,b,P,LT){
   const km=roadKm(a,b); let mode,min,cost;
+  if(LT){  /* Quốc tế: đơn giá theo nước (nghìn đồng), ước tính */
+    if(km<1.2){mode='walk';min=Math.max(3,km/4.5*60);cost=0;}
+    else if(LT.metro&&LT.tr==='metro'&&km<40){mode='metro';min=km/24*60+12;cost=P*(LT.metro[0]+LT.metro[1]*km)*1000;}
+    else if(km<40){mode='taxi';min=km/24*60+6;cost=Math.ceil(P/4)*(LT.car[0]+LT.car[1]*km)*1000;}
+    else if(LT.far[0]==='train'){mode='train';min=km/(km>100?70:50)*60+20;cost=P*(LT.far[1]+LT.far[2]*km)*1000;}
+    else {mode='hire';min=km/(km>100?65:45)*60+10;cost=Math.ceil(P/6)*(LT.far[1]+LT.far[2]*km)*1000;}
+    return {km,min:Math.round(min),cost:Math.round(cost/1000)*1000,mode};
+  }
   if(km<1.2){mode='walk';min=Math.max(3,km/4.5*60);cost=0;}
   else if(km<40){ if(P<=2){mode='bike';min=km/22*60+5;cost=P*(12000+4500*km);} else {mode='car';min=km/25*60+6;cost=Math.ceil(P/4)*(20000+11000*km);} }
   else {mode='hire';min=km/45*60+10;cost=Math.ceil(P/6)*(150000+9000*km);}
@@ -2293,7 +2362,7 @@ const zoneLabel=z=>String(z.name).replace(/^Quanh /,'gần ');
 const hotelCache={};
 function hotelOf(prov,area){
   const key=prov+'|'+area; if(hotelCache[key]) return hotelCache[key];
-  const ps=ALL.filter(p=>p.prov===prov&&p.area===area), f=ps.filter(p=>p.cat==='food'), src=f.length>=2?f:ps;
+  const ps=DATA[prov].places.filter(p=>p.area===area&&!p.synthetic&&!p.trip), f=ps.filter(p=>p.cat==='food'), src=f.length>=2?f:ps;
   const c={lat:src.reduce((s,p)=>s+p.lat,0)/src.length,lng:src.reduce((s,p)=>s+p.lng,0)/src.length};
   const D=destOf(prov,area);
   return hotelCache[key]={...c,label:'nơi ở gợi ý – trung tâm '+(area==='Nội thành'?prov:D.name.split(' – ')[0])};
@@ -2306,9 +2375,9 @@ function dayStart(plan,k){
 const MEAL=['sang','trua','toi'];
 const isFixed=s=>{const sl=s.slot||{}; return !!sl.t&&(sl.sunset||sl.evening||(sl.kinds||[]).some(x=>MEAL.includes(x)));};
 function dayTimeline(plan,k){
-  const o=plan.opts, d=plan.days[k], P=o.ad+o.kd+o.el, st=dayStart(plan,k); let prev=st, end=0; const items=[];
+  const o=plan.opts, d=plan.days[k], P=o.ad+o.kd+o.el, st=dayStart(plan,k), LT=localOf(o.prov); let prev=st, end=0; const items=[];
   d.stops.forEach((s,i)=>{
-    const p=byId(s.id), leg=legInfo(prev,p,P), sl=s.slot||{};
+    const p=byId(s.id), leg=legInfo(prev,p,P,LT), sl=s.slot||{};
     let start,arrive;
     if(i===0){ start=sl.t?toMin(sl.t):480; arrive=start; }
     else { arrive=end+leg.min; start=isFixed(s)?Math.max(arrive,toMin(sl.t)):arrive; }
@@ -2370,7 +2439,7 @@ function tripBudget(plan,tierOverride){
   for(let k=0;k<plan.days.length-1;k++){
     const A=destOf(o.prov,planAreaOf(plan,k)), B=destOf(o.prov,planAreaOf(plan,k+1));
     hotel+=B.h[ti]*1000*rooms;
-    if(A!==B){ const kx=roadKm(A,B); transfer+=Math.max(60000,kx*800)*P; km+=kx; }
+    if(A!==B){ const kx=roadKm(A,B), LT=localOf(o.prov); transfer+=LT?legInfo(A,B,P,LT).cost:Math.max(60000,kx*800)*P; km+=kx; }
   }
   const D0=destOf(o.prov,planAreaOf(plan,0)), tr=o.origin?travelFor(o.origin,D0):null;
   const arrive=tr?tr.pp*(o.ad+o.el+o.kd*0.75):0, move=arrive+local+transfer;
@@ -2387,6 +2456,7 @@ function swapStop(i){
   const b=pickOnce(slot,ctx,plan.opts,used,plan.opts.budget,false)||pickOnce(slot,ctx,plan.opts,used,'thoaimai',true);
   if(!b){toast('Không còn gợi ý phù hợp khác cho khung giờ này.');return;}
   state.must.delete(s.id); s.id=b.p.id; s.reason=b.reason; s.tried=[...(s.tried||[]),b.p.id];
+  if(b.p.trip){ const z=plan.zones[day.zi]; if(z&&z.trip){ Object.assign(z,tripZone(b.p,plan.zones[0])); s.reason='Chuyến đi trong ngày: '+b.p.why; plan.wxState=null; } }
   render(); toast('Đã đổi sang '+b.p.name+'.');
 }
 function planDestName(o){ return o.area==='all'?o.prov:destName(destOf(o.prov,o.area)); }
@@ -2415,7 +2485,7 @@ async function ensureWeather(plan){
   let any=false;
   await Promise.all(Object.values(groups).map(async g=>{
     const ds=g.ks.map(k=>isoD(plan.days[k].date)).sort();
-    const url='https://api.open-meteo.com/v1/forecast?latitude='+g.z.lat.toFixed(3)+'&longitude='+g.z.lng.toFixed(3)+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=Asia%2FBangkok&start_date='+ds[0]+'&end_date='+ds[ds.length-1];
+    const url='https://api.open-meteo.com/v1/forecast?latitude='+g.z.lat.toFixed(3)+'&longitude='+g.z.lng.toFixed(3)+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=auto&start_date='+ds[0]+'&end_date='+ds[ds.length-1];
     try{
       if(!wxCache[url]){ const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),9000); const r=await fetch(url,{signal:ctl.signal}); clearTimeout(t); if(!r.ok) return; wxCache[url]=await r.json(); }
       const D=wxCache[url].daily; if(!D) return;
@@ -2482,12 +2552,16 @@ function deserPlan(r){
     m:r.m==null?null:I(r.m,0,100,null),z:Array.isArray(r.z)?r.z:null};
   const o=normOpts(safe), slots=PACE[o.pace].slots;
   if(o.area!=='all'&&!DATA[o.prov].areas.includes(o.area)) o.area=DATA[o.prov].areas[0];
-  const plan={opts:o,days:[]}; plan.zones=(r.z&&r.z.every(z=>z&&Number.isFinite(z.lat)&&Number.isFinite(z.lng)&&typeof z.name==='string'))?r.z:planCtx(plan).zones; if(r.m) plan.match=r.m;
+  const plan={opts:o,days:[]}; plan.zones=(r.z&&r.z.every(z=>z&&Number.isFinite(z.lat)&&Number.isFinite(z.lng)&&typeof z.name==='string'))?r.z:baseZones(o); if(r.m) plan.match=r.m;
   (r.d||[]).forEach((dd,k)=>{
     const date=addDays(o.start,k);
+    (dd.s||[]).forEach(x=>{ const m=/^i:near:(.+)$/.exec(x[0]); if(m&&!BYID[x[0]]&&BYID[m[1]]) nearMeal(BYID[m[1]],o.prov); });
     const stops=(dd.s||[]).filter(x=>Object.prototype.hasOwnProperty.call(BYID,x[0])).map(x=>{ const p=byId(x[0]); const sl=x[1]>=0&&slots[x[1]]?slots[x[1]]:{kinds:p.kinds,label:CAT[p.cat].label};
       return {id:p.id,si:x[1],slot:sl,t:sl.t,label:x[2]||sl.label||CAT[p.cat].label,reason:x[3]||p.why,tried:[p.id]}; });
-    plan.days.push({date,wd:date.getDay(),zi:Math.min(dd.zi||0,plan.zones.length-1),stops});
+    const tp=stops.map(x=>byId(x.id)).find(p=>p.trip);
+    let zi=Math.min(dd.zi||0,plan.zones.length-1);
+    if(tp){ const j=plan.zones.findIndex(z=>z.trip===tp.id); if(j>=0) zi=j; else { plan.zones=plan.zones.concat([tripZone(tp,plan.zones[0])]); zi=plan.zones.length-1; } }
+    plan.days.push({date,wd:date.getDay(),zi,stops,trip:tp?tp.id:undefined});
   });
   o.days=plan.days.length;
   return plan.days.length?plan:null;
@@ -2495,7 +2569,7 @@ function deserPlan(r){
 function shareUrl(plan){ return location.href.split('#')[0]+'#trip='+b64e(JSON.stringify(serPlan(plan,false))); }
 function applyPlan(plan){
   state.plan=plan; state.opts=normOpts({...plan.opts,interests:new Set(plan.opts.interests)});
-  state.prov=plan.opts.prov; state.area='all'; state.tab='plan'; state.day=0; state.selected=null; state.undo=null;
+  if(!isIntlProv(plan.opts.prov)){ state.prov=plan.opts.prov; state.area='all'; } state.tab='plan'; state.day=0; state.selected=null; state.undo=null;
 }
 
 /* ---------- V2: hiểu câu yêu cầu tiếng Việt (quy tắc, không dùng mô hình ngôn ngữ) ---------- */
@@ -2699,10 +2773,83 @@ let INTL=null, INTL_LOADING=false, imap=null;
 state.intl={country:'all',city:null,filter:'all',sel:null,big:false};
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&state.intl.big){ state.intl.big=false; document.body.classList.remove('imap-open'); render(); } });
 const MONTHS_VN=m=>m.length?'Tháng '+m.join(', '):'';
+let INTL_P=null;
+function ensureIntl(){
+  if(!INTL_P) INTL_P=fetch('/data/intl.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ INTL=j&&Array.isArray(j.cities)?j:{countries:[],cities:[],updated:''}; try{ registerIntl(INTL); }catch(e){ console.error(e); } })
+    .catch(()=>{ INTL={countries:[],cities:[],updated:'',err:1}; }).then(()=>{ INTL_LOADING=false; });
+  INTL_LOADING=!INTL; return INTL_P;
+}
 function loadIntl(){
-  if(INTL||INTL_LOADING) return; INTL_LOADING=true;
-  fetch('/data/intl.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ INTL=j&&Array.isArray(j.cities)?j:{countries:[],cities:[],updated:''}; INTL_LOADING=false; if(state.tab==='intl') render(); })
-    .catch(()=>{ INTL={countries:[],cities:[],updated:'',err:1}; INTL_LOADING=false; if(state.tab==='intl') render(); });
+  if(INTL||INTL_LOADING) return;
+  ensureIntl().then(()=>{ if(state.tab==='intl'||state.tab==='saved') render(); });
+}
+/* Đưa thành phố quốc tế vào bộ máy lập lịch trình (DATA/BYID/DESTMAP), KHÔNG thêm vào danh sách trong nước (ALL/DEST/PROV) */
+const INTL_PROV={}, INTL_BF={th:70,cn:60,kr:120,jp:150,sg:100,my:60,tw:80,id:70};
+const isIntlProv=pv=>Object.prototype.hasOwnProperty.call(INTL_PROV,pv);
+const localOf=pv=>{ const x=INTL_PROV[pv]; return x&&x.K.local?{...x.K.local,tr:x.C.plan.tr}:null; };
+const realN=ps=>ps.filter(p=>!p.synthetic).length;
+function registerIntl(j){
+  j.cities.forEach(C=>{
+    const K=j.countries.find(k=>k.id===C.country)||{}, P=C.plan; if(!P||!P.hotel) return;
+    const pv=C.name.replace(/\s*\(.*\)\s*$/,'');
+    if(Object.prototype.hasOwnProperty.call(DATA,pv)) return;
+    const areas=P.areas&&P.areas.length?P.areas:['Nội thành'];
+    const places=C.places.filter(p=>p.lat!=null&&Array.isArray(p.kinds)).map(p=>({...p,id:'i:'+p.id,prov:pv,area:areas.includes(p.area)?p.area:areas[0],intl:C.id,
+      addr:(areas.length>1?(p.area||areas[0])+', ':'')+pv+', '+(K.name||''), hours:p.hours||'Xem giờ mở cửa trên trang chính thức trước khi đi',
+      price:p.price||(p.cost?'~'+fmtVnd(p.cost)+'/người (ước tính)':'Miễn phí'), best:p.sunset?'Hoàng hôn':p.eveningOnly?'Buổi tối':p.morningOnly?'Buổi sáng':p.trip?'Cả ngày':'Ban ngày',
+      must:p.why, tip:p.tip||'Kiểm tra giờ mở cửa và giá vé trước khi đi.', src:'Tọa độ, ảnh: Wikipedia, Wikimedia Commons. Giá, thời lượng: Đi Đâu? ước tính', ver:null, season:null}));
+    if(places.length<3) return;
+    DATA[pv]={areas,places}; INTL_PROV[pv]={C,K,pv};
+    PROVMAP[pv]={n:pv,t:'tp',r:'i:'+C.id,intl:C.id};
+    SEASON_NOTE['i:'+C.id]='Mùa đẹp ở '+C.name+': '+MONTHS_VN(C.best).toLowerCase()+'.';
+    INTL_Q[pv]=P.en+', '+(K.name||'');
+    areas.forEach((a,ai)=>{
+      const ps=places.filter(p=>p.area===a), nf=ps.filter(p=>p.cat!=='food'&&!p.trip), src=nf.length?nf:ps; if(!ps.length) return;
+      const f=ps.filter(p=>p.cat==='food'&&!p.trip), hs=f.length>=2?f:ps.filter(p=>!p.trip);
+      const D={key:pv+'|'+a,prov:pv,area:a,name:a==='Nội thành'?pv:a,lat:src.reduce((s,p)=>s+p.lat,0)/src.length,lng:src.reduce((s,p)=>s+p.lng,0)/src.length,
+        n:ps.length,v:'',h:P.hotel,months:C.best,kid:2,old:2,ferry:0,intro:C.intro,r:'i:'+C.id,intl:C.id,fly:P.fly,air:P.air,extra:P.extra};
+      DESTMAP[D.key]=D; if(a!=='Nội thành') INTL_Q[a]=a+', '+P.en+', '+(K.name||'');
+      /* Bữa sáng: khách sạn hoặc quán quanh nơi ở (dùng khi gần đó không có quán ăn sáng trong dữ liệu) */
+      const bf={id:'i:'+C.id+'-bf'+ai,cat:'food',name:'Ăn sáng gần nơi ở',why:'Bữa sáng ở khách sạn hoặc quán quanh nơi ở',kinds:['sang'],tags:[],cost:(INTL_BF[C.country]||80)*1000,dur:40,io:'in',
+        fit:{kid:true,old:true},lat:hs.reduce((s,p)=>s+p.lat,0)/hs.length,lng:hs.reduce((s,p)=>s+p.lng,0)/hs.length,prov:pv,area:a,intl:C.id,synthetic:true,
+        addr:'Quanh nơi ở gợi ý, '+(a==='Nội thành'?pv:a),hours:'Sáng',price:'~'+fmtVnd((INTL_BF[C.country]||80)*1000)+'/người (ước tính)',best:'Buổi sáng',must:'Món địa phương hoặc buffet sáng của khách sạn',
+        tip:'Nhiều khách sạn đã gồm bữa sáng: kiểm tra khi đặt phòng để bớt chi phí.',src:'Đi Đâu? ước tính',ver:null,img:null};
+      places.push(bf);
+    });
+    places.forEach(p=>{ BYID[p.id]=p; });
+  });
+}
+function intlTravelFor(oc,D){
+  const O={lat:oc[0],lng:oc[1]}, hubs=[['HAN','Nội Bài',21.221,105.807],['SGN','Tân Sơn Nhất',10.818,106.652]].filter(h=>D.fly[h[0]]); if(!hubs.length) return null;
+  const h=hubs.reduce((a,b)=>hav(O,{lat:a[2],lng:a[3]})<=hav(O,{lat:b[2],lng:b[3]})?a:b), f=D.fly[h[0]], g=hav(O,{lat:h[2],lng:h[3]})*1.3, ex=D.extra||[0,0];
+  const gcost=g>40?2*Math.max(80000,g*800):0, hours=(g>40?g/45:0.7)+2.5+f[1]+ex[1];
+  return {mode:'fly',h:hours,pp:f[0]*1000+gcost+ex[0]*1000,
+    text:'Máy bay '+h[1]+' → '+D.air+' ~'+fmtH(f[1])+(ex[1]?', thêm ~'+fmtH(ex[1])+' đi xe/tàu':'')+(g>40?', cộng đường tới sân bay':'')+'; vé khứ hồi ước tính'};
+}
+const INTL_MEAL={th:150,cn:150,kr:250,jp:300,sg:200,my:120,tw:150,id:150};
+function nearMeal(p,pv){
+  if(!p||!p.lat||p.near) return p&&p.near?p:null; const X=INTL_PROV[pv]; if(!X) return null;
+  const id='i:near:'+(p.id||(p.lat.toFixed(3)+','+p.lng.toFixed(3))); if(BYID[id]) return BYID[id];
+  const short=String(p.label||p.name||'').replace(/^nơi ở gợi ý – /,'').split(/\s[–(]/)[0], cost=(INTL_MEAL[X.C.country]||150)*1000;
+  return BYID[id]={id,cat:'food',name:'Ăn quanh '+short,why:'Chọn quán gần '+short+' (chưa có quán cụ thể trong dữ liệu)',kinds:['trua','toi','vat'],tags:['street'],cost,dur:60,io:'in',
+    fit:{kid:true,old:true},lat:p.lat,lng:p.lng,prov:pv,area:p.area||DATA[pv].areas[0],intl:X.C.id,synthetic:true,near:true,addr:'Quanh '+short,hours:'Tùy quán',
+    price:'~'+fmtVnd(cost)+'/người (ước tính)',best:'Bữa trưa, tối',must:'Món địa phương ở quán đông khách gần đó',tip:'Mở Google Maps tìm "restaurant" quanh đây, chọn quán có nhiều đánh giá gần nhất.',
+    src:'Đi Đâu? ước tính',ver:null,img:null};
+}
+function tripHint(o){
+  const ps=DATA[o.prov].places.filter(p=>p.trip&&(o.area==='all'||p.area===o.area)); if(!ps.length) return '';
+  const names=ps.slice(0,3).map(p=>p.name.split(/\s[–(]/)[0]).join(', ');
+  return `<span class="hint">🚐 Điểm đi trong ngày: ${esc(names)}${ps.length>3?'…':''}. ${o.days>=3?'Lịch trình từ 3 ngày sẽ dành 1 ngày cho điểm hợp sở thích nhất.':'Chọn từ 3 ngày để có 1 ngày đi các điểm này.'}</span>`;
+}
+function startIntlPlan(id){
+  ensureIntl().then(()=>{
+    const X=Object.values(INTL_PROV).find(x=>x.C.id===id); if(!X){ toast('Chưa lập được lịch trình cho điểm này.'); return; }
+    const areas=DATA[X.pv].areas, nd=parseInt(String(X.C.days),10)||3, o=state.opts;
+    state.opts=normOpts({...o,prov:X.pv,area:areas.length>1?'all':areas[0],days:Math.min(MAX_DAYS,Math.max(2,nd)),interests:new Set(o.interests),origin:o.origin||'Hà Nội'});
+    state.must.clear(); state.plan=null; state.tab='plan'; state.selected=null; state.day=0; state.mapOpen=false;
+    try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+    track('intl_plan',{city:id}); window.scrollTo(0,0); generate();
+  });
 }
 
 /* Tìm kiếm ở trang chủ: nhận ra tên nước/thành phố quốc tế để chuyển sang mục Quốc tế */
@@ -2787,7 +2934,8 @@ function intlCityHTML(C){
     <div class="ihero">${intlImg(C.img)}<div class="ihero-t"><span>${K.flag||''} ${esc(K.name||'')}</span><h1>${esc(C.name)}</h1><small>${esc(C.local||'')}</small></div>${intlCredit(C.img)}</div>
     <p class="iintro">${esc(C.intro)}</p>
     <div class="ikpis"><div><b>${esc(MONTHS_VN(C.best).replace('Tháng ',''))}</b><span>Tháng đẹp nhất</span></div><div><b>${esc(C.days)}</b><span>Thời gian gợi ý</span></div><div><b>${K.visaFree?'Miễn visa':'Cần visa'}</b><span>Hộ chiếu Việt Nam</span></div></div>
-    <div class="ibook"><a class="btn" href="${esc(tv('activities'))}" target="_blank" rel="noopener sponsored">🎟 Tour & vé tham quan</a><a class="btn-ghost" href="${esc(tv('hotel'))}" target="_blank" rel="noopener sponsored">🏨 Khách sạn</a><a class="btn-ghost" href="${esc(tv('flight'))}" target="_blank" rel="noopener sponsored">✈️ Vé máy bay</a></div>
+    <div class="iplanbox"><div><b>✨ Lập lịch trình ${esc(C.name)}</b><span>Xếp theo giờ, bản đồ tuyến, ăn uống và chi phí ước tính (vé máy bay, khách sạn, đi lại) như lịch trình trong nước.</span></div><button class="btn" data-iplan="${C.id}">✨ Lập lịch trình</button></div>
+    <div class="ibook"><a class="btn-ghost" href="${esc(tv('activities'))}" target="_blank" rel="noopener sponsored">🎟 Tour & vé tham quan</a><a class="btn-ghost" href="${esc(tv('hotel'))}" target="_blank" rel="noopener sponsored">🏨 Khách sạn</a><a class="btn-ghost" href="${esc(tv('flight'))}" target="_blank" rel="noopener sponsored">✈️ Vé máy bay</a></div>
     <div class="imapwrap ${S.big?'big':''}" id="imapwrap"><div class="imap-scrim" data-action="imapclose"></div><div class="imapbox"><div id="imap" class="imap" role="region" aria-label="Bản đồ ${esc(C.name)}"></div>
       <div class="mapctl"><button data-action="${S.big?'imapclose':'imapbig'}" class="${S.big?'ov':''}">${S.big?'✕ Đóng bản đồ':'⤢ Mở rộng'}</button><button data-action="imapfit">🎯 Xem toàn bộ</button></div>
       <div class="legend"><span style="--c:var(--lacquer)"><i></i>Ăn uống</span><span style="--c:var(--gold)"><i></i>Check-in</span><span style="--c:var(--teal)"><i></i>Tham quan</span></div>
@@ -2833,8 +2981,9 @@ function intlAfter(){
 }
 $('#pbody').addEventListener('click',e=>{
   if(state.tab!=='intl') return;
-  const t=e.target.closest('[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
+  const t=e.target.closest('[data-iplan],[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
   const d=t.dataset, S=state.intl;
+  if(d.iplan){ startIntlPlan(d.iplan); return; }
   if(d.icountry){ S.country=d.icountry; render(); return; }
   if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
@@ -2988,7 +3137,7 @@ function destImgApi(key){
 /* Ảnh từng địa điểm: thử bài Wikipedia tiếng Việt trùng tên, sau đó tìm ảnh trên Wikimedia Commons (giấy phép tự do, có ghi tác giả) */
 const STOPW=new Set(['cho','pho','quan','nha','chua','den','bai','bien','ho','nui','ca','phe','tp','thanh','khu','di','tich','va','cau','dong','doi']);
 const keyTok=n=>norm(n).replace(/\(.*?\)/g,' ').split(/[^a-z0-9]+/).filter(w=>w.length>=3&&!STOPW.has(w));
-function placeImg(p){ return localImg('p:'+p.id).then(l=>l||placeImgApi(p)); }
+function placeImg(p){ if(p.intl) return Promise.resolve(p.img&&p.img.f?{src:p.img.f,big:p.img.f,page:p.img.page||'https://commons.wikimedia.org',credit:String(p.img.credit||'Wikimedia').slice(0,90)}:null); return localImg('p:'+p.id).then(l=>l||placeImgApi(p)); }
 function placeImgApi(p){
   const key='p:'+p.id;
   if(imgStore[key]!==undefined&&imgStore[key]!==0) return Promise.resolve(imgStore[key]);
@@ -3403,7 +3552,7 @@ function seg(name,obj,cur){
   return `<div class="seg" role="group">${Object.entries(obj).map(([k,v])=>`<button data-opt="${name}" data-val="${k}" aria-pressed="${String(cur)===String(k)}">${esc(v.label||v)}</button>`).join('')}</div>`;
 }
 function plannerHTML(){
-  const o=state.opts, areas=DATA[o.prov].areas, pool=ALL.filter(p=>p.prov===o.prov&&(o.area==='all'||p.area===o.area));
+  const o=state.opts, areas=DATA[o.prov].areas, pool=DATA[o.prov].places.filter(p=>(o.area==='all'||p.area===o.area)&&!p.synthetic), IP=INTL_PROV[o.prov];
   const mustChips=[...state.must].map(id=>`<span class="chip">${esc(byId(id).name)}<button data-unmust="${id}" aria-label="Bỏ">✕</button></span>`).join('');
   const st=(k,label)=>`<div class="mini"><span>${label}</span><div class="stepper sm"><button data-pp="${k}:-1" aria-label="Bớt ${label}">−</button><output>${o[k]}</output><button data-pp="${k}:1" aria-label="Thêm ${label}">+</button></div></div>`;
   let out='';
@@ -3411,8 +3560,10 @@ function plannerHTML(){
   else if(state.plan) out=planHTML(state.plan);
   const form=`
   <div class="field"><span class="label">Điểm đến</span>
-    <select class="select" id="planArea">${areas.length>1?`<option value="all" ${o.area==='all'?'selected':''}>Toàn tỉnh – mỗi ngày một điểm đến (${ALL.filter(p=>p.prov===o.prov).length} điểm)</option>`:''}${areas.map(a=>`<option value="${esc(a)}" ${a===o.area?'selected':''}>${esc(a==='Nội thành'?o.prov+' – Nội thành':a)} (${ALL.filter(p=>p.prov===o.prov&&p.area===a).length} điểm)</option>`).join('')}</select>
-    <span class="hint">Đang lập cho ${esc(o.prov)}. <button class="cta2" style="padding:0" data-action="provsheet">Đổi tỉnh</button>, hoặc về Trang chủ để AI chọn điểm đến.</span></div>
+    <select class="select" id="planArea">${areas.length>1?`<option value="all" ${o.area==='all'?'selected':''}>${IP?'Đi cả '+areas.length+' nơi – mỗi ngày một nơi':'Toàn tỉnh – mỗi ngày một điểm đến'} (${realN(DATA[o.prov].places)} điểm)</option>`:''}${areas.map(a=>`<option value="${esc(a)}" ${a===o.area?'selected':''}>${esc(a==='Nội thành'?(IP?o.prov:o.prov+' – Nội thành'):a)} (${realN(DATA[o.prov].places.filter(p=>p.area===a))} điểm)</option>`).join('')}</select>
+    ${IP?`<span class="hint">${IP.K.flag||''} Đang lập cho ${esc(o.prov)} (${esc(IP.K.name||'')}). <button class="cta2" style="padding:0" data-iplanback="${IP.C.id}">Xem cẩm nang ${esc(IP.C.name)}</button> hoặc chọn nơi khác ở mục <button class="cta2" style="padding:0" data-iplanback="all">Quốc tế</button>.</span>
+      ${tripHint(o)}`
+    :`<span class="hint">Đang lập cho ${esc(o.prov)}. <button class="cta2" style="padding:0" data-action="provsheet">Đổi tỉnh</button>, hoặc về Trang chủ để AI chọn điểm đến.</span>`}</div>
   <div class="row2">
     <div class="field"><span class="label">Ngày đi</span><input class="date" type="date" id="startDate" value="${o.start}"></div>
     <div class="field"><span class="label">Số ngày</span><div class="stepper"><button data-ndays="-1" aria-label="Bớt một ngày">−</button><output>${o.days} ngày</output><button data-ndays="1" aria-label="Thêm một ngày">+</button></div></div>
@@ -3423,6 +3574,7 @@ function plannerHTML(){
   <div class="field"><span class="label">Nhịp độ</span>${seg('pace',PACE,o.pace)}</div>
   <div class="field"><span class="label">Mức ăn uống</span>${seg('budget',BUDGET,o.budget)}</div>
   <div class="field"><span class="label">Sở thích</span><div class="chips">${Object.entries(INTEREST).map(([k,v])=>`<button class="chip" data-int="${k}" aria-pressed="${o.interests.has(k)}">${v.ic} ${v.label}</button>`).join('')}</div></div>
+  ${IP?`<p class="hint">Giá vé máy bay, khách sạn, đi lại tại ${esc(IP.K.name||'nước ngoài')} là ước tính theo mặt bằng chung, đã quy ra tiền Việt. Chưa gồm visa, bảo hiểm du lịch, SIM/eSIM.</p>`:''}
   <div class="field"><span class="label">Muốn ghé</span>${mustChips?`<div class="must">${mustChips}</div>`:'<span class="hint">Mở một địa điểm và bấm "Thêm vào lịch trình" để ưu tiên điểm đó.</span>'}</div>
   <button class="btn big" data-action="gen" ${state.loading?'disabled':''}>✨ ${state.plan?'Lập lại lịch trình':'Lập lịch trình'}</button>
   ${pool.length<4*o.days?'<p class="hint">Điểm đến này mới có ít dữ liệu nên lịch trình sẽ thưa, có thời gian tự do.</p>':''}`;
@@ -3451,7 +3603,7 @@ function budgetHTML(plan){
       <tr><td>Khách sạn<small>${b.nights} đêm · ${b.rooms} phòng · mức ${HOTEL_LV[b.tier].label.toLowerCase()}</small></td><td>${fmtM(b.hotel)}</td></tr>
       <tr><td>Ăn uống<small>Theo các quán trong lịch trình${o.kd?', trẻ em tính ~70%':''}</small></td><td>${fmtM(b.food)}</td></tr>
       <tr><td>Vé tham quan<small>Giá vé người lớn tham khảo</small></td><td>${fmtM(b.tix)}</td></tr>
-      <tr><td>Khác<small>Nước uống, quà, phát sinh (~8%)</small></td><td>${fmtM(b.other)}</td></tr>
+      <tr><td>Khác<small>Nước uống, quà, phát sinh (~8%)${isIntlProv(o.prov)?'. Chưa gồm visa, bảo hiểm, SIM':''}</small></td><td>${fmtM(b.other)}</td></tr>
       <tr class="total"><td>Tổng cho ${o.people} người</td><td>${fmtM(b.total)}</td></tr>
     </table>
     ${o.total?(over?`<div class="wbox"><b>Vượt ngân sách ${fmtM(o.total)} khoảng ${fmtM(b.total-o.total)}.</b> Thử "Tối ưu lại để giảm chi phí", bớt một ngày hoặc chọn khách sạn tiết kiệm.</div>`:`<div class="wbox good">Trong ngân sách ${fmtM(o.total)}, còn dư khoảng ${fmtM(o.total-b.total)}.</div>`):''}
@@ -3495,13 +3647,13 @@ function planHTML(plan){
   ${n?`<ol class="timeline">${items}</ol>`:'<div class="empty"><b>Ngày này chưa có điểm nào</b>Bấm "Lập lại lịch trình" hoặc thêm địa điểm từ mục Trong nước.</div>'}
   <div class="actions"><button class="btn-ghost" data-action="optday">✨ Tối ưu thứ tự</button>${state.undo&&state.undo.k===k&&!day.rainNote?'<button class="btn-ghost" data-action="undo">↶ Hoàn tác</button>':''}${n?`<a class="btn-ghost" href="${gmapsDay(plan,k)}" target="_blank" rel="noopener">Tuyến ngày ${k+1} trên Google Maps ↗</a>`:''}</div>
   ${budgetHTML(plan)}
-  <div class="actions"><button class="btn" data-action="saveplan">♡ Lưu chuyến đi</button><button class="btn-ghost" data-action="share">🔗 Chia sẻ link</button><button class="btn-ghost" data-action="print">🖨 In / PDF</button><button class="btn-ghost" data-action="copyplan">Sao chép</button><button class="btn-ghost" data-action="similar">Tạo chuyến đi tương tự</button></div>
+  <div class="actions"><button class="btn" data-action="saveplan">♡ Lưu chuyến đi</button><button class="btn-ghost" data-action="share">🔗 Chia sẻ link</button><button class="btn-ghost" data-action="print">🖨 In / PDF</button><button class="btn-ghost" data-action="copyplan">Sao chép</button>${isIntlProv(o.prov)?'':'<button class="btn-ghost" data-action="similar">Tạo chuyến đi tương tự</button>'}</div>
   ${stayBox(plan)}
   <p class="fine">Lịch trình do thuật toán của Đi Đâu? lập từ kho địa điểm (chưa dùng mô hình ngôn ngữ lớn): chọn điểm theo sở thích, giờ mở cửa, người đi cùng; tối ưu thứ tự để giảm đi lại; tính thời gian và chi phí theo ước tính. Quãng đường tính theo đường chim bay × 1,3. Thời tiết: Open-Meteo.com. Thông tin địa điểm chưa xác minh tại chỗ.</p>`;
 }
 function stayBox(plan){
   const o=plan.opts, z=plan.zones[plan.days[state.day].zi];
-  const q=z.area?(z.area==='Nội thành'?o.prov:z.area.split(' – ')[0].replace(/^TP /,'')):o.prov;
+  const q=z.trip?o.prov:z.area?(z.area==='Nội thành'?o.prov:z.area.split(' – ')[0].replace(/^TP /,'')):o.prov;
   const nights=plan.days.filter(d=>d.zi===plan.days[state.day].zi).length;
   const start=plan.days[state.day].date, iso=start.getFullYear()+'-'+String(start.getMonth()+1).padStart(2,'0')+'-'+String(start.getDate()).padStart(2,'0');
   return `<section class="aff stay"><h3>Đặt chỗ cho ngày ${state.day+1} · ${esc(q)}</h3>
@@ -3509,7 +3661,8 @@ function stayBox(plan){
     <div class="actions">${linkBtns(hotelLinks([z.area,...(z.areas||[]),o.prov].filter(Boolean),q,iso,nights,o.people),'btn')}${linkBtns(activityLinks(q))}</div></section>`;
 }
 function savedHTML(){
-  const places=ALL.filter(p=>state.saved.has(p.id));
+  if([...state.saved].some(id=>!BYID[id])) loadIntl();
+  const places=ALL.filter(p=>state.saved.has(p.id)).concat([...state.saved].filter(id=>/^i:/.test(id)&&BYID[id]).map(byId));
   const plans=state.plans.map((pl,k)=>`<div class="saved-plan"><div><b>${esc(pl.title)}</b><small>Lưu lúc ${esc(pl.at)}</small></div><div class="actions"><button class="btn-ghost" data-loadplan="${k}">Mở</button><button class="ic-btn" data-delplan="${k}" aria-label="Xóa chuyến đi">✕</button></div></div>`).join('');
   return `
   <h2 class="section-h">Chuyến đi của tôi</h2>
@@ -3583,9 +3736,9 @@ function markProv(){
   labelLayer.eachLayer(m=>{const el=m.getElement&&m.getElement(); if(el) el.classList.toggle('sel',el.textContent===state.prov);});
 }
 function visibleItems(){
-  if(state.tab==='plan' && state.plan && !state.loading && state.plan.opts.prov===state.prov){
-    const day=state.plan.days[state.day];
-    return {route:day.stops.map(s=>byId(s.id)),start:dayStart(state.plan,state.day),others:provPlaces().filter(p=>!day.stops.some(s=>s.id===p.id))};
+  if(planOnMap()){
+    const day=state.plan.days[state.day], pv=state.plan.opts.prov;
+    return {route:day.stops.map(s=>byId(s.id)),start:dayStart(state.plan,state.day),others:DATA[pv].places.filter(p=>!p.synthetic&&!day.stops.some(s=>s.id===p.id))};
   }
   if(state.tab==='saved') {const s=ALL.filter(p=>state.saved.has(p.id));return {route:null,main:s,others:provPlaces().filter(p=>!state.saved.has(p.id))};}
   const main=filtered(); return {route:null,main,others:provPlaces().filter(p=>!main.includes(p))};
@@ -3630,13 +3783,14 @@ function fitPlaces(places,maxZoom=15){
   if(places.length===1){map.setView([places[0].lat,places[0].lng],Math.min(maxZoom,14));return;}
   map.fitBounds(L.latLngBounds(places.map(p=>[p.lat,p.lng])),{padding:[50,50],maxZoom});
 }
+const planOnMap=()=>state.tab==='plan'&&state.plan&&!state.loading&&(state.plan.opts.prov===state.prov||isIntlProv(state.plan.opts.prov));
 function fitProv(){ const l=provPaths[state.prov]; if(l) map.fitBounds(l.getBounds(),{padding:[20,20]}); }
 function fitView(){
   if(!map||mapMode==='off') return;
   if(state.tab==='home'&&!state.selected){ const H=state.home, oc=H.req&&ORIGIN[H.req.origin];
     if(H.recs&&H.recs.length){ const pts=H.recs.map(x=>[x.D.lat,x.D.lng]); if(oc) pts.push(oc); map.fitBounds(L.latLngBounds(pts),{padding:[60,60],maxZoom:9}); }
     else map.fitBounds([[8.3,102.1],[23.4,114.6]],{padding:[10,10]}); return; }
-  if(state.tab==='plan'&&state.plan&&state.plan.opts.prov===state.prov) fitPlaces(state.plan.days[state.day].stops.map(s=>byId(s.id)));
+  if(planOnMap()) fitPlaces(state.plan.days[state.day].stops.map(s=>byId(s.id)));
   else if(state.tab==='explore'&&state.area!=='all') fitPlaces(filtered());
   else if(state.prov==='Hà Nội'&&state.tab==='explore') fitPlaces(provPlaces());
   else fitProv();
@@ -3691,7 +3845,7 @@ function openPlace(id){
   if(state.mapOpen){ state.mapOpen=false; }
   const p=byId(id);
   if(!state.selected) state.from=state.tab;
-  if(p.prov!==state.prov){state.prov=p.prov;state.area='all';}
+  if(p.prov!==state.prov&&!p.intl){state.prov=p.prov;state.area='all';}
   state.selected=id; state.rmode=null; render(); window.scrollTo(0,0);
   if(state.me) requestRoute();
   if(map){ if(map.getZoom()<12) map.setView([p.lat,p.lng],14); else map.panTo([p.lat,p.lng]); }
@@ -3740,6 +3894,7 @@ function savePlan(){
 }
 function loadSaved(k){
   const pl=state.plans[k]; if(!pl) return;
+  if(pl.v===2&&pl.o&&!Object.prototype.hasOwnProperty.call(DATA,pl.o.prov)&&!INTL){ toast('Đang tải dữ liệu quốc tế…'); ensureIntl().then(()=>loadSaved(k)); return; }
   let plan;
   if(pl.v===2) plan=deserPlan(pl);
   else { const o=normOpts({...pl.opts,interests:new Set(pl.opts.interests)});
@@ -3807,6 +3962,7 @@ $('#pbody').addEventListener('click',e=>{
   if(d.rint){ const s=new Set(H.req.interests); s.has(d.rint)?s.delete(d.rint):s.add(d.rint); H.manual.interests=[...s]; refreshHomeBits(); return; }
   if(d.rpace){ H.manual.pace=d.rpace; refreshHomeBits(); return; }
   if(d.feat){ pickDest(d.feat); return; }
+  if(d.iplanback){ const S=state.intl; S.city=d.iplanback==='all'?null:d.iplanback; S.filter='all'; S.sel=null; state.tab='intl'; state.selected=null; try{ history.replaceState(null,'','#quoc-te'+(S.city?'/'+S.city:'')); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.dexp){ const D=DESTMAP[d.dexp]; if(!D) return; if(el.tagName==='A'){ if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey) return; e.preventDefault(); } state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); $('#pbody').scrollTop=0; window.scrollTo(0,0); return; }
   if(d.dplan){ H.manual.dest=d.dplan; homeGo(); return; }
   if(d.recplan){ openRecPlan(Number(d.recplan)); return; }
@@ -3880,6 +4036,7 @@ if(window.L){ initMap(); }
 else { $('#map').innerHTML='<div class="empty" style="margin:16px">Không tải được thư viện bản đồ. Kiểm tra kết nối mạng rồi tải lại trang.</div>'; }
 function loadHash(){
   const m=location.hash.match(/^#trip=([A-Za-z0-9_-]+)/); if(!m) return false;
+  if(!INTL){ try{ const raw=JSON.parse(b64d(m[1])); if(raw&&raw.o&&!Object.prototype.hasOwnProperty.call(DATA,raw.o.prov)){ ensureIntl().then(()=>{ if(loadHash()){ render(); fitView(); } }); return false; } }catch(e){} }
   try{ const raw=JSON.parse(b64d(m[1])); if(raw&&Array.isArray(raw.d)) raw.d.forEach(dd=>{ if(dd&&Array.isArray(dd.s)) dd.s=dd.s.map(x=>Array.isArray(x)?[x[0],x[1]]:x); }); delete raw.z; const plan=deserPlan(raw); if(plan){ applyPlan(plan); toast('Đã mở lịch trình được chia sẻ.'); return true; } }catch(e){}
   toast('Link chia sẻ không hợp lệ hoặc đã cũ.'); return false;
 }
@@ -3887,8 +4044,9 @@ function loadHash(){
 (()=>{ const im=new Image(); im.onload=()=>document.body.classList.add('has-bgimg'); im.src='/images/didau-bg-v2-1920x1080.webp'; })();
 if(/\.onrender\.com$/.test(location.hostname)) location.replace('https://didautravel.id.vn'+location.pathname+location.search+location.hash);
 /* Liên kết từ trang Blog: #go=plan:<điểm đến> hoặc #go=dest:<điểm đến> */
-function goHash(){ const m=/^#go=(plan|dest):(.+)$/.exec(location.hash); if(!m) return false; let key; try{ key=decodeURIComponent(m[2]); }catch(e){ return false; }
+function goHash(){ const m=/^#go=(plan|dest|iplan):(.+)$/.exec(location.hash); if(!m) return false; let key; try{ key=decodeURIComponent(m[2]); }catch(e){ return false; }
   try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  if(m[1]==='iplan'){ if(!/^[a-z]{2,20}$/.test(key)) return false; startIntlPlan(key); return true; }
   const D=DESTMAP[key]; if(!D) return false;
   if(m[1]==='plan'){ state.home.manual={dest:key}; homeGo(); }
   else { state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); }
@@ -3920,7 +4078,7 @@ let gaLast='';
 function gaView(){
   const T={home:'Trang chủ',explore:'Trong nước',plan:'Lịch trình',book:'Đặt chỗ',blog:'Blog',intl:'Quốc tế'};
   let path, title;
-  const pv=slugTag(state.prov);
+  const pv=state.tab==='plan'&&state.plan&&isIntlProv(state.plan.opts.prov)?'quoc-te/'+INTL_PROV[state.plan.opts.prov].C.id:slugTag(state.prov);
   if(state.selected){ const p=byId(state.selected); path='/dia-diem/'+pv+'/'+slugTag(p&&p.name); title=(p?p.name:'Địa điểm')+' – '+state.prov; }
   else if(state.tab==='blog'){ path=state.post?'/blog/'+state.post:'/blog'; const b=state.post&&BLOG.find(x=>x.slug===state.post); title=b?b.title:'Blog'; }
   else if(state.tab==='intl'){ const C=state.intl.city&&INTL&&INTL.cities.find(x=>x.id===state.intl.city); path='/quoc-te'+(C?'/'+C.id:''); title='Quốc tế'+(C?' – '+C.name:''); }
