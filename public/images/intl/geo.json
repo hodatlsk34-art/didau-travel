@@ -2936,6 +2936,24 @@
 "wiki": "Tiger Leaping Gorge",
 "wp": "https://en.wikipedia.org/wiki/Tiger_Leaping_Gorge"
 },
+"yunnan-18": {
+"credit": "Gisling · CC BY 3.0",
+"f": "/images/intl/yunnan-18.webp",
+"lat": 25.05504,
+"lng": 102.71035,
+"page": "https://commons.wikimedia.org/wiki/File:%E6%98%86%E6%98%8E%E5%9C%86%E9%80%9A%E5%AF%BA.JPG",
+"wiki": "Yuantong Temple",
+"wp": "https://en.wikipedia.org/wiki/Yuantong_Temple"
+},
+"yunnan-19": {
+"credit": "董辰兴 · CC BY-SA 4.0",
+"f": "/images/intl/yunnan-19.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%8D%97%E6%B0%91%E6%97%8F%E6%9D%91-%E5%85%A5%E5%8F%A3%E7%89%8C%E5%9D%8A.jpg",
+"wiki": "Yunnan Nationalities Village",
+"wp": "https://en.wikipedia.org/wiki/Yunnan_Ethnic_Village"
+},
 "yunnan-2": {
 "credit": "Evilbish · CC BY-SA 4.0",
 "f": "/images/intl/yunnan-2.webp",
