@@ -1643,8 +1643,18 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .ikpis b{display:block;font-size:14px}
 .ikpis span{font-size:11.5px;color:var(--muted)}
 .ibook{display:flex;flex-wrap:wrap;gap:8px}
-.imapwrap{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-.imap{height:320px;background:var(--sea)}
+.imapbox{position:relative;height:320px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--sea)}
+.imap{position:absolute;inset:0;background:var(--sea)}
+.imapbox .legend{display:none}
+.imapbox .tilenote{top:auto;bottom:12px}
+.imap-scrim{display:none}
+.imapwrap.big .imap-scrim{display:block;position:fixed;inset:0;background:rgba(10,20,16,.35);z-index:2090}
+.imapwrap.big .imapbox{position:fixed;top:0;right:0;bottom:0;height:auto;width:min(640px,100%);z-index:2100;border-radius:0;border:0;border-left:1px solid var(--line);box-shadow:-10px 0 40px rgba(0,0,0,.25)}
+.imapwrap.big .legend{display:flex}
+.imapwrap .mapctl button.ov{background:#0E4C8E;color:#fff;border-color:#0E4C8E}
+.imapwrap .mapctl button[data-action="imapbig"]{background:#0E4C8E;color:#fff;border-color:#0E4C8E}
+body.imap-open{overflow:hidden}
+@media (max-width:899px){ body.imap-open .tabs{display:none} }
 .iplist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 @media (min-width:900px){ .iplist{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .iplace{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
@@ -2619,7 +2629,8 @@ function bookHTML(){
 }
 /* ---------- Quốc tế: 8 nước, 21 thành phố (dữ liệu /data/intl.json, tọa độ + ảnh lấy từ Wikipedia) ---------- */
 let INTL=null, INTL_LOADING=false, imap=null;
-state.intl={country:'all',city:null,filter:'all',sel:null};
+state.intl={country:'all',city:null,filter:'all',sel:null,big:false};
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&state.intl.big){ state.intl.big=false; document.body.classList.remove('imap-open'); render(); } });
 const MONTHS_VN=m=>m.length?'Tháng '+m.join(', '):'';
 function loadIntl(){
   if(INTL||INTL_LOADING) return; INTL_LOADING=true;
@@ -2709,39 +2720,59 @@ function intlCityHTML(C){
     <p class="iintro">${esc(C.intro)}</p>
     <div class="ikpis"><div><b>${esc(MONTHS_VN(C.best).replace('Tháng ',''))}</b><span>Tháng đẹp nhất</span></div><div><b>${esc(C.days)}</b><span>Thời gian gợi ý</span></div><div><b>${K.visaFree?'Miễn visa':'Cần visa'}</b><span>Hộ chiếu Việt Nam</span></div></div>
     <div class="ibook"><a class="btn" href="${esc(tv('activities'))}" target="_blank" rel="noopener sponsored">🎟 Tour & vé tham quan</a><a class="btn-ghost" href="${esc(tv('hotel'))}" target="_blank" rel="noopener sponsored">🏨 Khách sạn</a><a class="btn-ghost" href="${esc(tv('flight'))}" target="_blank" rel="noopener sponsored">✈️ Vé máy bay</a></div>
-    <div class="imapwrap"><div id="imap" class="imap" role="region" aria-label="Bản đồ ${esc(C.name)}"></div></div>
+    <div class="imapwrap ${S.big?'big':''}" id="imapwrap"><div class="imap-scrim" data-action="imapclose"></div><div class="imapbox"><div id="imap" class="imap" role="region" aria-label="Bản đồ ${esc(C.name)}"></div>
+      <div class="mapctl"><button data-action="${S.big?'imapclose':'imapbig'}" class="${S.big?'ov':''}">${S.big?'✕ Đóng bản đồ':'⤢ Mở rộng'}</button><button data-action="imapfit">🎯 Xem toàn bộ</button></div>
+      <div class="legend"><span style="--c:var(--lacquer)"><i></i>Ăn uống</span><span style="--c:var(--gold)"><i></i>Check-in</span><span style="--c:var(--teal)"><i></i>Tham quan</span></div>
+      <div class="tilenote" id="itilenote" hidden><b>Chưa tải được nền bản đồ.</b> Các điểm vẫn hiện đúng vị trí; thử tải lại trang hoặc đổi mạng.</div></div></div>
     <div class="chips">${chip('all','Tất cả')}${chip('food','Ăn uống',CAT.food.c)}${chip('check','Check-in',CAT.check.c)}${chip('sight','Tham quan',CAT.sight.c)}</div>
     <ul class="iplist">${ps.map(item).join('')}</ul>
     ${intlCountryBox(K)}
     <p class="hint">Giá vé, giờ mở cửa và thông tin visa chỉ để tham khảo (cập nhật ${esc(INTL.updated||'')}), có thể thay đổi. Kiểm tra lại trước khi đi.</p></article>`;
 }
 function intlAfter(){
+  document.querySelectorAll('body > .imapwrap').forEach(n=>n.remove());   // bản đồ mở rộng cũ (đã đưa ra ngoài body)
+  { const w=document.getElementById('imapwrap'); if(w&&state.intl.big){ document.body.appendChild(w);
+      w.addEventListener('click',e=>{ const a=e.target.closest('[data-action]'); if(!a) return; const S=state.intl;
+        if(a.dataset.action==='imapclose'){ S.big=false; document.body.classList.remove('imap-open'); render(); }
+        else if(a.dataset.action==='imapfit'&&imap&&imap.__all) imap.__all(); }); } }
+  if(state.intl.big&&(state.tab!=='intl'||!state.intl.city)){ state.intl.big=false; document.body.classList.remove('imap-open'); }
   if(imap){ try{ imap.remove(); }catch(e){} imap=null; }
   if(state.tab!=='intl'||!INTL||!state.intl.city) return;
   const el=document.getElementById('imap'); const C=INTL.cities.find(c=>c.id===state.intl.city); if(!el||!C||!window.L) return;
   const pts=C.places.filter(p=>p.lat!=null&&(state.intl.filter==='all'||p.cat===state.intl.filter));
-  imap=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(imap);
+  imap=L.map(el,{scrollWheelZoom:!!state.intl.big,zoomControl:true,attributionControl:true,zoomSnap:0.5});
+  imap.zoomControl.setPosition('topright');
+  imap.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
+  /* Nền bản đồ: dùng chung danh sách máy chủ với bản đồ trong nước, tự chuyển máy chủ dự phòng khi lỗi */
+  const addTiles=i=>{ const pr=TILE_PROVIDERS[i]; if(!pr){ const n=document.getElementById('itilenote'); if(n) n.hidden=false; return; }
+    let errs=0, ok=false; const t=L.tileLayer(pr.url,{...pr.opt,referrerPolicy:'strict-origin-when-cross-origin',crossOrigin:false}).addTo(imap);
+    t.on('tileload',()=>{ ok=true; }); t.on('tileerror',()=>{ errs++; if(errs>=4&&!ok&&imap&&imap.hasLayer(t)){ imap.removeLayer(t); addTiles(i+1); } }); };
+  addTiles(0);
   const mk={};
-  pts.forEach(p=>{ const m=L.circleMarker([p.lat,p.lng],{radius:p.id===state.intl.sel?11:8,weight:2,color:'#fff',fillColor:getComputedStyle(document.documentElement).getPropertyValue('--'+({food:'lacquer',check:'gold',sight:'teal'})[p.cat]).trim()||'#0E4C8E',fillOpacity:1}).addTo(imap);
-    m.bindTooltip(p.name,{direction:'top',className:'tip'}); m.on('click',()=>{ state.intl.sel=p.id; render(); setTimeout(()=>{ const li=document.getElementById('ip-'+p.id); if(li) li.scrollIntoView({behavior:'smooth',block:'center'}); },60); }); mk[p.id]=m; });
+  pts.forEach(p=>{ const on=p.id===state.intl.sel;
+    if(on) L.circleMarker([p.lat,p.lng],{radius:17,className:'mk selring mk-'+p.cat,interactive:false}).addTo(imap);
+    const m=L.circleMarker([p.lat,p.lng],{radius:on?10:8,className:'mk mk-'+p.cat,bubblingMouseEvents:false}).addTo(imap);
+    m.bindTooltip(p.name,{direction:'top',offset:[0,-6],className:'tip'});
+    m.on('click',()=>{ state.intl.sel=p.id; render(); setTimeout(()=>{ const li=document.getElementById('ip-'+p.id); if(li&&!state.intl.big) li.scrollIntoView({behavior:'smooth',block:'center'}); },60); }); mk[p.id]=m; });
+  imap.__fit=()=>{ if(pts.length>1){ const med=a=>a.slice().sort((x,y)=>x-y)[a.length>>1], mla=med(pts.map(p=>p.lat)), mln=med(pts.map(p=>p.lng));
+      const near=pts.filter(p=>Math.hypot((p.lat-mla)*111,(p.lng-mln)*111*Math.cos(mla*Math.PI/180))<45), fit=near.length>=Math.max(3,pts.length*0.6)?near:pts;
+      imap.fitBounds(L.latLngBounds(fit.map(p=>[p.lat,p.lng])),{padding:[30,30],maxZoom:13}); }
+    else if(pts.length) imap.setView([pts[0].lat,pts[0].lng],12); else if(C.lat!=null) imap.setView([C.lat,C.lng],10); };
+  imap.__all=()=>{ if(pts.length>1) imap.fitBounds(L.latLngBounds(pts.map(p=>[p.lat,p.lng])),{padding:[30,30],maxZoom:13}); else imap.__fit(); };
   const sel=pts.find(p=>p.id===state.intl.sel);
-  if(sel) imap.setView([sel.lat,sel.lng],14);
-  else if(pts.length>1){ const med=a=>a.slice().sort((x,y)=>x-y)[a.length>>1], mla=med(pts.map(p=>p.lat)), mln=med(pts.map(p=>p.lng));
-    const near=pts.filter(p=>Math.hypot((p.lat-mla)*111,(p.lng-mln)*111*Math.cos(mla*Math.PI/180))<45), fit=near.length>=Math.max(3,pts.length*0.6)?near:pts;
-    imap.fitBounds(L.latLngBounds(fit.map(p=>[p.lat,p.lng])),{padding:[28,28],maxZoom:13}); }
-  else if(pts.length) imap.setView([pts[0].lat,pts[0].lng],12);
-  else if(C.lat!=null) imap.setView([C.lat,C.lng],10);
+  if(sel) imap.setView([sel.lat,sel.lng],14); else imap.__fit();
   if(sel&&mk[sel.id]) mk[sel.id].openTooltip();
 }
 $('#pbody').addEventListener('click',e=>{
   if(state.tab!=='intl') return;
-  const t=e.target.closest('[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"]'); if(!t) return;
+  const t=e.target.closest('[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
   const d=t.dataset, S=state.intl;
   if(d.icountry){ S.country=d.icountry; render(); return; }
   if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
   if(d.iplace){ S.sel=S.sel===d.iplace?null:d.iplace; render(); const m=document.getElementById('imap'); if(m&&S.sel) m.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  if(d.action==='imapbig'||d.action==='imapclose'){ S.big=d.action==='imapbig'; document.body.classList.toggle('imap-open',S.big); render(); return; }
+  if(d.action==='imapfit'){ if(imap&&imap.__all) imap.__all(); return; }
   if(d.action==='intlback'){ S.city=null; S.sel=null; try{ history.replaceState(null,'','#quoc-te'); }catch(err){} render(); window.scrollTo(0,0); }
 });
 /* ---------- Blog ---------- */
