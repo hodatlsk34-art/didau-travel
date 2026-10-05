@@ -42,7 +42,7 @@ jobs:
           HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::warning::Chưa có khóa RENDER_DEPLOY_HOOK nên web chưa tự cập nhật. Xem hướng dẫn trong README."
+            echo "Không có RENDER_DEPLOY_HOOK: dựa vào Render tự cập nhật khi có commit mới (Auto-Deploy)."
             exit 0
           fi
           curl -fsS -X POST "$HOOK" > /dev/null && echo "Đã yêu cầu Render cập nhật web"
