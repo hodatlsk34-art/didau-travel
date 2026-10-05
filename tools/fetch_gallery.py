@@ -60,10 +60,23 @@ def strip(v, n=60):
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]*>', '', str(v or ''))).strip()[:n]
 
 
-def commons_category(wiki):
+def vi_article(name):
+    """Tìm bài Wikipedia tiếng Việt khớp tên địa điểm (dùng cho điểm trong nước chưa có tên bài)."""
+    q = re.sub(r'\(.*?\)', ' ', name).strip()
+    j = get('https://vi.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&list=search&srlimit=3&srnamespace=0&srsearch='
+            + urllib.parse.quote(q)) or {}
+    tk = toks(name)
+    for r in j.get('query', {}).get('search', []):
+        tt = toks(r['title'])
+        if tk and len(tk & tt) >= min(2, len(tk)):
+            return r['title']
+    return None
+
+
+def commons_category(wiki, lang='en'):
     if not wiki:
         return None
-    j = get('https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&ppprop=wikibase_item&titles='
+    j = get(f'https://{lang}.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&ppprop=wikibase_item&titles='
             + urllib.parse.quote(wiki)) or {}
     pg = (j.get('query', {}).get('pages') or [{}])[0]
     q = (pg.get('pageprops') or {}).get('wikibase_item')
@@ -122,6 +135,10 @@ def pick(t):
     tk = toks(t['name'], t.get('wiki'))
     cands = {}
     cat = commons_category(t.get('wiki'))
+    if not cat and not t.get('wiki') and t['cat'] != 'food':
+        vt = vi_article(t['name'])
+        if vt:
+            cat = commons_category(vt, 'vi')
     if cat:
         for f in files_in_category(cat):
             cands[f] = 'cat'
@@ -147,7 +164,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     targets = json.load(open(os.path.join(ROOT, 'tools', 'gallery_targets.json'), encoding='utf-8'))
     gal = json.load(open(GJ, encoding='utf-8')) if os.path.exists(GJ) else {}
-    todo = [t for t in targets if t['id'] not in gal]
+    # chưa làm, hoặc lần trước chưa tìm được ảnh (thử lại – có thể đã có ảnh mới trên Commons)
+    todo = [t for t in targets if t['id'] not in gal] + [t for t in targets if gal.get(t['id']) == [] and t['cat'] != 'food']
     print(f'{len(targets)} điểm, cần lấy {len(todo)}')
     t0 = time.time()
     for n, t in enumerate(todo):
