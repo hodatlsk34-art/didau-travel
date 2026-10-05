@@ -142,9 +142,9 @@ META = {
     'yunnan-4': {'v': 0, 'd': 180, 't': 'nrp', 'io': 'o', 'ss': 1, 'a': 'Đại Lý'},
     'yunnan-5': {'v': 270, 'd': 120, 't': 'hk', 'io': 'o', 'a': 'Đại Lý'},
     'yunnan-6': {'k': 'check,toi,cafe,vat', 'v': 0, 'd': 150, 't': 'hp', 'io': 'o', 'ev': 'all', 'a': 'Đại Lý'},
-    'yunnan-7': {'v': 470, 'd': 240, 't': 'np', 'io': 'o', 'a': 'Côn Minh'},
+    'yunnan-7': {'v': 470, 'd': 300, 't': 'np', 'io': 'o', 'trip': 1, 'a': 'Côn Minh'},
     # Quế Lâm – Dương Sóc
-    'guilin-1': {'v': 1300, 'd': 300, 't': 'npk', 'io': 'o', 'a': 'Quế Lâm'},
+    'guilin-1': {'v': 1300, 'd': 360, 't': 'npk', 'io': 'o', 'trip': 1, 'a': 'Quế Lâm'},
     'guilin-2': {'v': 0, 'd': 180, 't': 'npr', 'io': 'o', 'a': 'Dương Sóc'},
     'guilin-3': {'k': 'toi,vat,cafe', 'v': 200, 'd': 90, 't': 's', 'io': 'o', 'ev': 'all', 'a': 'Dương Sóc'},
     'guilin-4': {'v': 450, 'd': 75, 't': 'n', 'io': 'i', 'a': 'Quế Lâm'},
@@ -368,6 +368,8 @@ NEW = {
         ('c', 'Hồ Lam Nguyệt Cốc', 'Blue Moon Valley', 'Thung lũng hồ xanh ngọc dưới núi tuyết Ngọc Long', {'v': 0, 'd': 120, 't': 'np', 'io': 'o', 'a': 'Lệ Giang', 'hide': 1}),
         ('s', 'Hổ Khiêu Hạp', 'Tiger Leaping Gorge', 'Hẻm núi sâu bậc nhất thế giới trên sông Kim Sa', {'price': '~45 CNY', 'v': 160, 'd': 300, 't': 'n', 'io': 'o', 'f': 'x', 'trip': 1, 'a': 'Lệ Giang'}),
         ('c', 'Núi Sư Tử – lầu Vạn Cổ', 'Lion Hill (Lijiang)', 'Lầu gỗ trên đồi ngắm toàn phố cổ Lệ Giang', {'price': '~35 CNY', 'v': 130, 'd': 60, 't': 'hp', 'io': 'o', 'ss': 1, 'a': 'Lệ Giang', 'hide': 1}),
+        ('s', 'Chùa Viên Thông (Côn Minh)', 'Yuantong Temple', 'Ngôi chùa cổ hơn 1.200 năm giữa trung tâm Côn Minh', {'price': '~6 CNY', 'v': 25, 'd': 60, 't': 'h', 'io': 'o', 'a': 'Côn Minh'}),
+        ('s', 'Làng dân tộc Vân Nam', 'Yunnan Nationalities Village', 'Làng văn hóa 25 dân tộc bên hồ Điền Trì, múa hát dân gian', {'price': '~90 CNY', 'v': 330, 'd': 180, 't': 'hp', 'io': 'o', 'a': 'Côn Minh'}),
     ],
     'guilin': [
         ('c', 'Hai hồ bốn sông (Nhật Nguyệt Song Tháp)', 'Sun and Moon Pagodas', 'Hai ngọn tháp trên hồ Sam, đẹp lung linh về đêm', {'v': 0, 'd': 60, 't': 'pk', 'io': 'o', 'ev': 'all', 'a': 'Quế Lâm'}),
@@ -377,7 +379,7 @@ NEW = {
         ('c', 'Đồi Mặt Trăng (Nguyệt Lượng Sơn)', 'Moon Hill', 'Núi đá có lỗ tròn hình trăng, leo ngắm đồng quê', {'price': '~15 CNY', 'v': 55, 'd': 90, 't': 'np', 'io': 'o', 'f': 'o', 'a': 'Dương Sóc'}),
         ('c', 'Núi Tương Công', 'Xianggong Hill', 'Điểm ngắm sông Ly lúc bình minh nổi tiếng', {'v': 110, 'd': 90, 't': 'np', 'io': 'o', 'mo': 1, 'a': 'Dương Sóc', 'hide': 1}),
         ('s', 'Ấn tượng Lưu Tam Tỷ', 'Impression, Sanjie Liu', 'Show thực cảnh trên sông Ly của Trương Nghệ Mưu', {'price': '~220 CNY', 'v': 800, 'd': 90, 't': 'p', 'io': 'o', 'ev': 'all', 'eo': 1, 'a': 'Dương Sóc'}),
-        ('c', 'Hưng Bình cổ trấn', 'Xingping', 'Làng cổ bên sông Ly, cảnh tờ tiền 20 tệ', {'v': 0, 'd': 150, 't': 'hnp', 'io': 'o', 'a': 'Dương Sóc'}),
+        ('c', 'Hưng Bình cổ trấn', 'Xingping', 'Làng cổ bên sông Ly, cảnh tờ tiền 20 tệ', {'v': 0, 'd': 150, 't': 'hnp', 'io': 'o', 'a': 'Dương Sóc', 'll': [24.930, 110.518]}),
     ],
     'seoul': [
         ('c', 'Suối Cheonggyecheon', 'Cheonggyecheon', 'Dòng suối giữa phố, dạo bộ buổi tối', {'v': 0, 'd': 45, 't': 'pr', 'io': 'o', 'ev': 'all'}),
