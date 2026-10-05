@@ -90,10 +90,13 @@
 "wp": "https://en.wikipedia.org/wiki/Nusa_Penida"
 },
 "bali-9": {
-"lat": null,
-"lng": null,
-"wiki": "Kuta",
-"wp": "https://en.wikipedia.org/wiki/Kuta"
+"credit": "Simon_sees from Australia · CC BY 2.0",
+"f": "/images/intl/bali-9.webp",
+"lat": -8.73333,
+"lng": 115.16667,
+"page": "https://commons.wikimedia.org/wiki/File:Kuta_Beach_(6924448550).jpg",
+"wiki": "Kuta, Bali",
+"wp": "https://en.wikipedia.org/wiki/Kuta,_Bali"
 },
 "bangkok-1": {
 "credit": "Preecha.MJ · CC BY-SA 4.0",
@@ -875,6 +878,15 @@
 "wiki": "Ginkaku-ji",
 "wp": "https://en.wikipedia.org/wiki/Ginkaku-ji"
 },
+"kyoto-8": {
+"credit": "David Monniaux · CC BY-SA 3.0",
+"f": "/images/intl/kyoto-8.webp",
+"lat": 35.02513,
+"lng": 135.79617,
+"page": "https://commons.wikimedia.org/wiki/File:Japan_Kyoto_philosophers_walk_DSC00297.jpg",
+"wiki": "Philosopher's Walk",
+"wp": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk"
+},
 "osaka-1": {
 "credit": "663highland · CC BY 2.5",
 "f": "/images/intl/osaka-1.webp",
@@ -1060,6 +1072,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Batu_Ferringhi,_George_Town,_Penang_2023.jpg",
 "wiki": "Batu Ferringhi",
 "wp": "https://en.wikipedia.org/wiki/Batu_Ferringhi"
+},
+"phuket-1": {
+"credit": "Subhrajyoti07 · CC BY-SA 4.0",
+"f": "/images/intl/phuket-1.webp",
+"lat": 7.8276,
+"lng": 98.31285,
+"page": "https://commons.wikimedia.org/wiki/File:The_Big_Buddha,_Phuket.jpg",
+"wiki": "Phuket Big Buddha",
+"wp": "https://en.wikipedia.org/wiki/Phuket_Big_Buddha"
 },
 "phuket-2": {
 "credit": "Luxure · CC BY 3.0 au",
@@ -1597,6 +1618,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_2023.jpg",
 "wiki": "Tokyo Tower",
 "wp": "https://en.wikipedia.org/wiki/Tokyo_Tower"
+},
+"tokyo-6": {
+"credit": "Kakidai · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-6.webp",
+"lat": 35.66139,
+"lng": 139.76972,
+"page": "https://commons.wikimedia.org/wiki/File:2018_Tsukiji_fish_market.jpg",
+"wiki": "Tsukiji fish market",
+"wp": "https://en.wikipedia.org/wiki/Tsukiji_fish_market"
 },
 "tokyo-7": {
 "credit": "Phineyes · CC0",
