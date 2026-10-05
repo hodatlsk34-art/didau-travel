@@ -19,7 +19,7 @@ OUT = os.path.join(ROOT, 'public', 'images', 'gallery')
 GJ = os.path.join(OUT, 'gallery.json')
 UA = 'DiDauTravelGalleryBot/1.0 (https://didautravel.id.vn/; free-licensed travel photos)'
 PER = 3
-BAD = re.compile(r'satellite|sentinel|landsat|copernicus|toll|expressway|highway|motorway|sticker|selfie|portrait|wedding|graffiti|toilet|interior of bus|map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
+BAD = re.compile(r'thit cho|dog meat|tu tran|sa ban|mo hinh|model|chart|visitors|satellite|sentinel|landsat|copernicus|toll|expressway|highway|motorway|sticker|selfie|portrait|wedding|graffiti|toilet|interior of bus|map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
 STOP = set('cho pho quan nha chua den bai bien ho nui ca phe tp thanh khu di tich va cau dong doi the of and temple park street market beach road'.split())
 LOG, STATS = [], {'ok': 0, 'none': 0}
 
@@ -193,6 +193,37 @@ def pick(t):
     return [(r[1], r[0], r[2], r[3]) for r in chosen]
 
 
+def clean(gal, targets):
+    """Quy tắc lọc cuối (rút ra khi rà soát bằng mắt 10/2026):
+    - bỏ ảnh xuất hiện ở từ 2 địa điểm trở lên (ảnh của khung giới thiệu chung trong bài Wikipedia);
+    - tên file phải chứa tên riêng của địa điểm (trong nước: ≥2 từ, không tính tên tỉnh; quốc tế: ≥1 từ);
+    - bỏ ảnh trong danh sách chặn tools/gallery_block.json (đã soát tay)."""
+    from collections import Counter
+    bp = os.path.join(ROOT, 'tools', 'gallery_block.json')
+    block = set(json.load(open(bp, encoding='utf-8'))) if os.path.exists(bp) else set()
+    T = {t['id']: t for t in targets}
+    ft = lambda x: urllib.parse.unquote((x.get('page') or '').split('File:')[-1])
+    use = Counter(ft(x).replace('_', ' ') for v in gal.values() for x in v)
+    for k, v in gal.items():
+        t = T.get(k)
+        if not t:
+            continue
+        intl = k.startswith('i:')
+        spec = toks(t['name'], t.get('wiki')) - (set() if intl else toks(t.get('prov', '')))
+        need = 1 if intl else min(2, len(spec))
+        keep = []
+        for x in v:
+            name = ft(x)
+            if name in block or use[name.replace('_', ' ')] >= 2 or BAD.search(norm(name)) or len(spec & toks(name)) < max(need, 1):
+                f = os.path.join(ROOT, 'public', x['f'].lstrip('/'))
+                if os.path.exists(f):
+                    os.remove(f)
+                continue
+            keep.append(x)
+        gal[k] = keep
+    return gal
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     targets = json.load(open(os.path.join(ROOT, 'tools', 'gallery_targets.json'), encoding='utf-8'))
@@ -224,6 +255,7 @@ def main():
             LOG.append(f'Không có ảnh phù hợp: {t["id"]} {t["name"]}')
         if n % 25 == 0:
             print(n, t['id'], len(items)); json.dump(gal, open(GJ, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+    gal = clean(gal, targets)
     json.dump(gal, open(GJ, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     have = sum(1 for v in gal.values() if v)
     summary = f'Có ảnh thêm: {have}/{len(targets)} điểm · tổng {sum(len(v) for v in gal.values())} ảnh'
