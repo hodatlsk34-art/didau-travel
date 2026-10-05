@@ -1679,6 +1679,30 @@ body.imap-open{overflow:hidden}
 .hx-intl button{border:0;border-radius:999px;background:#fff;color:#B0204F;box-shadow:0 6px 18px rgba(214,51,108,.25);padding:9px 16px;font:600 14px/1.35 var(--font-body);text-align:left;cursor:pointer;animation:hxIn .25s ease}
 .hx-intl button:hover{background:#FFF0F5}
 @keyframes hxIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* ---------- Thư viện ảnh ---------- */
+.gal{display:flex;flex-direction:column;gap:6px}
+.gal-h{font-weight:700;font-size:14px}
+.gal-h small{font-weight:400;color:var(--muted);margin-left:6px}
+.gal-row{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.gal-it{position:relative;flex:none;width:168px;aspect-ratio:3/2;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--surface-2);cursor:zoom-in;scroll-snap-align:start}
+.gal-it img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.gal-it:hover img{transform:scale(1.05)}
+.gal-it span{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;font-weight:600;border-radius:999px;padding:1px 7px}
+.ingal{padding:0 12px 10px}
+.lb{position:fixed;inset:0;z-index:2600;background:rgba(8,12,16,.92);display:flex;align-items:center;justify-content:center;padding:16px}
+.lb[hidden]{display:none!important}
+.lb figure{margin:0;max-width:min(1100px,100%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.lb img{max-width:100%;max-height:78vh;border-radius:10px;object-fit:contain;background:#111}
+.lb figcaption{color:#dfe6ec;font-size:13px;text-align:center}
+.lb figcaption a{color:#9fd0ff}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;border-radius:999px;width:46px;height:46px;font-size:26px;line-height:1;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.26)}
+.lb-x{top:14px;right:14px;font-size:20px!important}
+.lb-p{left:12px;top:50%;transform:translateY(-50%)}
+.lb-n{right:12px;top:50%;transform:translateY(-50%)}
+body.lb-open{overflow:hidden}
+@media (max-width:560px){ .gal-it{width:140px} .lb-p,.lb-n{top:auto;bottom:18px;transform:none} }
 </style>
 
 <div class="app">
@@ -2627,6 +2651,46 @@ function bookHTML(){
       ${D?`<button class="btn" data-dplan="${esc(D.key)}">✨ Lên lịch trình ${esc(D.name)} trước</button>`:`<button class="btn" data-action="homepick">✨ Chưa biết đi đâu? Để AI chọn</button>`}
     </section>`;
 }
+
+/* ---------- Thư viện ảnh thêm cho địa điểm (Wikimedia Commons, ưu tiên ảnh chụp gần đây) ---------- */
+let GALLERY=null, GAL_LOADING=false, lbList=[], lbIdx=0;
+function loadGallery(){
+  if(GALLERY||GAL_LOADING||!/^https?:$/.test(location.protocol)) return; GAL_LOADING=true;
+  fetch('/images/gallery/gallery.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{}).then(j=>{ GALLERY=j&&typeof j==='object'?j:{}; GAL_LOADING=false; applyGallery(); galHints(); })
+    .catch(()=>{ GALLERY={}; GAL_LOADING=false; });
+}
+const galOk=x=>x&&typeof x.f==='string'&&/^\/images\/gallery\/[\w.-]+\.webp$/.test(x.f);
+function applyGallery(){
+  const els=document.querySelectorAll('[data-gal]:not([data-gdone])'); if(!els.length) return;
+  if(!GALLERY){ loadGallery(); return; }
+  els.forEach(el=>{ el.dataset.gdone=1; const list=(GALLERY[el.dataset.gal]||[]).filter(galOk); if(!list.length){ el.hidden=true; return; }
+    el.hidden=false;
+    el.innerHTML=`<div class="gal-h">📷 Thêm ảnh <small>${list.length} ảnh · mới nhất trước</small></div><div class="gal-row">${list.map((x,i)=>
+      `<button type="button" class="gal-it" data-galopen="${esc(el.dataset.gal)}" data-gali="${i}" aria-label="Xem ảnh ${i+1}"><img src="${esc(x.f)}" alt="" loading="lazy" decoding="async">${x.date?`<span>${esc(String(x.date).slice(0,4))}</span>`:''}</button>`).join('')}</div>`;
+  });
+}
+function openLightbox(id,i){
+  lbList=(GALLERY&&GALLERY[id]||[]).filter(galOk); if(!lbList.length) return; lbIdx=i||0;
+  let lb=document.getElementById('lightbox');
+  if(!lb){ lb=document.createElement('div'); lb.id='lightbox'; lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true');
+    lb.innerHTML='<button class="lb-x" data-lb="x" aria-label="Đóng">✕</button><button class="lb-p" data-lb="p" aria-label="Ảnh trước">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lb-n" data-lb="n" aria-label="Ảnh sau">›</button>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click',e=>{ const b=e.target.closest('[data-lb]'); if(b){ const a=b.dataset.lb; if(a==='x') closeLightbox(); else showLb(lbIdx+(a==='n'?1:-1)); return; } if(e.target===lb) closeLightbox(); });
+    let sx=null; lb.addEventListener('touchstart',e=>{ sx=e.touches[0].clientX; },{passive:true});
+    lb.addEventListener('touchend',e=>{ if(sx==null) return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) showLb(lbIdx+(dx<0?1:-1)); sx=null; });
+  }
+  lb.hidden=false; document.body.classList.add('lb-open'); showLb(lbIdx);
+}
+function showLb(i){ const lb=document.getElementById('lightbox'); if(!lb||!lbList.length) return; lbIdx=(i+lbList.length)%lbList.length; const x=lbList[lbIdx];
+  lb.querySelector('img').src=x.f;
+  lb.querySelector('figcaption').innerHTML=`${lbIdx+1}/${lbList.length}${x.date?' · Chụp '+esc(String(x.date).slice(0,7).split('-').reverse().join('/')):''} · <a href="${esc(x.page||'#')}" target="_blank" rel="noopener">Ảnh: ${esc(x.credit||'Wikimedia Commons')}</a>`;
+  lb.querySelector('.lb-p').hidden=lb.querySelector('.lb-n').hidden=lbList.length<2; }
+
+function galHints(){ const hs=document.querySelectorAll('[data-galhint]'); if(!hs.length) return; if(!GALLERY){ loadGallery(); return; }
+  hs.forEach(h=>{ const n=(GALLERY[h.dataset.galhint]||[]).filter(galOk).length; h.hidden=!n; if(n) h.textContent='📷 +'+n+' ảnh'; }); }
+function closeLightbox(){ const lb=document.getElementById('lightbox'); if(lb) lb.hidden=true; document.body.classList.remove('lb-open'); }
+document.addEventListener('keydown',e=>{ const lb=document.getElementById('lightbox'); if(!lb||lb.hidden) return; if(e.key==='Escape') closeLightbox(); else if(e.key==='ArrowRight') showLb(lbIdx+1); else if(e.key==='ArrowLeft') showLb(lbIdx-1); });
+document.addEventListener('click',e=>{ const b=e.target.closest&&e.target.closest('[data-galopen]'); if(!b) return; e.preventDefault(); e.stopPropagation(); openLightbox(b.dataset.galopen,Number(b.dataset.gali)); track('gallery_open',{place:b.dataset.galopen}); },true);
 /* ---------- Quốc tế: 8 nước, 21 thành phố (dữ liệu /data/intl.json, tọa độ + ảnh lấy từ Wikipedia) ---------- */
 let INTL=null, INTL_LOADING=false, imap=null;
 state.intl={country:'all',city:null,filter:'all',sel:null,big:false};
@@ -2714,7 +2778,8 @@ function intlCityHTML(C){
       <div class="ipimg">${intlImg(p.img)}</div>
       <div class="ipmain"><span class="ipcat" style="--c:${CAT[p.cat].c}">${CAT[p.cat].label}</span><b>${esc(p.name)}</b><span>${esc(p.why)}</span>
       ${p.price?`<span class="ipmeta">🎟 ${esc(p.price)}</span>`:''}${p.tip?`<span class="ipmeta">💡 ${esc(p.tip)}</span>`:''}</div></button>
-      <div class="iplinks">${p.lat!=null?`<a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" rel="noopener">📍 Google Maps</a>`:''}${p.wp?`<a href="${esc(p.wp)}" target="_blank" rel="noopener">📖 Wikipedia</a>`:''}${p.img&&p.img.page?`<a href="${esc(p.img.page)}" target="_blank" rel="noopener" class="muted">Ảnh: ${esc((p.img.credit||'').split(' · ')[0])}</a>`:''}</div></li>`;
+      ${S.sel===p.id?`<div class="gal ingal" data-gal="i:${p.id}" hidden></div>`:''}
+      <div class="iplinks">${S.sel!==p.id?`<a href="#" data-iplace="${p.id}" class="galhint" data-galhint="i:${p.id}" hidden>📷 Thêm ảnh</a>`:''}${p.lat!=null?`<a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" rel="noopener">📍 Google Maps</a>`:''}${p.wp?`<a href="${esc(p.wp)}" target="_blank" rel="noopener">📖 Wikipedia</a>`:''}${p.img&&p.img.page?`<a href="${esc(p.img.page)}" target="_blank" rel="noopener" class="muted">Ảnh: ${esc((p.img.credit||'').split(' · ')[0])}</a>`:''}</div></li>`;
   return `<article class="icity"><button class="btn-ghost post-back" data-action="intlback">← Tất cả điểm đến quốc tế</button>
     <div class="ihero">${intlImg(C.img)}<div class="ihero-t"><span>${K.flag||''} ${esc(K.name||'')}</span><h1>${esc(C.name)}</h1><small>${esc(C.local||'')}</small></div>${intlCredit(C.img)}</div>
     <p class="iintro">${esc(C.intro)}</p>
@@ -2770,7 +2835,7 @@ $('#pbody').addEventListener('click',e=>{
   if(d.icountry){ S.country=d.icountry; render(); return; }
   if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
-  if(d.iplace){ S.sel=S.sel===d.iplace?null:d.iplace; render(); const m=document.getElementById('imap'); if(m&&S.sel) m.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  if(d.iplace){ e.preventDefault(); S.sel=S.sel===d.iplace?null:d.iplace; render(); const m=document.getElementById('imap'); if(m&&S.sel) m.scrollIntoView({behavior:'smooth',block:'center'}); return; }
   if(d.action==='imapbig'||d.action==='imapclose'){ S.big=d.action==='imapbig'; document.body.classList.toggle('imap-open',S.big); render(); return; }
   if(d.action==='imapfit'){ if(imap&&imap.__all) imap.__all(); return; }
   if(d.action==='intlback'){ S.city=null; S.sel=null; try{ history.replaceState(null,'','#quoc-te'); }catch(err){} render(); window.scrollTo(0,0); }
@@ -2856,7 +2921,7 @@ function render(){
   if(!state.selected) body.insertAdjacentHTML('beforeend',footerHTML());
   placeMap();
   renderMap();
-  applyImgs(); applyPlaceImgs(); loadStats(); intlAfter();
+  applyImgs(); applyPlaceImgs(); loadStats(); intlAfter(); applyGallery(); galHints();
   if(window.__topUpd) window.__topUpd();
 }
 let mapMode='off';
@@ -3303,6 +3368,7 @@ function detailHTML(p){
   return `
   <button class="back" data-action="back">← ${backLabel}</button>
   <div class="phero" data-pimg="${p.id}" data-credit></div>
+  <div class="gal" data-gal="${p.id}" hidden></div>
   <div class="hero" style="--c:${c.c}"><span class="hero-ic">${ICON[p.cat]}</span>
     <div><span class="cat-chip">${c.label} · ${esc(p.area==='Nội thành'?p.prov:p.area)}${p.season?' · Đúng mùa':''}</span><h2>${esc(p.name)}</h2><p>${esc(p.why)}</p></div></div>
   <div class="minihost" id="miniHost"></div>
@@ -3470,6 +3536,7 @@ function makeTileLayer(i){
 const provPaths={};
 function initMap(){
   map=L.map('map',{zoomControl:true,minZoom:4.5,maxZoom:18,zoomSnap:0.5,worldCopyJump:false});
+  map.setView([16.0,107.5],5);   // luôn có vị trí ban đầu, kể cả khi mở web thẳng vào Blog/Quốc tế
   map.zoomControl.setPosition('topright');
   map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
   makeTileLayer(0);
