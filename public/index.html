@@ -1664,6 +1664,11 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 
 @media (max-width:899px){ .tabs .tab .tl{white-space:nowrap;letter-spacing:-.02em} }
 @media (max-width:400px){ .tabs .tab .tl{font-size:11px} }
+
+.hx-intl{display:flex;justify-content:center;margin:-4px auto 6px;max-width:760px;width:100%}
+.hx-intl button{border:0;border-radius:999px;background:#fff;color:#B0204F;box-shadow:0 6px 18px rgba(214,51,108,.25);padding:9px 16px;font:600 14px/1.35 var(--font-body);text-align:left;cursor:pointer;animation:hxIn .25s ease}
+.hx-intl button:hover{background:#FFF0F5}
+@keyframes hxIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 </style>
 
 <div class="app">
@@ -1713,11 +1718,13 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
         <button class="hx-go" type="submit" aria-label="Tìm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       </form>
       </div>
+      <div class="hx-intl" id="hxIntl" hidden></div>
       <div class="hx-try" aria-label="Gợi ý nhanh"><span class="hx-try-h">✨ Gợi ý nhanh:</span>
         <button type="button" class="hx-chip" data-hx="ex" data-ex="0">🏖️ 3 ngày, 5 triệu, đi biển cùng con</button>
         <button type="button" class="hx-chip" data-hx="ex" data-ex="1">🌆 Cuối tuần gần Sài Gòn</button>
         <button type="button" class="hx-chip" data-hx="ex" data-ex="2">☕ Đà Lạt 3N2Đ cho cặp đôi</button>
         <button type="button" class="hx-chip" data-hx="ex" data-ex="3">⛰️ Gia đình 5 ngày, thích núi</button>
+        <button type="button" class="hx-chip" data-hx="intl">🌏 Đi nước ngoài: Thái Lan, Hàn, Nhật…</button>
         <button type="button" class="hx-chip ai" data-hx="pick">🤖 Không biết đi đâu? Để AI chọn</button></div>
       <div class="hx-cards">
         <button class="hx-card c1" data-hx="explore"><svg class="hx-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7.5 7.5 0 0 0-7.5 7.5c0 5.4 6.6 11.9 6.9 12.2a.85.85 0 0 0 1.2 0c.3-.3 6.9-6.8 6.9-12.2A7.5 7.5 0 0 0 12 2zm0 10.3a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z"/></svg><b>Trong nước</b><span>34 tỉnh thành Việt Nam</span><svg class="hx-deco" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V38l30-22 26 20 34-28 40 34 22-14 48 30z" fill="#fff" opacity=".16"/><path d="M0 60c40-18 80-6 110-14s60-10 90-6v20z" fill="#fff" opacity=".14"/></svg></button>
@@ -2619,6 +2626,43 @@ function loadIntl(){
   fetch('/data/intl.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ INTL=j&&Array.isArray(j.cities)?j:{countries:[],cities:[],updated:''}; INTL_LOADING=false; if(state.tab==='intl') render(); })
     .catch(()=>{ INTL={countries:[],cities:[],updated:'',err:1}; INTL_LOADING=false; if(state.tab==='intl') render(); });
 }
+
+/* Tìm kiếm ở trang chủ: nhận ra tên nước/thành phố quốc tế để chuyển sang mục Quốc tế */
+const INTL_IDX=[
+ ['c','bangkok','Bangkok','🇹🇭','bangkok|bang kok|bkk|chatuchak'],['c','pattaya','Pattaya','🇹🇭','pattaya'],['c','phuket','Phuket','🇹🇭','phuket|phi phi'],
+ ['c','chiangmai','Chiang Mai','🇹🇭','chiang mai|chiangmai|chieng mai|chiang rai'],
+ ['c','beijing','Bắc Kinh','🇨🇳','bac kinh|beijing|van ly truong thanh|tu cam thanh'],['c','shanghai','Thượng Hải','🇨🇳','thuong hai|shanghai'],
+ ['c','zhangjiajie','Trương Gia Giới – Phượng Hoàng','🇨🇳','truong gia gioi|zhangjiajie|phuong hoang co tran|phuong hoang|thien mon son|nui thien mon'],
+ ['c','yunnan','Vân Nam','🇨🇳','van nam|yunnan|le giang|lijiang|dai ly|con minh|kunming|shangri la'],['c','guilin','Quế Lâm – Dương Sóc','🇨🇳','que lam|guilin|duong soc|yangshuo|song ly'],
+ ['c','seoul','Seoul','🇰🇷','seoul|xo un|dao nami'],['c','busan','Busan','🇰🇷','busan|pusan'],['c','jeju','Đảo Jeju','🇰🇷','jeju|je ju'],
+ ['c','tokyo','Tokyo','🇯🇵','tokyo|phu si|fuji'],['c','osaka','Osaka – Nara','🇯🇵','osaka|nara'],['c','kyoto','Kyoto','🇯🇵','kyoto'],
+ ['c','singapore','Singapore','🇸🇬','singapore|singapo|xin ga po|sing ga po'],
+ ['c','kualalumpur','Kuala Lumpur','🇲🇾','kuala lumpur|kl|genting'],['c','penang','Penang','🇲🇾','penang|george town|pinang'],
+ ['c','taipei','Đài Bắc','🇹🇼','dai bac|taipei|cuu phan|da lieu'],['c','taichung','Đài Trung – Nhật Nguyệt Đàm','🇹🇼','dai trung|taichung|nhat nguyet dam|a ly son|alishan'],
+ ['c','bali','Bali','🇮🇩','bali|ubud|indonesia|indo|nusa penida'],
+ ['k','th','Thái Lan','🇹🇭','thai lan|thailand|xu chua vang'],['k','cn','Trung Quốc','🇨🇳','trung quoc|china'],['k','kr','Hàn Quốc','🇰🇷','han quoc|korea|xu han|xu kim chi'],
+ ['k','jp','Nhật Bản','🇯🇵','nhat ban|japan|xu phu tang'],['k','my','Malaysia','🇲🇾','malaysia|ma lai|malai|ma lai xi a'],['k','tw','Đài Loan','🇹🇼','dai loan|taiwan'],
+ ['k','_','nước ngoài','🌏','nuoc ngoai|quoc te|xuat ngoai|outbound']
+].map(([t,id,name,flag,al])=>({t,id,name,flag,al:al.split('|')}));
+function intlMatch(text){
+  const t=' '+norm(text||'').replace(/[^a-z0-9]+/g,' ').trim()+' '; if(t.trim().length<2) return null;
+  for(const x of INTL_IDX) if(x.al.some(a=>t.includes(' '+a+' '))) return x;
+  return null;
+}
+function openIntl(m,src){
+  state.tab='intl'; state.selected=null; state.mapOpen=false; const S=state.intl; S.filter='all'; S.sel=null;
+  if(m&&m.t==='c'){ S.city=m.id; } else { S.city=null; S.country=m&&m.t==='k'&&m.id!=='_'?m.id:'all'; }
+  try{ history.replaceState(null,'','#quoc-te'+(S.city?'/'+S.city:'')); }catch(e){}
+  track('intl_from_search',{to:m?m.id:'all',from:src||'home'});
+  render(); window.scrollTo(0,0);
+}
+function intlHint(){
+  const box=$('#hxIntl'); if(!box) return; const m=intlMatch($('#hxq')&&$('#hxq').value);
+  if(!m){ box.hidden=true; box.innerHTML=''; return; }
+  box.hidden=false;
+  box.innerHTML=m.id==='_'?`<button type="button" data-hx="intl">🌏 Xem điểm đến quốc tế: Thái Lan, Trung Quốc, Hàn, Nhật, Singapore… <b>→</b></button>`
+    :`<button type="button" data-hx="intlgo">${m.flag} <b>${esc(m.name)}</b> có trong mục Quốc tế: món ngon, check-in, visa, mùa đẹp <b>→</b></button>`;
+}
 function intlHash(){ const m=/^#quoc-te(?:\/([a-z0-9-]{1,40}))?$/.exec(location.hash); if(!m) return false; state.tab='intl'; state.selected=null; state.intl.city=m[1]||null; state.intl.filter='all'; state.intl.sel=null; return true; }
 const intlCountry=id=>INTL&&INTL.countries.find(c=>c.id===id);
 const intlImg=(x,cls)=>x&&x.f?`<img class="${cls||''}" src="${esc(x.f)}" alt="" loading="lazy" decoding="async">`:'';
@@ -3512,7 +3556,7 @@ function provHTML(q){
   const tp=PROV.filter(p=>p.t==='tp'&&m(p)), tinh=PROV.filter(p=>p.t==='tinh'&&m(p)).sort((a,b)=>a.n.localeCompare(b.n,'vi'));
   return `${tp.length?`<div class="pgroup">6 thành phố</div><div class="plist2">${tp.map(item).join('')}</div>`:''}
     ${tinh.length?`<div class="pgroup">28 tỉnh</div><div class="plist2">${tinh.map(item).join('')}</div>`:''}
-    ${!tp.length&&!tinh.length?'<div class="empty"><b>Không tìm thấy</b>Thử tên tỉnh cũ hoặc điểm đến, ví dụ "Hội An", "Sa Pa".</div>':''}`;
+    ${!tp.length&&!tinh.length?(intlMatch(q)?`<div class="empty"><b>${intlMatch(q).flag} ${esc(intlMatch(q).name)} là điểm đến nước ngoài</b><button class="btn" data-intlprov="1">🌏 Xem trong mục Quốc tế</button></div>`:'<div class="empty"><b>Không tìm thấy</b>Thử tên tỉnh cũ hoặc điểm đến, ví dụ "Hội An", "Sa Pa".</div>'):''}`;
 }
 function openProv(){
   $('#sheetTitle').textContent='Chọn tỉnh thành';
@@ -3716,7 +3760,7 @@ $('#provBtn').onclick=openProv; $('#brandBtn').onclick=openIntro; $('#sheetClose
 /* Popup chào mừng: tự hiện khi mở web (1 lần mỗi phiên), không hiện khi mở link chia sẻ lịch trình */
 (()=>{ let seen=false; try{ seen=sessionStorage.getItem('didau.welcome')==='1'; sessionStorage.setItem('didau.welcome','1'); }catch(e){}
   if(!seen && !/^#trip=/.test(location.hash)) setTimeout(()=>{ if($('#sheet').hidden) openIntro(); },600); })();
-$('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'||e.target.closest('[data-action="closeintro"]')){closeSheet();return;}
+$('#sheet').addEventListener('click',e=>{ if(e.target.id==='sheet'||e.target.closest('[data-action="closeintro"]')){closeSheet();return;} if(e.target.closest('[data-intlprov]')){ const m=intlMatch(($('#provq')||{}).value); closeSheet(); openIntl(m,'province'); return; }
   const b=e.target.closest('[data-prov]'); if(!b) return; closeSheet(); selectProv(b.dataset.prov); });
 $('#sheet').addEventListener('input',e=>{ if(e.target.id==='provq') $('#provList').innerHTML=provHTML(e.target.value); });
 document.addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if(!$('#sheet').hidden) closeSheet(); else if(state.mapOpen) openMap(false); });
@@ -3750,12 +3794,16 @@ if(!blogHash()&&!goHash()&&!intlHash()) loadHash();
 window.addEventListener('hashchange',()=>{ if(goHash()) return; if(intlHash()){ render(); window.scrollTo(0,0); return; } if(blogHash()){ render(); window.scrollTo(0,0); return; } if(loadHash()){ render(); fitView(); } });
 $('#pbody').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const bc=e.target.closest&&e.target.closest('[data-post]'); if(bc&&bc.tagName!=='A'){ e.preventDefault(); openPost(bc.dataset.post); } } });
 /* Hero trang chủ */
-$('#hxq').addEventListener('input',e=>{ state.home.text=e.target.value; state.home.manual={}; refreshHomeBits(); if(!state.home.recs) renderMap(); });
+$('#hxq').addEventListener('input',e=>{ state.home.text=e.target.value; state.home.manual={}; refreshHomeBits(); if(!state.home.recs) renderMap(); intlHint(); });
 $('#hxForm').addEventListener('submit',e=>{ e.preventDefault(); const v=$('#hxq').value.trim(); state.home.text=v; state.home.manual={};
   if(!v){ $('#hxq').focus(); toast('Nhập nơi bạn muốn đến, hoặc kể chuyến đi bằng một câu.'); return; }
+  { const m=intlMatch(v); if(m){ $('#hxq').blur(); openIntl(m,'search'); return; } }
   $('#hxq').blur(); homeGo(); const r=$('#recs'); if(state.tab==='home'&&r) setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),400); else window.scrollTo(0,0); });
 $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]'); if(!b) return; const k=b.dataset.hx;
   if(k==='map'){ openMap(true); return; }
+  if(k==='intl'){ openIntl(intlMatch(state.home.text)||null,'chip'); return; }
+  if(k==='intlgo'){ openIntl(intlMatch($('#hxq').value),'hint'); return; }
+  if((k==='explore'||k==='plan')&&intlMatch(state.home.text)){ openIntl(intlMatch(state.home.text),'card'); return; }
   if(k==='book'){ state.tab='book'; state.selected=null; render(); window.scrollTo(0,0); return; }
   if(k==='ex'||k==='pick'){ const H=state.home; if(k==='ex'){ H.text=EXAMPLES[Number(b.dataset.ex)]||''; $('#hxq').value=H.text; } H.manual={}; if(k==='pick') H.manual.dest=null; buildReq(); runRecommend(); setTimeout(()=>{ const r=$('#recs'); if(r) window.scrollTo({top:r.getBoundingClientRect().top+scrollY-(innerWidth>899?80:10),behavior:'smooth'}); },700); return; }
   if(k==='more'){ const q=document.querySelector('#pbody'); if(q) window.scrollTo({top:q.getBoundingClientRect().top+scrollY-(innerWidth>899?72:0),behavior:'smooth'}); return; }
