@@ -7,6 +7,8 @@ on:
     paths:
       - 'public/blog/posts.json'
       - 'tools/build_blog.py'
+      - 'tools/page_urls.json'
+      - '.github/workflows/blog.yml'
 
 permissions:
   contents: write
@@ -26,4 +28,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/blog public/sitemap.xml
           git diff --cached --quiet || git commit -m "Tạo lại trang Blog (tự động)"
-          git push
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
