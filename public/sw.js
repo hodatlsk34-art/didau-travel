@@ -1,5 +1,5 @@
 /* Đi Đâu? – service worker: chạy offline cơ bản cho bản app & PWA */
-const VER = 'didau-v4';
+const VER = 'didau-v5';
 const SHELL = [
   '/', '/manifest.webmanifest', '/offline.html',
   '/icons/icon-192.png', '/icons/icon-512.png',
@@ -22,6 +22,7 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  if (url.origin === location.origin && url.pathname.startsWith('/admin')) return;  // trang quản trị luôn lấy bản mới
 
   // Trang chính: lấy bản mới nhất từ mạng, mất mạng thì dùng bản đã lưu
   if (req.mode === 'navigate') {

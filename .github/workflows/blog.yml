@@ -1,15 +1,23 @@
 name: Tạo trang Blog
 
+# Chạy khi có bài mới/sửa bài (từ trang quản trị /admin hoặc sửa trực tiếp trên GitHub).
+# Sau khi tạo trang xong sẽ gọi Render Deploy Hook (khóa bí mật RENDER_DEPLOY_HOOK) để đưa lên web.
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'public/blog/posts.json'
+      - 'content/blog/**'
+      - 'public/images/uploads/**'
+      - '!public/images/uploads/opt/**'
       - 'tools/build_blog.py'
 
 permissions:
   contents: write
+
+concurrency:
+  group: blog
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -19,11 +27,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: pip install pyyaml pillow
       - run: python tools/build_blog.py
-      - name: Commit trang Blog
+      - name: Lưu trang Blog đã tạo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/blog public/sitemap.xml
-          git diff --cached --quiet || git commit -m "Tạo lại trang Blog (tự động)"
-          git push
+          git add public/blog public/sitemap.xml public/images/uploads
+          if git diff --cached --quiet; then echo "Không có thay đổi"; exit 0; fi
+          git commit -m "Tạo lại trang Blog (tự động)"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+      - name: Đưa lên web (Render)
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::Chưa có khóa RENDER_DEPLOY_HOOK nên web chưa tự cập nhật. Xem hướng dẫn trong README."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Đã yêu cầu Render cập nhật web"
