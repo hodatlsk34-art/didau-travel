@@ -1,104 +1,26 @@
 #!/usr/bin/env python3
-"""Tạo Blog từ các file bài viết.
+"""Tạo trang tĩnh cho Blog để Google tìm thấy từng bài.
 
-Đọc  content/blog/*.md  (mỗi bài một file: phần đầu ghi tiêu đề, ngày, ảnh bìa…; phần sau là nội dung)
-     public/images/credits.json (ảnh bìa có sẵn của 77 điểm đến)
-     public/images/uploads/* (ảnh tự tải lên qua trang quản trị /admin)
-Ghi  public/blog/posts.json (app đọc), public/blog/<slug>/index.html, public/blog/index.html,
-     public/sitemap.xml, public/images/uploads/opt/*.webp (ảnh đã thu nhỏ)
+Đọc  public/blog/posts.json (+ public/images/credits.json cho ảnh bìa)
+Ghi  public/blog/<slug>/index.html, public/blog/index.html, public/sitemap.xml
 
 Chạy lại mỗi khi thêm/sửa bài:  python3 tools/build_blog.py
-(GitHub Action .github/workflows/blog.yml tự chạy khi có bài mới.)
 """
-import html, json, re, datetime, hashlib, unicodedata
+import html, json, re, datetime
 from pathlib import Path
-from urllib.parse import quote, unquote
-import yaml
-from PIL import Image, ImageOps
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 PUB = ROOT / 'public'
 SITE = 'https://didautravel.id.vn'
 GA_ID = 'G-4SZ0F47T3Z'
 
-CONTENT = ROOT / 'content' / 'blog'
-UPLOADS = PUB / 'images' / 'uploads'
+posts = json.loads((PUB / 'blog/posts.json').read_text(encoding='utf-8'))
 credits = json.loads((PUB / 'images/credits.json').read_text(encoding='utf-8'))
+posts = [p for p in posts if re.fullmatch(r'[a-z0-9-]{1,80}', p.get('slug', '')) and p.get('title') and p.get('body')]
+posts.sort(key=lambda p: p.get('date', ''), reverse=True)
+
 esc = lambda s: html.escape(str(s or ''), quote=True)
-
-
-def slugify(s):
-    s = unicodedata.normalize('NFD', str(s)).replace('đ', 'd').replace('Đ', 'D')
-    s = ''.join(c for c in s if unicodedata.category(c) != 'Mn').lower()
-    return re.sub(r'[^a-z0-9]+', '-', s).strip('-')[:80].strip('-')
-
-
-def opt_image(src, width=1600):
-    """Ảnh tải lên (/images/uploads/x.jpg) -> bản webp đã thu nhỏ. Trả về đường dẫn web."""
-    if not isinstance(src, str) or not src.startswith('/images/uploads/') or '/opt/' in src:
-        return src
-    f = PUB / unquote(src.strip()).lstrip('/')
-    if not f.is_file():
-        print('  ! Không thấy ảnh', src); return None
-    h = hashlib.md5(f.read_bytes()).hexdigest()[:8]
-    out = UPLOADS / 'opt' / f'{slugify(f.stem) or "anh"}-{h}.webp'
-    if not out.exists():
-        out.parent.mkdir(parents=True, exist_ok=True)
-        im = ImageOps.exif_transpose(Image.open(f))
-        im = im.convert('RGBA' if im.mode in ('RGBA', 'LA', 'P') else 'RGB')
-        im.thumbnail((width, width))
-        im.save(out, 'WEBP', quality=82, method=6)
-    return '/' + str(out.relative_to(PUB)).replace('\\', '/')
-
-
-def to_date(v):
-    if isinstance(v, (datetime.date, datetime.datetime)):
-        return v.isoformat()[:10]
-    m = re.match(r'\d{4}-\d{2}-\d{2}', str(v or ''))
-    return m[0] if m else datetime.date.today().isoformat()
-
-
-def plain(t):
-    t = re.sub(r'!\[[^\]]*\]\([^)]*\)|\[\[dest:[^\]]*\]\]', '', t)
-    t = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', t)
-    return re.sub(r'[#>*_`\\]+', '', t).strip()
-
-
-def load_posts():
-    out, seen = [], set()
-    for f in sorted(CONTENT.glob('*.md')):
-        txt = f.read_text(encoding='utf-8').replace('\r\n', '\n')
-        m = re.match(r'^---\s*\n(.*?)\n---\s*\n?(.*)$', txt, re.S)
-        if not m:
-            print('  ! Bỏ qua (thiếu phần đầu ---):', f.name); continue
-        fm = yaml.safe_load(m[1]) or {}
-        body = m[2].strip()
-        if fm.get('draft') or not fm.get('title') or not body:
-            continue
-        slug = slugify(fm.get('slug') or f.stem) or slugify(fm['title'])
-        while slug in seen:
-            slug += '-2'
-        seen.add(slug)
-        tags = fm.get('tags') or []
-        if isinstance(tags, str):
-            tags = [t.strip() for t in tags.split(',')]
-        cover_key = str(fm.get('cover') or '').strip()
-        cover_img = opt_image(fm.get('cover_image')) if fm.get('cover_image') else None
-        body = re.sub(r'(!\[[^\]]*\]\()<?(/images/uploads/[^)>\n]+?)>?(\))', lambda x: x[1] + (opt_image(x[2]) or x[2].replace(' ', '%20')) + x[3], body)
-        if cover_key in credits and '[[dest:' not in body.replace('\\', ''):
-            body += f'\n\n[[dest:{cover_key}|Lên lịch trình {cover_key.split("|")[-1]}]]'
-        excerpt = str(fm.get('excerpt') or '').strip()
-        if not excerpt:
-            first = next((plain(x) for x in body.split('\n\n') if plain(x) and not x.lstrip().startswith('#')), '')
-            excerpt = first[:180] + ('…' if len(first) > 180 else '')
-        out.append({'slug': slug, 'title': str(fm['title']).strip(), 'date': to_date(fm.get('date')),
-                    'author': str(fm.get('author') or 'Đi Đâu?'), 'cover': cover_key, 'coverImg': cover_img or '',
-                    'tags': [str(t) for t in tags if str(t).strip()][:6], 'excerpt': excerpt, 'body': body})
-    out.sort(key=lambda p: p['date'], reverse=True)
-    return out
-
-
-posts = load_posts()
 
 
 def fmt_date(d):
@@ -107,8 +29,6 @@ def fmt_date(d):
 
 
 def cover(p):
-    if p.get('coverImg'):
-        return {'f': p['coverImg']}
     c = credits.get(p.get('cover') or '')
     if c and re.fullmatch(r'/images/(dest2?|place)/[\w.-]+\.webp', c.get('f', '')):
         return c
@@ -119,41 +39,26 @@ def dest_name(key):
     return key.split('|')[-1]
 
 
-ESC_CH = r'\\`*_{}\[\]()#+\-.!|~>'
-
-
 def inline(t):
-    r"""t đã escape HTML. Hỗ trợ **đậm**, *nghiêng*, _nghiêng_, [link](url), ![ảnh](url), dấu \ thoát."""
-    keep = []
-    t = re.sub(r'\\([' + ESC_CH + r'])', lambda m: (keep.append(m[1]), f'\x00{len(keep)-1}\x00')[1], t)
-    t = re.sub(r'!\[([^\]]*)\]\((/[^\s)]+|https?://[^\s)]+)\)', r'<img src="\2" alt="\1" loading="lazy">', t)
-    t = re.sub(r'\*\*(.+?)\*\*|__(.+?)__', lambda m: '<b>' + (m[1] or m[2]) + '</b>', t)
-    t = re.sub(r'(^|[^\w*])\*([^\s*](?:[^*]*?[^\s*])?)\*(?!\*)', r'\1<i>\2</i>', t)
-    t = re.sub(r'(^|[^\w_])_([^\s_](?:[^_]*?[^\s_])?)_(?!\w)', r'\1<i>\2</i>', t)
+    t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', t)
+    t = re.sub(r'\*(.+?)\*', r'<i>\1</i>', t)
     t = re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
-    t = re.sub(r'\[([^\]]+)\]\((/[^\s)]*)\)', r'<a href="\2">\1</a>', t)
-    return re.sub(r'\x00(\d+)\x00', lambda m: keep[int(m[1])], t)
+    return t
 
 
 def md(src):
-    out, lst = [], None   # lst = [tag, items]
+    out, lst = [], None
 
     def flush():
         nonlocal lst
         if lst:
-            out.append(f'<{lst[0]}>' + ''.join(lst[1]) + f'</{lst[0]}>')
+            out.append('<ul>' + ''.join(lst) + '</ul>')
             lst = None
-
-    def add_li(tag, text):
-        nonlocal lst
-        if not lst or lst[0] != tag:
-            flush(); lst = [tag, []]
-        lst[1].append('<li>' + inline(esc(text)) + '</li>')
     for raw in str(src).split('\n'):
         line = raw.strip()
         if not line:
             flush(); continue
-        m = re.fullmatch(r'\[\[dest:(.+)\]\]', re.sub(r'\\([\[\]|_*-])', r'\1', line))
+        m = re.fullmatch(r'\[\[dest:(.+)\]\]', line)
         if m:
             flush()
             parts = m[1].split('|')
@@ -163,24 +68,10 @@ def md(src):
             out.append(f'<div class="cta-in"><a class="btn" href="/#go=plan:{k}" data-ev="plan">✨ {esc(label)}</a>'
                        f'<a class="btn ghost" href="/#go=dest:{k}" data-ev="dest">🧭 Xem địa điểm ở {esc(dest_name(key))}</a></div>')
             continue
-        h = re.match(r'(#{1,6})\s+(.*)', line)
-        if h:
-            flush(); tag = 'h2' if len(h[1]) <= 2 else 'h3'
-            out.append(f'<{tag}>' + inline(esc(h[2].rstrip('#').strip())) + f'</{tag}>'); continue
-        if re.fullmatch(r'(-\s*){3,}|(\*\s*){3,}|(_\s*){3,}', line):
-            flush(); out.append('<hr>'); continue
-        im = re.fullmatch(r'!\[([^\]]*)\]\((/[^\s)]+|https?://[^\s)]+)\)', line)
-        if im:
-            flush(); cap = esc(im[1])
-            out.append(f'<figure class="pimg"><img src="{esc(im[2])}" alt="{cap}" loading="lazy">' + (f'<figcaption>{cap}</figcaption>' if cap else '') + '</figure>'); continue
-        li = re.match(r'[-*+]\s+(.*)', line)
-        if li:
-            add_li('ul', li[1]); continue
-        ol = re.match(r'\d+[.)]\s+(.*)', line)
-        if ol:
-            add_li('ol', ol[1]); continue
-        if line.startswith('>'):
-            flush(); out.append('<blockquote>' + inline(esc(line.lstrip('> ').strip())) + '</blockquote>'); continue
+        if line.startswith('## '):
+            flush(); out.append('<h2>' + inline(esc(line[3:])) + '</h2>'); continue
+        if line.startswith('- '):
+            lst = lst or []; lst.append('<li>' + inline(esc(line[2:])) + '</li>'); continue
         flush(); out.append('<p>' + inline(esc(line)) + '</p>')
     flush()
     return ''.join(out)
@@ -222,12 +113,6 @@ article h2{font:700 22px/1.3 Lexend,sans-serif;margin:30px 0 8px;color:var(--acc
 article p{margin:0 0 14px}
 article ul{padding-left:22px;margin:0 0 16px}
 article li{margin:5px 0}
-article ol{padding-left:24px;margin:0 0 16px}
-article h3{font:700 18px/1.35 Lexend,sans-serif;margin:22px 0 6px}
-article img{max-width:100%;height:auto;border-radius:14px}
-figure.pimg{margin:18px 0}figure.pimg figcaption{font-size:13.5px;color:var(--mut);text-align:center;margin-top:6px}
-article blockquote{margin:0 0 16px;padding:10px 16px;border-left:4px solid var(--acc2);background:#fff;border-radius:0 12px 12px 0}
-article hr{border:0;border-top:1px solid var(--line);margin:24px 0}
 .btn{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:#fff;text-decoration:none;font:600 15px/1.2 Lexend,sans-serif;padding:12px 18px;border-radius:12px}
 .btn.ghost{background:#fff;color:var(--acc);border:1.5px solid var(--acc)}
 .cta-in{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
@@ -323,8 +208,8 @@ def post_page(p):
                 {'@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': SITE + '/blog/'},
                 {'@type': 'ListItem', 'position': 3, 'name': p['title'], 'item': url}]}]}
     ldj = json.dumps(ld, ensure_ascii=False).replace('</', '<\\/')
-    fig = (f'<figure class="cover"><img src="{c["f"]}" alt="{esc(p["title"])}" width="960" height="540"></figure>'
-           + (f'<p class="credit">Ảnh: <a href="{esc(c["page"])}" target="_blank" rel="noopener">{esc(c.get("credit"))}</a> qua Wikimedia Commons</p>' if c.get('page') else '')) if c else ''
+    fig = (f'<figure class="cover"><img src="{c["f"]}" alt="{esc(dest_name(p["cover"]))}" width="960" height="540"></figure>'
+           f'<p class="credit">Ảnh: <a href="{esc(c["page"])}" target="_blank" rel="noopener">{esc(c.get("credit"))}</a> qua Wikimedia Commons</p>') if c else ''
     tags = ''.join(f'<span class="tag">{esc(t)}</span>' for t in p.get('tags') or [])
     if dkey:
         k = quote(dkey, safe='')
@@ -371,6 +256,5 @@ if __name__ == '__main__':
         out = PUB / 'blog' / p['slug']; out.mkdir(parents=True, exist_ok=True)
         (out / 'index.html').write_text(post_page(p), encoding='utf-8')
     (PUB / 'blog/index.html').write_text(index_page(), encoding='utf-8')
-    (PUB / 'blog/posts.json').write_text(json.dumps(posts, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     (PUB / 'sitemap.xml').write_text(sitemap(), encoding='utf-8')
     print(f'Đã tạo {len(posts)} bài + trang danh sách + sitemap.xml')
