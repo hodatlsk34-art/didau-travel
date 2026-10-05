@@ -2,7 +2,7 @@
 """Ghép tools/intl_src.py + public/images/intl/geo.json -> public/data/intl.json (app đọc khi mở mục Quốc tế).
 Chạy: python3 tools/build_intl.py
 """
-import json, os, sys
+import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from intl_src import COUNTRIES, CITIES, UPDATED  # noqa: E402
@@ -90,7 +90,10 @@ for c in CITIES:
     pts = [p for p in places if p['lat'] is not None]
     clat = g.get('lat') if g.get('lat') is not None else (sum(p['lat'] for p in pts) / len(pts) if pts else None)
     clng = g.get('lng') if g.get('lng') is not None else (sum(p['lng'] for p in pts) / len(pts) if pts else None)
-    cimg = img(g) or next((p['img'] for p in places if p['img']), None)
+    bad = lambda x: not x or re.search(r'Flag_of|_map|marker|Locator|\.svg', x.get('page') or '', re.I)   # cờ, bản đồ: không dùng làm ảnh bìa
+    cover = {'singapore': 'singapore-2', 'bali': 'bali-1', 'penang': 'penang-1'}.get(c['id'])
+    cimg = img(g) if not bad(img(g)) else None
+    cimg = cimg or next((p['img'] for p in places if p['id'] == cover and p['img']), None) or next((p['img'] for p in places if p['img'] and not bad(p['img'])), None)
     cities.append({'id': c['id'], 'country': c['country'], 'name': c['name'], 'local': c.get('local', ''), 'intro': c['intro'],
                    'best': c['best'], 'days': c['days'], 'lat': clat, 'lng': clng, 'img': cimg, 'places': places,
                    'plan': dict(pc, en=c['wiki'].replace(' province', '').replace(' Island', ''))})

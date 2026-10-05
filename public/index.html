@@ -1608,6 +1608,63 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .foot-social{align-items:center}.foot-social span{font-size:13px;color:var(--muted);margin-right:2px}
 @media (max-width:899px){ .top,.top:not(.over),.app[data-tab] .top:not(.over){backdrop-filter:none!important;-webkit-backdrop-filter:none!important} .top:not(.over),.app[data-tab] .top:not(.over){background:rgba(255,255,255,.94)!important} }
 
+/* ---------- Quốc tế: trang chủ mục (banner, tìm kiếm, lối tắt, nổi bật) ---------- */
+.ihx{position:relative;isolation:isolate;overflow:hidden;border-radius:22px;min-height:300px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(135deg,#1f6fd1,#5ec4f2)}
+.ihx-bg{position:absolute;inset:0;z-index:-2;display:grid;grid-template-columns:1fr 1.25fr 1fr}
+.ihx-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.ihx::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,40,90,.10) 0%,rgba(8,40,90,.28) 45%,rgba(8,32,72,.82) 100%)}
+.ihx-in{box-sizing:border-box;width:100%;padding:22px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.ihx h1{margin:0;font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.4vw,44px);line-height:1.1;text-shadow:0 2px 10px rgba(0,20,50,.55)}
+.ihx h1 span{display:block}.ihx h1 b{color:#FFD23F}
+.ihx-sub{margin:0;font-weight:600;font-size:clamp(14px,1.6vw,17px);text-shadow:0 1px 6px rgba(0,20,50,.7)}
+.isq{box-sizing:border-box;width:100%;display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 6px 6px 16px;box-shadow:0 10px 26px rgba(0,30,70,.28);margin-top:6px;max-width:620px}
+.isq>svg{width:20px;height:20px;color:#6b7a90;flex:none}
+.isq input{flex:1;min-width:0;width:auto;box-shadow:none;border:0;outline:0;background:transparent;font:500 16px var(--font-body);color:#14233a;padding:8px 0}
+.isq button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:#1f6fe0;color:#fff;display:grid;place-items:center;cursor:pointer}
+.isq button svg{width:22px;height:22px}
+.isq-res{display:flex;flex-wrap:wrap;gap:6px;max-width:620px}
+.isq-res:empty{display:none}
+.isq-it{display:inline-flex;align-items:baseline;gap:6px;border:0;border-radius:999px;background:rgba(255,255,255,.95);color:#14233a;padding:7px 12px;font:500 14px var(--font-body);cursor:pointer}
+.isq-it small{color:#6b7a90;font-size:11.5px}
+.isq-none{margin:0;font-size:13px;background:rgba(0,20,50,.55);border-radius:10px;padding:6px 10px}
+.ihx-credit{position:absolute;right:10px;top:8px;font-size:10.5px;background:rgba(0,0,0,.4);border-radius:999px;padding:2px 8px}
+.iquick{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.iq{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:92px;border:0;border-radius:18px;padding:12px 6px;text-align:center;text-decoration:none;font:600 14px/1.25 var(--font-body);color:#1d2a3d;cursor:pointer;box-shadow:0 4px 12px rgba(20,40,80,.08);transition:transform .15s}
+.iq:hover{transform:translateY(-2px)}
+.iq svg{width:30px;height:30px}
+.iq.q1{background:#FDE3E8}.iq.q1 svg{color:#E0335A}
+.iq.q2{background:#FFF1C9}.iq.q2 svg{color:#E08A00}
+.iq.q3{background:#DDEBFF}.iq.q3 svg{color:#1F64D6}
+.iq.q4{background:#D9F5E6}.iq.q4 svg{color:#159A55}
+.iq.q5{background:#ECE3FF}.iq.q5 svg{color:#6A3FD8}
+.isec{display:flex;flex-direction:column;gap:8px}
+.isec-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.isec-h h2{margin:0;font-family:var(--font-display);font-size:clamp(19px,2.4vw,24px)}
+.isec-more{border:0;background:none;color:#1F64D6;font:600 14.5px var(--font-body);cursor:pointer;white-space:nowrap;padding:4px}
+.ifeats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ifeat{position:relative;display:block;aspect-ratio:4/3;border-radius:18px;overflow:hidden;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1f6fd1,#5ec4f2);box-shadow:0 6px 18px rgba(16,40,80,.16);transition:transform .15s}
+.ifeat:hover{transform:translateY(-3px)}
+.ifeat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ifeat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,20,45,.82))}
+.ifeat-t{position:absolute;left:12px;right:44px;bottom:10px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.ifeat-t b{font-family:var(--font-display);font-size:clamp(16px,2vw,21px);line-height:1.15;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.ifeat-t small{font-size:12.5px;opacity:.95}
+.ifeat-go{position:absolute;right:10px;bottom:10px;z-index:1;width:28px;height:28px;border-radius:50%;background:#fff;color:#14233a;display:grid;place-items:center;font-size:20px;font-weight:700;line-height:1}
+.iplanq .chip small{color:var(--muted);font-weight:400}
+@media (max-width:899px){
+  .ihx{min-height:260px;border-radius:18px}
+  .ihx-in{padding:18px 14px 14px}
+  .iquick{gap:7px}
+  .iq{min-height:84px;border-radius:16px;font-size:12.5px;padding:10px 4px}
+  .iq svg{width:26px;height:26px}
+  .ifeats{gap:8px}
+  .ifeat{aspect-ratio:3/4;border-radius:14px}
+  .ifeat-t{left:8px;right:8px;bottom:36px}
+  .ifeat-t small{font-size:11px}
+  .ifeat-go{right:8px;bottom:8px;width:24px;height:24px;font-size:17px}
+}
+@media (max-width:380px){ .iq span{font-size:11.5px} }
+@media (max-width:640px){ .isec-h h2{font-size:18px} .isec-more{font-size:13px} .isq input{font-size:14.5px} .isq{padding-left:12px} .isq button{width:42px;height:42px} }
 /* ---------- Quốc tế ---------- */
 .ichips{margin-bottom:2px}
 .igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
@@ -2770,7 +2827,7 @@ document.addEventListener('keydown',e=>{ const lb=document.getElementById('light
 document.addEventListener('click',e=>{ const b=e.target.closest&&e.target.closest('[data-galopen]'); if(!b) return; e.preventDefault(); e.stopPropagation(); openLightbox(b.dataset.galopen,Number(b.dataset.gali)); track('gallery_open',{place:b.dataset.galopen}); },true);
 /* ---------- Quốc tế: 8 nước, 21 thành phố (dữ liệu /data/intl.json, tọa độ + ảnh lấy từ Wikipedia) ---------- */
 let INTL=null, INTL_LOADING=false, imap=null;
-state.intl={country:'all',city:null,filter:'all',sel:null,big:false};
+state.intl={country:'all',city:null,filter:'all',sel:null,big:false,q:''};
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&state.intl.big){ state.intl.big=false; document.body.classList.remove('imap-open'); render(); } });
 const MONTHS_VN=m=>m.length?'Tháng '+m.join(', '):'';
 let INTL_P=null;
@@ -2898,6 +2955,45 @@ function intlHTML(){
   const S=state.intl, C=S.city&&INTL.cities.find(c=>c.id===S.city);
   return C?intlCityHTML(C):intlListHTML();
 }
+const INTL_FEAT=['tokyo','bangkok','singapore','seoul','osaka','beijing'];
+const IQ_IC={globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
+  city:'<path d="M4 21V9l5-3v15M9 21V4l7 3v14M16 21v-9l4 2v7M3 21h18"/><path d="M12 9h1M12 12h1M12 15h1M6 12h1M6 15h1"/>',
+  plane:'<path d="M2.5 14.5 21 7l-2 4.5-7.5 2.2-2.8 5.3-1.6-.6.9-4-4.4 1.3z"/>',
+  bed:'<path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/>',
+  pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'};
+const iqIc=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IQ_IC[k]}</svg>`;
+function intlSuggest(q){
+  const t=norm(q||'').replace(/[^a-z0-9]+/g,' ').trim(); if(t.length<2) return [];
+  const sc=x=>{ const n=norm(x.name); return n.startsWith(t)?4:x.al.some(a=>a===t)?3:x.al.some(a=>a.startsWith(t))?2:(n.includes(t)||x.al.some(a=>a.includes(' '+t)||t.includes(a)))?1:0; };
+  return INTL_IDX.filter(x=>x.id!=='_').map(x=>[x,sc(x)]).filter(z=>z[1]).sort((a,b)=>b[1]-a[1]).map(z=>z[0]).slice(0,6);
+}
+function intlSuggestHTML(q){ const l=intlSuggest(q); if(!l.length) return q&&q.trim().length>=2?`<p class="isq-none">Chưa có "${esc(q.trim())}" trong mục Quốc tế. Hiện có 21 thành phố ở Thái Lan, Trung Quốc, Hàn Quốc, Nhật Bản, Singapore, Malaysia, Đài Loan, Bali.</p>`:'';
+  return l.map(x=>`<button type="button" class="isq-it" ${x.t==='c'?`data-icity="${x.id}"`:`data-icountry="${x.id}" data-iscroll="iall"`}>${x.flag} <b>${esc(x.name)}</b><small>${x.t==='c'?'Thành phố':'Quốc gia'}</small></button>`).join(''); }
+function intlHeroHTML(){
+  const pics=['tokyo','singapore','bangkok'].map(id=>INTL.cities.find(c=>c.id===id)).filter(c=>c&&c.img&&c.img.f);
+  affTag='quoc-te'; const tv=p=>affWrap('traveloka','https://www.traveloka.com/vi-vn/'+p);
+  const feat=INTL_FEAT.map(id=>INTL.cities.find(c=>c.id===id)).filter(Boolean);
+  const fcard=c=>{ const K=intlCountry(c.country)||{}; return `<a class="ifeat" href="#quoc-te/${c.id}" data-icity="${c.id}">${intlImg(c.img)}<span class="ifeat-t"><b>${esc(c.name.split(' – ')[0])}</b><small>${K.flag||''} ${esc(K.name||'')}</small></span><span class="ifeat-go" aria-hidden="true">›</span></a>`; };
+  return `<section class="ihx">
+      <div class="ihx-bg" aria-hidden="true">${pics.map(c=>`<img src="${esc(c.img.f)}" alt="" decoding="async">`).join('')}</div>
+      <div class="ihx-in"><h1>Khám phá thế giới <span>cùng <b>Đi Đâu?</b></span></h1><p class="ihx-sub">Từ Việt Nam đến mọi nơi bạn muốn đến</p>
+        <form class="isq" id="isqForm" role="search" autocomplete="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="isq" type="search" placeholder="Bạn muốn đi đâu trên thế giới?" aria-label="Tìm điểm đến quốc tế" value="${esc(state.intl.q||'')}"><button type="submit" aria-label="Tìm">${'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>'}</button></form>
+        <div class="isq-res" id="isqRes">${intlSuggestHTML(state.intl.q)}</div></div>
+      ${pics.length?`<span class="ihx-credit">Ảnh: Wikimedia Commons</span>`:''}</section>
+    <nav class="iquick" aria-label="Lối tắt Quốc tế">
+      <button type="button" class="iq q1" data-iscroll="iall" data-icountry="all">${iqIc('globe')}<span>Tất cả quốc gia</span></button>
+      <button type="button" class="iq q2" data-iscroll="ifeat">${iqIc('city')}<span>Thành phố nổi bật</span></button>
+      <a class="iq q3" href="${esc(tv('flight'))}" target="_blank" rel="noopener sponsored">${iqIc('plane')}<span>Vé máy bay</span></a>
+      <a class="iq q4" href="${esc(tv('hotel'))}" target="_blank" rel="noopener sponsored">${iqIc('bed')}<span>Khách sạn</span></a>
+      <button type="button" class="iq q5" data-iscroll="iplanq">${iqIc('pin')}<span>Gợi ý lịch trình</span></button>
+    </nav>
+    <section id="ifeat" class="isec"><div class="isec-h"><h2>⭐ Điểm đến quốc tế nổi bật</h2><button type="button" class="isec-more" data-iscroll="iall" data-icountry="all">Xem tất cả →</button></div>
+      <div class="ifeats">${feat.map(fcard).join('')}</div></section>
+    <section id="iplanq" class="isec"><div class="isec-h"><h2>✨ Gợi ý lịch trình</h2></div>
+      <p class="hint">Chọn điểm đến, Đi Đâu? xếp lịch theo giờ, vẽ tuyến trên bản đồ và ước tính vé máy bay, khách sạn, ăn uống.</p>
+      <div class="chips iplanq">${INTL.cities.map(c=>{ const K=intlCountry(c.country)||{}; return `<button type="button" class="chip" data-iplan="${c.id}">${K.flag||''} ${esc(c.name.split(' (')[0])} <small>${esc(c.days)}</small></button>`; }).join('')}</div></section>`;
+}
 function intlListHTML(){
   const S=state.intl, cs=INTL.countries;
   const chips=`<div class="chips scroll ichips" role="group" aria-label="Chọn nước"><button class="chip" data-icountry="all" aria-pressed="${S.country==='all'}">Tất cả</button>${cs.map(c=>`<button class="chip" data-icountry="${c.id}" aria-pressed="${S.country===c.id}">${c.flag} ${esc(c.name)}</button>`).join('')}</div>`;
@@ -2908,7 +3004,8 @@ function intlListHTML(){
       <div class="ibody"><h3>${esc(c.name)}</h3><small>${esc(K?K.name:'')} · ${esc(c.days)} · ${c.places.length} địa điểm</small><p>${esc(c.intro)}</p>
       <span class="iseason ${good?'ok':''}">${good?'✅ Tháng này đang vào mùa đẹp':'🗓 Mùa đẹp: '+esc(MONTHS_VN(c.best))}</span></div></a>`; };
   const K=S.country!=='all'&&intlCountry(S.country);
-  return `<section class="blog-h"><h1>🌏 Du lịch quốc tế</h1><p>Điểm đến được khách Việt đặt tour nhiều: món ngon, điểm check-in, tham quan, mùa đẹp, visa và chi phí tham khảo.</p></section>
+  return `${intlHeroHTML()}
+    <section id="iall" class="isec"><div class="isec-h"><h2>🌏 Tất cả điểm đến</h2></div><p class="hint">Điểm đến được khách Việt đặt tour nhiều: món ngon, điểm check-in, tham quan, mùa đẹp, visa và chi phí tham khảo.</p></section>
     ${chips}${K?intlCountryBox(K):''}<div class="igrid">${list.map(card).join('')}</div>
     <p class="hint">Thông tin visa, tỷ giá cập nhật ${esc(INTL.updated||'')} và có thể thay đổi – luôn kiểm tra lại với đại sứ quán hoặc hãng tour trước khi đi. Tọa độ và ảnh lấy từ Wikipedia, Wikimedia Commons.</p>`;
 }
@@ -2981,9 +3078,11 @@ function intlAfter(){
 }
 $('#pbody').addEventListener('click',e=>{
   if(state.tab!=='intl') return;
-  const t=e.target.closest('[data-iplan],[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
+  const t=e.target.closest('[data-iscroll],[data-iplan],[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
   const d=t.dataset, S=state.intl;
   if(d.iplan){ startIntlPlan(d.iplan); return; }
+  if(d.iscroll){ if(d.icountry){ S.country=d.icountry; S.city=null; } if(d.icountry||state.intl.city) render();
+    setTimeout(()=>{ const el=document.getElementById(d.iscroll); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-(innerWidth>899?90:70),behavior:'smooth'}); },30); return; }
   if(d.icountry){ S.country=d.icountry; render(); return; }
   if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
@@ -3055,7 +3154,7 @@ function reviewsHTML(){
 /* ---------- Bảng bên trái ---------- */
 function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
-  { const sn=$('#savedN'); if(sn) sn.textContent=state.saved.size+state.plans.length; } $('#provName').textContent=state.prov;
+  { const sn=$('#savedN'); if(sn) sn.textContent=state.saved.size+state.plans.length; } $('#provName').textContent=state.tab==='intl'?'Quốc tế':state.prov;
   document.querySelector('.app').dataset.tab=state.selected?'detail':state.tab;
   const hm=$('#heroMini'); if(hm){ const T={intl:['Quốc tế','Thái Lan, Trung Quốc, Hàn Quốc, Nhật Bản, Singapore, Malaysia, Đài Loan, Bali'],explore:['Trong nước','Món ngon, điểm check-in, tham quan ở '+state.prov],plan:['Lịch trình','Lịch trình theo giờ, tối ưu tuyến đường và chi phí'],book:['Đặt chỗ','Khách sạn, vé máy bay, vé vui chơi qua Traveloka'],blog:['Blog Đi Đâu?','Cẩm nang, kinh nghiệm và lịch trình gợi ý'],saved:['Đã lưu','Địa điểm và chuyến đi bạn đã lưu']}[state.tab];
     hm.hidden=!(T&&!state.selected&&!(state.tab==='blog'&&state.post)); if(T){ $('#hmT').textContent=T[0]; $('#hmS').textContent=T[1]; } }
@@ -3938,6 +4037,12 @@ $('#pbody').addEventListener('change',e=>{
   if(t.id==='rqTotal'){ H.manual.total=Math.max(0,Math.round(parseFloat(String(t.value).replace(',','.'))*1e6)||0); refreshHomeBits(false); }
   if(t.id==='rqOrigin'){ H.manual.origin=t.value; refreshHomeBits(false); }
 });
+$('#pbody').addEventListener('input',e=>{ if(e.target.id!=='isq') return; state.intl.q=e.target.value; const r=$('#isqRes'); if(r) r.innerHTML=intlSuggestHTML(e.target.value); });
+$('#pbody').addEventListener('submit',e=>{ if(e.target.id!=='isqForm') return; e.preventDefault(); const q=($('#isq')||{}).value||''; const m=intlMatch(q)||intlSuggest(q)[0];
+  if(typeof gaSearch==='function') gaSearch(q,'quoc-te');
+  if(!m){ toast(q.trim()?'Chưa có "'+q.trim()+'" trong mục Quốc tế.':'Nhập tên nước hoặc thành phố, ví dụ Tokyo, Thái Lan.'); return; }
+  state.intl.q=''; if(m.t==='c'){ openIntl(m,'intl-search'); return; }
+  state.intl.country=m.id==='_'?'all':m.id; render(); setTimeout(()=>{ const el=document.getElementById('iall'); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); },30); });
 $('#pbody').addEventListener('toggle',e=>{ if(e.target.id==='reqMore') state.home.open=e.target.open; },true);
 $('#pbody').addEventListener('submit',async e=>{ const f=e.target.closest('[data-addrform]'); if(!f) return; e.preventDefault();
   const q=(f.q.value||'').trim(); if(q.length<3){ toast('Nhập địa chỉ cụ thể hơn.'); return; }
@@ -4015,7 +4120,7 @@ $('#pbody').addEventListener('click',e=>{
   else if(a==='saveplan'){savePlan();}
 });
 $('#homeBanner')&&$('#homeBanner').addEventListener('click',e=>{ const b=e.target.closest('[data-dexp]'); if(!b) return; const D=DESTMAP[b.dataset.dexp]; state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); window.scrollTo(0,0); });
-$('#provBtn').onclick=openProv; $('#brandBtn').onclick=openIntro; $('#sheetClose').onclick=closeSheet;
+$('#provBtn').onclick=()=>{ if(state.tab==='intl'){ const S=state.intl; S.city=null; S.country='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te'); }catch(e){} render(); setTimeout(()=>{ const el=document.getElementById('iall'); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); },30); return; } openProv(); }; $('#brandBtn').onclick=openIntro; $('#sheetClose').onclick=closeSheet;
 /* Popup chào mừng: tự hiện khi mở web (1 lần mỗi phiên), không hiện khi mở link chia sẻ lịch trình */
 (()=>{ let seen=false; try{ seen=sessionStorage.getItem('didau.welcome')==='1'; sessionStorage.setItem('didau.welcome','1'); }catch(e){}
   if(!seen && !/^#trip=/.test(location.hash)) setTimeout(()=>{ if($('#sheet').hidden) openIntro(); },600); })();
