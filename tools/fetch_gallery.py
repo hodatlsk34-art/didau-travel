@@ -19,7 +19,7 @@ OUT = os.path.join(ROOT, 'public', 'images', 'gallery')
 GJ = os.path.join(OUT, 'gallery.json')
 UA = 'DiDauTravelGalleryBot/1.0 (https://didautravel.id.vn/; free-licensed travel photos)'
 PER = 3
-BAD = re.compile(r'sticker|selfie|portrait|wedding|graffiti|toilet|interior of bus|map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
+BAD = re.compile(r'satellite|sentinel|landsat|copernicus|toll|expressway|highway|motorway|sticker|selfie|portrait|wedding|graffiti|toilet|interior of bus|map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
 STOP = set('cho pho quan nha chua den bai bien ho nui ca phe tp thanh khu di tich va cau dong doi the of and temple park street market beach road'.split())
 LOG, STATS = [], {'ok': 0, 'none': 0}
 
