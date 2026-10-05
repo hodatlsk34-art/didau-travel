@@ -1604,6 +1604,63 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 @media (max-width:899px){ .foot-qr img{width:120px;height:120px} .foot-qr .qr-d{display:none} } @media (min-width:900px){ .foot-qr .qr-m{display:none} }
 .foot-social{align-items:center}.foot-social span{font-size:13px;color:var(--muted);margin-right:2px}
 @media (max-width:899px){ .top,.top:not(.over),.app[data-tab] .top:not(.over){backdrop-filter:none!important;-webkit-backdrop-filter:none!important} .top:not(.over),.app[data-tab] .top:not(.over){background:rgba(255,255,255,.94)!important} }
+
+/* ---------- Quốc tế ---------- */
+.ichips{margin-bottom:2px}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.icard{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 18px rgba(16,40,34,.08);text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.icard:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(16,40,34,.14)}
+.icover{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#D6336C,#F28A1E);overflow:hidden}
+.icover img{width:100%;height:100%;object-fit:cover;display:block}
+.iflag{position:absolute;left:10px;top:8px;font-size:26px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
+.ibadge{position:absolute;right:10px;top:10px;background:#22803A;color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px}
+.ibody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.ibody h3{font-family:var(--font-display);font-size:18px;line-height:1.25;margin:0}
+.ibody small{color:var(--muted);font-size:12.5px}
+.ibody p{font-size:13.5px;color:var(--muted);margin:2px 0 4px}
+.iseason{font-size:12.5px;font-weight:600;color:var(--gold)}
+.iseason.ok{color:var(--teal)}
+.ibox{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--surface)}
+.ibox h2{font-family:var(--font-display);font-size:18px;margin:0 0 8px}
+.ifacts{display:grid;gap:8px;margin:0}
+.ifacts div{background:var(--paper);border-radius:12px;padding:9px 12px}
+.ifacts dt{font-size:12px;font-weight:700;color:var(--muted)}
+.ifacts dd{margin:2px 0 0;font-size:14px}
+.itips{margin:10px 0 0;padding-left:20px;font-size:13.5px}
+.itips li{margin:3px 0}
+.icity{display:flex;flex-direction:column;gap:12px}
+.ihero{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:21/9;min-height:190px;background:linear-gradient(135deg,#D6336C,#F28A1E)}
+.ihero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ihero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.6))}
+.ihero-t{position:absolute;left:16px;bottom:14px;right:16px;z-index:1;color:#fff}
+.ihero-t span{font-weight:600;font-size:13.5px}
+.ihero-t h1{font-family:var(--font-display);font-size:clamp(24px,4vw,34px);line-height:1.15;margin:2px 0 0;color:#fff}
+.ihero-t small{opacity:.9}
+.icredit{position:absolute;right:8px;top:8px;z-index:1;font-size:10.5px;color:#fff;background:rgba(0,0,0,.45);border-radius:999px;padding:2px 8px;text-decoration:none;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.iintro{font-size:15px;margin:0}
+.ikpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ikpis div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+.ikpis b{display:block;font-size:14px}
+.ikpis span{font-size:11.5px;color:var(--muted)}
+.ibook{display:flex;flex-wrap:wrap;gap:8px}
+.imapwrap{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.imap{height:320px;background:var(--sea)}
+.iplist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media (min-width:900px){ .iplist{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.iplace{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.iplace.sel{border-color:var(--moss);box-shadow:inset 0 0 0 1px var(--moss)}
+.ipbtn{display:grid;grid-template-columns:92px 1fr;gap:12px;width:100%;border:0;background:none;padding:10px;text-align:left;font:inherit;color:inherit}
+.ipimg{width:92px;height:92px;border-radius:12px;overflow:hidden;background:var(--surface-2)}
+.ipimg img{width:100%;height:100%;object-fit:cover;display:block}
+.ipmain{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ipmain b{font-size:15px;line-height:1.3}
+.ipmain>span{font-size:13px;color:var(--muted)}
+.ipcat{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--c)}
+.ipmain .ipmeta{color:var(--ink);font-size:12.5px}
+.iplinks{display:flex;flex-wrap:wrap;gap:4px 14px;padding:0 12px 10px;font-size:12.5px}
+.iplinks a{color:var(--moss);text-decoration:none;font-weight:600}
+.iplinks a.muted{color:var(--muted);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+@media (max-width:560px){ .ihero{aspect-ratio:16/10} .ikpis b{font-size:13px} .ipbtn{grid-template-columns:76px 1fr} .ipimg{width:76px;height:76px} }
 </style>
 
 <div class="app">
@@ -1615,6 +1672,7 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
     <nav class="tabs" role="tablist">
       <button class="tab" role="tab" data-tab="home" style="--tc:var(--moss)"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg></span><span class="tl">Trang chủ</span></button>
       <button class="tab" role="tab" data-tab="explore" style="--tc:var(--teal)"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span class="tl">Khám phá</span></button>
+      <button class="tab" role="tab" data-tab="intl" style="--tc:#D6336C"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg></span>Quốc tế</button>
       <button class="tab" role="tab" data-tab="plan" style="--tc:#C9660A"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="M8 14h3M8 17h6"/></svg></span><span class="tl">Lịch trình</span></button>
       <button class="tab" role="tab" data-tab="book" style="--tc:#0A84D6"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2.5A3.5 3.5 0 0 0 17.5 8H11v6"/><circle cx="7" cy="10.5" r="2"/></svg></span><span class="tl">Đặt chỗ</span></button>
       <button class="tab" role="tab" data-tab="blog" style="--tc:#7A3FC4"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5z"/><path d="M8 7.5h8M8 11h6"/></svg></span><span class="tl">Blog</span></button>
@@ -2549,6 +2607,96 @@ function bookHTML(){
       ${D?`<button class="btn" data-dplan="${esc(D.key)}">✨ Lên lịch trình ${esc(D.name)} trước</button>`:`<button class="btn" data-action="homepick">✨ Chưa biết đi đâu? Để AI chọn</button>`}
     </section>`;
 }
+/* ---------- Quốc tế: 8 nước, 21 thành phố (dữ liệu /data/intl.json, tọa độ + ảnh lấy từ Wikipedia) ---------- */
+let INTL=null, INTL_LOADING=false, imap=null;
+state.intl={country:'all',city:null,filter:'all',sel:null};
+const MONTHS_VN=m=>m.length?'Tháng '+m.join(', '):'';
+function loadIntl(){
+  if(INTL||INTL_LOADING) return; INTL_LOADING=true;
+  fetch('/data/intl.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ INTL=j&&Array.isArray(j.cities)?j:{countries:[],cities:[],updated:''}; INTL_LOADING=false; if(state.tab==='intl') render(); })
+    .catch(()=>{ INTL={countries:[],cities:[],updated:'',err:1}; INTL_LOADING=false; if(state.tab==='intl') render(); });
+}
+function intlHash(){ const m=/^#quoc-te(?:\/([a-z0-9-]{1,40}))?$/.exec(location.hash); if(!m) return false; state.tab='intl'; state.selected=null; state.intl.city=m[1]||null; state.intl.filter='all'; state.intl.sel=null; return true; }
+const intlCountry=id=>INTL&&INTL.countries.find(c=>c.id===id);
+const intlImg=(x,cls)=>x&&x.f?`<img class="${cls||''}" src="${esc(x.f)}" alt="" loading="lazy" decoding="async">`:'';
+const intlCredit=x=>x&&x.page?`<a class="icredit" href="${esc(x.page)}" target="_blank" rel="noopener">Ảnh: ${esc(x.credit||'Wikimedia Commons')}</a>`:'';
+function intlHTML(){
+  if(!INTL){ loadIntl(); return '<section class="blog-h"><h1>🌏 Du lịch quốc tế</h1><p>Đang tải dữ liệu…</p></section>'; }
+  if(INTL.err||!INTL.cities.length) return '<section class="blog-h"><h1>🌏 Du lịch quốc tế</h1></section><div class="empty"><b>Chưa tải được dữ liệu</b>Kiểm tra kết nối mạng rồi thử lại.</div>';
+  const S=state.intl, C=S.city&&INTL.cities.find(c=>c.id===S.city);
+  return C?intlCityHTML(C):intlListHTML();
+}
+function intlListHTML(){
+  const S=state.intl, cs=INTL.countries;
+  const chips=`<div class="chips scroll ichips" role="group" aria-label="Chọn nước"><button class="chip" data-icountry="all" aria-pressed="${S.country==='all'}">Tất cả</button>${cs.map(c=>`<button class="chip" data-icountry="${c.id}" aria-pressed="${S.country===c.id}">${c.flag} ${esc(c.name)}</button>`).join('')}</div>`;
+  const list=INTL.cities.filter(c=>S.country==='all'||c.country===S.country);
+  const now=new Date().getMonth()+1;
+  const card=c=>{ const K=intlCountry(c.country), good=c.best.includes(now);
+    return `<a class="icard" href="#quoc-te/${c.id}" data-icity="${c.id}"><div class="icover">${intlImg(c.img)}<span class="iflag">${K?K.flag:''}</span>${K&&K.visaFree?'<span class="ibadge">Miễn visa</span>':''}</div>
+      <div class="ibody"><h3>${esc(c.name)}</h3><small>${esc(K?K.name:'')} · ${esc(c.days)} · ${c.places.length} địa điểm</small><p>${esc(c.intro)}</p>
+      <span class="iseason ${good?'ok':''}">${good?'✅ Tháng này đang vào mùa đẹp':'🗓 Mùa đẹp: '+esc(MONTHS_VN(c.best))}</span></div></a>`; };
+  const K=S.country!=='all'&&intlCountry(S.country);
+  return `<section class="blog-h"><h1>🌏 Du lịch quốc tế</h1><p>Điểm đến được khách Việt đặt tour nhiều: món ngon, điểm check-in, tham quan, mùa đẹp, visa và chi phí tham khảo.</p></section>
+    ${chips}${K?intlCountryBox(K):''}<div class="igrid">${list.map(card).join('')}</div>
+    <p class="hint">Thông tin visa, tỷ giá cập nhật ${esc(INTL.updated||'')} và có thể thay đổi – luôn kiểm tra lại với đại sứ quán hoặc hãng tour trước khi đi. Tọa độ và ảnh lấy từ Wikipedia, Wikimedia Commons.</p>`;
+}
+function intlCountryBox(K){
+  return `<section class="ibox"><h2>${K.flag} ${esc(K.name)}: thông tin cần biết</h2>
+    <dl class="ifacts"><div><dt>🛂 Visa (hộ chiếu Việt Nam)</dt><dd>${esc(K.visa)}</dd></div><div><dt>✈️ Giờ bay</dt><dd>${esc(K.flight)}</dd></div><div><dt>💱 Tiền tệ</dt><dd>${esc(K.currency)} · ${esc(K.rate)} (tham khảo)</dd></div></dl>
+    ${K.tips&&K.tips.length?`<ul class="itips">${K.tips.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}</section>`;
+}
+function intlCityHTML(C){
+  const S=state.intl, K=intlCountry(C.country)||{};
+  const cnt=k=>k==='all'?C.places.length:C.places.filter(p=>p.cat===k).length;
+  const chip=(k,l,c)=>`<button class="chip" data-ifilter="${k}" aria-pressed="${S.filter===k}" ${c?`style="--c:${c}"`:''}>${c?'<i></i>':''}${l} <small>${cnt(k)}</small></button>`;
+  const ps=C.places.filter(p=>S.filter==='all'||p.cat===S.filter);
+  affTag=slugTag(C.name);
+  const tv=p=>affWrap('traveloka','https://www.traveloka.com/vi-vn/'+p);
+  const item=p=>`<li class="iplace ${S.sel===p.id?'sel':''}" id="ip-${p.id}"><button class="ipbtn" data-iplace="${p.id}" aria-label="Xem ${esc(p.name)} trên bản đồ">
+      <div class="ipimg">${intlImg(p.img)}</div>
+      <div class="ipmain"><span class="ipcat" style="--c:${CAT[p.cat].c}">${CAT[p.cat].label}</span><b>${esc(p.name)}</b><span>${esc(p.why)}</span>
+      ${p.price?`<span class="ipmeta">🎟 ${esc(p.price)}</span>`:''}${p.tip?`<span class="ipmeta">💡 ${esc(p.tip)}</span>`:''}</div></button>
+      <div class="iplinks">${p.lat!=null?`<a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" rel="noopener">📍 Google Maps</a>`:''}${p.wp?`<a href="${esc(p.wp)}" target="_blank" rel="noopener">📖 Wikipedia</a>`:''}${p.img&&p.img.page?`<a href="${esc(p.img.page)}" target="_blank" rel="noopener" class="muted">Ảnh: ${esc((p.img.credit||'').split(' · ')[0])}</a>`:''}</div></li>`;
+  return `<article class="icity"><button class="btn-ghost post-back" data-action="intlback">← Tất cả điểm đến quốc tế</button>
+    <div class="ihero">${intlImg(C.img)}<div class="ihero-t"><span>${K.flag||''} ${esc(K.name||'')}</span><h1>${esc(C.name)}</h1><small>${esc(C.local||'')}</small></div>${intlCredit(C.img)}</div>
+    <p class="iintro">${esc(C.intro)}</p>
+    <div class="ikpis"><div><b>${esc(MONTHS_VN(C.best).replace('Tháng ',''))}</b><span>Tháng đẹp nhất</span></div><div><b>${esc(C.days)}</b><span>Thời gian gợi ý</span></div><div><b>${K.visaFree?'Miễn visa':'Cần visa'}</b><span>Hộ chiếu Việt Nam</span></div></div>
+    <div class="ibook"><a class="btn" href="${esc(tv('activities'))}" target="_blank" rel="noopener sponsored">🎟 Tour & vé tham quan</a><a class="btn-ghost" href="${esc(tv('hotel'))}" target="_blank" rel="noopener sponsored">🏨 Khách sạn</a><a class="btn-ghost" href="${esc(tv('flight'))}" target="_blank" rel="noopener sponsored">✈️ Vé máy bay</a></div>
+    <div class="imapwrap"><div id="imap" class="imap" role="region" aria-label="Bản đồ ${esc(C.name)}"></div></div>
+    <div class="chips">${chip('all','Tất cả')}${chip('food','Ăn uống',CAT.food.c)}${chip('check','Check-in',CAT.check.c)}${chip('sight','Tham quan',CAT.sight.c)}</div>
+    <ul class="iplist">${ps.map(item).join('')}</ul>
+    ${intlCountryBox(K)}
+    <p class="hint">Giá vé, giờ mở cửa và thông tin visa chỉ để tham khảo (cập nhật ${esc(INTL.updated||'')}), có thể thay đổi. Kiểm tra lại trước khi đi.</p></article>`;
+}
+function intlAfter(){
+  if(imap){ try{ imap.remove(); }catch(e){} imap=null; }
+  if(state.tab!=='intl'||!INTL||!state.intl.city) return;
+  const el=document.getElementById('imap'); const C=INTL.cities.find(c=>c.id===state.intl.city); if(!el||!C||!window.L) return;
+  const pts=C.places.filter(p=>p.lat!=null&&(state.intl.filter==='all'||p.cat===state.intl.filter));
+  imap=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(imap);
+  const mk={};
+  pts.forEach(p=>{ const m=L.circleMarker([p.lat,p.lng],{radius:p.id===state.intl.sel?11:8,weight:2,color:'#fff',fillColor:getComputedStyle(document.documentElement).getPropertyValue('--'+({food:'lacquer',check:'gold',sight:'teal'})[p.cat]).trim()||'#0E4C8E',fillOpacity:1}).addTo(imap);
+    m.bindTooltip(p.name,{direction:'top',className:'tip'}); m.on('click',()=>{ state.intl.sel=p.id; render(); setTimeout(()=>{ const li=document.getElementById('ip-'+p.id); if(li) li.scrollIntoView({behavior:'smooth',block:'center'}); },60); }); mk[p.id]=m; });
+  const sel=pts.find(p=>p.id===state.intl.sel);
+  if(sel) imap.setView([sel.lat,sel.lng],14);
+  else if(pts.length>1){ const med=a=>a.slice().sort((x,y)=>x-y)[a.length>>1], mla=med(pts.map(p=>p.lat)), mln=med(pts.map(p=>p.lng));
+    const near=pts.filter(p=>Math.hypot((p.lat-mla)*111,(p.lng-mln)*111*Math.cos(mla*Math.PI/180))<45), fit=near.length>=Math.max(3,pts.length*0.6)?near:pts;
+    imap.fitBounds(L.latLngBounds(fit.map(p=>[p.lat,p.lng])),{padding:[28,28],maxZoom:13}); }
+  else if(pts.length) imap.setView([pts[0].lat,pts[0].lng],12);
+  else if(C.lat!=null) imap.setView([C.lat,C.lng],10);
+  if(sel&&mk[sel.id]) mk[sel.id].openTooltip();
+}
+$('#pbody').addEventListener('click',e=>{
+  if(state.tab!=='intl') return;
+  const t=e.target.closest('[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"]'); if(!t) return;
+  const d=t.dataset, S=state.intl;
+  if(d.icountry){ S.country=d.icountry; render(); return; }
+  if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
+  if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
+  if(d.iplace){ S.sel=S.sel===d.iplace?null:d.iplace; render(); const m=document.getElementById('imap'); if(m&&S.sel) m.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  if(d.action==='intlback'){ S.city=null; S.sel=null; try{ history.replaceState(null,'','#quoc-te'); }catch(err){} render(); window.scrollTo(0,0); }
+});
 /* ---------- Blog ---------- */
 const BLOG_EMBED=[{"slug": "ha-giang-mua-nao-dep", "title": "Hà Giang mùa nào đẹp nhất? Lịch hoa và lúa quanh năm", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Tuyên Quang|Hà Giang – Đồng Văn", "tags": ["Miền Bắc", "Mùa đẹp", "Phượt"], "excerpt": "Mỗi mùa Hà Giang một vẻ: hoa đào, hoa mận đầu năm, lúa chín mùa thu, tam giác mạch cuối năm. Chọn thời điểm theo cảnh bạn muốn ngắm.", "body": "Hà Giang đẹp quanh năm, nhưng mỗi mùa cho một kiểu cảnh rất khác nhau. Dưới đây là lịch tham khảo để bạn chọn thời điểm phù hợp.\n\n## Tháng 1 – 3: mùa hoa đào, hoa mận\n- Bản làng phủ sắc hồng, trắng của hoa đào, hoa mận, hoa cải.\n- Trời lạnh, có thể có sương muối ở vùng cao. Mang áo ấm đủ dày.\n- Hợp với: chụp ảnh bản làng, trải nghiệm Tết vùng cao.\n\n## Tháng 4 – 5: mùa nước đổ\n- Ruộng bậc thang được đổ nước, phản chiếu trời mây rất đẹp (đẹp nhất ở Hoàng Su Phì).\n- Thời tiết dễ chịu, ít đông khách.\n\n## Tháng 9 – 10: lúa chín\n- Ruộng bậc thang vàng óng, đặc biệt ở Hoàng Su Phì.\n- Cuối tháng 10 bắt đầu có hoa tam giác mạch.\n\n## Tháng 10 – 11: tam giác mạch\n- Thời điểm đông khách nhất trong năm. Nên đặt phòng sớm.\n- Đẹp dọc cung đường Quản Bạ – Yên Minh – Đồng Văn – Mèo Vạc.\n\n## Gợi ý lịch trình 3–4 ngày\n- Ngày 1: Hà Giang – Quản Bạ (Cổng trời, núi đôi) – Yên Minh.\n- Ngày 2: Dinh thự họ Vương – Cột cờ Lũng Cú – phố cổ Đồng Văn.\n- Ngày 3: đèo Mã Pí Lèng, sông Nho Quế – Mèo Vạc.\n- Ngày 4: quay về Hà Giang hoặc đi tiếp Du Già.\n\n## Lưu ý\n- Đường đèo dài, nhiều khúc cua. Nếu không quen lái xe máy đường núi, hãy thuê xe kèm người lái.\n- Mùa mưa (tháng 6 – 8) có thể sạt lở. Theo dõi thời tiết trước khi đi.\n\n[[dest:Tuyên Quang|Hà Giang – Đồng Văn|Lên lịch trình Hà Giang]]\n\n*Thời điểm hoa nở thay đổi theo thời tiết từng năm. Hãy xem tin địa phương trước khi đi.*"}, {"slug": "da-lat-3-ngay-2-dem", "title": "Đà Lạt 3 ngày 2 đêm cho người đi lần đầu", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Lâm Đồng|Đà Lạt", "tags": ["Tây Nguyên", "Lịch trình", "Cặp đôi"], "excerpt": "Lịch trình gọn cho chuyến Đà Lạt đầu tiên: hồ Xuân Hương, đồi chè Cầu Đất, Langbiang, chợ đêm và những quán cà phê view đồi thông.", "body": "Đà Lạt hợp cho chuyến đi ngắn: khí hậu mát, các điểm tham quan không quá xa nhau. Đây là lịch trình gợi ý cho 3 ngày 2 đêm.\n\n## Ngày 1: trung tâm thành phố\n- Sáng: dạo hồ Xuân Hương, ăn sáng bánh căn hoặc bánh mì xíu mại.\n- Chiều: ga Đà Lạt, thiền viện Trúc Lâm, hồ Tuyền Lâm.\n- Tối: chợ đêm Đà Lạt, thử sữa đậu nành nóng và bánh tráng nướng.\n\n## Ngày 2: săn mây và đồi chè\n- Sáng sớm: săn mây ở khu vực Cầu Đất (cần dậy sớm, khoảng 4h30 – 5h).\n- Trưa: đồi chè Cầu Đất.\n- Chiều: quay về trung tâm, cà phê ngắm đồi thông.\n\n## Ngày 3: Langbiang\n- Sáng: núi Langbiang, có thể đi xe jeep lên đỉnh Radar.\n- Trưa: mua đặc sản (mứt, atiso, cà phê) rồi về.\n\n## Mẹo nhỏ\n- Đà Lạt tối khá lạnh, mang áo khoác dù đi mùa nào.\n- Cuối tuần và dịp lễ rất đông. Nếu được, hãy đi giữa tuần.\n- Mùa khô (khoảng tháng 11 – 3) trời đẹp, ít mưa hơn.\n\n[[dest:Lâm Đồng|Đà Lạt|Lên lịch trình Đà Lạt]]"}, {"slug": "an-gi-o-hue", "title": "Ăn gì ở Huế? Những món nên thử khi ghé cố đô", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Huế|Cố đô Huế", "tags": ["Miền Trung", "Ẩm thực"], "excerpt": "Bún bò, cơm hến, bánh bèo – nậm – lọc, bánh khoái, chè Huế… Gợi ý món ngon và thời điểm ăn hợp lý trong ngày.", "body": "Ẩm thực Huế thanh, cay và rất nhiều món nhỏ. Bạn có thể ăn nhiều bữa nhỏ thay vì vài bữa lớn để thử được nhiều món.\n\n## Bữa sáng\n- **Bún bò Huế**: nước dùng thơm sả, có chả cua, giò heo.\n- **Cơm hến / bún hến**: món dân dã, ăn kèm ớt và tóp mỡ.\n\n## Ăn vặt buổi chiều\n- **Bánh bèo, bánh nậm, bánh lọc**: thường bán chung một mâm.\n- **Bánh ép, bánh tráng kẹp**: hợp đi theo nhóm bạn.\n- **Chè Huế**: có rất nhiều loại, nổi tiếng là chè bột lọc heo quay.\n\n## Bữa tối\n- **Bánh khoái**: bánh giòn chấm nước lèo đậm vị.\n- **Bún thịt nướng**, **nem lụi**.\n\n## Mẹo\n- Nhiều quán nổi tiếng chỉ bán buổi sáng hoặc buổi chiều, hết là nghỉ. Nên đi sớm.\n- Đồ ăn Huế khá cay. Nếu không ăn được cay, hãy dặn trước.\n\n[[dest:Huế|Cố đô Huế|Lên lịch trình Huế]]"}, {"slug": "lich-di-bien-theo-mien", "title": "Đi biển tháng nào đẹp? Lịch biển theo từng miền", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Khánh Hòa|Nha Trang", "tags": ["Biển", "Mùa đẹp", "Gia đình"], "excerpt": "Mỗi miền có mùa biển đẹp khác nhau. Biết lịch này giúp bạn tránh mưa bão và chọn được nơi nước trong, sóng êm.", "body": "Bờ biển Việt Nam dài, mỗi vùng có mùa mưa bão khác nhau. Đây là lịch tham khảo chung.\n\n## Miền Bắc: khoảng tháng 5 – 8\n- Hạ Long, Cát Bà, Cô Tô, Sầm Sơn.\n- Trời nắng nóng, nước ấm. Lưu ý bão có thể xuất hiện vào giữa và cuối hè.\n\n## Miền Trung: khoảng tháng 3 – 8\n- Đà Nẵng, Hội An, Quy Nhơn, Nha Trang, Phú Yên.\n- Nên tránh mùa mưa bão miền Trung (thường từ khoảng tháng 9 đến tháng 12).\n\n## Nam Trung Bộ khô hạn: gần như quanh năm\n- Ninh Thuận (Vĩnh Hy), Mũi Né ít mưa hơn các nơi khác.\n\n## Phú Quốc, Côn Đảo: khoảng tháng 11 – 4\n- Mùa khô, biển phía Tây Phú Quốc êm, nước trong.\n- Mùa mưa (khoảng tháng 5 – 10) vẫn đi được nhưng hay có mưa rào và sóng lớn hơn.\n\n## Mẹo chung\n- Luôn xem dự báo thời tiết 3–5 ngày trước khi đi. Trang lịch trình của Đi Đâu? có hiển thị dự báo thời tiết.\n- Đi cùng trẻ nhỏ nên chọn bãi tắm có cứu hộ.\n\n[[dest:Khánh Hòa|Nha Trang|Lên lịch trình Nha Trang]]\n\n*Lịch trên chỉ mang tính tham khảo, thời tiết thực tế thay đổi theo từng năm.*"}, {"slug": "du-lich-cung-tre-nho", "title": "Du lịch cùng con nhỏ: 8 điều nên chuẩn bị", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Hải Phòng|Cát Bà", "tags": ["Gia đình", "Kinh nghiệm"], "excerpt": "Đi chơi cùng con nhỏ sẽ nhẹ nhàng hơn nhiều nếu chuẩn bị kỹ: lịch trình thưa, chỗ ở gần, thuốc men và đồ ăn vặt quen thuộc.", "body": "Một chuyến đi cùng trẻ nhỏ cần nhịp chậm hơn. Dưới đây là những điều nên chuẩn bị.\n\n## 1. Lịch trình thưa\nMỗi ngày chỉ nên 2–3 điểm chính, có giờ nghỉ trưa. Khi lập lịch trên Đi Đâu?, hãy khai báo có trẻ em để lịch trình nhẹ hơn.\n\n## 2. Chỗ ở gần trung tâm\nGiảm thời gian di chuyển, dễ quay về khi con mệt.\n\n## 3. Thuốc men cơ bản\nHạ sốt, men tiêu hóa, oresol, thuốc chống say xe, kem chống muỗi, băng cá nhân.\n\n## 4. Đồ ăn vặt quen thuộc\nTrẻ hay khó ăn ở nơi lạ. Mang theo vài món quen để dự phòng.\n\n## 5. Quần áo dư\nĐặc biệt khi đi biển hoặc nơi có thể đổi thời tiết đột ngột.\n\n## 6. Chọn nơi an toàn\nBãi tắm có cứu hộ, khu vui chơi có rào chắn. Tránh các cung đèo nguy hiểm khi đi xe máy.\n\n## 7. Giấy tờ\nMang bản sao giấy khai sinh của con khi đi máy bay hoặc nhận phòng khách sạn.\n\n## 8. Kỳ vọng vừa phải\nĐi chậm, chơi ít mà vui còn hơn đi nhiều mà mệt.\n\n[[dest:Hải Phòng|Cát Bà|Lên lịch trình Cát Bà]]"}, {"slug": "huong-dan-dung-di-dau", "title": "Lên lịch trình trong 1 phút với Đi Đâu?", "date": "2026-10-02", "author": "Đi Đâu?", "cover": "Ninh Bình|Tràng An – Tam Cốc", "tags": ["Hướng dẫn"], "excerpt": "Chỉ cần gõ một câu như “3 ngày, 5 triệu, đi cùng vợ con, thích biển”, Đi Đâu? sẽ gợi ý điểm đến, lập lịch theo giờ và ước tính chi phí.", "body": "Đi Đâu? giúp bạn từ lúc chưa biết đi đâu đến khi có lịch trình chi tiết. Cách dùng rất đơn giản.\n\n## Bước 1: kể chuyến đi bằng một câu\nGõ vào ô **Bạn muốn đi đâu?** ở trang chủ, ví dụ: *Tôi có 3 ngày, 5 triệu, đi cùng vợ và con, từ Hà Nội, thích biển*. Đi Đâu? tự hiểu số ngày, ngân sách, người đi cùng và sở thích.\n\n## Bước 2: chọn gợi ý\n- Nếu bạn đã gõ tên điểm đến, bấm **Lịch trình AI** để lập lịch ngay.\n- Nếu chưa biết đi đâu, bấm **Không biết đi đâu? Để AI chọn**. Đi Đâu? sẽ chấm điểm phù hợp cho từng nơi theo sở thích, ngân sách, mùa đẹp và thời gian di chuyển.\n\n## Bước 3: chỉnh lịch trình\n- Kéo thả, thêm hoặc bớt địa điểm.\n- Xem tuyến đường trên bản đồ và dự báo thời tiết từng ngày.\n- Lưu lại hoặc chia sẻ đường link cho người đi cùng.\n\n## Bước 4: khám phá thêm\nVào mục **Khám phá** để xem món ngon, điểm check-in, tham quan của từng tỉnh. Bấm **Thêm vào lịch trình** để đưa vào chuyến đi.\n\n[[dest:Ninh Bình|Tràng An – Tam Cốc|Thử lịch trình Ninh Bình]]\n\n*Chi phí trong Đi Đâu? là ước tính theo mặt bằng giá chung, hãy kiểm tra lại khi đặt dịch vụ.*"}];
 const cleanPost=x=>(x&&typeof x==='object'&&/^[a-z0-9-]{1,80}$/.test(x.slug||'')&&typeof x.title==='string'&&typeof x.body==='string')?
@@ -2614,7 +2762,7 @@ function render(){
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===state.tab)));
   { const sn=$('#savedN'); if(sn) sn.textContent=state.saved.size+state.plans.length; } $('#provName').textContent=state.prov;
   document.querySelector('.app').dataset.tab=state.selected?'detail':state.tab;
-  const hm=$('#heroMini'); if(hm){ const T={explore:['Khám phá','Món ngon, điểm check-in, tham quan ở '+state.prov],plan:['Lịch trình','Lịch trình theo giờ, tối ưu tuyến đường và chi phí'],book:['Đặt chỗ','Khách sạn, vé máy bay, vé vui chơi qua Traveloka'],blog:['Blog Đi Đâu?','Cẩm nang, kinh nghiệm và lịch trình gợi ý'],saved:['Đã lưu','Địa điểm và chuyến đi bạn đã lưu']}[state.tab];
+  const hm=$('#heroMini'); if(hm){ const T={intl:['Quốc tế','Thái Lan, Trung Quốc, Hàn Quốc, Nhật Bản, Singapore, Malaysia, Đài Loan, Bali'],explore:['Khám phá','Món ngon, điểm check-in, tham quan ở '+state.prov],plan:['Lịch trình','Lịch trình theo giờ, tối ưu tuyến đường và chi phí'],book:['Đặt chỗ','Khách sạn, vé máy bay, vé vui chơi qua Traveloka'],blog:['Blog Đi Đâu?','Cẩm nang, kinh nghiệm và lịch trình gợi ý'],saved:['Đã lưu','Địa điểm và chuyến đi bạn đã lưu']}[state.tab];
     hm.hidden=!(T&&!state.selected&&!(state.tab==='blog'&&state.post)); if(T){ $('#hmT').textContent=T[0]; $('#hmS').textContent=T[1]; } }
   const hx=$('#heroX'); if(hx){ hx.hidden=!(state.tab==='home'&&!state.selected); const hq=$('#hxq'); if(hq&&document.activeElement!==hq) hq.value=state.home.text||''; }
   const hb=$('#homeBanner'); if(hb){ hb.hidden=false; const sp=$('#bannerSpots'); if(sp&&!sp.dataset.done){ sp.dataset.done=1; sp.innerHTML=BANNER_SPOTS.filter(x=>DESTMAP[x[0]]).map(x=>`<button class="hs" style="left:${x[1]}%;width:${x[2]}%" data-dexp="${esc(x[0])}" aria-label="Khám phá ${esc(DESTMAP[x[0]].name)}"></button>`).join(''); } }
@@ -2624,12 +2772,13 @@ function render(){
   else if(state.tab==='explore'){body.innerHTML=exploreHTML(); updateList();}
   else if(state.tab==='plan'){ body.innerHTML=plannerHTML(); if(state.plan&&!state.loading) ensureWeather(state.plan); }
   else if(state.tab==='book') body.innerHTML=bookHTML();
+  else if(state.tab==='intl') body.innerHTML=intlHTML();
   else if(state.tab==='blog') body.innerHTML=state.post?postHTML(state.post):blogHTML();
   else body.innerHTML=savedHTML();
   if(!state.selected) body.insertAdjacentHTML('beforeend',footerHTML());
   placeMap();
   renderMap();
-  applyImgs(); applyPlaceImgs(); loadStats();
+  applyImgs(); applyPlaceImgs(); loadStats(); intlAfter();
   if(window.__topUpd) window.__topUpd();
 }
 let mapMode='off';
@@ -3466,7 +3615,7 @@ function printPlan(){
 document.querySelector('.tabs').addEventListener('click',e=>{
   const t=e.target.closest('.tab'); if(!t) return;
   state.tab=t.dataset.tab; state.selected=null; state.mapOpen=false; state.post=null;
-  try{ if(state.tab==='blog') history.replaceState(null,'','#blog'); else if(/^#blog/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  try{ if(state.tab==='blog') history.replaceState(null,'','#blog'); else if(state.tab==='intl') history.replaceState(null,'','#quoc-te'+(state.intl.city?'/'+state.intl.city:'')); else if(/^#(blog|quoc-te)/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search); }catch(e){}
   render(); fitView(); window.scrollTo(0,0);
 });
 $('#pbody').addEventListener('input',e=>{
@@ -3594,8 +3743,8 @@ function goHash(){ const m=/^#go=(plan|dest):(.+)$/.exec(location.hash); if(!m) 
   if(m[1]==='plan'){ state.home.manual={dest:key}; homeGo(); }
   else { state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); }
   window.scrollTo(0,0); return true; }
-if(!blogHash()&&!goHash()) loadHash();
-window.addEventListener('hashchange',()=>{ if(goHash()) return; if(blogHash()){ render(); window.scrollTo(0,0); return; } if(loadHash()){ render(); fitView(); } });
+if(!blogHash()&&!goHash()&&!intlHash()) loadHash();
+window.addEventListener('hashchange',()=>{ if(goHash()) return; if(intlHash()){ render(); window.scrollTo(0,0); return; } if(blogHash()){ render(); window.scrollTo(0,0); return; } if(loadHash()){ render(); fitView(); } });
 $('#pbody').addEventListener('keydown',e=>{ if(e.key==='Enter'){ const bc=e.target.closest&&e.target.closest('[data-post]'); if(bc&&bc.tagName!=='A'){ e.preventDefault(); openPost(bc.dataset.post); } } });
 /* Hero trang chủ */
 $('#hxq').addEventListener('input',e=>{ state.home.text=e.target.value; state.home.manual={}; refreshHomeBits(); if(!state.home.recs) renderMap(); });
@@ -3615,11 +3764,12 @@ $('#heroX').addEventListener('click',e=>{ const b=e.target.closest('[data-hx]');
 const track=(ev,p)=>{ try{ if(window.GA_ID&&typeof window.gtag==='function') window.gtag('event',ev,p||{}); }catch(e){} };
 let gaLast='';
 function gaView(){
-  const T={home:'Trang chủ',explore:'Khám phá',plan:'Lịch trình',book:'Đặt chỗ',blog:'Blog'};
+  const T={home:'Trang chủ',explore:'Khám phá',plan:'Lịch trình',book:'Đặt chỗ',blog:'Blog',intl:'Quốc tế'};
   let path, title;
   const pv=slugTag(state.prov);
   if(state.selected){ const p=byId(state.selected); path='/dia-diem/'+pv+'/'+slugTag(p&&p.name); title=(p?p.name:'Địa điểm')+' – '+state.prov; }
   else if(state.tab==='blog'){ path=state.post?'/blog/'+state.post:'/blog'; const b=state.post&&BLOG.find(x=>x.slug===state.post); title=b?b.title:'Blog'; }
+  else if(state.tab==='intl'){ const C=state.intl.city&&INTL&&INTL.cities.find(x=>x.id===state.intl.city); path='/quoc-te'+(C?'/'+C.id:''); title='Quốc tế'+(C?' – '+C.name:''); }
   else if(state.tab==='explore'||state.tab==='plan'){ path=(state.tab==='explore'?'/kham-pha/':'/lich-trinh/')+pv; title=T[state.tab]+' – '+state.prov; }
   else { path=state.tab==='home'?'/':'/'+(state.tab==='book'?'dat-cho':state.tab); title=T[state.tab]||state.tab; }
   if(path===gaLast) return; const first=!gaLast; gaLast=path; if(first) return;  // lượt đầu đã được GA tự ghi

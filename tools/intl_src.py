@@ -92,7 +92,7 @@ CITIES = [
         ('s', 'Vịnh Phang Nga', 'Phang Nga Bay', 'Vịnh đá vôi giống Hạ Long, có đảo James Bond', {}),
         ('c', 'Bãi biển Patong', 'Patong', 'Bãi biển sôi động nhất Phuket', {}),
         ('f', 'Phố Bangla', 'Bangla Road', 'Phố đêm ăn uống, giải trí ở Patong', {'ll': [7.8934, 98.2969]}),
-        ('c', 'Mũi Promthep', 'Laem Phromthep', 'Điểm ngắm hoàng hôn đẹp nhất đảo', {}),
+        ('c', 'Mũi Promthep', 'Laem Phromthep', 'Điểm ngắm hoàng hôn đẹp nhất đảo', {'ll': [7.7620, 98.3056]}),
         ('s', 'Chùa Chalong', 'Wat Chalong', 'Ngôi chùa lớn và linh thiêng nhất Phuket', {}),
         ('c', 'Phố cổ Phuket', 'Phuket (city)', 'Phố nhà Sino-Portuguese nhiều màu, quán cà phê đẹp', {'ll': [7.8857, 98.3883], 'tip': 'Chủ nhật có chợ đêm trên phố Thalang.'}),
         ('c', 'Bãi biển Kata', 'Kata Beach', 'Bãi biển đẹp, sóng vừa, hợp gia đình', {'ll': [7.8201, 98.2981]}),
