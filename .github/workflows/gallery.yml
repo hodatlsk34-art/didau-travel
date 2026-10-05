@@ -1,0 +1,38 @@
+name: Thêm ảnh cho địa điểm (Wikimedia Commons)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/gallery_targets.json'
+      - 'tools/fetch_gallery.py'
+      - '.github/workflows/gallery.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gallery
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 58
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - run: python tools/fetch_gallery.py
+      - name: Lưu ảnh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/gallery tools/gallery_last.log
+          if git diff --cached --quiet; then echo "Không có thay đổi"; exit 0; fi
+          git commit -m "Thêm ảnh cho địa điểm (tự động)"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

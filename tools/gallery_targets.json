@@ -1,0 +1,4961 @@
+[
+{
+"id": "p1",
+"name": "Đại Nội Huế (Hoàng thành)",
+"cat": "sight",
+"lat": 16.4698,
+"lng": 107.5786,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p2",
+"name": "Lăng Tự Đức",
+"cat": "sight",
+"lat": 16.4335,
+"lng": 107.5655,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p3",
+"name": "Lăng Khải Định",
+"cat": "sight",
+"lat": 16.399,
+"lng": 107.59,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p4",
+"name": "Chùa Thiên Mụ",
+"cat": "check",
+"lat": 16.4537,
+"lng": 107.5446,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p5",
+"name": "Cầu Trường Tiền",
+"cat": "check",
+"lat": 16.4683,
+"lng": 107.5905,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p6",
+"name": "Đồi Vọng Cảnh",
+"cat": "check",
+"lat": 16.4185,
+"lng": 107.563,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p7",
+"name": "Bún bò Huế quanh chợ Đông Ba",
+"cat": "food",
+"lat": 16.472,
+"lng": 107.5885,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p8",
+"name": "Cơm hến Cồn Hến",
+"cat": "food",
+"lat": 16.476,
+"lng": 107.596,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p9",
+"name": "Bánh bèo, nậm, lọc",
+"cat": "food",
+"lat": 16.463,
+"lng": 107.59,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p10",
+"name": "Cà phê muối",
+"cat": "food",
+"lat": 16.464,
+"lng": 107.595,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p11",
+"name": "Chè Huế",
+"cat": "food",
+"lat": 16.4655,
+"lng": 107.596,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p12",
+"name": "Vịnh Lăng Cô",
+"cat": "check",
+"lat": 16.254,
+"lng": 108.07,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p13",
+"name": "Vườn quốc gia Bạch Mã",
+"cat": "sight",
+"lat": 16.2,
+"lng": 107.855,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p14",
+"name": "Hải sản Lăng Cô",
+"cat": "food",
+"lat": 16.256,
+"lng": 108.06,
+"prov": "Huế",
+"main": null
+},
+{
+"id": "p15",
+"name": "Nhà hát Lớn Hải Phòng",
+"cat": "sight",
+"lat": 20.8574,
+"lng": 106.6835,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p16",
+"name": "Bến Bính & bờ sông Cấm",
+"cat": "check",
+"lat": 20.8687,
+"lng": 106.681,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p17",
+"name": "Bánh đa cua Hải Phòng",
+"cat": "food",
+"lat": 20.855,
+"lng": 106.68,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p18",
+"name": "Bánh mì que",
+"cat": "food",
+"lat": 20.862,
+"lng": 106.683,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p19",
+"name": "Nem cua bể & đồ biển",
+"cat": "food",
+"lat": 20.85,
+"lng": 106.695,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p20",
+"name": "Bãi biển Đồ Sơn",
+"cat": "check",
+"lat": 20.713,
+"lng": 106.787,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p21",
+"name": "Hải sản Đồ Sơn",
+"cat": "food",
+"lat": 20.718,
+"lng": 106.78,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p22",
+"name": "Vịnh Lan Hạ",
+"cat": "check",
+"lat": 20.76,
+"lng": 107.08,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p23",
+"name": "Vườn quốc gia Cát Bà",
+"cat": "sight",
+"lat": 20.8,
+"lng": 107.0,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p24",
+"name": "Bãi Cát Cò",
+"cat": "check",
+"lat": 20.718,
+"lng": 107.053,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p25",
+"name": "Pháo đài Thần Công",
+"cat": "sight",
+"lat": 20.722,
+"lng": 107.055,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p26",
+"name": "Hải sản chợ Cát Bà",
+"cat": "food",
+"lat": 20.7275,
+"lng": 107.0475,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p27",
+"name": "Côn Sơn – Kiếp Bạc",
+"cat": "sight",
+"lat": 21.144,
+"lng": 106.395,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p28",
+"name": "Bánh đậu xanh Hải Dương",
+"cat": "food",
+"lat": 20.94,
+"lng": 106.33,
+"prov": "Hải Phòng",
+"main": null
+},
+{
+"id": "p29",
+"name": "Cầu Rồng",
+"cat": "check",
+"lat": 16.0613,
+"lng": 108.227,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p30",
+"name": "Bãi biển Mỹ Khê",
+"cat": "check",
+"lat": 16.061,
+"lng": 108.247,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p31",
+"name": "Bán đảo Sơn Trà – chùa Linh Ứng",
+"cat": "sight",
+"lat": 16.1,
+"lng": 108.277,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p32",
+"name": "Ngũ Hành Sơn",
+"cat": "sight",
+"lat": 16.004,
+"lng": 108.264,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p33",
+"name": "Bà Nà Hills – Cầu Vàng",
+"cat": "sight",
+"lat": 15.995,
+"lng": 107.996,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p34",
+"name": "Cầu Tình Yêu & tượng Cá chép hóa rồng",
+"cat": "check",
+"lat": 16.063,
+"lng": 108.229,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p35",
+"name": "Mì Quảng",
+"cat": "food",
+"lat": 16.068,
+"lng": 108.218,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p36",
+"name": "Bún chả cá",
+"cat": "food",
+"lat": 16.071,
+"lng": 108.22,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p37",
+"name": "Bánh tráng cuốn thịt heo",
+"cat": "food",
+"lat": 16.065,
+"lng": 108.222,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p38",
+"name": "Hải sản bãi biển Mân Thái",
+"cat": "food",
+"lat": 16.088,
+"lng": 108.247,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p39",
+"name": "Chợ Hàn",
+"cat": "food",
+"lat": 16.0681,
+"lng": 108.2244,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p40",
+"name": "Phố cổ Hội An",
+"cat": "sight",
+"lat": 15.877,
+"lng": 108.327,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p41",
+"name": "Chùa Cầu",
+"cat": "check",
+"lat": 15.8771,
+"lng": 108.326,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p42",
+"name": "Thả đèn hoa đăng sông Hoài",
+"cat": "check",
+"lat": 15.876,
+"lng": 108.329,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p43",
+"name": "Biển An Bàng",
+"cat": "check",
+"lat": 15.913,
+"lng": 108.34,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p44",
+"name": "Rừng dừa Bảy Mẫu",
+"cat": "sight",
+"lat": 15.877,
+"lng": 108.356,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p45",
+"name": "Thánh địa Mỹ Sơn",
+"cat": "sight",
+"lat": 15.764,
+"lng": 108.124,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p46",
+"name": "Bánh mì Phượng",
+"cat": "food",
+"lat": 15.879,
+"lng": 108.331,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p47",
+"name": "Cao lầu",
+"cat": "food",
+"lat": 15.8775,
+"lng": 108.3275,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p48",
+"name": "Cơm gà Hội An",
+"cat": "food",
+"lat": 15.8785,
+"lng": 108.33,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p49",
+"name": "Nước mót và cà phê phố cổ",
+"cat": "food",
+"lat": 15.8771,
+"lng": 108.3285,
+"prov": "Đà Nẵng",
+"main": null
+},
+{
+"id": "p50",
+"name": "Dinh Độc Lập",
+"cat": "sight",
+"lat": 10.777,
+"lng": 106.6953,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p51",
+"name": "Nhà thờ Đức Bà & Bưu điện Thành phố",
+"cat": "sight",
+"lat": 10.7798,
+"lng": 106.699,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p52",
+"name": "Bảo tàng Chứng tích Chiến tranh",
+"cat": "sight",
+"lat": 10.7795,
+"lng": 106.6921,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p53",
+"name": "Phố đi bộ Nguyễn Huệ",
+"cat": "check",
+"lat": 10.774,
+"lng": 106.7038,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p54",
+"name": "Chung cư 42 Nguyễn Huệ",
+"cat": "check",
+"lat": 10.7737,
+"lng": 106.704,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p55",
+"name": "Công viên bờ sông Thủ Thiêm",
+"cat": "check",
+"lat": 10.7855,
+"lng": 106.712,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p56",
+"name": "Chợ Lớn – miếu Bà Thiên Hậu",
+"cat": "sight",
+"lat": 10.753,
+"lng": 106.661,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p57",
+"name": "Cơm tấm",
+"cat": "food",
+"lat": 10.783,
+"lng": 106.69,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p58",
+"name": "Phở Hòa Pasteur",
+"cat": "food",
+"lat": 10.7875,
+"lng": 106.689,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p59",
+"name": "Bánh mì Huỳnh Hoa",
+"cat": "food",
+"lat": 10.7715,
+"lng": 106.6923,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p60",
+"name": "Phố ốc Vĩnh Khánh",
+"cat": "food",
+"lat": 10.76,
+"lng": 106.703,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p61",
+"name": "Cà phê vợt Cheo Leo",
+"cat": "food",
+"lat": 10.7685,
+"lng": 106.6815,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p62",
+"name": "Chợ Bến Thành",
+"cat": "food",
+"lat": 10.7725,
+"lng": 106.698,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p63",
+"name": "Tượng Chúa Kitô Vua",
+"cat": "sight",
+"lat": 10.327,
+"lng": 107.085,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p64",
+"name": "Hải đăng Vũng Tàu",
+"cat": "check",
+"lat": 10.334,
+"lng": 107.077,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p65",
+"name": "Mũi Nghinh Phong",
+"cat": "check",
+"lat": 10.32,
+"lng": 107.083,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p66",
+"name": "Bãi Sau",
+"cat": "check",
+"lat": 10.348,
+"lng": 107.095,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p67",
+"name": "Bánh khọt Gốc Vú Sữa",
+"cat": "food",
+"lat": 10.355,
+"lng": 107.083,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p68",
+"name": "Hải sản chợ Xóm Lưới",
+"cat": "food",
+"lat": 10.352,
+"lng": 107.073,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p69",
+"name": "Di tích Nhà tù Côn Đảo",
+"cat": "sight",
+"lat": 8.683,
+"lng": 106.607,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p70",
+"name": "Nghĩa trang Hàng Dương",
+"cat": "sight",
+"lat": 8.68,
+"lng": 106.616,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p71",
+"name": "Cầu tàu 914",
+"cat": "check",
+"lat": 8.685,
+"lng": 106.605,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p72",
+"name": "Bãi Đầm Trầu",
+"cat": "check",
+"lat": 8.705,
+"lng": 106.63,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p73",
+"name": "Hải sản Côn Đảo",
+"cat": "food",
+"lat": 8.681,
+"lng": 106.609,
+"prov": "TP. Hồ Chí Minh",
+"main": null
+},
+{
+"id": "p74",
+"name": "Chợ nổi Cái Răng",
+"cat": "sight",
+"lat": 10.005,
+"lng": 105.746,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p75",
+"name": "Bến Ninh Kiều & cầu đi bộ",
+"cat": "check",
+"lat": 10.0335,
+"lng": 105.788,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p76",
+"name": "Nhà cổ Bình Thủy",
+"cat": "sight",
+"lat": 10.07,
+"lng": 105.748,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p77",
+"name": "Thiền viện Trúc Lâm Phương Nam",
+"cat": "sight",
+"lat": 9.98,
+"lng": 105.714,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p78",
+"name": "Hủ tiếu Cái Răng",
+"cat": "food",
+"lat": 10.008,
+"lng": 105.752,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p79",
+"name": "Lẩu mắm",
+"cat": "food",
+"lat": 10.032,
+"lng": 105.785,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p80",
+"name": "Chợ đêm Ninh Kiều",
+"cat": "food",
+"lat": 10.035,
+"lng": 105.787,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p81",
+"name": "Chùa Dơi",
+"cat": "sight",
+"lat": 9.588,
+"lng": 105.984,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p82",
+"name": "Chùa Kh'Leang",
+"cat": "sight",
+"lat": 9.606,
+"lng": 105.976,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p83",
+"name": "Bún nước lèo Sóc Trăng",
+"cat": "food",
+"lat": 9.602,
+"lng": 105.974,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p84",
+"name": "Bánh pía Sóc Trăng",
+"cat": "food",
+"lat": 9.655,
+"lng": 105.935,
+"prov": "Cần Thơ",
+"main": null
+},
+{
+"id": "p85",
+"name": "Thác Bản Giốc",
+"cat": "sight",
+"lat": 22.855,
+"lng": 106.724,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p86",
+"name": "Động Ngườm Ngao",
+"cat": "sight",
+"lat": 22.846,
+"lng": 106.705,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p87",
+"name": "Chùa Phật Tích Trúc Lâm Bản Giốc",
+"cat": "check",
+"lat": 22.857,
+"lng": 106.728,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p88",
+"name": "Hạt dẻ Trùng Khánh",
+"cat": "food",
+"lat": 22.833,
+"lng": 106.523,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p89",
+"name": "Khu di tích Pác Bó",
+"cat": "sight",
+"lat": 22.995,
+"lng": 106.05,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p90",
+"name": "Suối Lê Nin",
+"cat": "check",
+"lat": 22.994,
+"lng": 106.052,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p91",
+"name": "Bánh cuốn canh Cao Bằng",
+"cat": "food",
+"lat": 22.666,
+"lng": 106.258,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p92",
+"name": "Vịt quay 7 vị",
+"cat": "food",
+"lat": 22.665,
+"lng": 106.257,
+"prov": "Cao Bằng",
+"main": null
+},
+{
+"id": "p93",
+"name": "Đồi A1",
+"cat": "sight",
+"lat": 21.383,
+"lng": 103.023,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p94",
+"name": "Bảo tàng Chiến thắng Điện Biên Phủ",
+"cat": "sight",
+"lat": 21.384,
+"lng": 103.017,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p95",
+"name": "Hầm Đờ Cát",
+"cat": "sight",
+"lat": 21.38,
+"lng": 103.008,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p96",
+"name": "Tượng đài Chiến thắng Điện Biên Phủ",
+"cat": "check",
+"lat": 21.392,
+"lng": 103.023,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p97",
+"name": "Cánh đồng Mường Thanh",
+"cat": "check",
+"lat": 21.36,
+"lng": 103.0,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p98",
+"name": "Xôi nếp nương, cơm lam",
+"cat": "food",
+"lat": 21.387,
+"lng": 103.018,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p99",
+"name": "Ẩm thực Thái",
+"cat": "food",
+"lat": 21.389,
+"lng": 103.02,
+"prov": "Điện Biên",
+"main": null
+},
+{
+"id": "p100",
+"name": "Biển Thiên Cầm",
+"cat": "check",
+"lat": 18.27,
+"lng": 106.1,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p101",
+"name": "Khu di tích Ngã ba Đồng Lộc",
+"cat": "sight",
+"lat": 18.462,
+"lng": 105.582,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p102",
+"name": "Ram bánh mướt",
+"cat": "food",
+"lat": 18.343,
+"lng": 105.905,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p103",
+"name": "Kẹo cu đơ",
+"cat": "food",
+"lat": 18.342,
+"lng": 105.906,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p104",
+"name": "Hải sản Thiên Cầm",
+"cat": "food",
+"lat": 18.268,
+"lng": 106.098,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p105",
+"name": "Khu lưu niệm Nguyễn Du",
+"cat": "sight",
+"lat": 18.64,
+"lng": 105.76,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p106",
+"name": "Biển Xuân Thành",
+"cat": "check",
+"lat": 18.603,
+"lng": 105.812,
+"prov": "Hà Tĩnh",
+"main": null
+},
+{
+"id": "p107",
+"name": "Đèo Ô Quy Hồ",
+"cat": "check",
+"lat": 22.348,
+"lng": 103.765,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p108",
+"name": "Cao nguyên Sìn Hồ",
+"cat": "sight",
+"lat": 22.362,
+"lng": 103.237,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p109",
+"name": "Đồi chè Tân Uyên",
+"cat": "check",
+"lat": 22.17,
+"lng": 103.74,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p110",
+"name": "Động Pu Sam Cáp",
+"cat": "sight",
+"lat": 22.383,
+"lng": 103.462,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p111",
+"name": "Ẩm thực TP Lai Châu",
+"cat": "food",
+"lat": 22.396,
+"lng": 103.458,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p112",
+"name": "Cơm lam, thịt gác bếp",
+"cat": "food",
+"lat": 22.395,
+"lng": 103.46,
+"prov": "Lai Châu",
+"main": null
+},
+{
+"id": "p113",
+"name": "Động Tam Thanh",
+"cat": "sight",
+"lat": 21.853,
+"lng": 106.747,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p114",
+"name": "Thành nhà Mạc",
+"cat": "sight",
+"lat": 21.842,
+"lng": 106.746,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p115",
+"name": "Ải Chi Lăng",
+"cat": "sight",
+"lat": 21.674,
+"lng": 106.598,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p116",
+"name": "Vịt quay mắc mật",
+"cat": "food",
+"lat": 21.853,
+"lng": 106.76,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p117",
+"name": "Phở chua Lạng Sơn",
+"cat": "food",
+"lat": 21.849,
+"lng": 106.758,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p118",
+"name": "Chợ Đông Kinh",
+"cat": "food",
+"lat": 21.85,
+"lng": 106.759,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p119",
+"name": "Núi Mẫu Sơn",
+"cat": "check",
+"lat": 21.858,
+"lng": 107.012,
+"prov": "Lạng Sơn",
+"main": null
+},
+{
+"id": "p120",
+"name": "Biển Cửa Lò",
+"cat": "check",
+"lat": 18.818,
+"lng": 105.723,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p121",
+"name": "Đảo Lan Châu",
+"cat": "check",
+"lat": 18.834,
+"lng": 105.72,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p122",
+"name": "Quảng trường Hồ Chí Minh",
+"cat": "check",
+"lat": 18.67,
+"lng": 105.682,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p123",
+"name": "Súp lươn Vinh",
+"cat": "food",
+"lat": 18.673,
+"lng": 105.686,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p124",
+"name": "Hải sản Cửa Lò",
+"cat": "food",
+"lat": 18.815,
+"lng": 105.722,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p125",
+"name": "Khu di tích Kim Liên (Làng Sen)",
+"cat": "sight",
+"lat": 18.708,
+"lng": 105.553,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p126",
+"name": "Thác Khe Kèm",
+"cat": "sight",
+"lat": 18.978,
+"lng": 104.715,
+"prov": "Nghệ An",
+"main": null
+},
+{
+"id": "p127",
+"name": "Vịnh Hạ Long (cảng Tuần Châu)",
+"cat": "sight",
+"lat": 20.928,
+"lng": 106.994,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p128",
+"name": "Bãi Cháy",
+"cat": "check",
+"lat": 20.953,
+"lng": 107.045,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p129",
+"name": "Vòng quay Mặt Trời",
+"cat": "check",
+"lat": 20.956,
+"lng": 107.042,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p130",
+"name": "Bảo tàng Quảng Ninh",
+"cat": "check",
+"lat": 20.953,
+"lng": 107.096,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p131",
+"name": "Chả mực Hạ Long",
+"cat": "food",
+"lat": 20.951,
+"lng": 107.084,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p132",
+"name": "Hải sản Hòn Gai",
+"cat": "food",
+"lat": 20.95,
+"lng": 107.08,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p133",
+"name": "Yên Tử – chùa Đồng",
+"cat": "sight",
+"lat": 21.158,
+"lng": 106.716,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p134",
+"name": "Đảo Cô Tô – bãi Hồng Vàn",
+"cat": "check",
+"lat": 20.99,
+"lng": 107.762,
+"prov": "Quảng Ninh",
+"main": null
+},
+{
+"id": "p135",
+"name": "Biển Sầm Sơn",
+"cat": "check",
+"lat": 19.738,
+"lng": 105.904,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p136",
+"name": "Hòn Trống Mái",
+"cat": "check",
+"lat": 19.725,
+"lng": 105.898,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p137",
+"name": "Nem chua Thanh Hóa",
+"cat": "food",
+"lat": 19.808,
+"lng": 105.777,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p138",
+"name": "Bánh cuốn Thanh Hóa",
+"cat": "food",
+"lat": 19.807,
+"lng": 105.776,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p139",
+"name": "Hải sản Sầm Sơn",
+"cat": "food",
+"lat": 19.739,
+"lng": 105.903,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p140",
+"name": "Thành nhà Hồ",
+"cat": "sight",
+"lat": 20.079,
+"lng": 105.605,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p141",
+"name": "Pù Luông",
+"cat": "check",
+"lat": 20.43,
+"lng": 105.2,
+"prov": "Thanh Hóa",
+"main": null
+},
+{
+"id": "p142",
+"name": "Đồi chè trái tim",
+"cat": "check",
+"lat": 20.852,
+"lng": 104.69,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p143",
+"name": "Thác Dải Yếm",
+"cat": "check",
+"lat": 20.847,
+"lng": 104.623,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p144",
+"name": "Rừng thông Bản Áng",
+"cat": "check",
+"lat": 20.832,
+"lng": 104.685,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p145",
+"name": "Bê chao, sữa bò Mộc Châu",
+"cat": "food",
+"lat": 20.847,
+"lng": 104.642,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p146",
+"name": "Bảo tàng – Nhà tù Sơn La",
+"cat": "sight",
+"lat": 21.327,
+"lng": 103.913,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p147",
+"name": "Ẩm thực Tây Bắc",
+"cat": "food",
+"lat": 21.328,
+"lng": 103.91,
+"prov": "Sơn La",
+"main": null
+},
+{
+"id": "p148",
+"name": "Cột cờ Lũng Cú",
+"cat": "check",
+"lat": 23.364,
+"lng": 105.316,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p149",
+"name": "Đèo Mã Pì Lèng",
+"cat": "check",
+"lat": 23.233,
+"lng": 105.415,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p150",
+"name": "Phố cổ Đồng Văn",
+"cat": "sight",
+"lat": 23.278,
+"lng": 105.361,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p151",
+"name": "Dinh thự họ Vương",
+"cat": "sight",
+"lat": 23.2366,
+"lng": 105.2563,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p152",
+"name": "Sông Nho Quế",
+"cat": "check",
+"lat": 23.205,
+"lng": 105.418,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p153",
+"name": "Cột mốc 0 km TP Hà Giang",
+"cat": "check",
+"lat": 22.826,
+"lng": 104.983,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p154",
+"name": "Bánh cuốn trứng Hà Giang",
+"cat": "food",
+"lat": 22.826,
+"lng": 104.984,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p155",
+"name": "Thắng cố chợ phiên Đồng Văn",
+"cat": "food",
+"lat": 23.277,
+"lng": 105.362,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p156",
+"name": "Cháo ấu tẩu",
+"cat": "food",
+"lat": 22.825,
+"lng": 104.982,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p157",
+"name": "Khu di tích Tân Trào",
+"cat": "sight",
+"lat": 21.78,
+"lng": 105.43,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p158",
+"name": "Hồ Na Hang",
+"cat": "check",
+"lat": 22.35,
+"lng": 105.38,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p159",
+"name": "Cá bống sông Lô",
+"cat": "food",
+"lat": 21.817,
+"lng": 105.215,
+"prov": "Tuyên Quang",
+"main": null
+},
+{
+"id": "p160",
+"name": "Fansipan (cáp treo)",
+"cat": "sight",
+"lat": 22.332,
+"lng": 103.837,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p161",
+"name": "Bản Cát Cát",
+"cat": "sight",
+"lat": 22.326,
+"lng": 103.833,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p162",
+"name": "Nhà thờ đá Sa Pa",
+"cat": "check",
+"lat": 22.336,
+"lng": 103.843,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p163",
+"name": "Thung lũng Mường Hoa",
+"cat": "check",
+"lat": 22.302,
+"lng": 103.873,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p164",
+"name": "Chợ phiên Bắc Hà",
+"cat": "sight",
+"lat": 22.542,
+"lng": 104.29,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p165",
+"name": "Lẩu cá tầm",
+"cat": "food",
+"lat": 22.335,
+"lng": 103.842,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p166",
+"name": "Đồ nướng chợ đêm Sa Pa",
+"cat": "food",
+"lat": 22.337,
+"lng": 103.844,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p167",
+"name": "Cơm lam, lợn cắp nách",
+"cat": "food",
+"lat": 22.3365,
+"lng": 103.8435,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p168",
+"name": "Đồi Mâm Xôi",
+"cat": "check",
+"lat": 21.866,
+"lng": 104.075,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p169",
+"name": "Đèo Khau Phạ",
+"cat": "check",
+"lat": 21.76,
+"lng": 104.26,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p170",
+"name": "Xôi Tú Lệ, thịt trâu gác bếp",
+"cat": "food",
+"lat": 21.8,
+"lng": 104.3,
+"prov": "Lào Cai",
+"main": null
+},
+{
+"id": "p171",
+"name": "Hồ Ba Bể",
+"cat": "sight",
+"lat": 22.41,
+"lng": 105.62,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p172",
+"name": "Động Puông",
+"cat": "check",
+"lat": 22.451,
+"lng": 105.639,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p173",
+"name": "Thác Đầu Đẳng",
+"cat": "check",
+"lat": 22.462,
+"lng": 105.655,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p174",
+"name": "Cá nướng, vịt bầu Ba Bể",
+"cat": "food",
+"lat": 22.425,
+"lng": 105.616,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p175",
+"name": "Bảo tàng Văn hóa các dân tộc Việt Nam",
+"cat": "sight",
+"lat": 21.588,
+"lng": 105.837,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p176",
+"name": "Đồi chè Tân Cương",
+"cat": "check",
+"lat": 21.562,
+"lng": 105.76,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p177",
+"name": "Hồ Núi Cốc",
+"cat": "sight",
+"lat": 21.61,
+"lng": 105.72,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p178",
+"name": "Trà Tân Cương",
+"cat": "food",
+"lat": 21.59,
+"lng": 105.84,
+"prov": "Thái Nguyên",
+"main": null
+},
+{
+"id": "p179",
+"name": "Khu di tích Đền Hùng",
+"cat": "sight",
+"lat": 21.37,
+"lng": 105.324,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p180",
+"name": "Bánh tai, cơm nắm lá cọ",
+"cat": "food",
+"lat": 21.322,
+"lng": 105.402,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p181",
+"name": "Nhà thờ đá Tam Đảo",
+"cat": "check",
+"lat": 21.458,
+"lng": 105.644,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p182",
+"name": "Thác Bạc Tam Đảo",
+"cat": "check",
+"lat": 21.461,
+"lng": 105.648,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p183",
+"name": "Thiền viện Trúc Lâm Tây Thiên",
+"cat": "sight",
+"lat": 21.434,
+"lng": 105.6,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p184",
+"name": "Su su, gà đồi Tam Đảo",
+"cat": "food",
+"lat": 21.4575,
+"lng": 105.6435,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p185",
+"name": "Bản Lác",
+"cat": "check",
+"lat": 20.656,
+"lng": 105.079,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p186",
+"name": "Cơm lam, cá suối Mai Châu",
+"cat": "food",
+"lat": 20.657,
+"lng": 105.08,
+"prov": "Phú Thọ",
+"main": null
+},
+{
+"id": "p187",
+"name": "Chùa Dâu",
+"cat": "sight",
+"lat": 21.036,
+"lng": 106.042,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p188",
+"name": "Chùa Bút Tháp",
+"cat": "sight",
+"lat": 21.088,
+"lng": 106.07,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p189",
+"name": "Đền Đô",
+"cat": "sight",
+"lat": 21.117,
+"lng": 105.952,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p190",
+"name": "Làng tranh Đông Hồ",
+"cat": "check",
+"lat": 21.068,
+"lng": 106.088,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p191",
+"name": "Bánh phu thê Đình Bảng",
+"cat": "food",
+"lat": 21.11,
+"lng": 105.948,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p192",
+"name": "Bún, bánh tẻ Kinh Bắc",
+"cat": "food",
+"lat": 21.186,
+"lng": 106.076,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p193",
+"name": "Chùa Vĩnh Nghiêm",
+"cat": "sight",
+"lat": 21.21,
+"lng": 106.3,
+"prov": "Bắc Ninh",
+"main": null
+},
+{
+"id": "p194",
+"name": "Văn Miếu Xích Đằng",
+"cat": "sight",
+"lat": 20.657,
+"lng": 106.058,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p195",
+"name": "Đền Mẫu Hưng Yên",
+"cat": "sight",
+"lat": 20.645,
+"lng": 106.061,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p196",
+"name": "Gà Đông Tảo",
+"cat": "food",
+"lat": 20.85,
+"lng": 105.97,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p197",
+"name": "Tương Bần",
+"cat": "food",
+"lat": 20.93,
+"lng": 106.05,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p198",
+"name": "Chùa Keo",
+"cat": "sight",
+"lat": 20.4,
+"lng": 106.33,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p199",
+"name": "Biển Đồng Châu",
+"cat": "check",
+"lat": 20.41,
+"lng": 106.58,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p200",
+"name": "Bánh cáy Thái Bình",
+"cat": "food",
+"lat": 20.446,
+"lng": 106.342,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p201",
+"name": "Canh cá Quỳnh Côi",
+"cat": "food",
+"lat": 20.65,
+"lng": 106.33,
+"prov": "Hưng Yên",
+"main": null
+},
+{
+"id": "p202",
+"name": "Tràng An",
+"cat": "sight",
+"lat": 20.255,
+"lng": 105.915,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p203",
+"name": "Tam Cốc – Bích Động",
+"cat": "sight",
+"lat": 20.216,
+"lng": 105.938,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p204",
+"name": "Hang Múa",
+"cat": "check",
+"lat": 20.229,
+"lng": 105.936,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p205",
+"name": "Chùa Bái Đính",
+"cat": "sight",
+"lat": 20.275,
+"lng": 105.864,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p206",
+"name": "Cố đô Hoa Lư",
+"cat": "sight",
+"lat": 20.286,
+"lng": 105.906,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p207",
+"name": "Dê núi, cơm cháy",
+"cat": "food",
+"lat": 20.253,
+"lng": 105.975,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p208",
+"name": "Đền Trần",
+"cat": "sight",
+"lat": 20.437,
+"lng": 106.177,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p209",
+"name": "Phở bò Nam Định",
+"cat": "food",
+"lat": 20.431,
+"lng": 106.177,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p210",
+"name": "Nhà thờ đổ Hải Lý",
+"cat": "check",
+"lat": 20.126,
+"lng": 106.308,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p211",
+"name": "Chùa Tam Chúc",
+"cat": "sight",
+"lat": 20.54,
+"lng": 105.845,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p212",
+"name": "Cá kho làng Vũ Đại",
+"cat": "food",
+"lat": 20.605,
+"lng": 106.05,
+"prov": "Ninh Bình",
+"main": null
+},
+{
+"id": "p213",
+"name": "Động Phong Nha",
+"cat": "sight",
+"lat": 17.581,
+"lng": 106.283,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p214",
+"name": "Động Thiên Đường",
+"cat": "sight",
+"lat": 17.518,
+"lng": 106.222,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p215",
+"name": "Biển Nhật Lệ",
+"cat": "check",
+"lat": 17.48,
+"lng": 106.62,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p216",
+"name": "Mộ Đại tướng Võ Nguyên Giáp",
+"cat": "sight",
+"lat": 17.883,
+"lng": 106.44,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p217",
+"name": "Cháo canh Quảng Bình",
+"cat": "food",
+"lat": 17.47,
+"lng": 106.6,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p218",
+"name": "Hải sản Nhật Lệ",
+"cat": "food",
+"lat": 17.479,
+"lng": 106.618,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p219",
+"name": "Thành cổ Quảng Trị",
+"cat": "sight",
+"lat": 16.755,
+"lng": 107.188,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p220",
+"name": "Địa đạo Vịnh Mốc",
+"cat": "sight",
+"lat": 17.07,
+"lng": 107.11,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p221",
+"name": "Cầu Hiền Lương – sông Bến Hải",
+"cat": "sight",
+"lat": 17.001,
+"lng": 107.051,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p222",
+"name": "Cháo bột cá lóc",
+"cat": "food",
+"lat": 16.816,
+"lng": 107.1,
+"prov": "Quảng Trị",
+"main": null
+},
+{
+"id": "p223",
+"name": "Cổng Tò Vò",
+"cat": "check",
+"lat": 15.387,
+"lng": 109.108,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p224",
+"name": "Đỉnh Thới Lới",
+"cat": "check",
+"lat": 15.388,
+"lng": 109.117,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p225",
+"name": "Đảo Bé",
+"cat": "check",
+"lat": 15.422,
+"lng": 109.088,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p226",
+"name": "Gỏi tỏi, ốc Lý Sơn",
+"cat": "food",
+"lat": 15.378,
+"lng": 109.122,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p227",
+"name": "Khu chứng tích Sơn Mỹ",
+"cat": "sight",
+"lat": 15.178,
+"lng": 108.87,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p228",
+"name": "Cá bống sông Trà",
+"cat": "food",
+"lat": 15.121,
+"lng": 108.804,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p229",
+"name": "Hồ Đăk Ke",
+"cat": "check",
+"lat": 14.6,
+"lng": 108.29,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p230",
+"name": "Rừng thông Măng Đen",
+"cat": "check",
+"lat": 14.605,
+"lng": 108.27,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p231",
+"name": "Nhà thờ gỗ Kon Tum",
+"cat": "sight",
+"lat": 14.347,
+"lng": 108.007,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p232",
+"name": "Gỏi lá Kon Tum",
+"cat": "food",
+"lat": 14.351,
+"lng": 108.005,
+"prov": "Quảng Ngãi",
+"main": null
+},
+{
+"id": "p233",
+"name": "Eo Gió",
+"cat": "check",
+"lat": 13.884,
+"lng": 109.295,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p234",
+"name": "Kỳ Co",
+"cat": "check",
+"lat": 13.827,
+"lng": 109.29,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p235",
+"name": "Tháp Đôi",
+"cat": "sight",
+"lat": 13.788,
+"lng": 109.214,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p236",
+"name": "Ghềnh Ráng Tiên Sa",
+"cat": "check",
+"lat": 13.747,
+"lng": 109.219,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p237",
+"name": "Bảo tàng Quang Trung",
+"cat": "sight",
+"lat": 13.937,
+"lng": 108.9,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p238",
+"name": "Bánh xèo tôm nhảy",
+"cat": "food",
+"lat": 13.772,
+"lng": 109.225,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p239",
+"name": "Hải sản Quy Nhơn",
+"cat": "food",
+"lat": 13.764,
+"lng": 109.227,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p240",
+"name": "Biển Hồ (hồ T'Nưng)",
+"cat": "check",
+"lat": 14.05,
+"lng": 108.0,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p241",
+"name": "Đồi chè Biển Hồ",
+"cat": "check",
+"lat": 14.07,
+"lng": 107.986,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p242",
+"name": "Phở khô Gia Lai",
+"cat": "food",
+"lat": 13.979,
+"lng": 108.002,
+"prov": "Gia Lai",
+"main": null
+},
+{
+"id": "p243",
+"name": "Tháp Bà Ponagar",
+"cat": "sight",
+"lat": 12.265,
+"lng": 109.195,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p244",
+"name": "Hòn Chồng",
+"cat": "check",
+"lat": 12.273,
+"lng": 109.205,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p245",
+"name": "Viện Hải dương học",
+"cat": "sight",
+"lat": 12.205,
+"lng": 109.215,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p246",
+"name": "Bãi Dài Cam Ranh",
+"cat": "check",
+"lat": 12.04,
+"lng": 109.19,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p247",
+"name": "Bún chả cá Nha Trang",
+"cat": "food",
+"lat": 12.246,
+"lng": 109.192,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p248",
+"name": "Nem nướng Ninh Hòa",
+"cat": "food",
+"lat": 12.243,
+"lng": 109.19,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p249",
+"name": "Chợ Đầm Nha Trang",
+"cat": "food",
+"lat": 12.253,
+"lng": 109.192,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p250",
+"name": "Vịnh Vĩnh Hy",
+"cat": "check",
+"lat": 11.723,
+"lng": 109.196,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p251",
+"name": "Hang Rái",
+"cat": "check",
+"lat": 11.683,
+"lng": 109.183,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p252",
+"name": "Tháp Po Klong Garai",
+"cat": "sight",
+"lat": 11.602,
+"lng": 108.944,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p253",
+"name": "Đồi cát Nam Cương",
+"cat": "check",
+"lat": 11.556,
+"lng": 108.962,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p254",
+"name": "Bánh căn Phan Rang",
+"cat": "food",
+"lat": 11.567,
+"lng": 108.988,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p255",
+"name": "Nho, táo Ninh Thuận",
+"cat": "food",
+"lat": 11.58,
+"lng": 108.96,
+"prov": "Khánh Hòa",
+"main": null
+},
+{
+"id": "p256",
+"name": "Hồ Xuân Hương",
+"cat": "check",
+"lat": 11.941,
+"lng": 108.446,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p257",
+"name": "Ga Đà Lạt",
+"cat": "sight",
+"lat": 11.942,
+"lng": 108.455,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p258",
+"name": "Quảng trường Lâm Viên",
+"cat": "check",
+"lat": 11.937,
+"lng": 108.445,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p259",
+"name": "Thiền viện Trúc Lâm Đà Lạt",
+"cat": "sight",
+"lat": 11.902,
+"lng": 108.435,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p260",
+"name": "Dinh Bảo Đại (Dinh III)",
+"cat": "sight",
+"lat": 11.934,
+"lng": 108.43,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p261",
+"name": "Đồi chè Cầu Đất",
+"cat": "check",
+"lat": 11.836,
+"lng": 108.556,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p262",
+"name": "Thung lũng Tình Yêu",
+"cat": "check",
+"lat": 11.976,
+"lng": 108.45,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p263",
+"name": "Bánh căn Đà Lạt",
+"cat": "food",
+"lat": 11.944,
+"lng": 108.44,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p264",
+"name": "Lẩu gà lá é",
+"cat": "food",
+"lat": 11.948,
+"lng": 108.442,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p265",
+"name": "Chợ đêm Đà Lạt",
+"cat": "food",
+"lat": 11.943,
+"lng": 108.437,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p266",
+"name": "Cà phê ngắm đồi thông",
+"cat": "food",
+"lat": 11.965,
+"lng": 108.452,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p267",
+"name": "Đồi cát đỏ Mũi Né",
+"cat": "check",
+"lat": 10.946,
+"lng": 108.284,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p268",
+"name": "Đồi cát trắng Bàu Trắng",
+"cat": "check",
+"lat": 11.057,
+"lng": 108.414,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p269",
+"name": "Suối Tiên Mũi Né",
+"cat": "check",
+"lat": 10.95,
+"lng": 108.25,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p270",
+"name": "Làng chài Mũi Né",
+"cat": "check",
+"lat": 10.931,
+"lng": 108.297,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p271",
+"name": "Tháp Chăm Pô Sah Inư",
+"cat": "sight",
+"lat": 10.933,
+"lng": 108.156,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p272",
+"name": "Hải sản làng chài Mũi Né",
+"cat": "food",
+"lat": 10.932,
+"lng": 108.295,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p273",
+"name": "Bánh căn, bánh xèo Phan Thiết",
+"cat": "food",
+"lat": 10.928,
+"lng": 108.102,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p274",
+"name": "Hồ Tà Đùng",
+"cat": "check",
+"lat": 11.88,
+"lng": 107.99,
+"prov": "Lâm Đồng",
+"main": null
+},
+{
+"id": "p275",
+"name": "Bảo tàng Thế giới Cà phê",
+"cat": "sight",
+"lat": 12.693,
+"lng": 108.051,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p276",
+"name": "Buôn Đôn",
+"cat": "sight",
+"lat": 12.896,
+"lng": 107.782,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p277",
+"name": "Hồ Lắk",
+"cat": "check",
+"lat": 12.417,
+"lng": 108.184,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p278",
+"name": "Cà phê Buôn Ma Thuột",
+"cat": "food",
+"lat": 12.68,
+"lng": 108.04,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p279",
+"name": "Gà nướng, bún đỏ",
+"cat": "food",
+"lat": 12.681,
+"lng": 108.038,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p280",
+"name": "Gành Đá Đĩa",
+"cat": "check",
+"lat": 13.35,
+"lng": 109.293,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p281",
+"name": "Mũi Điện (Đại Lãnh)",
+"cat": "check",
+"lat": 12.897,
+"lng": 109.456,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p282",
+"name": "Bãi Xép",
+"cat": "check",
+"lat": 13.2,
+"lng": 109.3,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p283",
+"name": "Bánh hỏi lòng heo, mắt cá ngừ",
+"cat": "food",
+"lat": 13.088,
+"lng": 109.3,
+"prov": "Đắk Lắk",
+"main": null
+},
+{
+"id": "p284",
+"name": "Văn miếu Trấn Biên",
+"cat": "sight",
+"lat": 10.953,
+"lng": 106.807,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p285",
+"name": "Khu du lịch Bửu Long",
+"cat": "check",
+"lat": 10.969,
+"lng": 106.792,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p286",
+"name": "Hồ Trị An",
+"cat": "check",
+"lat": 11.108,
+"lng": 107.035,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p287",
+"name": "Bưởi Tân Triều, gỏi cá",
+"cat": "food",
+"lat": 10.979,
+"lng": 106.86,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p288",
+"name": "Vườn quốc gia Nam Cát Tiên",
+"cat": "sight",
+"lat": 11.423,
+"lng": 107.425,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p289",
+"name": "Vườn quốc gia Bù Gia Mập",
+"cat": "sight",
+"lat": 12.17,
+"lng": 107.18,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p290",
+"name": "Hạt điều Bình Phước",
+"cat": "food",
+"lat": 11.537,
+"lng": 106.89,
+"prov": "Đồng Nai",
+"main": null
+},
+{
+"id": "p291",
+"name": "Núi Bà Đen",
+"cat": "sight",
+"lat": 11.37,
+"lng": 106.172,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p292",
+"name": "Tòa Thánh Cao Đài",
+"cat": "sight",
+"lat": 11.302,
+"lng": 106.135,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p293",
+"name": "Hồ Dầu Tiếng",
+"cat": "check",
+"lat": 11.35,
+"lng": 106.33,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p294",
+"name": "Bánh tráng phơi sương Trảng Bàng",
+"cat": "food",
+"lat": 11.027,
+"lng": 106.357,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p295",
+"name": "Bánh canh Trảng Bàng",
+"cat": "food",
+"lat": 11.03,
+"lng": 106.356,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p296",
+"name": "Khu bảo tồn Láng Sen",
+"cat": "sight",
+"lat": 10.755,
+"lng": 105.76,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p297",
+"name": "Lạp xưởng Cần Đước",
+"cat": "food",
+"lat": 10.51,
+"lng": 106.6,
+"prov": "Tây Ninh",
+"main": null
+},
+{
+"id": "p298",
+"name": "Cồn Phụng",
+"cat": "sight",
+"lat": 10.32,
+"lng": 106.36,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p299",
+"name": "Kẹo dừa Bến Tre",
+"cat": "food",
+"lat": 10.241,
+"lng": 106.375,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p300",
+"name": "Ẩm thực miệt vườn Bến Tre",
+"cat": "food",
+"lat": 10.242,
+"lng": 106.374,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p301",
+"name": "Văn Thánh Miếu Vĩnh Long",
+"cat": "sight",
+"lat": 10.246,
+"lng": 105.972,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p302",
+"name": "Cù lao An Bình",
+"cat": "check",
+"lat": 10.27,
+"lng": 105.97,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p303",
+"name": "Cá tai tượng chiên xù",
+"cat": "food",
+"lat": 10.27,
+"lng": 105.965,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p304",
+"name": "Ao Bà Om",
+"cat": "sight",
+"lat": 9.916,
+"lng": 106.314,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p305",
+"name": "Chùa Âng",
+"cat": "sight",
+"lat": 9.918,
+"lng": 106.315,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p306",
+"name": "Bún nước lèo Trà Vinh",
+"cat": "food",
+"lat": 9.935,
+"lng": 106.34,
+"prov": "Vĩnh Long",
+"main": null
+},
+{
+"id": "p307",
+"name": "Vườn quốc gia Tràm Chim",
+"cat": "sight",
+"lat": 10.706,
+"lng": 105.528,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p308",
+"name": "Làng hoa Sa Đéc",
+"cat": "check",
+"lat": 10.307,
+"lng": 105.76,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p309",
+"name": "Nhà cổ Huỳnh Thủy Lê",
+"cat": "sight",
+"lat": 10.293,
+"lng": 105.764,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p310",
+"name": "Hủ tiếu Sa Đéc",
+"cat": "food",
+"lat": 10.295,
+"lng": 105.76,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p311",
+"name": "Đồng sen Tháp Mười",
+"cat": "check",
+"lat": 10.55,
+"lng": 105.84,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p312",
+"name": "Chùa Vĩnh Tràng",
+"cat": "sight",
+"lat": 10.359,
+"lng": 106.38,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p313",
+"name": "Cù lao Thới Sơn",
+"cat": "check",
+"lat": 10.34,
+"lng": 106.36,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p314",
+"name": "Hủ tiếu Mỹ Tho",
+"cat": "food",
+"lat": 10.36,
+"lng": 106.36,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p315",
+"name": "Chợ nổi Cái Bè",
+"cat": "food",
+"lat": 10.336,
+"lng": 106.033,
+"prov": "Đồng Tháp",
+"main": null
+},
+{
+"id": "p316",
+"name": "Đất Mũi Cà Mau",
+"cat": "sight",
+"lat": 8.6,
+"lng": 104.72,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p317",
+"name": "Vườn quốc gia U Minh Hạ",
+"cat": "sight",
+"lat": 9.23,
+"lng": 104.92,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p318",
+"name": "Cua Cà Mau, ba khía",
+"cat": "food",
+"lat": 9.177,
+"lng": 105.15,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p319",
+"name": "Nhà Công tử Bạc Liêu",
+"cat": "sight",
+"lat": 9.285,
+"lng": 105.726,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p320",
+"name": "Cánh đồng điện gió",
+"cat": "check",
+"lat": 9.235,
+"lng": 105.8,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p321",
+"name": "Quán âm Phật Đài (Mẹ Nam Hải)",
+"cat": "sight",
+"lat": 9.237,
+"lng": 105.78,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p322",
+"name": "Bún bò cay Bạc Liêu",
+"cat": "food",
+"lat": 9.284,
+"lng": 105.725,
+"prov": "Cà Mau",
+"main": null
+},
+{
+"id": "p323",
+"name": "Bãi Sao",
+"cat": "check",
+"lat": 10.057,
+"lng": 104.036,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p324",
+"name": "Dinh Cậu",
+"cat": "check",
+"lat": 10.217,
+"lng": 103.957,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p325",
+"name": "Nhà tù Phú Quốc",
+"cat": "sight",
+"lat": 10.04,
+"lng": 104.017,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p326",
+"name": "Cáp treo Hòn Thơm",
+"cat": "sight",
+"lat": 9.975,
+"lng": 104.016,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p327",
+"name": "Chợ đêm Phú Quốc",
+"cat": "food",
+"lat": 10.219,
+"lng": 103.96,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p328",
+"name": "Bún quậy Kiến Xây",
+"cat": "food",
+"lat": 10.217,
+"lng": 103.963,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p329",
+"name": "Gỏi cá trích Hàm Ninh",
+"cat": "food",
+"lat": 10.18,
+"lng": 104.05,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p330",
+"name": "Miếu Bà Chúa Xứ núi Sam",
+"cat": "sight",
+"lat": 10.677,
+"lng": 105.08,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p331",
+"name": "Núi Cấm",
+"cat": "sight",
+"lat": 10.504,
+"lng": 104.994,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p332",
+"name": "Rừng tràm Trà Sư",
+"cat": "check",
+"lat": 10.58,
+"lng": 105.048,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p333",
+"name": "Bún cá Châu Đốc",
+"cat": "food",
+"lat": 10.705,
+"lng": 105.118,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p334",
+"name": "Mắm Châu Đốc",
+"cat": "food",
+"lat": 10.706,
+"lng": 105.12,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p335",
+"name": "Thạch Động",
+"cat": "check",
+"lat": 10.406,
+"lng": 104.458,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p336",
+"name": "Mũi Nai",
+"cat": "check",
+"lat": 10.388,
+"lng": 104.443,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "p337",
+"name": "Hải sản Hà Tiên",
+"cat": "food",
+"lat": 10.383,
+"lng": 104.488,
+"prov": "An Giang",
+"main": null
+},
+{
+"id": "f1",
+"name": "Phở Bát Đàn",
+"cat": "food",
+"lat": 21.0335,
+"lng": 105.8466,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f2",
+"name": "Bún chả Hương Liên",
+"cat": "food",
+"lat": 21.0181,
+"lng": 105.8536,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f3",
+"name": "Chả cá Lã Vọng",
+"cat": "food",
+"lat": 21.0365,
+"lng": 105.8489,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f4",
+"name": "Cà phê Giảng",
+"cat": "food",
+"lat": 21.0338,
+"lng": 105.8541,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f5",
+"name": "Bánh mì 25",
+"cat": "food",
+"lat": 21.0369,
+"lng": 105.8482,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f6",
+"name": "Kem Tràng Tiền",
+"cat": "food",
+"lat": 21.0249,
+"lng": 105.8547,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f7",
+"name": "Xôi Yến",
+"cat": "food",
+"lat": 21.0329,
+"lng": 105.8543,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f8",
+"name": "Bún bò Nam Bộ Hàng Điếu",
+"cat": "food",
+"lat": 21.0326,
+"lng": 105.847,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f9",
+"name": "Phở cuốn Ngũ Xã",
+"cat": "food",
+"lat": 21.0465,
+"lng": 105.8412,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f10",
+"name": "Phố bánh cốm Hàng Than",
+"cat": "food",
+"lat": 21.043,
+"lng": 105.8452,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f11",
+"name": "Bánh tôm Hồ Tây",
+"cat": "food",
+"lat": 21.047,
+"lng": 105.8392,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f12",
+"name": "Phở 10 Lý Quốc Sư",
+"cat": "food",
+"lat": 21.0306,
+"lng": 105.8488,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "f13",
+"name": "Cà phê Đinh",
+"cat": "food",
+"lat": 21.0331,
+"lng": 105.8531,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s1",
+"name": "Hồ Hoàn Kiếm & Đền Ngọc Sơn",
+"cat": "sight",
+"lat": 21.0307,
+"lng": 105.8524,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s2",
+"name": "Văn Miếu – Quốc Tử Giám",
+"cat": "sight",
+"lat": 21.0283,
+"lng": 105.8355,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s3",
+"name": "Lăng Chủ tịch Hồ Chí Minh",
+"cat": "sight",
+"lat": 21.0368,
+"lng": 105.8347,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s4",
+"name": "Hoàng thành Thăng Long",
+"cat": "sight",
+"lat": 21.0343,
+"lng": 105.8402,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s5",
+"name": "Di tích Nhà tù Hỏa Lò",
+"cat": "sight",
+"lat": 21.0253,
+"lng": 105.8466,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s6",
+"name": "Bảo tàng Dân tộc học Việt Nam",
+"cat": "sight",
+"lat": 21.0405,
+"lng": 105.7986,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s7",
+"name": "Chùa Trấn Quốc",
+"cat": "sight",
+"lat": 21.0479,
+"lng": 105.8368,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s8",
+"name": "Phố cổ & phố đi bộ Hồ Gươm",
+"cat": "sight",
+"lat": 21.035,
+"lng": 105.8512,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "s9",
+"name": "Nhà hát Lớn Hà Nội",
+"cat": "sight",
+"lat": 21.0243,
+"lng": 105.8575,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c1",
+"name": "Phố đường tàu",
+"cat": "check",
+"lat": 21.0298,
+"lng": 105.8423,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c2",
+"name": "Cầu Long Biên",
+"cat": "check",
+"lat": 21.0434,
+"lng": 105.859,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c3",
+"name": "Nhà thờ Lớn Hà Nội",
+"cat": "check",
+"lat": 21.0287,
+"lng": 105.849,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c4",
+"name": "Phố bích họa Phùng Hưng",
+"cat": "check",
+"lat": 21.0362,
+"lng": 105.8458,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c5",
+"name": "Cột cờ Hà Nội",
+"cat": "check",
+"lat": 21.0324,
+"lng": 105.8397,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c6",
+"name": "Phố Nguyễn Du mùa hoa sữa",
+"cat": "check",
+"lat": 21.0193,
+"lng": 105.847,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "c7",
+"name": "Hoàng hôn Hồ Tây",
+"cat": "check",
+"lat": 21.046,
+"lng": 105.8372,
+"prov": "Hà Nội",
+"main": null
+},
+{
+"id": "i:bangkok-1",
+"name": "Cung điện Hoàng gia & chùa Phật Ngọc",
+"cat": "sight",
+"lat": 13.7501,
+"lng": 100.492,
+"wiki": "Grand Palace",
+"main": "https://commons.wikimedia.org/wiki/File:0005574_-_Wat_Phra_Kaew_006.jpg"
+},
+{
+"id": "i:bangkok-2",
+"name": "Chùa Phật Nằm (Wat Pho)",
+"cat": "sight",
+"lat": 13.74639,
+"lng": 100.49361,
+"wiki": "Wat Pho",
+"main": "https://commons.wikimedia.org/wiki/File:%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9E%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%84%E0%B8%AA%E0%B8%A2%E0%B8%B2%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%8A%E0%B8%95%E0%B8%B8%E0%B8%9E%E0%B8%99.jpg"
+},
+{
+"id": "i:bangkok-3",
+"name": "Chùa Bình Minh (Wat Arun)",
+"cat": "check",
+"lat": 13.74361,
+"lng": 100.48889,
+"wiki": "Wat Arun",
+"main": "https://commons.wikimedia.org/wiki/File:%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg"
+},
+{
+"id": "i:bangkok-4",
+"name": "Phố người Hoa Yaowarat",
+"cat": "food",
+"lat": 13.74114,
+"lng": 100.5083,
+"wiki": "Yaowarat Road",
+"main": "https://commons.wikimedia.org/wiki/File:(2022)_%E0%B8%95%E0%B8%B6%E0%B8%81%E0%B9%81%E0%B8%96%E0%B8%A7%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%96%E0%B8%99%E0%B8%99%E0%B9%80%E0%B8%A2%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B2%E0%B8%8A_%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%AA%E0%B8%B1%E0%B8%A1%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B8%98%E0%B8%A7%E0%B8%87%E0%B8%A8%E0%B9%8C_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_(4).jpg"
+},
+{
+"id": "i:bangkok-5",
+"name": "Chợ cuối tuần Chatuchak",
+"cat": "food",
+"lat": 13.80083,
+"lng": 100.55139,
+"wiki": "Chatuchak Weekend Market",
+"main": "https://commons.wikimedia.org/wiki/File:Bangkok_-_Jatujak_Market_02.JPG"
+},
+{
+"id": "i:bangkok-6",
+"name": "ICONSIAM",
+"cat": "check",
+"lat": 13.72669,
+"lng": 100.5105,
+"wiki": "Icon Siam",
+"main": "https://commons.wikimedia.org/wiki/File:Magnolias_Waterfront_Residences_Iconsiam.jpg"
+},
+{
+"id": "i:bangkok-7",
+"name": "Asiatique The Riverfront",
+"cat": "check",
+"lat": 13.706,
+"lng": 100.5047,
+"wiki": "Asiatique The Riverfront",
+"main": "https://commons.wikimedia.org/wiki/File:Asiatique_(II).jpg"
+},
+{
+"id": "i:bangkok-8",
+"name": "Đài quan sát Mahanakhon SkyWalk",
+"cat": "check",
+"lat": 13.72361,
+"lng": 100.52833,
+"wiki": "King Power MahaNakhon",
+"main": "https://commons.wikimedia.org/wiki/File:King_Power_Mahanakhon_Logo.jpg"
+},
+{
+"id": "i:bangkok-9",
+"name": "Nhà Jim Thompson",
+"cat": "sight",
+"lat": 13.74917,
+"lng": 100.52833,
+"wiki": "Jim Thompson House",
+"main": "https://commons.wikimedia.org/wiki/File:Main_House_of_Jim_Thompson_photo_Don_Ramey_Logan.jpg"
+},
+{
+"id": "i:bangkok-10",
+"name": "Safari World",
+"cat": "sight",
+"lat": 13.865,
+"lng": 100.703,
+"wiki": "Safari World",
+"main": "https://commons.wikimedia.org/wiki/File:Before_the_Show_-_panoramio.jpg"
+},
+{
+"id": "i:bangkok-11",
+"name": "Chợ nổi Damnoen Saduak",
+"cat": "food",
+"lat": 13.5193,
+"lng": 99.9592,
+"wiki": "Damnoen Saduak Floating Market",
+"main": "https://commons.wikimedia.org/wiki/File:Understanding_the_%22floating_market%22_(15801439261).jpg"
+},
+{
+"id": "i:pattaya-1",
+"name": "Đền Chân Lý",
+"cat": "sight",
+"lat": 12.97278,
+"lng": 100.88889,
+"wiki": "Sanctuary of Truth",
+"main": "https://commons.wikimedia.org/wiki/File:Santuaryoftruth2.jpg"
+},
+{
+"id": "i:pattaya-2",
+"name": "Vườn nhiệt đới Nong Nooch",
+"cat": "check",
+"lat": 12.76472,
+"lng": 100.93583,
+"wiki": "Nong Nooch Tropical Botanical Garden",
+"main": "https://commons.wikimedia.org/wiki/File:Nong_Noogh_Garden(1).jpg"
+},
+{
+"id": "i:pattaya-3",
+"name": "Đảo Coral (Koh Larn)",
+"cat": "check",
+"lat": 12.91583,
+"lng": 100.7775,
+"wiki": "Ko Lan",
+"main": null
+},
+{
+"id": "i:pattaya-4",
+"name": "Phố đi bộ Walking Street",
+"cat": "food",
+"lat": 12.92545,
+"lng": 100.87122,
+"wiki": "Walking Street, Pattaya",
+"main": "https://commons.wikimedia.org/wiki/File:Pattaya,_Walking_Street_at_night,_Thailand.jpg"
+},
+{
+"id": "i:pattaya-5",
+"name": "Núi Phật vàng Khao Chi Chan",
+"cat": "check",
+"lat": 12.76444,
+"lng": 100.95583,
+"wiki": "Khao Chi Chan",
+"main": "https://commons.wikimedia.org/wiki/File:Khao_Chi_Chan_in_Amphoe_Sattahip.jpg"
+},
+{
+"id": "i:pattaya-6",
+"name": "Tiffany's Show",
+"cat": "sight",
+"lat": 12.9477,
+"lng": 100.888,
+"wiki": "Tiffany's Show",
+"main": null
+},
+{
+"id": "i:pattaya-7",
+"name": "Chợ nổi Pattaya",
+"cat": "food",
+"lat": 12.8676,
+"lng": 100.9046,
+"wiki": "Pattaya Floating Market",
+"main": "https://commons.wikimedia.org/wiki/File:Pattaya_Floating_Market.JPG"
+},
+{
+"id": "i:pattaya-8",
+"name": "Bãi biển Jomtien",
+"cat": "check",
+"lat": 12.89583,
+"lng": 100.87306,
+"wiki": "Jomtien Beach",
+"main": "https://commons.wikimedia.org/wiki/File:Jomtien_Beach_and_The_Gulf_of_Thailand_by_Don_Ramey_Logan.jpg"
+},
+{
+"id": "i:phuket-1",
+"name": "Tượng Phật lớn Phuket",
+"cat": "check",
+"lat": 7.8276,
+"lng": 98.31285,
+"wiki": "Phuket Big Buddha",
+"main": "https://commons.wikimedia.org/wiki/File:The_Big_Buddha,_Phuket.jpg"
+},
+{
+"id": "i:phuket-2",
+"name": "Quần đảo Phi Phi",
+"cat": "sight",
+"lat": 7.73333,
+"lng": 98.76667,
+"wiki": "Phi Phi Islands",
+"main": "https://commons.wikimedia.org/wiki/File:KohPhiPhi.JPG"
+},
+{
+"id": "i:phuket-3",
+"name": "Vịnh Phang Nga",
+"cat": "sight",
+"lat": 8.28333,
+"lng": 98.6,
+"wiki": "Phang Nga Bay",
+"main": "https://commons.wikimedia.org/wiki/File:Dramatic_karst_landscape_of_Phang_Nga_Bay,_Thailand.jpg"
+},
+{
+"id": "i:phuket-4",
+"name": "Bãi biển Patong",
+"cat": "check",
+"lat": 7.89306,
+"lng": 98.29833,
+"wiki": "Patong",
+"main": "https://commons.wikimedia.org/wiki/File:Patong_Beach.jpg"
+},
+{
+"id": "i:phuket-5",
+"name": "Phố Bangla",
+"cat": "food",
+"lat": 7.8934,
+"lng": 98.2969,
+"wiki": "Bangla Road",
+"main": null
+},
+{
+"id": "i:phuket-6",
+"name": "Mũi Promthep",
+"cat": "check",
+"lat": 7.762,
+"lng": 98.3056,
+"wiki": "Laem Phromthep",
+"main": null
+},
+{
+"id": "i:phuket-7",
+"name": "Chùa Chalong",
+"cat": "sight",
+"lat": 7.84667,
+"lng": 98.33667,
+"wiki": "Wat Chalong",
+"main": "https://commons.wikimedia.org/wiki/File:Wat_chalong_pagoda.jpg"
+},
+{
+"id": "i:phuket-8",
+"name": "Phố cổ Phuket",
+"cat": "check",
+"lat": 7.8857,
+"lng": 98.3883,
+"wiki": "Phuket (city)",
+"main": "https://commons.wikimedia.org/wiki/File:Phuket_City.jpg"
+},
+{
+"id": "i:phuket-9",
+"name": "Bãi biển Kata",
+"cat": "check",
+"lat": 7.8201,
+"lng": 98.2981,
+"wiki": "Kata Beach",
+"main": "https://commons.wikimedia.org/wiki/File:Kata_beach_morning_2.jpg"
+},
+{
+"id": "i:chiangmai-1",
+"name": "Chùa Doi Suthep",
+"cat": "sight",
+"lat": 18.80498,
+"lng": 98.92156,
+"wiki": "Wat Phra That Doi Suthep",
+"main": "https://commons.wikimedia.org/wiki/File:Wat_Phra_That_Doi_Suthep_-_Chiang_Mai.jpg"
+},
+{
+"id": "i:chiangmai-2",
+"name": "Chùa Chedi Luang",
+"cat": "sight",
+"lat": 18.78694,
+"lng": 98.98639,
+"wiki": "Wat Chedi Luang",
+"main": "https://commons.wikimedia.org/wiki/File:%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87.jpg"
+},
+{
+"id": "i:chiangmai-3",
+"name": "Chùa Phra Singh",
+"cat": "sight",
+"lat": 18.78875,
+"lng": 98.98121,
+"wiki": "Wat Phra Singh",
+"main": "https://commons.wikimedia.org/wiki/File:Wat_Phra_Sing,_Chiang_Mai_(I).jpg"
+},
+{
+"id": "i:chiangmai-4",
+"name": "Cổng Tha Phae",
+"cat": "check",
+"lat": 18.78778,
+"lng": 98.99333,
+"wiki": "Tha Phae Gate",
+"main": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_-_East_gate_of_the_city_wall_-_0001.jpg"
+},
+{
+"id": "i:chiangmai-5",
+"name": "Chợ đêm Chiang Mai",
+"cat": "food",
+"lat": 18.7859,
+"lng": 99.0007,
+"wiki": "Chiang Mai Night Bazaar",
+"main": "https://commons.wikimedia.org/wiki/File:CHIANG_MAI_NIGHT_BAZAAR_THAILAND_FEB_2012_(6869571256).jpg"
+},
+{
+"id": "i:chiangmai-6",
+"name": "Vườn quốc gia Doi Inthanon",
+"cat": "check",
+"lat": 18.59222,
+"lng": 98.48667,
+"wiki": "Doi Inthanon National Park",
+"main": "https://commons.wikimedia.org/wiki/File:%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%A7%E0%B8%8A%E0%B8%B4%E0%B8%A3%E0%B8%98%E0%B8%B2%E0%B8%A3_%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%A5%E0%B8%B3%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B8%97%E0%B8%B5%E0%B9%8844_%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%99%E0%B8%99%E0%B8%97%E0%B9%8C.jpg"
+},
+{
+"id": "i:chiangmai-7",
+"name": "Chùa Trắng (Chiang Rai)",
+"cat": "check",
+"lat": 19.82467,
+"lng": 99.76333,
+"wiki": "Wat Rong Khun",
+"main": "https://commons.wikimedia.org/wiki/File:Wat_Rong_Khun_-_Chiang_Rai.jpg"
+},
+{
+"id": "i:chiangmai-8",
+"name": "Công viên voi Elephant Nature Park",
+"cat": "sight",
+"lat": 19.215,
+"lng": 98.86056,
+"wiki": "Elephant Nature Park",
+"main": "https://commons.wikimedia.org/wiki/File:Navann_was_born_at_the_park_Oct_2012.jpg"
+},
+{
+"id": "i:chiangmai-9",
+"name": "Phố Nimman",
+"cat": "food",
+"lat": 18.7969,
+"lng": 98.9676,
+"wiki": "Nimmanhaemin Road",
+"main": null
+},
+{
+"id": "i:beijing-1",
+"name": "Cố Cung (Tử Cấm Thành)",
+"cat": "sight",
+"lat": 39.91583,
+"lng": 116.39083,
+"wiki": "Forbidden City",
+"main": "https://commons.wikimedia.org/wiki/File:The_Forbidden_City_-_View_from_Coal_Hill.jpg"
+},
+{
+"id": "i:beijing-2",
+"name": "Quảng trường Thiên An Môn",
+"cat": "check",
+"lat": 39.90333,
+"lng": 116.39167,
+"wiki": "Tiananmen Square",
+"main": "https://commons.wikimedia.org/wiki/File:Tiananmen_Square_(54137047250).jpg"
+},
+{
+"id": "i:beijing-3",
+"name": "Vạn Lý Trường Thành – Mộ Điền Dụ",
+"cat": "sight",
+"lat": 40.43802,
+"lng": 116.5619,
+"wiki": "Mutianyu",
+"main": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG"
+},
+{
+"id": "i:beijing-4",
+"name": "Vạn Lý Trường Thành – Bát Đạt Lĩnh",
+"cat": "sight",
+"lat": 40.35417,
+"lng": 116.00694,
+"wiki": "Badaling",
+"main": "https://commons.wikimedia.org/wiki/File:Peking_Grosse_Mauer-20071019-RM-115708.jpg"
+},
+{
+"id": "i:beijing-5",
+"name": "Thiên Đàn",
+"cat": "sight",
+"lat": 39.8822,
+"lng": 116.4066,
+"wiki": "Temple of Heaven",
+"main": "https://commons.wikimedia.org/wiki/File:Temple_of_Heaven_20160323_01.jpg"
+},
+{
+"id": "i:beijing-6",
+"name": "Di Hòa Viên",
+"cat": "sight",
+"lat": 39.9975,
+"lng": 116.2689,
+"wiki": "Summer Palace",
+"main": "https://commons.wikimedia.org/wiki/File:Longevity_Hill_of_the_Summer_Palace.jpg"
+},
+{
+"id": "i:beijing-7",
+"name": "Phố Vương Phủ Tỉnh",
+"cat": "food",
+"lat": 39.91116,
+"lng": 116.40528,
+"wiki": "Wangfujing",
+"main": "https://commons.wikimedia.org/wiki/File:Beijing_Wangfujing_20170806.jpg"
+},
+{
+"id": "i:beijing-8",
+"name": "Ngõ Nam La Cổ",
+"cat": "food",
+"lat": 39.9425,
+"lng": 116.39639,
+"wiki": "Nanluoguxiang",
+"main": "https://commons.wikimedia.org/wiki/File:2016-09-04_Beijing_Nanluoguxiang_anagoria_23.jpg"
+},
+{
+"id": "i:beijing-9",
+"name": "Sân vận động Tổ Chim",
+"cat": "check",
+"lat": 39.99167,
+"lng": 116.39056,
+"wiki": "Beijing National Stadium",
+"main": "https://commons.wikimedia.org/wiki/File:Beijing_China_Beijing-National-Stadium-01.jpg"
+},
+{
+"id": "i:beijing-10",
+"name": "Ung Hòa Cung",
+"cat": "sight",
+"lat": 39.94694,
+"lng": 116.41111,
+"wiki": "Yonghe Temple",
+"main": "https://commons.wikimedia.org/wiki/File:65618-Beijing-Lama-Temple_(28098480603).jpg"
+},
+{
+"id": "i:beijing-11",
+"name": "Hồ Thập Sát Hải",
+"cat": "check",
+"lat": 39.93802,
+"lng": 116.38706,
+"wiki": "Shichahai",
+"main": null
+},
+{
+"id": "i:shanghai-1",
+"name": "Bến Thượng Hải (The Bund)",
+"cat": "check",
+"lat": 31.23803,
+"lng": 121.48614,
+"wiki": "The Bund",
+"main": "https://commons.wikimedia.org/wiki/File:The_Bund_2.jpg"
+},
+{
+"id": "i:shanghai-2",
+"name": "Tháp Minh Châu Phương Đông",
+"cat": "check",
+"lat": 31.24167,
+"lng": 121.49472,
+"wiki": "Oriental Pearl Tower",
+"main": "https://commons.wikimedia.org/wiki/File:Oriental_Pearl_Tower_20251126.jpg"
+},
+{
+"id": "i:shanghai-3",
+"name": "Tháp Thượng Hải",
+"cat": "check",
+"lat": 31.2355,
+"lng": 121.501,
+"wiki": "Shanghai Tower",
+"main": "https://commons.wikimedia.org/wiki/File:20191114_Shanghai_Tower_(2).jpg"
+},
+{
+"id": "i:shanghai-4",
+"name": "Dự Viên",
+"cat": "sight",
+"lat": 31.22917,
+"lng": 121.4875,
+"wiki": "Yu Garden",
+"main": "https://commons.wikimedia.org/wiki/File:Shanghai_-_Yu_Garden_-_0035.jpg"
+},
+{
+"id": "i:shanghai-5",
+"name": "Phố đi bộ Nam Kinh",
+"cat": "food",
+"lat": 31.23472,
+"lng": 121.47444,
+"wiki": "Nanjing Road",
+"main": "https://commons.wikimedia.org/wiki/File:East_Nanjing_Road_2020_(50361842166).jpg"
+},
+{
+"id": "i:shanghai-6",
+"name": "Điền Tử Phường",
+"cat": "food",
+"lat": 31.21001,
+"lng": 121.46467,
+"wiki": "Tianzifang",
+"main": "https://commons.wikimedia.org/wiki/File:Shanghai_Tianzifang_%E4%B8%8A%E6%B5%B7%E7%94%B0%E5%AD%90%E5%9D%8A_-_panoramio.jpg"
+},
+{
+"id": "i:shanghai-7",
+"name": "Tân Thiên Địa",
+"cat": "check",
+"lat": 31.2226,
+"lng": 121.4701,
+"wiki": "Xintiandi",
+"main": "https://commons.wikimedia.org/wiki/File:Xintiandi5.jpg"
+},
+{
+"id": "i:shanghai-8",
+"name": "Cổ trấn Chu Gia Giác",
+"cat": "sight",
+"lat": 31.11278,
+"lng": 121.05028,
+"wiki": "Zhujiajiao",
+"main": "https://commons.wikimedia.org/wiki/File:1_zhujiajiao_2023_aerial.jpg"
+},
+{
+"id": "i:shanghai-9",
+"name": "Shanghai Disneyland",
+"cat": "sight",
+"lat": 31.144,
+"lng": 121.657,
+"wiki": "Shanghai Disneyland Park",
+"main": "https://commons.wikimedia.org/wiki/File:18-03-12_ShanghaiDisney_013.jpg"
+},
+{
+"id": "i:zhangjiajie-1",
+"name": "Công viên rừng quốc gia Trương Gia Giới",
+"cat": "sight",
+"lat": 29.34992,
+"lng": 110.43515,
+"wiki": "Zhangjiajie National Forest Park",
+"main": "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg"
+},
+{
+"id": "i:zhangjiajie-2",
+"name": "Núi Thiên Môn",
+"cat": "sight",
+"lat": 29.04988,
+"lng": 110.47889,
+"wiki": "Tianmen Mountain",
+"main": "https://commons.wikimedia.org/wiki/File:Tianmen_38330-Zhangjiajie_(49047525877).jpg"
+},
+{
+"id": "i:zhangjiajie-3",
+"name": "Cầu kính Trương Gia Giới",
+"cat": "check",
+"lat": 29.3987,
+"lng": 110.6982,
+"wiki": "Zhangjiajie Glass Bridge",
+"main": "https://commons.wikimedia.org/wiki/File:ZhangjiajieGlassByHighestBridges.jpg"
+},
+{
+"id": "i:zhangjiajie-4",
+"name": "Thang máy Bách Long",
+"cat": "check",
+"lat": 29.3515,
+"lng": 110.4615,
+"wiki": "Bailong Elevator",
+"main": "https://commons.wikimedia.org/wiki/File:%E6%B9%96%E5%8D%97_%E5%BC%A0%E5%AE%B6%E7%95%8C_%E7%99%BE%E9%BE%99%E5%A4%A9%E6%A2%AF_-_panoramio.jpg"
+},
+{
+"id": "i:zhangjiajie-5",
+"name": "Khu thắng cảnh Võ Lăng Nguyên",
+"cat": "sight",
+"lat": 29.33333,
+"lng": 110.5,
+"wiki": "Wulingyuan",
+"main": "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg"
+},
+{
+"id": "i:zhangjiajie-6",
+"name": "Phượng Hoàng cổ trấn",
+"cat": "check",
+"lat": 27.949,
+"lng": 109.604,
+"wiki": "Fenghuang County",
+"main": "https://commons.wikimedia.org/wiki/File:Fenghuang_hunan.jpg"
+},
+{
+"id": "i:zhangjiajie-7",
+"name": "Động Hoàng Long",
+"cat": "sight",
+"lat": 29.26667,
+"lng": 110.36667,
+"wiki": "Huanglong Cave",
+"main": "https://commons.wikimedia.org/wiki/File:Huanglongdong.JPG"
+},
+{
+"id": "i:yunnan-1",
+"name": "Phố cổ Lệ Giang",
+"cat": "check",
+"lat": 26.86667,
+"lng": 100.23333,
+"wiki": "Old Town of Lijiang",
+"main": "https://commons.wikimedia.org/wiki/File:Lijiang_-_panoramio_(6).jpg"
+},
+{
+"id": "i:yunnan-2",
+"name": "Núi tuyết Ngọc Long",
+"cat": "sight",
+"lat": 27.09833,
+"lng": 100.175,
+"wiki": "Jade Dragon Snow Mountain",
+"main": "https://commons.wikimedia.org/wiki/File:Yulong_xue_shan.jpg"
+},
+{
+"id": "i:yunnan-3",
+"name": "Cổ trấn Thúc Hà",
+"cat": "check",
+"lat": 26.86667,
+"lng": 100.23333,
+"wiki": "Shuhe",
+"main": "https://commons.wikimedia.org/wiki/File:Lijiang_-_panoramio_(6).jpg"
+},
+{
+"id": "i:yunnan-4",
+"name": "Hồ Nhĩ Hải (Đại Lý)",
+"cat": "check",
+"lat": 25.76333,
+"lng": 100.1875,
+"wiki": "Erhai Lake",
+"main": "https://commons.wikimedia.org/wiki/File:Erhai_lake,_Yunnan,_China.jpg"
+},
+{
+"id": "i:yunnan-5",
+"name": "Tam Tháp chùa Sùng Thánh",
+"cat": "sight",
+"lat": 25.70873,
+"lng": 100.14724,
+"wiki": "Three Pagodas",
+"main": "https://commons.wikimedia.org/wiki/File:20240502_Chongshengsi_Santa_(131232).jpg"
+},
+{
+"id": "i:yunnan-6",
+"name": "Cổ thành Đại Lý",
+"cat": "check",
+"lat": 25.7026,
+"lng": 100.1554,
+"wiki": "Dali Old Town",
+"main": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E_-_%E8%88%AA%E6%8B%8D_-_2024-10-13_02.jpg"
+},
+{
+"id": "i:yunnan-7",
+"name": "Rừng đá Thạch Lâm (Côn Minh)",
+"cat": "sight",
+"lat": 24.82528,
+"lng": 103.32361,
+"wiki": "Stone Forest",
+"main": "https://commons.wikimedia.org/wiki/File:Shilin,_Yunnan_24740.jpg"
+},
+{
+"id": "i:guilin-1",
+"name": "Du thuyền sông Ly",
+"cat": "sight",
+"lat": 24.6301,
+"lng": 110.64,
+"wiki": "Li River",
+"main": "https://commons.wikimedia.org/wiki/File:87318-Li-River.jpg"
+},
+{
+"id": "i:guilin-2",
+"name": "Dương Sóc",
+"cat": "check",
+"lat": 24.78333,
+"lng": 110.5,
+"wiki": "Yangshuo County",
+"main": "https://commons.wikimedia.org/wiki/File:1_guilin_yangshuo_2017.jpg"
+},
+{
+"id": "i:guilin-3",
+"name": "Phố Tây Nhai (Dương Sóc)",
+"cat": "food",
+"lat": 24.7783,
+"lng": 110.495,
+"wiki": "West Street (Yangshuo)",
+"main": null
+},
+{
+"id": "i:guilin-4",
+"name": "Động Lư Địch Nham",
+"cat": "sight",
+"lat": 25.30444,
+"lng": 110.27556,
+"wiki": "Reed Flute Cave",
+"main": "https://commons.wikimedia.org/wiki/File:Stone_curtains_on_display_at_Reed_Flute_Cave.JPG"
+},
+{
+"id": "i:guilin-5",
+"name": "Núi Voi",
+"cat": "check",
+"lat": 25.27045,
+"lng": 110.29216,
+"wiki": "Elephant Trunk Hill",
+"main": "https://commons.wikimedia.org/wiki/File:Xiangshan_Scenic_Area_89468-Guilin_(31130832628).jpg"
+},
+{
+"id": "i:guilin-6",
+"name": "Ruộng bậc thang Long Tích",
+"cat": "check",
+"lat": 25.75,
+"lng": 110.13333,
+"wiki": "Longji Rice Terraces",
+"main": "https://commons.wikimedia.org/wiki/File:LongshengRiceTerrace.jpg"
+},
+{
+"id": "i:guilin-7",
+"name": "Sông Ngộ Long",
+"cat": "check",
+"lat": 24.7725,
+"lng": 110.507,
+"wiki": "Yulong River",
+"main": "https://commons.wikimedia.org/wiki/File:Yulong.JPG"
+},
+{
+"id": "i:seoul-1",
+"name": "Cung Gyeongbokgung",
+"cat": "sight",
+"lat": 37.57988,
+"lng": 126.9768,
+"wiki": "Gyeongbokgung",
+"main": "https://commons.wikimedia.org/wiki/File:%EA%B4%91%ED%99%94%EB%AC%B8_%EC%9B%94%EB%8C%80.jpg"
+},
+{
+"id": "i:seoul-2",
+"name": "Làng Bukchon Hanok",
+"cat": "check",
+"lat": 37.58306,
+"lng": 126.98361,
+"wiki": "Bukchon Hanok Village",
+"main": "https://commons.wikimedia.org/wiki/File:Bukchon_Hanok_Village_01.jpg"
+},
+{
+"id": "i:seoul-3",
+"name": "Tháp N Seoul",
+"cat": "check",
+"lat": 37.55122,
+"lng": 126.98828,
+"wiki": "N Seoul Tower",
+"main": "https://en.wikipedia.org/wiki/File:NamsanTower_(Cropped).jpeg"
+},
+{
+"id": "i:seoul-4",
+"name": "Myeongdong",
+"cat": "food",
+"lat": 37.5637,
+"lng": 126.984,
+"wiki": "Myeong-dong",
+"main": "https://commons.wikimedia.org/wiki/File:%EB%AA%85%EB%8F%998%EA%B8%B8_%EA%B1%B0%EB%A6%AC_(2020.03).jpg"
+},
+{
+"id": "i:seoul-5",
+"name": "Chợ Gwangjang",
+"cat": "food",
+"lat": 37.57,
+"lng": 126.999,
+"wiki": "Gwangjang Market",
+"main": "https://commons.wikimedia.org/wiki/File:Gwangjang_Market,_Seoul_01.jpg"
+},
+{
+"id": "i:seoul-6",
+"name": "Cung Changdeokgung",
+"cat": "sight",
+"lat": 37.57944,
+"lng": 126.99278,
+"wiki": "Changdeokgung",
+"main": "https://commons.wikimedia.org/wiki/File:%EC%B0%BD%EB%8D%95%EA%B6%81_%EC%A0%84%EA%B2%BD_(2012).jpg"
+},
+{
+"id": "i:seoul-7",
+"name": "Lotte World Tower",
+"cat": "check",
+"lat": 37.5125,
+"lng": 127.10278,
+"wiki": "Lotte World Tower",
+"main": "https://en.wikipedia.org/wiki/File:Lotte_World_Tower_day_view_10.jpg"
+},
+{
+"id": "i:seoul-8",
+"name": "Lotte World",
+"cat": "sight",
+"lat": 37.51,
+"lng": 127.1,
+"wiki": "Lotte World",
+"main": "https://en.wikipedia.org/wiki/File:Lotte_World_day_view_4_(cropped).jpg"
+},
+{
+"id": "i:seoul-9",
+"name": "Dongdaemun Design Plaza",
+"cat": "check",
+"lat": 37.5669,
+"lng": 127.0094,
+"wiki": "Dongdaemun Design Plaza",
+"main": "https://commons.wikimedia.org/wiki/File:Dongdaemun_Design_Plaza_at_night,_Seoul,_Korea.jpg"
+},
+{
+"id": "i:seoul-10",
+"name": "Đảo Nami",
+"cat": "check",
+"lat": 37.79,
+"lng": 127.5258,
+"wiki": "Namiseom",
+"main": "https://commons.wikimedia.org/wiki/File:Nami_Island.JPG"
+},
+{
+"id": "i:seoul-11",
+"name": "Hongdae",
+"cat": "food",
+"lat": 37.5563,
+"lng": 126.9222,
+"wiki": "Hongdae",
+"main": null
+},
+{
+"id": "i:busan-1",
+"name": "Bãi biển Haeundae",
+"cat": "check",
+"lat": 35.15855,
+"lng": 129.16053,
+"wiki": "Haeundae Beach",
+"main": "https://commons.wikimedia.org/wiki/File:Haeundae_Beach_May_2024.jpg"
+},
+{
+"id": "i:busan-2",
+"name": "Làng văn hóa Gamcheon",
+"cat": "check",
+"lat": 35.097,
+"lng": 129.009,
+"wiki": "Gamcheon Culture Village",
+"main": "https://commons.wikimedia.org/wiki/File:Gamcheon_Houses,_2024.jpg"
+},
+{
+"id": "i:busan-3",
+"name": "Chợ cá Jagalchi",
+"cat": "food",
+"lat": 35.09667,
+"lng": 129.03,
+"wiki": "Jagalchi Fish Market",
+"main": "https://commons.wikimedia.org/wiki/File:Jagalchi_Market_20200523_019.jpg"
+},
+{
+"id": "i:busan-4",
+"name": "Chùa Haedong Yonggungsa",
+"cat": "sight",
+"lat": 35.18833,
+"lng": 129.22333,
+"wiki": "Haedong Yonggungsa",
+"main": "https://commons.wikimedia.org/wiki/File:%ED%95%B4%EB%8F%99%EC%9A%A9%EA%B6%81%EC%82%AC_%EC%82%AC%EC%B0%B0_%EC%A0%84%EA%B2%BD.jpg"
+},
+{
+"id": "i:busan-5",
+"name": "Bãi biển Gwangalli",
+"cat": "check",
+"lat": 35.15417,
+"lng": 129.12056,
+"wiki": "Gwangalli Beach",
+"main": "https://commons.wikimedia.org/wiki/File:Gwangalli_Beach.jpg"
+},
+{
+"id": "i:busan-6",
+"name": "Taejongdae",
+"cat": "check",
+"lat": 35.05,
+"lng": 129.08306,
+"wiki": "Taejongdae",
+"main": "https://commons.wikimedia.org/wiki/File:Korea-Busan-Taejongdae-03.jpg"
+},
+{
+"id": "i:busan-7",
+"name": "Tháp Busan",
+"cat": "check",
+"lat": 35.10122,
+"lng": 129.03229,
+"wiki": "Busan Tower",
+"main": "https://commons.wikimedia.org/wiki/File:Busan_Tower_and_Yongdusan_Park_20200522_003.jpg"
+},
+{
+"id": "i:jeju-1",
+"name": "Đỉnh Seongsan Ilchulbong",
+"cat": "check",
+"lat": 33.4585,
+"lng": 126.942,
+"wiki": "Seongsan Ilchulbong",
+"main": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_from_the_air.jpg"
+},
+{
+"id": "i:jeju-2",
+"name": "Núi Hallasan",
+"cat": "sight",
+"lat": 33.36167,
+"lng": 126.52917,
+"wiki": "Hallasan",
+"main": "https://commons.wikimedia.org/wiki/File:Hallasan_Above.jpg"
+},
+{
+"id": "i:jeju-3",
+"name": "Hang dung nham Manjanggul",
+"cat": "sight",
+"lat": 33.5282,
+"lng": 126.7701,
+"wiki": "Manjanggul",
+"main": "https://commons.wikimedia.org/wiki/File:Manjanggul_lava_column,_largest_in_the_world.jpg"
+},
+{
+"id": "i:jeju-4",
+"name": "Thác Cheonjiyeon",
+"cat": "check",
+"lat": 33.24694,
+"lng": 126.55442,
+"wiki": "Cheonjiyeon Waterfall",
+"main": "https://commons.wikimedia.org/wiki/File:Korea-Jeju-Cheonjiyeon_Waterfall-01.jpg"
+},
+{
+"id": "i:jeju-5",
+"name": "Thác Jeongbang",
+"cat": "check",
+"lat": 33.24465,
+"lng": 126.57166,
+"wiki": "Jeongbang Waterfall",
+"main": "https://commons.wikimedia.org/wiki/File:Jeongbang_Waterfall.jpg"
+},
+{
+"id": "i:jeju-6",
+"name": "Đảo Udo",
+"cat": "check",
+"lat": 33.50528,
+"lng": 126.95583,
+"wiki": "Udo (island)",
+"main": "https://commons.wikimedia.org/wiki/File:Udo_(satellite_image)_(cropped).jpg"
+},
+{
+"id": "i:jeju-7",
+"name": "Bãi biển Hyeopjae",
+"cat": "check",
+"lat": 33.3943,
+"lng": 126.2393,
+"wiki": "Hyeopjae Beach",
+"main": "https://commons.wikimedia.org/wiki/File:Hyeopjae.jpg"
+},
+{
+"id": "i:jeju-8",
+"name": "Chợ Dongmun",
+"cat": "food",
+"lat": 33.5119,
+"lng": 126.5273,
+"wiki": "Dongmun Market",
+"main": null
+},
+{
+"id": "i:tokyo-1",
+"name": "Chùa Sensō-ji (Asakusa)",
+"cat": "sight",
+"lat": 35.71472,
+"lng": 139.79675,
+"wiki": "Sensō-ji",
+"main": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg"
+},
+{
+"id": "i:tokyo-2",
+"name": "Tokyo Skytree",
+"cat": "check",
+"lat": 35.7101,
+"lng": 139.8107,
+"wiki": "Tokyo Skytree",
+"main": "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_2014_%E2%85%A2.jpg"
+},
+{
+"id": "i:tokyo-3",
+"name": "Ngã tư Shibuya",
+"cat": "check",
+"lat": 35.6595,
+"lng": 139.70056,
+"wiki": "Shibuya Crossing",
+"main": "https://commons.wikimedia.org/wiki/File:Shibuya_Crossing,_Aerial.jpg"
+},
+{
+"id": "i:tokyo-4",
+"name": "Đền Minh Trị",
+"cat": "sight",
+"lat": 35.67611,
+"lng": 139.69917,
+"wiki": "Meiji Shrine",
+"main": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_2023-3.jpg"
+},
+{
+"id": "i:tokyo-5",
+"name": "Tháp Tokyo",
+"cat": "check",
+"lat": 35.65861,
+"lng": 139.74556,
+"wiki": "Tokyo Tower",
+"main": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_2023.jpg"
+},
+{
+"id": "i:tokyo-6",
+"name": "Chợ ngoài Tsukiji",
+"cat": "food",
+"lat": 35.66139,
+"lng": 139.76972,
+"wiki": "Tsukiji fish market",
+"main": "https://commons.wikimedia.org/wiki/File:2018_Tsukiji_fish_market.jpg"
+},
+{
+"id": "i:tokyo-7",
+"name": "Akihabara",
+"cat": "food",
+"lat": 35.69833,
+"lng": 139.77306,
+"wiki": "Akihabara",
+"main": "https://commons.wikimedia.org/wiki/File:Sotokanda,_Akihabara_Electric_Town_at_night_20231114.png"
+},
+{
+"id": "i:tokyo-8",
+"name": "Vườn quốc gia Shinjuku Gyoen",
+"cat": "check",
+"lat": 35.685,
+"lng": 139.71,
+"wiki": "Shinjuku Gyoen",
+"main": "https://commons.wikimedia.org/wiki/File:Shinjuku_Gyoen_National_Garden_-_sakura_3.JPG"
+},
+{
+"id": "i:tokyo-9",
+"name": "Tokyo Disneyland",
+"cat": "sight",
+"lat": 35.63278,
+"lng": 139.88056,
+"wiki": "Tokyo Disneyland",
+"main": "https://commons.wikimedia.org/wiki/File:Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg"
+},
+{
+"id": "i:tokyo-10",
+"name": "Hồ Kawaguchi – núi Phú Sĩ",
+"cat": "check",
+"lat": 35.515,
+"lng": 138.75667,
+"wiki": "Lake Kawaguchi",
+"main": "https://commons.wikimedia.org/wiki/File:KawaguchiKo.jpg"
+},
+{
+"id": "i:tokyo-11",
+"name": "Công viên Ueno",
+"cat": "check",
+"lat": 35.71222,
+"lng": 139.77111,
+"wiki": "Ueno Park",
+"main": "https://commons.wikimedia.org/wiki/File:Ueno_park.jpg"
+},
+{
+"id": "i:osaka-1",
+"name": "Lâu đài Osaka",
+"cat": "sight",
+"lat": 34.68722,
+"lng": 135.52583,
+"wiki": "Osaka Castle",
+"main": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_03bs3200.jpg"
+},
+{
+"id": "i:osaka-2",
+"name": "Dōtonbori",
+"cat": "food",
+"lat": 34.66871,
+"lng": 135.50131,
+"wiki": "Dōtonbori",
+"main": "https://commons.wikimedia.org/wiki/File:Osaka_Dotonbori_Ebisu_Bridge.jpg"
+},
+{
+"id": "i:osaka-3",
+"name": "Universal Studios Japan",
+"cat": "sight",
+"lat": 34.66472,
+"lng": 135.43306,
+"wiki": "Universal Studios Japan",
+"main": "https://commons.wikimedia.org/wiki/File:USJ_5years.JPG"
+},
+{
+"id": "i:osaka-4",
+"name": "Chợ Kuromon",
+"cat": "food",
+"lat": 34.665,
+"lng": 135.5065,
+"wiki": "Kuromon Market",
+"main": null
+},
+{
+"id": "i:osaka-5",
+"name": "Shinsekai",
+"cat": "food",
+"lat": 34.65222,
+"lng": 135.50611,
+"wiki": "Shinsekai",
+"main": "https://commons.wikimedia.org/wiki/File:Shinsekai_and_Tsutenkaku_at_night_2019-04-12.jpg"
+},
+{
+"id": "i:osaka-6",
+"name": "Umeda Sky Building",
+"cat": "check",
+"lat": 34.70528,
+"lng": 135.48972,
+"wiki": "Umeda Sky Building",
+"main": "https://commons.wikimedia.org/wiki/File:2018_Umeda_Sky_Building.jpg"
+},
+{
+"id": "i:osaka-7",
+"name": "Công viên Nara",
+"cat": "check",
+"lat": 34.685,
+"lng": 135.85,
+"wiki": "Nara Park",
+"main": "https://commons.wikimedia.org/wiki/File:Nara_Park_-_panoramio_(2).jpg"
+},
+{
+"id": "i:osaka-8",
+"name": "Chùa Tōdai-ji (Nara)",
+"cat": "sight",
+"lat": 34.68917,
+"lng": 135.83972,
+"wiki": "Tōdai-ji",
+"main": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"
+},
+{
+"id": "i:kyoto-1",
+"name": "Đền Fushimi Inari",
+"cat": "sight",
+"lat": 34.96722,
+"lng": 135.77278,
+"wiki": "Fushimi Inari-taisha",
+"main": "https://commons.wikimedia.org/wiki/File:Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg"
+},
+{
+"id": "i:kyoto-2",
+"name": "Chùa Vàng Kinkaku-ji",
+"cat": "sight",
+"lat": 35.0395,
+"lng": 135.7285,
+"wiki": "Kinkaku-ji",
+"main": "https://commons.wikimedia.org/wiki/File:Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg"
+},
+{
+"id": "i:kyoto-3",
+"name": "Chùa Kiyomizu-dera",
+"cat": "sight",
+"lat": 34.995,
+"lng": 135.785,
+"wiki": "Kiyomizu-dera",
+"main": "https://commons.wikimedia.org/wiki/File:Kiyomizu.jpg"
+},
+{
+"id": "i:kyoto-4",
+"name": "Rừng tre Arashiyama",
+"cat": "check",
+"lat": 35.0151,
+"lng": 135.67067,
+"wiki": "Arashiyama",
+"main": "https://commons.wikimedia.org/wiki/File:Arashiyama,_Part_II_-_Arashiyama7534.jpg"
+},
+{
+"id": "i:kyoto-5",
+"name": "Phố Gion",
+"cat": "check",
+"lat": 35.0035,
+"lng": 135.77505,
+"wiki": "Gion",
+"main": "https://commons.wikimedia.org/wiki/File:150124_Gion_Kyoto_Japan01s3.jpg"
+},
+{
+"id": "i:kyoto-6",
+"name": "Chợ Nishiki",
+"cat": "food",
+"lat": 35.00503,
+"lng": 135.76614,
+"wiki": "Nishiki Market",
+"main": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg"
+},
+{
+"id": "i:kyoto-7",
+"name": "Chùa Bạc Ginkaku-ji",
+"cat": "sight",
+"lat": 35.02667,
+"lng": 135.79833,
+"wiki": "Ginkaku-ji",
+"main": "https://commons.wikimedia.org/wiki/File:Ginkakuji_Kyoto03-r.jpg"
+},
+{
+"id": "i:kyoto-8",
+"name": "Triết lý chi đạo",
+"cat": "check",
+"lat": 35.02513,
+"lng": 135.79617,
+"wiki": "Philosopher's Walk",
+"main": "https://commons.wikimedia.org/wiki/File:Japan_Kyoto_philosophers_walk_DSC00297.jpg"
+},
+{
+"id": "i:singapore-1",
+"name": "Marina Bay Sands",
+"cat": "check",
+"lat": 1.2825,
+"lng": 103.86,
+"wiki": "Marina Bay Sands",
+"main": "https://commons.wikimedia.org/wiki/File:Marina_Bay_Sands_(I).jpg"
+},
+{
+"id": "i:singapore-2",
+"name": "Gardens by the Bay",
+"cat": "check",
+"lat": 1.28472,
+"lng": 103.865,
+"wiki": "Gardens by the Bay",
+"main": "https://commons.wikimedia.org/wiki/File:Supertree_Grove,_Gardens_by_the_Bay,_Singapore_-_20120712-02.jpg"
+},
+{
+"id": "i:singapore-3",
+"name": "Công viên Merlion",
+"cat": "check",
+"lat": 1.28683,
+"lng": 103.85453,
+"wiki": "Merlion Park",
+"main": "https://commons.wikimedia.org/wiki/File:Singapore_Merlion_BCT.jpg"
+},
+{
+"id": "i:singapore-4",
+"name": "Đảo Sentosa",
+"cat": "sight",
+"lat": 1.248,
+"lng": 103.83,
+"wiki": "Sentosa",
+"main": "https://commons.wikimedia.org/wiki/File:1_sentosa_aerial_2016.jpg"
+},
+{
+"id": "i:singapore-5",
+"name": "Universal Studios Singapore",
+"cat": "sight",
+"lat": 1.254,
+"lng": 103.824,
+"wiki": "Universal Studios Singapore",
+"main": "https://commons.wikimedia.org/wiki/File:Universal_Studios_Singapore_Gate.jpg"
+},
+{
+"id": "i:singapore-6",
+"name": "Phố người Hoa (Chinatown)",
+"cat": "food",
+"lat": 1.28361,
+"lng": 103.84417,
+"wiki": "Chinatown, Singapore",
+"main": "https://commons.wikimedia.org/wiki/File:Aerial_perspective_of_Singapore%27s_Chinatown.jpg"
+},
+{
+"id": "i:singapore-7",
+"name": "Lau Pa Sat",
+"cat": "food",
+"lat": 1.28063,
+"lng": 103.8504,
+"wiki": "Lau Pa Sat",
+"main": "https://commons.wikimedia.org/wiki/File:Lau_Pa_Sat_Singapore_2.jpg"
+},
+{
+"id": "i:singapore-8",
+"name": "Maxwell Food Centre",
+"cat": "food",
+"lat": 1.28033,
+"lng": 103.84475,
+"wiki": "Maxwell Food Centre",
+"main": "https://commons.wikimedia.org/wiki/File:Maxwell_Food_Centre.jpg"
+},
+{
+"id": "i:singapore-9",
+"name": "Sở thú Singapore",
+"cat": "sight",
+"lat": 1.40378,
+"lng": 103.79414,
+"wiki": "Singapore Zoo",
+"main": "https://commons.wikimedia.org/wiki/File:Singapore_Zoo_entrance-15Feb2010.jpg"
+},
+{
+"id": "i:singapore-10",
+"name": "Jewel Changi",
+"cat": "check",
+"lat": 1.3644,
+"lng": 103.9915,
+"wiki": "Jewel Changi Airport",
+"main": "https://commons.wikimedia.org/wiki/File:Jewel_Changi_Airport_13-11-2023(1).jpg"
+},
+{
+"id": "i:singapore-11",
+"name": "Little India",
+"cat": "check",
+"lat": 1.3065,
+"lng": 103.8518,
+"wiki": "Little India, Singapore",
+"main": "https://commons.wikimedia.org/wiki/File:Little_India_(4048444495).jpg"
+},
+{
+"id": "i:kualalumpur-1",
+"name": "Tháp đôi Petronas",
+"cat": "check",
+"lat": 3.1578,
+"lng": 101.7117,
+"wiki": "Petronas Towers",
+"main": "https://commons.wikimedia.org/wiki/File:Petronas_Towers_Logo.svg"
+},
+{
+"id": "i:kualalumpur-2",
+"name": "Động Batu",
+"cat": "sight",
+"lat": 3.2374,
+"lng": 101.6839,
+"wiki": "Batu Caves",
+"main": "https://commons.wikimedia.org/wiki/File:Batu_Caves_stairs_2022-05.jpg"
+},
+{
+"id": "i:kualalumpur-3",
+"name": "Phố ẩm thực Jalan Alor",
+"cat": "food",
+"lat": 3.1457,
+"lng": 101.7085,
+"wiki": "Jalan Alor",
+"main": "https://commons.wikimedia.org/wiki/File:Jalan_Tun_Razak,_Kuala_Lumpur_20230828_151721.jpg"
+},
+{
+"id": "i:kualalumpur-4",
+"name": "Tháp KL",
+"cat": "check",
+"lat": 3.1528,
+"lng": 101.7039,
+"wiki": "Kuala Lumpur Tower",
+"main": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur_Tower_20250822_(1).jpg"
+},
+{
+"id": "i:kualalumpur-5",
+"name": "Quảng trường Merdeka",
+"cat": "check",
+"lat": 3.14775,
+"lng": 101.6935,
+"wiki": "Merdeka Square, Kuala Lumpur",
+"main": "https://commons.wikimedia.org/wiki/File:Dataran_Merdeka_2.jpg"
+},
+{
+"id": "i:kualalumpur-6",
+"name": "Phố Petaling (Chinatown)",
+"cat": "food",
+"lat": 3.14444,
+"lng": 101.6975,
+"wiki": "Petaling Street",
+"main": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur._Jalan_Petaling._2019-12-07_15-24-49.jpg"
+},
+{
+"id": "i:kualalumpur-7",
+"name": "Thành phố Putrajaya",
+"cat": "sight",
+"lat": 2.93,
+"lng": 101.69,
+"wiki": "Putrajaya",
+"main": "https://commons.wikimedia.org/wiki/File:Perdana_Putra.jpg"
+},
+{
+"id": "i:kualalumpur-8",
+"name": "Cao nguyên Genting",
+"cat": "sight",
+"lat": 3.42361,
+"lng": 101.79333,
+"wiki": "Genting Highlands",
+"main": "https://commons.wikimedia.org/wiki/File:Genting_SkyWorlds_Theme_Park.jpg"
+},
+{
+"id": "i:kualalumpur-9",
+"name": "Đền Thean Hou",
+"cat": "sight",
+"lat": 3.12167,
+"lng": 101.68778,
+"wiki": "Thean Hou Temple",
+"main": "https://commons.wikimedia.org/wiki/File:Thean_Hou_Temple,_Kuala_Lumpur-1.jpg"
+},
+{
+"id": "i:penang-1",
+"name": "Phố cổ George Town",
+"cat": "check",
+"lat": 5.41444,
+"lng": 100.32917,
+"wiki": "George Town, Penang",
+"main": "https://commons.wikimedia.org/wiki/File:Skyline_of_George_Town,_Penang_at_night_Nov2024-29-17.jpg"
+},
+{
+"id": "i:penang-2",
+"name": "Đồi Penang",
+"cat": "check",
+"lat": 5.42444,
+"lng": 100.26892,
+"wiki": "Penang Hill",
+"main": "https://commons.wikimedia.org/wiki/File:Penang_Hil,_George_Town,_Penang_2023.jpg"
+},
+{
+"id": "i:penang-3",
+"name": "Chùa Cực Lạc",
+"cat": "sight",
+"lat": 5.39952,
+"lng": 100.27373,
+"wiki": "Kek Lok Si",
+"main": "https://commons.wikimedia.org/wiki/File:Kek_Lok_Si_at_dusk.jpg"
+},
+{
+"id": "i:penang-4",
+"name": "Gurney Drive",
+"cat": "food",
+"lat": 5.43656,
+"lng": 100.31256,
+"wiki": "Gurney Drive",
+"main": "https://commons.wikimedia.org/wiki/File:Skyline_of_George_Town,_Penang_at_night_November_2024_28-15.jpg"
+},
+{
+"id": "i:penang-5",
+"name": "Dinh Cheong Fatt Tze (Nhà Xanh)",
+"cat": "sight",
+"lat": 5.42141,
+"lng": 100.33495,
+"wiki": "Cheong Fatt Tze Mansion",
+"main": "https://commons.wikimedia.org/wiki/File:Cheong_Fatt_Tze_Mansion_(I).jpg"
+},
+{
+"id": "i:penang-6",
+"name": "Khoo Kongsi",
+"cat": "sight",
+"lat": 5.41503,
+"lng": 100.33712,
+"wiki": "Khoo Kongsi",
+"main": "https://commons.wikimedia.org/wiki/File:Khoo_Kongsi_(I).jpg"
+},
+{
+"id": "i:penang-7",
+"name": "Biển Batu Ferringhi",
+"cat": "check",
+"lat": 5.4683,
+"lng": 100.242,
+"wiki": "Batu Ferringhi",
+"main": "https://commons.wikimedia.org/wiki/File:Batu_Ferringhi,_George_Town,_Penang_2023.jpg"
+},
+{
+"id": "i:taipei-1",
+"name": "Tháp Taipei 101",
+"cat": "check",
+"lat": 25.0336,
+"lng": 121.5647,
+"wiki": "Taipei 101",
+"main": "https://commons.wikimedia.org/wiki/File:Taipei_101_logo.svg"
+},
+{
+"id": "i:taipei-2",
+"name": "Bảo tàng Cố Cung quốc gia",
+"cat": "sight",
+"lat": 25.1022,
+"lng": 121.5486,
+"wiki": "National Palace Museum",
+"main": "https://commons.wikimedia.org/wiki/File:NationalPalace_MuseumFrontView.jpg"
+},
+{
+"id": "i:taipei-3",
+"name": "Chợ đêm Sỹ Lâm",
+"cat": "food",
+"lat": 25.0866,
+"lng": 121.5254,
+"wiki": "Shilin Night Market",
+"main": "https://commons.wikimedia.org/wiki/File:Shilin_night_market_alley_2.jpg"
+},
+{
+"id": "i:taipei-4",
+"name": "Chợ đêm Nhiêu Hà",
+"cat": "food",
+"lat": 25.05017,
+"lng": 121.57264,
+"wiki": "Raohe Street Night Market",
+"main": "https://commons.wikimedia.org/wiki/File:East_Entrance_of_Raohe_Street_Night_Market_20060118_night.jpg"
+},
+{
+"id": "i:taipei-5",
+"name": "Phố cổ Cửu Phần",
+"cat": "check",
+"lat": 25.107,
+"lng": 121.843,
+"wiki": "Jiufen",
+"main": "https://commons.wikimedia.org/wiki/File:A-mei_Tea_House.jpg"
+},
+{
+"id": "i:taipei-6",
+"name": "Đài tưởng niệm Tưởng Giới Thạch",
+"cat": "sight",
+"lat": 25.03444,
+"lng": 121.52167,
+"wiki": "Chiang Kai-shek Memorial Hall",
+"main": "https://commons.wikimedia.org/wiki/File:Chiang_Kai-shek_memorial_amk.jpg"
+},
+{
+"id": "i:taipei-7",
+"name": "Tây Môn Đình",
+"cat": "food",
+"lat": 25.04264,
+"lng": 121.50754,
+"wiki": "Ximending",
+"main": "https://commons.wikimedia.org/wiki/File:%E5%BE%9E%E5%B1%88%E8%87%A3%E6%B0%8F%E8%A5%BF%E9%96%80%E9%96%80%E5%B8%82%E5%88%B0%E9%8C%A2%E6%AB%83%E5%8F%B0%E5%8C%97%E4%B8%AD%E8%8F%AF%E6%96%B0%E9%A4%A8_20211204.jpg"
+},
+{
+"id": "i:taipei-8",
+"name": "Chùa Long Sơn",
+"cat": "sight",
+"lat": 25.03722,
+"lng": 121.49944,
+"wiki": "Bangka Lungshan Temple",
+"main": "https://commons.wikimedia.org/wiki/File:Bangka_Lungshan_Temple_07.23.jpg"
+},
+{
+"id": "i:taipei-9",
+"name": "Công viên địa chất Dã Liễu",
+"cat": "check",
+"lat": 25.2131,
+"lng": 121.698,
+"wiki": "Yehliu",
+"main": "https://commons.wikimedia.org/wiki/File:20190415_Yehliu_geopark_rock_formations-1.jpg"
+},
+{
+"id": "i:taipei-10",
+"name": "Suối nước nóng Bắc Đầu",
+"cat": "check",
+"lat": 25.1167,
+"lng": 121.5,
+"wiki": "Beitou District",
+"main": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%8A%95%E6%A9%9F%E5%BB%A0DSC_4995.jpg"
+},
+{
+"id": "i:taichung-1",
+"name": "Hồ Nhật Nguyệt Đàm",
+"cat": "check",
+"lat": 23.86667,
+"lng": 120.91667,
+"wiki": "Sun Moon Lake",
+"main": "https://commons.wikimedia.org/wiki/File:Sun_Moon_Lake_Sentinel-2B_MSI_2024-04-04.jpg"
+},
+{
+"id": "i:taichung-2",
+"name": "Làng Cầu Vồng",
+"cat": "check",
+"lat": 24.1333,
+"lng": 120.6094,
+"wiki": "Rainbow Village",
+"main": "https://commons.wikimedia.org/wiki/File:Rainbow_village.jpg"
+},
+{
+"id": "i:taichung-3",
+"name": "Chợ đêm Phùng Giáp",
+"cat": "food",
+"lat": 24.17883,
+"lng": 120.64644,
+"wiki": "Fengjia Night Market",
+"main": "https://commons.wikimedia.org/wiki/File:1_fengjia_night_market_2019.jpg"
+},
+{
+"id": "i:taichung-4",
+"name": "Đầm lầy Cao Mỹ",
+"cat": "check",
+"lat": 24.31206,
+"lng": 120.5497,
+"wiki": "Gaomei Wetlands",
+"main": "https://commons.wikimedia.org/wiki/File:Sunset_of_Gaomei_Wetland.JPG"
+},
+{
+"id": "i:taichung-5",
+"name": "Nhà hát quốc gia Đài Trung",
+"cat": "check",
+"lat": 24.16278,
+"lng": 120.64056,
+"wiki": "National Taichung Theater",
+"main": "https://commons.wikimedia.org/wiki/File:National_Taichung_Theater_aerial_view_2019.jpg"
+},
+{
+"id": "i:taichung-6",
+"name": "Khu thắng cảnh A Lý Sơn",
+"cat": "sight",
+"lat": 23.51667,
+"lng": 120.8,
+"wiki": "Alishan National Scenic Area",
+"main": "https://commons.wikimedia.org/wiki/File:Alishan,_Part_IV_-_Alishan5348.jpg"
+},
+{
+"id": "i:bali-1",
+"name": "Đền Tanah Lot",
+"cat": "sight",
+"lat": -8.62107,
+"lng": 115.08716,
+"wiki": "Tanah Lot",
+"main": "https://commons.wikimedia.org/wiki/File:TanahLot_2014.JPG"
+},
+{
+"id": "i:bali-2",
+"name": "Đền Uluwatu",
+"cat": "sight",
+"lat": -8.82889,
+"lng": 115.08528,
+"wiki": "Uluwatu Temple",
+"main": "https://commons.wikimedia.org/wiki/File:Pura_Luhur_Uluwatu_2017-08-17_(34).jpg"
+},
+{
+"id": "i:bali-3",
+"name": "Ubud",
+"cat": "check",
+"lat": -8.5069,
+"lng": 115.2625,
+"wiki": "Ubud",
+"main": "https://commons.wikimedia.org/wiki/File:Ubud_(49818456887).jpg"
+},
+{
+"id": "i:bali-4",
+"name": "Ruộng bậc thang Tegallalang",
+"cat": "check",
+"lat": -8.43333,
+"lng": 115.28333,
+"wiki": "Tegallalang",
+"main": "https://commons.wikimedia.org/wiki/File:Indonesia_Gianyar_Tegallalang_district_location_map.svg"
+},
+{
+"id": "i:bali-5",
+"name": "Rừng khỉ Ubud",
+"cat": "check",
+"lat": -8.51882,
+"lng": 115.25838,
+"wiki": "Sacred Monkey Forest Sanctuary",
+"main": "https://commons.wikimedia.org/wiki/File:Monkey_Forest.jpg"
+},
+{
+"id": "i:bali-6",
+"name": "Đền Ulun Danu Bratan",
+"cat": "sight",
+"lat": -8.27528,
+"lng": 115.16639,
+"wiki": "Pura Ulun Danu Bratan",
+"main": "https://commons.wikimedia.org/wiki/File:Pura_Ulun_Danu_Bratan,_2022.jpg"
+},
+{
+"id": "i:bali-7",
+"name": "Đền nước thánh Tirta Empul",
+"cat": "sight",
+"lat": -8.41639,
+"lng": 115.31472,
+"wiki": "Tirta Empul",
+"main": "https://commons.wikimedia.org/wiki/File:Bali_-_bathing_(Melukat)_at_Pura_Tirta_Empul_(2025)_-_img_07.jpg"
+},
+{
+"id": "i:bali-8",
+"name": "Đảo Nusa Penida",
+"cat": "check",
+"lat": -8.73333,
+"lng": 115.53333,
+"wiki": "Nusa Penida",
+"main": "https://commons.wikimedia.org/wiki/File:Broken_Bay,_Nusa_Penida.jpg"
+},
+{
+"id": "i:bali-9",
+"name": "Bãi biển Kuta",
+"cat": "check",
+"lat": -8.7184,
+"lng": 115.1686,
+"wiki": "Kuta, Bali",
+"main": "https://commons.wikimedia.org/wiki/File:Kuta_Beach_(6924448550).jpg"
+},
+{
+"id": "i:bali-10",
+"name": "Vịnh Jimbaran",
+"cat": "food",
+"lat": -8.76944,
+"lng": 115.17389,
+"wiki": "Jimbaran",
+"main": "https://commons.wikimedia.org/wiki/File:Jimbaran200507-1.jpg"
+},
+{
+"id": "i:bali-11",
+"name": "Núi lửa Batur",
+"cat": "sight",
+"lat": -8.23889,
+"lng": 115.3775,
+"wiki": "Mount Batur",
+"main": "https://commons.wikimedia.org/wiki/File:View_Of_Mt.Batur_on_April_8th_2026.jpg"
+}
+]
