@@ -218,7 +218,7 @@
 "lat": null,
 "lng": null,
 "page": "https://commons.wikimedia.org/wiki/File:Si_Lom_Road_(Thanon_Si_Lom).jpg",
-"wiki": "Silom Road",
+"wiki": "Silom",
 "wp": "https://en.wikipedia.org/wiki/Si_Lom_Road"
 },
 "bangkok-16": {
@@ -443,6 +443,15 @@
 "wiki": "Beihai Park",
 "wp": "https://en.wikipedia.org/wiki/Beihai_Park"
 },
+"beijing-14": {
+"credit": "LuxTonnerre · CC BY 2.0",
+"f": "/images/intl/beijing-14.webp",
+"lat": 39.94511,
+"lng": 116.40831,
+"page": "https://commons.wikimedia.org/wiki/File:BeijingConfuciusTemple2.jpg",
+"wiki": "Beijing Confucius Temple",
+"wp": "https://en.wikipedia.org/wiki/Beijing_Temple_of_Confucius"
+},
 "beijing-15": {
 "credit": "xiquinhosilva · CC BY 2.0",
 "f": "/images/intl/beijing-15.webp",
@@ -460,6 +469,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Beijing_798_Art_District.jpg",
 "wiki": "798 Art Zone",
 "wp": "https://en.wikipedia.org/wiki/798_Art_Zone"
+},
+"beijing-17": {
+"credit": "© Vyacheslav Argenberg, VascoPlanet.com · CC BY 3.0",
+"f": "/images/intl/beijing-17.webp",
+"lat": 39.89917,
+"lng": 116.39147,
+"page": "https://commons.wikimedia.org/wiki/File:Qianmen_14_april_2010.jpg",
+"wiki": "Qianmen",
+"wp": "https://en.wikipedia.org/wiki/Zhengyangmen"
 },
 "beijing-19": {
 "credit": "SPLCorp · CC BY-SA 3.0",
@@ -932,6 +950,15 @@
 "wiki": "Chiang Mai University",
 "wp": "https://en.wikipedia.org/wiki/Chiang_Mai_University"
 },
+"chiangmai-18": {
+"credit": "กสิณธร ราชโอรส · CC BY-SA 4.0",
+"f": "/images/intl/chiangmai-18.webp",
+"lat": 18.79024,
+"lng": 98.98733,
+"page": "https://commons.wikimedia.org/wiki/File:%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%81%E0%B8%A9%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B4%E0%B8%A2%E0%B9%8C_%E0%B8%AD.%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87_%E0%B8%88.%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_(2).jpg",
+"wiki": "Three Kings Monument",
+"wp": "https://en.wikipedia.org/wiki/Three_Kings_Monument"
+},
 "chiangmai-19": {
 "credit": "Grossbildjaeger · CC BY-SA 3.0",
 "f": "/images/intl/chiangmai-19.webp",
@@ -1021,6 +1048,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Camel_Hill_Guilin.jpg",
 "wiki": "Seven Star Park",
 "wp": "https://en.wikipedia.org/wiki/SevenStar_Scenic_Area"
+},
+"guilin-12": {
+"credit": "Kelisi · Public domain",
+"f": "/images/intl/guilin-12.webp",
+"lat": 24.72833,
+"lng": 110.46722,
+"page": "https://commons.wikimedia.org/wiki/File:Moonmtyangshuo.jpg",
+"wiki": "Moon Hill",
+"wp": "https://en.wikipedia.org/wiki/Moon_Hill"
 },
 "guilin-15": {
 "credit": "Tiger@西北 · CC BY-SA 3.0",
@@ -2796,13 +2832,13 @@
 "wp": "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in"
 },
 "tokyo-24": {
-"credit": "Jpatokal · CC BY-SA 4.0",
+"credit": "663highland · CC BY-SA 4.0",
 "f": "/images/intl/tokyo-24.webp",
-"lat": null,
-"lng": null,
-"page": "https://commons.wikimedia.org/wiki/File:Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
-"wiki": "Tōshō-gū",
-"wp": "https://en.wikipedia.org/wiki/T%C5%8Dsh%C5%8D-g%C5%AB"
+"lat": 36.75806,
+"lng": 139.59896,
+"page": "https://commons.wikimedia.org/wiki/File:200801_Nikko_Tosho-gu_Nikko_Japan03s3.jpg",
+"wiki": "Nikkō Tōshō-gū",
+"wp": "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB"
 },
 "tokyo-3": {
 "credit": "David Kernan · CC BY 4.0",
