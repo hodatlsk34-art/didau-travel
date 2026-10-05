@@ -334,3 +334,7 @@ CITIES = [
         ('s', 'Núi lửa Batur', 'Mount Batur', 'Leo núi đón bình minh', {'tip': 'Xuất phát khoảng 3–4 giờ sáng, đi cùng hướng dẫn viên.'}),
      ]},
 ]
+
+# Bổ sung địa điểm và thông tin lập lịch trình (tools/intl_plan.py)
+from intl_plan import extend as _extend  # noqa: E402
+_extend(CITIES)

@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'tools/intl_src.py'
+      - 'tools/intl_plan.py'
       - 'tools/fetch_intl.py'
       - '.github/workflows/intl.yml'
 
