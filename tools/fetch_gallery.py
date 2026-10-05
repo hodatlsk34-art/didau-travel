@@ -19,7 +19,7 @@ OUT = os.path.join(ROOT, 'public', 'images', 'gallery')
 GJ = os.path.join(OUT, 'gallery.json')
 UA = 'DiDauTravelGalleryBot/1.0 (https://didautravel.id.vn/; free-licensed travel photos)'
 PER = 3
-BAD = re.compile(r'map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
+BAD = re.compile(r'sticker|selfie|portrait|wedding|graffiti|toilet|interior of bus|map|bản đồ|ban do|logo|plan|diagram|sơ đồ|so do|flag|coat of arms|seal|emblem|ticket|menu|document|scan|stamp|banknote|poster|sign\b|\.svg|\.gif|\.tif', re.I)
 STOP = set('cho pho quan nha chua den bai bien ho nui ca phe tp thanh khu di tich va cau dong doi the of and temple park street market beach road'.split())
 LOG, STATS = [], {'ok': 0, 'none': 0}
 
@@ -131,33 +131,66 @@ def good(title, ii):
     return bool(lic) and not re.search(r'non-free|fair use', lic, re.I)
 
 
+def article_images(title, lang):
+    """Ảnh biên tập viên đã đưa vào bài Wikipedia (đúng chủ đề, chất lượng tốt)."""
+    j = get(f'https://{lang}.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=images|langlinks&imlimit=60&lllang=en&titles='
+            + urllib.parse.quote(title)) or {}
+    pg = (j.get('query', {}).get('pages') or [{}])[0]
+    files = [i['title'] for i in pg.get('images', []) if re.search(r'\.(jpe?g|png|webp)$', i['title'], re.I)]
+    en = (pg.get('langlinks') or [{}])[0].get('title') if lang != 'en' else None
+    # Wikipedia tiếng Việt dùng tiền tố "Tập tin:" – đổi về "File:" để tra trên Commons
+    return [re.sub(r'^[^:]+:', 'File:', f) for f in files], en
+
+
 def pick(t):
     tk = toks(t['name'], t.get('wiki'))
-    cands = {}
-    cat = commons_category(t.get('wiki'))
-    if not cat and not t.get('wiki') and t['cat'] != 'food':
+    cands = {}                                   # file -> độ ưu tiên (0 tốt nhất)
+    arts = []
+    if t.get('wiki'):
+        arts.append((t['wiki'], 'en'))
+    elif t['cat'] != 'food':
         vt = vi_article(t['name'])
         if vt:
-            cat = commons_category(vt, 'vi')
-    if cat:
-        for f in files_in_category(cat):
-            cands[f] = 'cat'
-    if t.get('lat') is not None:
-        radius = {'food': 120, 'check': 400, 'sight': 400}[t['cat']]
-        for f in files_near(t['lat'], t['lng'], radius):
-            if f not in cands and len(tk & toks(f[5:])) >= min(2, len(tk) or 1):
-                cands[f] = 'near'
+            arts.append((vt, 'vi'))
+    for title, lang in list(arts):
+        files, en = article_images(title, lang)
+        for f in files:
+            cands.setdefault(f, 0)
+        if en:
+            for f in article_images(en, 'en')[0]:
+                cands.setdefault(f, 0)
+            arts.append((en, 'en'))
+    if sum(1 for v in cands.values() if v == 0) < PER + 2:
+        for title, lang in arts[:2]:
+            cat = commons_category(title, lang)
+            if cat:
+                for f in files_in_category(cat):
+                    if len(tk & toks(f[5:])) >= 1:
+                        cands.setdefault(f, 1)
+                break
+    if not cands and t['cat'] != 'food' and t.get('lat') is not None:
+        for f in files_near(t['lat'], t['lng'], 300):
+            if tk and len(tk & toks(f[5:])) >= min(2, len(tk)):
+                cands.setdefault(f, 2)
     if not cands:
         return []
     inf = infos(list(cands)[:160])
     rows = []
-    for f, src in cands.items():
+    for f, pri in cands.items():
         ii = inf.get(f)
         if not ii or not good(f, ii) or ii.get('descriptionurl') == t.get('main'):
             continue
-        rows.append((date_of(ii), src, f, ii))
-    rows.sort(key=lambda r: r[0], reverse=True)          # ảnh chụp mới nhất trước
-    return rows[:PER]
+        rows.append((pri, date_of(ii), f, ii))
+    # Ưu tiên nhóm nguồn tốt nhất (0 = ảnh trong bài Wikipedia, 1 = thư mục Commons, 2 = ảnh gần tọa độ);
+    # nếu nhóm đó đủ 3 ảnh thì lấy 3 ảnh chụp MỚI NHẤT trong nhóm, không thì bổ sung từ nhóm sau.
+    rows.sort(key=lambda r: r[1], reverse=True)          # mới nhất trước
+    chosen = []
+    for pri in (0, 1, 2):
+        chosen += [r for r in rows if r[0] == pri][:PER - len(chosen)]
+        if len(chosen) >= PER:
+            break
+    chosen.sort(key=lambda r: r[1], reverse=True)
+    return [(r[1], r[0], r[2], r[3]) for r in chosen]
 
 
 def main():
@@ -165,7 +198,7 @@ def main():
     targets = json.load(open(os.path.join(ROOT, 'tools', 'gallery_targets.json'), encoding='utf-8'))
     gal = json.load(open(GJ, encoding='utf-8')) if os.path.exists(GJ) else {}
     # chưa làm, hoặc lần trước chưa tìm được ảnh (thử lại – có thể đã có ảnh mới trên Commons)
-    todo = [t for t in targets if t['id'] not in gal] + [t for t in targets if gal.get(t['id']) == [] and t['cat'] != 'food']
+    todo = [t for t in targets if t['id'] not in gal]
     print(f'{len(targets)} điểm, cần lấy {len(todo)}')
     t0 = time.time()
     for n, t in enumerate(todo):
