@@ -171,12 +171,12 @@ window.GA_ID='{GA_ID}';
 def topbar(active):
     return f"""<header class="top"><div class="top-in">
 <a class="logo" href="/"><img src="/images/logo-art-520.webp" alt="" width="40" height="40"><span>Đi Đâu?<small>AI Travel Planner Việt Nam</small></span></a>
-<nav class="nav"><a href="/">Trang chủ</a><a href="/blog/"{' class="on"' if active == 'blog' else ''}>Blog</a><a class="app" href="/">✨ Lập lịch trình</a></nav>
+<nav class="nav"><a href="/">Trang chủ</a><a href="/diem-den/"{' class="on"' if active == 'vn' else ''}>Trong nước</a><a href="/quoc-te/"{' class="on"' if active == 'intl' else ''}>Quốc tế</a><a href="/blog/"{' class="on"' if active == 'blog' else ''}>Blog</a><a class="app" href="/">✨ Lập lịch trình</a></nav>
 </div></header>"""
 
 
 FOOT = """<footer><div class="ft"><span>© 2026 Đi Đâu? – AI Travel Planner Việt Nam</span>
-<a href="/">Trang chủ</a><a href="/blog/">Blog</a><a href="/dieu-khoan.html">Điều khoản sử dụng</a><a href="/chinh-sach-bao-mat.html">Chính sách bảo mật</a></div></footer>
+<a href="/">Trang chủ</a><a href="/diem-den/">Điểm đến trong nước</a><a href="/quoc-te/">Du lịch quốc tế</a><a href="/blog/">Blog</a><a href="/dieu-khoan.html">Điều khoản sử dụng</a><a href="/chinh-sach-bao-mat.html">Chính sách bảo mật</a></div></footer>
 <script>document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('[data-ev]'); if(a&&window.gtag) gtag('event','blog_cta',{cta:a.dataset.ev,post:location.pathname}); });</script>
 </body></html>
 """
@@ -242,6 +242,9 @@ def sitemap():
     today = datetime.date.today().isoformat()
     rows = [(SITE + '/', today, 'weekly', '1.0'), (SITE + '/blog/', today, 'weekly', '0.8')]
     rows += [(f'{SITE}/blog/{p["slug"]}/', p.get('date') or today, 'monthly', '0.7') for p in posts]
+    pu = ROOT / 'tools' / 'page_urls.json'
+    if pu.exists():
+        rows += [(SITE + u, today, 'weekly', pr) for u, pr in json.loads(pu.read_text(encoding='utf-8'))]
     rows += [(SITE + '/chinh-sach-bao-mat.html', today, 'yearly', '0.2'), (SITE + '/dieu-khoan.html', today, 'yearly', '0.2')]
     body = ''.join(f'  <url><loc>{u}</loc><lastmod>{d}</lastmod><changefreq>{f}</changefreq><priority>{pr}</priority></url>\n' for u, d, f, pr in rows)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}</urlset>\n'

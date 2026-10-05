@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="google-site-verification" content="lFIz59fDzueAefwCDtVHFwLefyL3-q20LzTEspAFs94" />
-<meta name="description" content="Đi Đâu? – AI Travel Planner Việt Nam: bản đồ ăn uống, check-in, tham quan và lịch trình cho 34 tỉnh thành.">
+<meta name="description" content="Lập lịch trình du lịch miễn phí bằng AI: bản đồ món ngon, điểm check-in, tham quan cho 34 tỉnh thành Việt Nam và 21 thành phố châu Á (Thái Lan, Hàn, Nhật, Trung Quốc…).">
 <meta name="theme-color" content="#0E4C8E">
 <link rel="icon" type="image/png" href="/favicon64.png">
 <link rel="apple-touch-icon" href="/apple180.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Đi Đâu?">
-<meta property="og:title" content="Đi Đâu? – AI Travel Planner Việt Nam">
-<meta property="og:description" content="Món ngon, điểm check-in, tham quan và lịch trình AI cho 34 tỉnh thành Việt Nam.">
+<meta property="og:title" content="Đi Đâu? – Lập lịch trình du lịch bằng AI miễn phí">
+<meta property="og:description" content="Món ngon, điểm check-in, tham quan và lịch trình AI cho 34 tỉnh thành Việt Nam và 21 thành phố châu Á.">
 <meta property="og:url" content="https://didautravel.id.vn/">
 <meta property="og:image" content="https://didautravel.id.vn/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -22,6 +22,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
 <script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://didautravel.id.vn/#website", "url": "https://didautravel.id.vn/", "name": "Đi Đâu?", "alternateName": "Đi Đâu Travel", "description": "Lập lịch trình du lịch miễn phí bằng AI: bản đồ món ngon, điểm check-in, tham quan cho 34 tỉnh thành Việt Nam và 21 thành phố châu Á (Thái Lan, Hàn, Nhật, Trung Quốc…).", "inLanguage": "vi", "publisher": {"@id": "https://didautravel.id.vn/#org"}}, {"@type": "Organization", "@id": "https://didautravel.id.vn/#org", "name": "Đi Đâu?", "url": "https://didautravel.id.vn/", "logo": "https://didautravel.id.vn/apple180.png", "email": "holindahouse@gmail.com"}, {"@type": "WebApplication", "name": "Đi Đâu? – AI Travel Planner", "url": "https://didautravel.id.vn/", "applicationCategory": "TravelApplication", "operatingSystem": "Web", "inLanguage": "vi", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}]}</script>
 <link rel="canonical" href="https://didautravel.id.vn/">
 </head>
 <body style="margin:0">
@@ -33,7 +34,7 @@ window.GA_ID='G-4SZ0F47T3Z';
   gtag('js',new Date()); gtag('config',window.GA_ID);
   var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+window.GA_ID; document.head.appendChild(s); })();
 </script>
-<title>Đi Đâu?</title>
+<title>Đi Đâu? – Lập lịch trình du lịch Việt Nam &amp; quốc tế bằng AI miễn phí</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Dancing+Script:wght@700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
@@ -1587,8 +1588,10 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .foot-col h4{margin:0 0 8px;font-family:var(--font-display);font-size:15px;color:var(--moss)}
 .foot-col p{margin:0 0 6px;font-size:13.5px;line-height:1.55;color:var(--ink)}
 .foot-dest{display:flex;flex-wrap:wrap;gap:6px}
-.foot-dest button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px;font:500 13px var(--font-body);color:var(--ink);cursor:pointer}
-.foot-dest button:hover{border-color:var(--moss);color:var(--moss)}
+.foot-more{margin:10px 0 0;font-size:13px}.foot-more a{color:var(--moss);font-weight:600;text-decoration:none}.foot-more a:hover{text-decoration:underline}
+.foot-dest a{text-decoration:none;display:inline-block}
+.foot-dest button,.foot-dest a{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px;font:500 13px var(--font-body);color:var(--ink);cursor:pointer}
+.foot-dest button:hover,.foot-dest a:hover{border-color:var(--moss);color:var(--moss)}
 .foot-contact{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
 .foot-contact a{display:inline-flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;font-size:13.5px}
 .foot-contact svg,.foot-social svg{width:18px;height:18px}
@@ -3085,6 +3088,7 @@ const SITE={
   youtube:'',      // ví dụ 'https://youtube.com/@didautravel'
   feedback:''      // link Google Form góp ý / báo lỗi (nếu trống sẽ dùng FEEDBACK_FORM)
 };
+const DEST_SLUG={"Huế|Cố đô Huế":"hue","Huế|Lăng Cô – Bạch Mã":"lang-co-bach-ma","Hải Phòng|Nội thành Hải Phòng":"hai-phong","Hải Phòng|Đồ Sơn":"do-son","Hải Phòng|Cát Bà":"cat-ba","Hải Phòng|Hải Dương":"hai-duong","Đà Nẵng|Trung tâm Đà Nẵng":"da-nang","Đà Nẵng|Hội An – Mỹ Sơn":"hoi-an-my-son","TP. Hồ Chí Minh|Trung tâm Sài Gòn":"sai-gon","TP. Hồ Chí Minh|Vũng Tàu":"vung-tau","TP. Hồ Chí Minh|Côn Đảo":"con-dao","Cần Thơ|Cần Thơ":"can-tho","Cần Thơ|Sóc Trăng":"soc-trang","Cao Bằng|Thác Bản Giốc – Trùng Khánh":"thac-ban-gioc-trung-khanh","Cao Bằng|TP Cao Bằng – Pác Bó":"cao-bang-pac-bo","Điện Biên|TP Điện Biên Phủ":"dien-bien-phu","Hà Tĩnh|Hà Tĩnh – Thiên Cầm":"ha-tinh-thien-cam","Hà Tĩnh|Nghi Xuân":"nghi-xuan","Lai Châu|Lai Châu":"lai-chau","Lạng Sơn|TP Lạng Sơn":"lang-son","Lạng Sơn|Mẫu Sơn":"mau-son","Nghệ An|Vinh – Cửa Lò":"vinh-cua-lo","Nghệ An|Nam Đàn":"nam-dan","Nghệ An|Pù Mát":"pu-mat","Quảng Ninh|Hạ Long":"ha-long","Quảng Ninh|Yên Tử":"yen-tu","Quảng Ninh|Cô Tô":"co-to","Thanh Hóa|Sầm Sơn":"sam-son","Thanh Hóa|Thành nhà Hồ – Pù Luông":"thanh-nha-ho-pu-luong","Sơn La|Mộc Châu":"moc-chau","Sơn La|TP Sơn La":"son-la","Tuyên Quang|Hà Giang – Đồng Văn":"ha-giang-dong-van","Tuyên Quang|TP Tuyên Quang – Tân Trào":"tuyen-quang-tan-trao","Lào Cai|Sa Pa":"sa-pa","Lào Cai|Mù Cang Chải":"mu-cang-chai","Thái Nguyên|Hồ Ba Bể":"ho-ba-be","Thái Nguyên|TP Thái Nguyên":"thai-nguyen","Phú Thọ|Đền Hùng – Việt Trì":"den-hung-viet-tri","Phú Thọ|Tam Đảo":"tam-dao","Phú Thọ|Mai Châu":"mai-chau","Bắc Ninh|Kinh Bắc":"kinh-bac","Bắc Ninh|Bắc Giang":"bac-giang","Hưng Yên|Phố Hiến":"pho-hien","Hưng Yên|Thái Bình":"thai-binh","Ninh Bình|Tràng An – Tam Cốc":"trang-an-tam-coc","Ninh Bình|Nam Định":"nam-dinh","Ninh Bình|Hà Nam":"ha-nam","Quảng Trị|Phong Nha – Đồng Hới":"phong-nha-dong-hoi","Quảng Trị|Quảng Trị":"quang-tri","Quảng Ngãi|Lý Sơn":"ly-son","Quảng Ngãi|TP Quảng Ngãi":"quang-ngai","Quảng Ngãi|Kon Tum – Măng Đen":"kon-tum-mang-den","Gia Lai|Quy Nhơn":"quy-nhon","Gia Lai|Pleiku":"pleiku","Khánh Hòa|Nha Trang":"nha-trang","Khánh Hòa|Ninh Thuận – Vĩnh Hy":"ninh-thuan-vinh-hy","Lâm Đồng|Đà Lạt":"da-lat","Lâm Đồng|Mũi Né – Phan Thiết":"mui-ne-phan-thiet","Lâm Đồng|Đắk Nông":"dak-nong","Đắk Lắk|Buôn Ma Thuột":"buon-ma-thuot","Đắk Lắk|Phú Yên":"phu-yen","Đồng Nai|Biên Hòa – Trị An":"bien-hoa-tri-an","Đồng Nai|Nam Cát Tiên":"nam-cat-tien","Đồng Nai|Bình Phước":"binh-phuoc","Tây Ninh|Núi Bà Đen – Tòa Thánh":"nui-ba-den-toa-thanh","Tây Ninh|Long An":"long-an","Vĩnh Long|Bến Tre":"ben-tre","Vĩnh Long|Vĩnh Long":"vinh-long","Vĩnh Long|Trà Vinh":"tra-vinh","Đồng Tháp|Sa Đéc – Tràm Chim":"sa-dec-tram-chim","Đồng Tháp|Mỹ Tho":"my-tho","Cà Mau|Mũi Cà Mau – U Minh":"mui-ca-mau-u-minh","Cà Mau|Bạc Liêu":"bac-lieu","An Giang|Phú Quốc":"phu-quoc","An Giang|Châu Đốc – Núi Sam":"chau-doc-nui-sam","An Giang|Hà Tiên":"ha-tien","Hà Nội|Nội thành":"ha-noi"};
 const FOOT_DEST=['Hà Nội|Nội thành','Quảng Ninh|Hạ Long','Lào Cai|Sa Pa','Tuyên Quang|Hà Giang – Đồng Văn','Ninh Bình|Tràng An – Tam Cốc','Huế|Cố đô Huế','Đà Nẵng|Trung tâm Đà Nẵng','Đà Nẵng|Hội An – Mỹ Sơn','Lâm Đồng|Đà Lạt','Khánh Hòa|Nha Trang','TP. Hồ Chí Minh|Trung tâm Sài Gòn','An Giang|Phú Quốc'];
 const okUrl=u=>/^https:\/\/[\w.-]+\.[a-z]{2,}(\/[^\s"'<>]*)?$/i.test(u||'');
 const IC={
@@ -3105,7 +3109,8 @@ function footerHTML(){
       <p>Đi Đâu? là trợ lý du lịch AI dành cho người Việt: gợi ý điểm đến hợp ngân sách, lên lịch trình theo giờ, tối ưu tuyến đường và ước tính chi phí cho 34 tỉnh thành theo địa giới mới.</p>
       <p>Dữ liệu tổng hợp từ nguồn công khai và đang được cập nhật liên tục. Mọi góp ý giúp Đi Đâu? chính xác hơn đều rất đáng quý.</p></section>
     <section class="foot-col"><h4>Điểm đến nổi bật</h4>
-      <div class="foot-dest">${dests.map(k=>`<button type="button" data-dexp="${esc(k)}">${esc(DESTMAP[k].name)}</button>`).join('')}</div></section>
+      <div class="foot-dest">${dests.map(k=>DEST_SLUG[k]?`<a href="/diem-den/${DEST_SLUG[k]}/" data-dexp="${esc(k)}">${esc(DESTMAP[k].name)}</a>`:`<button type="button" data-dexp="${esc(k)}">${esc(DESTMAP[k].name)}</button>`).join('')}</div>
+      <p class="foot-more"><a href="/diem-den/">Tất cả điểm đến trong nước →</a> · <a href="/quoc-te/">Du lịch quốc tế →</a> · <a href="/blog/">Blog kinh nghiệm →</a></p></section>
     <section class="foot-col"><h4>Liên hệ &amp; góp ý</h4>
       ${contacts.length?`<div class="foot-contact">${contacts.join('')}</div>`:'<p class="hint">Thông tin liên hệ đang được cập nhật.</p>'}
       ${okUrl(fb)?`<a class="btn foot-fb" href="${esc(fb)}" target="_blank" rel="noopener">✍️ Góp ý / báo thông tin sai</a>`:mail?`<a class="btn foot-fb" href="mailto:${esc(mail)}?subject=${encodeURIComponent('Góp ý cho Đi Đâu?')}&body=${encodeURIComponent('Nội dung góp ý / thông tin sai (tên địa điểm, tỉnh):\n\n')}">✍️ Góp ý / báo thông tin sai</a>`:''}
@@ -3802,7 +3807,7 @@ $('#pbody').addEventListener('click',e=>{
   if(d.rint){ const s=new Set(H.req.interests); s.has(d.rint)?s.delete(d.rint):s.add(d.rint); H.manual.interests=[...s]; refreshHomeBits(); return; }
   if(d.rpace){ H.manual.pace=d.rpace; refreshHomeBits(); return; }
   if(d.feat){ pickDest(d.feat); return; }
-  if(d.dexp){ const D=DESTMAP[d.dexp]; if(!D) return; state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); $('#pbody').scrollTop=0; window.scrollTo(0,0); return; }
+  if(d.dexp){ const D=DESTMAP[d.dexp]; if(!D) return; if(el.tagName==='A'){ if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey) return; e.preventDefault(); } state.prov=D.prov; state.area=D.area; state.filter='all'; state.q=''; state.tab='explore'; state.selected=null; render(); fitView(); $('#pbody').scrollTop=0; window.scrollTo(0,0); return; }
   if(d.dplan){ H.manual.dest=d.dplan; homeGo(); return; }
   if(d.recplan){ openRecPlan(Number(d.recplan)); return; }
   if(d.recexplore){ const x=H.recs[Number(d.recexplore)]; state.prov=x.D.prov; state.area=x.D.area; state.filter='all'; state.q=''; state.tab='explore'; render(); fitView(); return; }
@@ -3945,6 +3950,5 @@ buildReq(); render();
   window.__topUpd=upd; upd(); addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); })();
 if(map){ fitView(); setTimeout(()=>{map.invalidateSize();fitView();},250); window.addEventListener('resize',()=>map.invalidateSize()); }
 </script>
-
 </body>
 </html>
