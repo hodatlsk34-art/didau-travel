@@ -26,6 +26,60 @@
 "wiki": "Mount Batur",
 "wp": "https://en.wikipedia.org/wiki/Mount_Batur"
 },
+"bali-12": {
+"credit": "Flickr user: tboothhk · CC BY 2.0",
+"f": "/images/intl/bali-12.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Seminyak,_Bali.jpg",
+"wiki": "Seminyak",
+"wp": "https://en.wikipedia.org/wiki/Seminyak"
+},
+"bali-13": {
+"credit": "GdML · CC BY-SA 4.0",
+"f": "/images/intl/bali-13.webp",
+"lat": -8.8025,
+"lng": 115.2275,
+"page": "https://commons.wikimedia.org/wiki/File:Nusa_Dua_Bali.jpg",
+"wiki": "Nusa Dua",
+"wp": "https://en.wikipedia.org/wiki/Nusa_Dua"
+},
+"bali-14": {
+"credit": "Wikimedia Commons · Cc-by-sa-3.0",
+"f": "/images/intl/bali-14.webp",
+"lat": -8.81,
+"lng": 115.168,
+"page": "https://en.wikipedia.org/wiki/File:Garuda_gwk.JPG",
+"wiki": "Garuda Wisnu Kencana Cultural Park",
+"wp": "https://en.wikipedia.org/wiki/Garuda_Wisnu_Kencana_Cultural_Park"
+},
+"bali-15": {
+"credit": "Matt Croxson · Public domain",
+"f": "/images/intl/bali-15.webp",
+"lat": -8.68333,
+"lng": 115.26667,
+"page": "https://commons.wikimedia.org/wiki/File:Sanur_Beach.JPG",
+"wiki": "Sanur, Bali",
+"wp": "https://en.wikipedia.org/wiki/Sanur,_Bali"
+},
+"bali-17": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/bali-17.webp",
+"lat": -8.5068,
+"lng": 115.2626,
+"page": "https://commons.wikimedia.org/wiki/File:Ubud_Palace_(2022).jpg",
+"wiki": "Ubud Palace",
+"wp": "https://en.wikipedia.org/wiki/Ubud_Palace"
+},
+"bali-19": {
+"credit": "Chainwit. · CC BY 4.0",
+"f": "/images/intl/bali-19.webp",
+"lat": -8.52339,
+"lng": 115.28636,
+"page": "https://commons.wikimedia.org/wiki/File:Bali_-_Goa_Gajah_(2022)_-_img_20.jpg",
+"wiki": "Goa Gajah",
+"wp": "https://en.wikipedia.org/wiki/Goa_Gajah"
+},
 "bali-2": {
 "credit": "Paskuu · CC BY-SA 4.0",
 "f": "/images/intl/bali-2.webp",
@@ -34,6 +88,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Pura_Luhur_Uluwatu_2017-08-17_(34).jpg",
 "wiki": "Uluwatu Temple",
 "wp": "https://en.wikipedia.org/wiki/Uluwatu_Temple"
+},
+"bali-20": {
+"credit": "TMFalkner · CC BY-SA 4.0",
+"f": "/images/intl/bali-20.webp",
+"lat": -8.81114,
+"lng": 115.1012,
+"page": "https://commons.wikimedia.org/wiki/File:Padang_Padang_Beach_Bali.jpg",
+"wiki": "Padang Padang Beach",
+"wp": "https://en.wikipedia.org/wiki/Padang_Padang_Beach"
 },
 "bali-3": {
 "credit": "Jorge Franganillo · CC BY 2.0",
@@ -125,6 +188,75 @@
 "wiki": "Damnoen Saduak Floating Market",
 "wp": "https://en.wikipedia.org/wiki/Damnoen_Saduak_Floating_Market"
 },
+"bangkok-12": {
+"lat": 13.7971,
+"lng": 100.5475,
+"wiki": "Or Tor Kor Market",
+"wp": "https://en.wikipedia.org/wiki/Or_Tor_Kor_Market"
+},
+"bangkok-13": {
+"credit": "Marcin Konsek · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-13.webp",
+"lat": 13.75889,
+"lng": 100.49722,
+"page": "https://commons.wikimedia.org/wiki/File:2016_Bangkok,_Dystrykt_Phra_Nakhon,_Ulica_Khaosan_(08).jpg",
+"wiki": "Khao San Road",
+"wp": "https://en.wikipedia.org/wiki/Khaosan_Road"
+},
+"bangkok-14": {
+"credit": "Hanny Naibaho hannynaibaho · CC0",
+"f": "/images/intl/bangkok-14.webp",
+"lat": 13.74996,
+"lng": 100.54109,
+"page": "https://commons.wikimedia.org/wiki/File:Lost_in_the_City_Lights_(Unsplash).jpg",
+"wiki": "Pratunam",
+"wp": "https://en.wikipedia.org/wiki/Pratunam"
+},
+"bangkok-15": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-15.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Si_Lom_Road_(Thanon_Si_Lom).jpg",
+"wiki": "Silom Road",
+"wp": "https://en.wikipedia.org/wiki/Si_Lom_Road"
+},
+"bangkok-16": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-16.webp",
+"lat": 13.7375,
+"lng": 100.56056,
+"page": "https://commons.wikimedia.org/wiki/File:Terminal_21_Asok_Bangkok_20202021.jpg",
+"wiki": "Terminal 21 Asok",
+"wp": "https://en.wikipedia.org/wiki/Terminal_21"
+},
+"bangkok-17": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-17.webp",
+"lat": 13.73333,
+"lng": 100.51389,
+"page": "https://commons.wikimedia.org/wiki/File:Rong_Kuak_Shrine_Talat_Noi_%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%81%E0%B8%B7%E0%B8%AD%E0%B8%81_%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2_2021_June.jpg",
+"wiki": "Talat Noi",
+"wp": "https://en.wikipedia.org/wiki/Talat_Noi"
+},
+"bangkok-18": {
+"credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
+"f": "/images/intl/bangkok-18.webp",
+"lat": 13.74639,
+"lng": 100.535,
+"page": "https://commons.wikimedia.org/wiki/File:Siam_Paragon_06.23.jpg",
+"wiki": "Siam Paragon",
+"wp": "https://en.wikipedia.org/wiki/Siam_Paragon"
+},
+"bangkok-19": {
+"credit": "BerryJ · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-19.webp",
+"lat": 13.75389,
+"lng": 100.50833,
+"page": "https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%81%E0%B8%A8-2.jpg",
+"wiki": "Wat Saket",
+"wp": "https://en.wikipedia.org/wiki/Wat_Saket"
+},
 "bangkok-2": {
 "credit": "Mastertongapollo · CC BY-SA 4.0",
 "f": "/images/intl/bangkok-2.webp",
@@ -133,6 +265,78 @@
 "page": "https://commons.wikimedia.org/wiki/File:%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9E%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%84%E0%B8%AA%E0%B8%A2%E0%B8%B2%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%8A%E0%B8%95%E0%B8%B8%E0%B8%9E%E0%B8%99.jpg",
 "wiki": "Wat Pho",
 "wp": "https://en.wikipedia.org/wiki/Wat_Pho"
+},
+"bangkok-20": {
+"credit": "Kriengsak Jirasirirojanakorn · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-20.webp",
+"lat": 13.76658,
+"lng": 100.51408,
+"page": "https://commons.wikimedia.org/wiki/File:Wat_Benjamabophit1.jpg",
+"wiki": "Wat Benchamabophit",
+"wp": "https://en.wikipedia.org/wiki/Wat_Benchamabophit"
+},
+"bangkok-21": {
+"credit": "PEAK99 · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-21.webp",
+"lat": 13.75056,
+"lng": 100.50111,
+"page": "https://commons.wikimedia.org/wiki/File:(2019)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%B8%E0%B8%97%E0%B8%B1%E0%B8%A8%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A7%E0%B8%A3%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3_4.jpg",
+"wiki": "Wat Suthat",
+"wp": "https://en.wikipedia.org/wiki/Wat_Suthat"
+},
+"bangkok-22": {
+"credit": "Supanut Arunoprayote · CC BY 4.0",
+"f": "/images/intl/bangkok-22.webp",
+"lat": 13.7575,
+"lng": 100.49222,
+"page": "https://commons.wikimedia.org/wiki/File:Siwamok_Phiman_Hall_at_Noon.jpg",
+"wiki": "Bangkok National Museum",
+"wp": "https://en.wikipedia.org/wiki/Bangkok_National_Museum"
+},
+"bangkok-23": {
+"credit": "Terence Ong · CC BY 2.5",
+"f": "/images/intl/bangkok-23.webp",
+"lat": 13.73056,
+"lng": 100.54167,
+"page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Lumphini_Park.jpg",
+"wiki": "Lumphini Park",
+"wp": "https://en.wikipedia.org/wiki/Lumphini_Park"
+},
+"bangkok-24": {
+"credit": "Wpcpey · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-24.webp",
+"lat": 13.7458,
+"lng": 100.5353,
+"page": "https://commons.wikimedia.org/wiki/File:Siam_Ocean_World_Enterance_2011.jpg",
+"wiki": "Sea Life Bangkok Ocean World",
+"wp": "https://en.wikipedia.org/wiki/Sea_Life_Bangkok_Ocean_World"
+},
+"bangkok-25": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-25.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Lunch_at_Rongros,_Bangkok_(Jan_2021)_-_img_05.jpg",
+"wiki": "Chao Phraya Express Boat",
+"wp": "https://en.wikipedia.org/wiki/Chao_Phraya_Express_Boat"
+},
+"bangkok-26": {
+"credit": "Christophe95 · CC BY-SA 4.0",
+"f": "/images/intl/bangkok-26.webp",
+"lat": 14.35,
+"lng": 100.58333,
+"page": "https://commons.wikimedia.org/wiki/File:Ayutthaya_World_Heritage_sign.jpg",
+"wiki": "Ayutthaya Historical Park",
+"wp": "https://en.wikipedia.org/wiki/Ayutthaya_Historical_Park"
+},
+"bangkok-27": {
+"credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
+"f": "/images/intl/bangkok-27.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Talad_Rom_Hoop_(II).jpg",
+"wiki": "Maeklong Railway Market",
+"wp": "https://en.wikipedia.org/wiki/Maeklong_Railway"
 },
 "bangkok-3": {
 "credit": "Mastertongapollo · CC BY-SA 4.0",
@@ -221,6 +425,51 @@
 "wiki": "Shichahai",
 "wp": "https://en.wikipedia.org/wiki/Shichahai"
 },
+"beijing-12": {
+"credit": "Charlie fong冯成 · Public domain",
+"f": "/images/intl/beijing-12.webp",
+"lat": 39.92361,
+"lng": 116.39056,
+"page": "https://commons.wikimedia.org/wiki/File:Jingshan_park.jpg",
+"wiki": "Jingshan Park",
+"wp": "https://en.wikipedia.org/wiki/Jingshan_Park"
+},
+"beijing-13": {
+"credit": "xiquinhosilva · CC BY 2.0",
+"f": "/images/intl/beijing-13.webp",
+"lat": 39.92444,
+"lng": 116.38306,
+"page": "https://commons.wikimedia.org/wiki/File:Beihai_Park_65414.jpg",
+"wiki": "Beihai Park",
+"wp": "https://en.wikipedia.org/wiki/Beihai_Park"
+},
+"beijing-15": {
+"credit": "xiquinhosilva · CC BY 2.0",
+"f": "/images/intl/beijing-15.webp",
+"lat": 39.9036,
+"lng": 116.395,
+"page": "https://commons.wikimedia.org/wiki/File:62684-Beijing-Tiananmen-Square_(28609003992).jpg",
+"wiki": "National Museum of China",
+"wp": "https://en.wikipedia.org/wiki/National_Museum_of_China"
+},
+"beijing-16": {
+"credit": "Cory M. Grenier · CC BY-SA 2.0",
+"f": "/images/intl/beijing-16.webp",
+"lat": 39.98906,
+"lng": 116.48793,
+"page": "https://commons.wikimedia.org/wiki/File:Beijing_798_Art_District.jpg",
+"wiki": "798 Art Zone",
+"wp": "https://en.wikipedia.org/wiki/798_Art_Zone"
+},
+"beijing-19": {
+"credit": "SPLCorp · CC BY-SA 3.0",
+"f": "/images/intl/beijing-19.webp",
+"lat": 39.93611,
+"lng": 116.44889,
+"page": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E9%87%8C%E5%B1%AF%E5%A4%AA%E5%8F%A4%E9%87%8C%E5%8C%97%E5%8C%BA.jpg",
+"wiki": "Sanlitun",
+"wp": "https://en.wikipedia.org/wiki/Sanlitun"
+},
 "beijing-2": {
 "credit": "xiquinhosilva · CC BY 2.0",
 "f": "/images/intl/beijing-2.webp",
@@ -229,6 +478,33 @@
 "page": "https://commons.wikimedia.org/wiki/File:Tiananmen_Square_(54137047250).jpg",
 "wiki": "Tiananmen Square",
 "wp": "https://en.wikipedia.org/wiki/Tiananmen_Square"
+},
+"beijing-20": {
+"credit": "Picrazy2 · CC BY-SA 4.0",
+"f": "/images/intl/beijing-20.webp",
+"lat": 40.00303,
+"lng": 116.38667,
+"page": "https://commons.wikimedia.org/wiki/File:Beijing_Olympic_Green.jpg",
+"wiki": "Beijing Olympic Park",
+"wp": "https://en.wikipedia.org/wiki/Olympic_Green"
+},
+"beijing-21": {
+"credit": "Windmemories · CC BY-SA 4.0",
+"f": "/images/intl/beijing-21.webp",
+"lat": 40.00722,
+"lng": 116.2925,
+"page": "https://commons.wikimedia.org/wiki/File:20090731_Remains_of_the_Old_Summer_Palace_02.jpg",
+"wiki": "Old Summer Palace",
+"wp": "https://en.wikipedia.org/wiki/Old_Summer_Palace"
+},
+"beijing-22": {
+"credit": "Charlie fong · CC BY-SA 4.0",
+"f": "/images/intl/beijing-22.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Thirteen_tombs_entance_dagong_gate201909.jpg",
+"wiki": "Ming tombs",
+"wp": "https://en.wikipedia.org/wiki/Ming_tombs"
 },
 "beijing-3": {
 "credit": "Velatrix · CC0",
@@ -302,6 +578,48 @@
 "wiki": "Haeundae Beach",
 "wp": "https://en.wikipedia.org/wiki/Haeundae_Beach"
 },
+"busan-11": {
+"credit": "Wmainbrain · CC BY-SA 4.0",
+"f": "/images/intl/busan-11.webp",
+"lat": 35.15934,
+"lng": 129.16101,
+"page": "https://commons.wikimedia.org/wiki/File:SEA_LIFE_%EB%B6%80%EC%82%B0%EC%95%84%EC%BF%A0%EC%95%84%EB%A6%AC%EC%9B%80_%EB%A1%9C%EA%B3%A0.png",
+"wiki": "Sea Life Busan Aquarium",
+"wp": "https://en.wikipedia.org/wiki/Sea_Life_Busan_Aquarium"
+},
+"busan-12": {
+"credit": "부산광역시, 부산관광공사 · KOGL Type 1",
+"f": "/images/intl/busan-12.webp",
+"lat": 35.28389,
+"lng": 129.06806,
+"page": "https://commons.wikimedia.org/wiki/File:298-1_%EC%B5%9C%EC%88%98%EC%A7%84_%EB%B2%94%EC%96%B4%EC%82%AC%EC%9D%98_%EA%B0%80%EC%9D%84.jpg",
+"wiki": "Beomeosa",
+"wp": "https://en.wikipedia.org/wiki/Beomeosa"
+},
+"busan-13": {
+"credit": "bryan... · CC BY-SA 2.0",
+"f": "/images/intl/busan-13.webp",
+"lat": 35.1614,
+"lng": 129.1623,
+"page": "https://commons.wikimedia.org/wiki/File:Haeundae_Market_Busan_(31877277538).jpg",
+"wiki": "Haeundae Market",
+"wp": "https://en.wikipedia.org/wiki/Haeundae_Market"
+},
+"busan-14": {
+"credit": "Glabb · Public domain",
+"f": "/images/intl/busan-14.webp",
+"lat": 35.14633,
+"lng": 129.12864,
+"page": "https://commons.wikimedia.org/wiki/File:Gwangan_Bridge1.jpg",
+"wiki": "Gwangan Bridge",
+"wp": "https://en.wikipedia.org/wiki/Gwangan_Bridge"
+},
+"busan-15": {
+"lat": null,
+"lng": null,
+"wiki": "Shinsegae Centum City",
+"wp": "https://en.wikipedia.org/wiki/Shinsegae"
+},
 "busan-2": {
 "credit": "Bl00dnFl4mes · CC BY-SA 4.0",
 "f": "/images/intl/busan-2.webp",
@@ -355,6 +673,24 @@
 "page": "https://commons.wikimedia.org/wiki/File:Busan_Tower_and_Yongdusan_Park_20200522_003.jpg",
 "wiki": "Busan Tower",
 "wp": "https://en.wikipedia.org/wiki/Busan_Tower"
+},
+"busan-8": {
+"credit": "Ahmed · CC BY-SA 4.0",
+"f": "/images/intl/busan-8.webp",
+"lat": 35.101,
+"lng": 129.028,
+"page": "https://commons.wikimedia.org/wiki/File:Gukje_Market,_October_2019_03.jpg",
+"wiki": "Gukje Market",
+"wp": "https://en.wikipedia.org/wiki/Gukje_Market"
+},
+"busan-9": {
+"credit": "Yeoncong323 · CC BY-SA 4.0",
+"f": "/images/intl/busan-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Huinnyeoul_information_bureau.jpg",
+"wiki": "Huinnyeoul Culture Village",
+"wp": "https://en.wikipedia.org/wiki/Huinnyeoul_Culture_Village"
 },
 "c-bali": {
 "credit": "TUBS · CC BY-SA 3.0",
@@ -554,6 +890,57 @@
 "wiki": "Wat Phra That Doi Suthep",
 "wp": "https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"
 },
+"chiangmai-10": {
+"credit": "Department of Tourism Thailand: LannaPhoto · CC BY-SA 3.0",
+"f": "/images/intl/chiangmai-10.webp",
+"lat": 18.79022,
+"lng": 99.00066,
+"page": "https://commons.wikimedia.org/wiki/File:Warorot_Market_01.jpg",
+"wiki": "Warorot Market",
+"wp": "https://en.wikipedia.org/wiki/Warorot_Market"
+},
+"chiangmai-14": {
+"credit": "Varutinho · Public domain",
+"f": "/images/intl/chiangmai-14.webp",
+"lat": 18.78822,
+"lng": 98.9677,
+"page": "https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81.JPG",
+"wiki": "Wat Suan Dok",
+"wp": "https://en.wikipedia.org/wiki/Wat_Suan_Dok"
+},
+"chiangmai-15": {
+"credit": "Vano111ru · CC BY-SA 4.0",
+"f": "/images/intl/chiangmai-15.webp",
+"lat": 18.78318,
+"lng": 98.95131,
+"page": "https://commons.wikimedia.org/wiki/File:Wat_Umong_Suan_Phutthatham.jpg",
+"wiki": "Wat Umong",
+"wp": "https://en.wikipedia.org/wiki/Wat_Umong"
+},
+"chiangmai-16": {
+"credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
+"f": "/images/intl/chiangmai-16.webp",
+"lat": 18.79384,
+"lng": 98.98899,
+"page": "https://commons.wikimedia.org/wiki/File:Wat_Chiang_Man_(I).jpg",
+"wiki": "Wat Chiang Man",
+"wp": "https://en.wikipedia.org/wiki/Wat_Chiang_Man"
+},
+"chiangmai-17": {
+"lat": 18.80259,
+"lng": 98.95156,
+"wiki": "Chiang Mai University",
+"wp": "https://en.wikipedia.org/wiki/Chiang_Mai_University"
+},
+"chiangmai-19": {
+"credit": "Grossbildjaeger · CC BY-SA 3.0",
+"f": "/images/intl/chiangmai-19.webp",
+"lat": 18.76917,
+"lng": 99.08667,
+"page": "https://commons.wikimedia.org/wiki/File:Schirm_rot_mit_Aufschrift_Bo_Sang_Ching_Mai_Thailand.jpg",
+"wiki": "Bo Sang",
+"wp": "https://en.wikipedia.org/wiki/Bo_Sang"
+},
 "chiangmai-2": {
 "credit": "Kingkidton · CC BY-SA 4.0",
 "f": "/images/intl/chiangmai-2.webp",
@@ -626,6 +1013,24 @@
 "wiki": "Li River",
 "wp": "https://en.wikipedia.org/wiki/Li_River"
 },
+"guilin-10": {
+"credit": "Rcdewiki · CC BY-SA 4.0",
+"f": "/images/intl/guilin-10.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Camel_Hill_Guilin.jpg",
+"wiki": "Seven Star Park",
+"wp": "https://en.wikipedia.org/wiki/SevenStar_Scenic_Area"
+},
+"guilin-15": {
+"credit": "Tiger@西北 · CC BY-SA 3.0",
+"f": "/images/intl/guilin-15.webp",
+"lat": 34.2995,
+"lng": 108.4905,
+"page": "https://commons.wikimedia.org/wiki/File:%E5%85%B4%E5%B9%B3%E9%A9%AC%E5%B5%AC%E8%A5%BF%E6%B1%89%E9%BB%84%E5%B1%B1%E5%AE%AB_-_panoramio.jpg",
+"wiki": "Xingping",
+"wp": "https://en.wikipedia.org/wiki/Xingping"
+},
 "guilin-2": {
 "credit": "Chensiyuan · CC BY-SA 4.0",
 "f": "/images/intl/guilin-2.webp",
@@ -671,6 +1076,15 @@
 "wiki": "Yulong River",
 "wp": "https://en.wikipedia.org/wiki/Yulong_River"
 },
+"guilin-8": {
+"credit": "King of Hearts · CC BY-SA 4.0",
+"f": "/images/intl/guilin-8.webp",
+"lat": 25.271,
+"lng": 110.295,
+"page": "https://commons.wikimedia.org/wiki/File:Sun_and_Moon_Pagodas_Guilin_November_2017_HDR_panorama.jpg",
+"wiki": "Sun and Moon Pagodas",
+"wp": "https://en.wikipedia.org/wiki/Sun_and_Moon_Pagodas"
+},
 "jeju-1": {
 "credit": "Korea.net / Korean Culture and Information Service · CC BY-SA 2.0",
 "f": "/images/intl/jeju-1.webp",
@@ -679,6 +1093,42 @@
 "page": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_from_the_air.jpg",
 "wiki": "Seongsan Ilchulbong",
 "wp": "https://en.wikipedia.org/wiki/Seongsan_Ilchulbong"
+},
+"jeju-11": {
+"credit": "Korea.net / Korean Culture and Information Service · CC BY-SA 2.0",
+"f": "/images/intl/jeju-11.webp",
+"lat": 33.24167,
+"lng": 126.31306,
+"page": "https://commons.wikimedia.org/wiki/File:KOCIS_Jeju_Island_(5982744003).jpg",
+"wiki": "Sanbangsan",
+"wp": "https://en.wikipedia.org/wiki/Sanbangsan"
+},
+"jeju-12": {
+"credit": "663highland · CC BY 2.5",
+"f": "/images/intl/jeju-12.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Lake_Shirakaba38s5s3200.jpg",
+"wiki": "Teddy Bear Museum",
+"wp": "https://en.wikipedia.org/wiki/Teddy_bear_museum"
+},
+"jeju-15": {
+"credit": "Sharon Hahn Darlin · CC BY 2.0",
+"f": "/images/intl/jeju-15.webp",
+"lat": 33.24972,
+"lng": 126.56,
+"page": "https://commons.wikimedia.org/wiki/File:Seogwipo,_Jeju_Island,_South_Korea_November_2021_-_Dusk.jpg",
+"wiki": "Seogwipo",
+"wp": "https://en.wikipedia.org/wiki/Seogwipo"
+},
+"jeju-16": {
+"credit": "Trainholic · CC BY-SA 4.0",
+"f": "/images/intl/jeju-16.webp",
+"lat": 33.38667,
+"lng": 126.78528,
+"page": "https://commons.wikimedia.org/wiki/File:Seongeup_Historic_Village.jpg",
+"wiki": "Seongeup Folk Village",
+"wp": "https://en.wikipedia.org/wiki/Seongeup_Folk_Village"
 },
 "jeju-2": {
 "credit": "LG전자 · CC BY 2.0",
@@ -734,6 +1184,15 @@
 "wiki": "Hyeopjae Beach",
 "wp": "https://en.wikipedia.org/wiki/Hyeopjae_Beach"
 },
+"jeju-9": {
+"credit": "Grapesurgeon · CC BY-SA 4.0",
+"f": "/images/intl/jeju-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Hamdeok_Beach_May_2026_04.jpg",
+"wiki": "Hamdeok Beach",
+"wp": "https://en.wikipedia.org/wiki/Hamdeok_Beach"
+},
 "kualalumpur-1": {
 "credit": "Unknown authorUnknown author · Public domain",
 "f": "/images/intl/kualalumpur-1.webp",
@@ -742,6 +1201,84 @@
 "page": "https://commons.wikimedia.org/wiki/File:Petronas_Towers_Logo.svg",
 "wiki": "Petronas Towers",
 "wp": "https://en.wikipedia.org/wiki/Petronas_Towers"
+},
+"kualalumpur-10": {
+"credit": "Wiki Farazi · CC0",
+"f": "/images/intl/kualalumpur-10.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Taman_KLCC,_Kuala_Lumpur_20260428_102802.jpg",
+"wiki": "KLCC Park",
+"wp": "https://en.wikipedia.org/wiki/KLCC_Park"
+},
+"kualalumpur-11": {
+"credit": "James Kerwin from Tbilisi · CC BY 2.0",
+"f": "/images/intl/kualalumpur-11.webp",
+"lat": 3.15,
+"lng": 101.71667,
+"page": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716)_(Suria_KLCC).jpg",
+"wiki": "Suria KLCC",
+"wp": "https://en.wikipedia.org/wiki/Suria_KLCC"
+},
+"kualalumpur-12": {
+"credit": "Chainwit. · CC BY-SA 4.0",
+"f": "/images/intl/kualalumpur-12.webp",
+"lat": 3.1419,
+"lng": 101.6898,
+"page": "https://commons.wikimedia.org/wiki/File:Islamic_Arts_Museum_Malaysia_Exterior_(May_2022)_-_img_02.jpg",
+"wiki": "Islamic Arts Museum Malaysia",
+"wp": "https://en.wikipedia.org/wiki/Islamic_Arts_Museum_Malaysia"
+},
+"kualalumpur-13": {
+"credit": "Santaria Fi · CC BY 4.0",
+"f": "/images/intl/kualalumpur-13.webp",
+"lat": 3.14194,
+"lng": 101.69167,
+"page": "https://commons.wikimedia.org/wiki/File:National_Mosque_of_Malaysia,_Kuala_Lumpur_2026.jpg",
+"wiki": "National Mosque of Malaysia",
+"wp": "https://en.wikipedia.org/wiki/National_Mosque_of_Malaysia"
+},
+"kualalumpur-14": {
+"credit": "Renek78 · CC0",
+"f": "/images/intl/kualalumpur-14.webp",
+"lat": 3.14668,
+"lng": 101.71119,
+"page": "https://commons.wikimedia.org/wiki/File:View_from_Lot_10_-_Forest_in_the_City_to_Bukti_Bintang_junction_1.jpg",
+"wiki": "Bukit Bintang",
+"wp": "https://en.wikipedia.org/wiki/Bukit_Bintang"
+},
+"kualalumpur-15": {
+"credit": "Wiki Farazi · CC0",
+"f": "/images/intl/kualalumpur-15.webp",
+"lat": 3.1458,
+"lng": 101.6956,
+"page": "https://commons.wikimedia.org/wiki/File:Pasar_Seni_(Central_Market)_exterior,_Kuala_Lumpur_20231114_102911.jpg",
+"wiki": "Central Market, Kuala Lumpur",
+"wp": "https://en.wikipedia.org/wiki/Central_Market,_Kuala_Lumpur"
+},
+"kualalumpur-16": {
+"lat": null,
+"lng": null,
+"wiki": "Kampung Baru",
+"wp": "https://en.wikipedia.org/wiki/Kampung_Baru"
+},
+"kualalumpur-17": {
+"credit": "Renek78 · CC BY-SA 4.0",
+"f": "/images/intl/kualalumpur-17.webp",
+"lat": 3.143,
+"lng": 101.68466,
+"page": "https://commons.wikimedia.org/wiki/File:Lake_Gardens,_Kuala_Lumpur_03.jpg",
+"wiki": "KL Bird Park",
+"wp": "https://en.wikipedia.org/wiki/Perdana_Botanical_Gardens"
+},
+"kualalumpur-18": {
+"credit": "Sheikh Izham from Malaysia · CC BY 2.0",
+"f": "/images/intl/kualalumpur-18.webp",
+"lat": 3.16104,
+"lng": 101.70808,
+"page": "https://commons.wikimedia.org/wiki/File:Saloma_link_at_night.jpg",
+"wiki": "Saloma Link",
+"wp": "https://en.wikipedia.org/wiki/Saloma_Link"
 },
 "kualalumpur-2": {
 "credit": "Chainwit. · CC BY-SA 4.0",
@@ -824,6 +1361,87 @@
 "wiki": "Fushimi Inari-taisha",
 "wp": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha"
 },
+"kyoto-10": {
+"credit": "Wikimedia Commons · Public domain",
+"f": "/images/intl/kyoto-10.webp",
+"lat": 35.01417,
+"lng": 135.7475,
+"page": "https://commons.wikimedia.org/wiki/File:NinomaruPalace.jpg",
+"wiki": "Nijō Castle",
+"wp": "https://en.wikipedia.org/wiki/Nij%C5%8D_Castle"
+},
+"kyoto-11": {
+"credit": "DXR · CC BY-SA 4.0",
+"f": "/images/intl/kyoto-11.webp",
+"lat": 35.03444,
+"lng": 135.71833,
+"page": "https://commons.wikimedia.org/wiki/File:Kare-sansui_zen_garden,_Ry%C5%8Dan-ji,_Kyoto_20190416_1.jpg",
+"wiki": "Ryōan-ji",
+"wp": "https://en.wikipedia.org/wiki/Ry%C5%8Dan-ji"
+},
+"kyoto-12": {
+"credit": "Akonnchiroll · CC BY-SA 4.0",
+"f": "/images/intl/kyoto-12.webp",
+"lat": 34.98778,
+"lng": 135.77167,
+"page": "https://commons.wikimedia.org/wiki/File:Sanjusangendo_2022.jpg",
+"wiki": "Sanjūsangen-dō",
+"wp": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D"
+},
+"kyoto-13": {
+"credit": "Wikimedia Commons · CC BY-SA 3.0",
+"f": "/images/intl/kyoto-13.webp",
+"lat": 35.00361,
+"lng": 135.77861,
+"page": "https://commons.wikimedia.org/wiki/File:Yasaka_jinja.jpg",
+"wiki": "Yasaka Shrine",
+"wp": "https://en.wikipedia.org/wiki/Yasaka_Shrine"
+},
+"kyoto-14": {
+"credit": "Wolfiewolf from Pontocho street in Nakagyo, Kyoto · CC BY 2.0",
+"f": "/images/intl/kyoto-14.webp",
+"lat": 35.00797,
+"lng": 135.77111,
+"page": "https://commons.wikimedia.org/wiki/File:Pontocho_by_Wolfiewolf_in_Nabeyacho,_Kyoto.jpg",
+"wiki": "Pontochō",
+"wp": "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D"
+},
+"kyoto-15": {
+"credit": "Moja · CC BY-SA 3.0",
+"f": "/images/intl/kyoto-15.webp",
+"lat": 34.93142,
+"lng": 135.73724,
+"page": "https://commons.wikimedia.org/wiki/File:Kamogawa_sakura.jpg",
+"wiki": "Kamo River",
+"wp": "https://en.wikipedia.org/wiki/Kamo_River"
+},
+"kyoto-16": {
+"credit": "osakaosaka · CC BY-SA 3.0",
+"f": "/images/intl/kyoto-16.webp",
+"lat": 35.01596,
+"lng": 135.67377,
+"page": "https://commons.wikimedia.org/wiki/File:Tenryuji_Kyoto.jpg",
+"wiki": "Tenryū-ji",
+"wp": "https://en.wikipedia.org/wiki/Tenry%C5%AB-ji"
+},
+"kyoto-17": {
+"credit": "MaedaAkihiko · CC0",
+"f": "/images/intl/kyoto-17.webp",
+"lat": 34.98556,
+"lng": 135.75861,
+"page": "https://commons.wikimedia.org/wiki/File:Kyoto-STA_Central.jpg",
+"wiki": "Kyoto Station",
+"wp": "https://en.wikipedia.org/wiki/Ky%C5%8Dto_Station"
+},
+"kyoto-18": {
+"credit": "Martin Falbisoner · CC BY-SA 4.0",
+"f": "/images/intl/kyoto-18.webp",
+"lat": 34.88944,
+"lng": 135.80778,
+"page": "https://commons.wikimedia.org/wiki/File:Phoenix_Hall,_Byodo-in,_November_2016_-01.jpg",
+"wiki": "Byōdō-in",
+"wp": "https://en.wikipedia.org/wiki/By%C5%8Dd%C5%8D-in"
+},
 "kyoto-2": {
 "credit": "Nacaru · CC BY-SA 4.0",
 "f": "/images/intl/kyoto-2.webp",
@@ -887,6 +1505,15 @@
 "wiki": "Philosopher's Walk",
 "wp": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk"
 },
+"kyoto-9": {
+"credit": "Andrea Schaffer from Sydney, Australia · CC BY 2.0",
+"f": "/images/intl/kyoto-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Sannenzaka_street,_Kyoto_(3811257874).jpg",
+"wiki": "Sannenzaka",
+"wp": "https://en.wikipedia.org/wiki/Sannenzaka"
+},
 "osaka-1": {
 "credit": "663highland · CC BY 2.5",
 "f": "/images/intl/osaka-1.webp",
@@ -895,6 +1522,69 @@
 "page": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_03bs3200.jpg",
 "wiki": "Osaka Castle",
 "wp": "https://en.wikipedia.org/wiki/Osaka_Castle"
+},
+"osaka-10": {
+"credit": "Sakai Yayoi · CC0",
+"f": "/images/intl/osaka-10.webp",
+"lat": 34.65222,
+"lng": 135.50611,
+"page": "https://commons.wikimedia.org/wiki/File:New_Tsutenkaku,_Osaka.jpg",
+"wiki": "Tsūtenkaku",
+"wp": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku"
+},
+"osaka-11": {
+"credit": "Sakai Yayoi · CC0",
+"f": "/images/intl/osaka-11.webp",
+"lat": 34.65447,
+"lng": 135.42889,
+"page": "https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg",
+"wiki": "Osaka Aquarium Kaiyukan",
+"wp": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan"
+},
+"osaka-12": {
+"credit": "Saigen Jiro · CC0",
+"f": "/images/intl/osaka-12.webp",
+"lat": 34.6128,
+"lng": 135.49294,
+"page": "https://commons.wikimedia.org/wiki/File:Sumiyoshi-taisha,_keidai-2.jpg",
+"wiki": "Sumiyoshi-taisha",
+"wp": "https://en.wikipedia.org/wiki/Sumiyoshi-taisha"
+},
+"osaka-13": {
+"credit": "加茂川の民 · CC0",
+"f": "/images/intl/osaka-13.webp",
+"lat": 34.646,
+"lng": 135.51339,
+"page": "https://commons.wikimedia.org/wiki/File:%E3%81%82%E3%81%B9%E3%81%AE%E3%83%8F%E3%83%AB%E3%82%AB%E3%82%B9.jpg",
+"wiki": "Abeno Harukas",
+"wp": "https://en.wikipedia.org/wiki/Abeno_Harukas"
+},
+"osaka-14": {
+"credit": "Own work · CC BY-SA 3.0",
+"f": "/images/intl/osaka-14.webp",
+"lat": 34.66583,
+"lng": 135.65111,
+"page": "https://commons.wikimedia.org/wiki/File:Namba_Station.JPG",
+"wiki": "Namba",
+"wp": "https://en.wikipedia.org/wiki/Namba"
+},
+"osaka-15": {
+"credit": "663highland · CC BY 2.5",
+"f": "/images/intl/osaka-15.webp",
+"lat": 34.68139,
+"lng": 135.84833,
+"page": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha11bs3200.jpg",
+"wiki": "Kasuga-taisha",
+"wp": "https://en.wikipedia.org/wiki/Kasuga-taisha"
+},
+"osaka-17": {
+"credit": "663highland · CC BY-SA 4.0",
+"f": "/images/intl/osaka-17.webp",
+"lat": 34.68325,
+"lng": 135.83117,
+"page": "https://commons.wikimedia.org/wiki/File:Kofukuji12st5s3200.jpg",
+"wiki": "Kōfuku-ji",
+"wp": "https://en.wikipedia.org/wiki/K%C5%8Dfuku-ji"
 },
 "osaka-2": {
 "credit": "Type specimen · CC BY-SA 3.0",
@@ -959,6 +1649,33 @@
 "wiki": "Sanctuary of Truth",
 "wp": "https://en.wikipedia.org/wiki/Sanctuary_of_Truth"
 },
+"pattaya-10": {
+"credit": "Ramayana Water Park · CC BY-SA 3.0",
+"f": "/images/intl/pattaya-10.webp",
+"lat": 12.75127,
+"lng": 100.96268,
+"page": "https://commons.wikimedia.org/wiki/File:RWP_Logo.svg",
+"wiki": "Ramayana Water Park",
+"wp": "https://en.wikipedia.org/wiki/Ramayana_Water_Park"
+},
+"pattaya-11": {
+"credit": "Mastertongapollo · CC BY-SA 4.0",
+"f": "/images/intl/pattaya-11.webp",
+"lat": 12.78889,
+"lng": 100.95806,
+"page": "https://commons.wikimedia.org/wiki/File:%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AD%E0%B8%B8%E0%B9%82%E0%B8%9A%E0%B8%AA%E0%B8%96_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%8D%E0%B8%B2%E0%B8%93%E0%B8%AA%E0%B8%B1%E0%B8%87%E0%B8%A7%E0%B8%A3%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A32.jpg",
+"wiki": "Wat Yansangwararam",
+"wp": "https://en.wikipedia.org/wiki/Wat_Yansangwararam"
+},
+"pattaya-12": {
+"credit": "Ilya Plekhanov · CC BY-SA 3.0",
+"f": "/images/intl/pattaya-12.webp",
+"lat": 12.9545,
+"lng": 100.9097,
+"page": "https://commons.wikimedia.org/wiki/File:Mini_Siam_at_dusk_-_panoramio.jpg",
+"wiki": "Mini Siam",
+"wp": "https://en.wikipedia.org/wiki/Mini_Siam"
+},
 "pattaya-2": {
 "credit": "Kimmam at English Wikipedia · Public domain",
 "f": "/images/intl/pattaya-2.webp",
@@ -1010,6 +1727,15 @@
 "wiki": "Jomtien Beach",
 "wp": "https://en.wikipedia.org/wiki/Jomtien_Beach"
 },
+"pattaya-9": {
+"credit": "Sergey S. Dukachev · CC BY-SA 3.0",
+"f": "/images/intl/pattaya-9.webp",
+"lat": 12.9357,
+"lng": 100.889,
+"page": "https://commons.wikimedia.org/wiki/File:Pattaya_beach_from_view_point.jpg",
+"wiki": "Pattaya Beach",
+"wp": "https://en.wikipedia.org/wiki/Pattaya"
+},
 "penang-1": {
 "credit": "HundenvonPenang · CC BY-SA 4.0",
 "f": "/images/intl/penang-1.webp",
@@ -1018,6 +1744,42 @@
 "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_George_Town,_Penang_at_night_Nov2024-29-17.jpg",
 "wiki": "George Town, Penang",
 "wp": "https://en.wikipedia.org/wiki/George_Town,_Penang"
+},
+"penang-12": {
+"credit": "Pangalau · CC BY-SA 4.0",
+"f": "/images/intl/penang-12.webp",
+"lat": 5.4205,
+"lng": 100.3439,
+"page": "https://commons.wikimedia.org/wiki/File:Fort_Cornwallis,_Penang_2023_01.jpg",
+"wiki": "Fort Cornwallis",
+"wp": "https://en.wikipedia.org/wiki/Fort_Cornwallis"
+},
+"penang-13": {
+"credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
+"f": "/images/intl/penang-13.webp",
+"lat": 5.418,
+"lng": 100.34119,
+"page": "https://commons.wikimedia.org/wiki/File:Pinang_Peranakan_Mansion_(I).jpg",
+"wiki": "Pinang Peranakan Mansion",
+"wp": "https://en.wikipedia.org/wiki/Pinang_Peranakan_Mansion"
+},
+"penang-14": {
+"credit": "Asiadetailfeed · CC BY-SA 3.0",
+"f": "/images/intl/penang-14.webp",
+"lat": 5.448,
+"lng": 100.1932,
+"page": "https://commons.wikimedia.org/wiki/File:Monkeybeach08.jpg",
+"wiki": "Penang National Park",
+"wp": "https://en.wikipedia.org/wiki/Penang_National_Park"
+},
+"penang-15": {
+"credit": "Visnu92 · CC0",
+"f": "/images/intl/penang-15.webp",
+"lat": 5.41774,
+"lng": 100.33856,
+"page": "https://commons.wikimedia.org/wiki/File:Penanglittleindiaarch.jpg",
+"wiki": "Little India, Penang",
+"wp": "https://en.wikipedia.org/wiki/Little_India,_Penang"
 },
 "penang-2": {
 "credit": "HundenvonPenang · CC BY-SA 4.0",
@@ -1073,6 +1835,15 @@
 "wiki": "Batu Ferringhi",
 "wp": "https://en.wikipedia.org/wiki/Batu_Ferringhi"
 },
+"penang-8": {
+"credit": "Wikimedia Commons · Copyrighted free use",
+"f": "/images/intl/penang-8.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:UOB_Plaza_Towers_2,_Dec_05.JPG",
+"wiki": "Chulia Street",
+"wp": "https://en.wikipedia.org/wiki/Chulia_Street"
+},
 "phuket-1": {
 "credit": "Subhrajyoti07 · CC BY-SA 4.0",
 "f": "/images/intl/phuket-1.webp",
@@ -1081,6 +1852,33 @@
 "page": "https://commons.wikimedia.org/wiki/File:The_Big_Buddha,_Phuket.jpg",
 "wiki": "Phuket Big Buddha",
 "wp": "https://en.wikipedia.org/wiki/Phuket_Big_Buddha"
+},
+"phuket-11": {
+"credit": "Wikimedia Commons · CC BY-SA 3.0",
+"f": "/images/intl/phuket-11.webp",
+"lat": 7.86111,
+"lng": 98.29167,
+"page": "https://commons.wikimedia.org/wiki/File:Karonbeach_2004.jpg",
+"wiki": "Karon Beach",
+"wp": "https://en.wikipedia.org/wiki/Karon_Beach"
+},
+"phuket-12": {
+"credit": "sukchai maklar · CC BY-SA 4.0",
+"f": "/images/intl/phuket-12.webp",
+"lat": 7.9558,
+"lng": 98.2868,
+"page": "https://commons.wikimedia.org/wiki/File:FantaSea.png",
+"wiki": "Phuket FantaSea",
+"wp": "https://en.wikipedia.org/wiki/Phuket_FantaSea"
+},
+"phuket-14": {
+"credit": "Jules Antonio · CC BY-SA 2.0",
+"f": "/images/intl/phuket-14.webp",
+"lat": 7.95728,
+"lng": 98.28303,
+"page": "https://commons.wikimedia.org/wiki/File:Kamala_Beach.jpg",
+"wiki": "Kamala Beach",
+"wp": "https://en.wikipedia.org/wiki/Kamala_Beach"
 },
 "phuket-2": {
 "credit": "Luxure · CC BY 3.0 au",
@@ -1160,6 +1958,69 @@
 "wiki": "Hongdae",
 "wp": "https://en.wikipedia.org/wiki/Hongdae"
 },
+"seoul-12": {
+"credit": "Basile Morin · CC BY-SA 4.0",
+"f": "/images/intl/seoul-12.webp",
+"lat": 37.57,
+"lng": 127.00639,
+"page": "https://commons.wikimedia.org/wiki/File:Cheonggyecheon_stream_at_sunrise_with_trees_in_Seoul.jpg",
+"wiki": "Cheonggyecheon",
+"wp": "https://en.wikipedia.org/wiki/Cheonggyecheon"
+},
+"seoul-13": {
+"credit": "S h y numis · CC BY-SA 4.0",
+"f": "/images/intl/seoul-13.webp",
+"lat": 37.57297,
+"lng": 126.98618,
+"page": "https://commons.wikimedia.org/wiki/File:Insa-dong_%EC%9D%B8%EC%82%AC%EB%8F%99_October_1_2020_20.jpg",
+"wiki": "Insadong",
+"wp": "https://en.wikipedia.org/wiki/Insa-dong"
+},
+"seoul-14": {
+"credit": "Richard Mortel from Riyadh, Saudi Arabia · CC BY 2.0",
+"f": "/images/intl/seoul-14.webp",
+"lat": 37.5239,
+"lng": 126.9803,
+"page": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Korea,_Seoul_(2)_(40236586235).jpg",
+"wiki": "National Museum of Korea",
+"wp": "https://en.wikipedia.org/wiki/National_Museum_of_Korea"
+},
+"seoul-15": {
+"credit": "문화재청 · KOGL Type 1",
+"f": "/images/intl/seoul-15.webp",
+"lat": 37.5661,
+"lng": 126.975,
+"page": "https://commons.wikimedia.org/wiki/File:%EB%8D%95%EC%88%98%EA%B6%81_%EC%A0%84%EA%B2%BD_(2013).jpg",
+"wiki": "Deoksugung",
+"wp": "https://en.wikipedia.org/wiki/Deoksugung"
+},
+"seoul-16": {
+"credit": "Seoul Museum of History · KOGL Type 1",
+"f": "/images/intl/seoul-16.webp",
+"lat": 37.55944,
+"lng": 126.97742,
+"page": "https://commons.wikimedia.org/wiki/File:%EB%82%A8%EB%8C%80%EB%AC%B8_%EC%A4%91%EC%95%99%EB%A1%9C%EC%9D%98_%EC%9D%B4%EB%8F%99%EC%8B%9D_%EB%85%B8%EC%A0%90.jpg",
+"wiki": "Namdaemun Market",
+"wp": "https://en.wikipedia.org/wiki/Namdaemun_Market"
+},
+"seoul-17": {
+"credit": "오모군 · CC BY 3.0",
+"f": "/images/intl/seoul-17.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:View_of_Ikseon-dong_from_National_Tax_Service_Jongno_District_Office.jpg",
+"wiki": "Ikseon-dong",
+"wp": "https://en.wikipedia.org/wiki/Ikseon-dong"
+},
+"seoul-19": {
+"credit": "sellyourseoul · CC BY 2.0",
+"f": "/images/intl/seoul-19.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Garosu-gil.jpg",
+"wiki": "Garosu-gil",
+"wp": "https://en.wikipedia.org/wiki/Garosu-gil"
+},
 "seoul-2": {
 "credit": "Bgag · CC0",
 "f": "/images/intl/seoul-2.webp",
@@ -1168,6 +2029,24 @@
 "page": "https://commons.wikimedia.org/wiki/File:Bukchon_Hanok_Village_01.jpg",
 "wiki": "Bukchon Hanok Village",
 "wp": "https://en.wikipedia.org/wiki/Bukchon_Hanok_Village"
+},
+"seoul-20": {
+"credit": "Republic of Korea · CC BY-SA 4.0",
+"f": "/images/intl/seoul-20.webp",
+"lat": 37.51194,
+"lng": 127.05889,
+"page": "https://commons.wikimedia.org/wiki/File:Starfield_Library.jpg",
+"wiki": "COEX Mall",
+"wp": "https://en.wikipedia.org/wiki/Starfield_COEX_Mall"
+},
+"seoul-21": {
+"credit": "Francisco Anzola · CC BY 2.0",
+"f": "/images/intl/seoul-21.webp",
+"lat": 37.57391,
+"lng": 126.9819,
+"page": "https://commons.wikimedia.org/wiki/File:Jogyesa_Temple_(1509839597).jpg",
+"wiki": "Jogyesa",
+"wp": "https://en.wikipedia.org/wiki/Jogyesa"
 },
 "seoul-3": {
 "credit": "EasyKL · CC-BY-SA-3.0",
@@ -1240,6 +2119,78 @@
 "page": "https://commons.wikimedia.org/wiki/File:The_Bund_2.jpg",
 "wiki": "The Bund",
 "wp": "https://en.wikipedia.org/wiki/The_Bund"
+},
+"shanghai-10": {
+"credit": "xiquinhosilva · CC BY 2.0",
+"f": "/images/intl/shanghai-10.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Huangpu_Park_20124-Shanghai_(32208802494).jpg",
+"wiki": "Lujiazui",
+"wp": "https://en.wikipedia.org/wiki/Lujiazui"
+},
+"shanghai-11": {
+"credit": "Chainwit. · CC BY 4.0",
+"f": "/images/intl/shanghai-11.webp",
+"lat": 31.24319,
+"lng": 121.44053,
+"page": "https://commons.wikimedia.org/wiki/File:(2024)_Mahavira_Hall,_Jade_Buddha_Temple,_Shanghai_-_img_04.jpg",
+"wiki": "Jade Buddha Temple",
+"wp": "https://en.wikipedia.org/wiki/Jade_Buddha_Temple"
+},
+"shanghai-12": {
+"credit": "Legolas1024 · CC BY-SA 4.0",
+"f": "/images/intl/shanghai-12.webp",
+"lat": 31.22349,
+"lng": 121.44531,
+"page": "https://commons.wikimedia.org/wiki/File:%E9%9D%99%E5%AE%89%E5%AF%BA%C2%B7%E4%B8%8A%E6%B5%B7%E9%9D%99%E5%AE%89.jpg",
+"wiki": "Jing'an Temple",
+"wp": "https://en.wikipedia.org/wiki/Jing%27an_Temple"
+},
+"shanghai-13": {
+"credit": "Hanjiang 2009 (寒江2009) · CC BY 2.0",
+"f": "/images/intl/shanghai-13.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Shanghai_Museum_exterior_1.jpg",
+"wiki": "Shanghai Museum",
+"wp": "https://en.wikipedia.org/wiki/Shanghai_Museum"
+},
+"shanghai-14": {
+"credit": "Shypanda · CC BY-SA 3.0",
+"f": "/images/intl/shanghai-14.webp",
+"lat": 31.2076,
+"lng": 121.4401,
+"page": "https://commons.wikimedia.org/wiki/File:Wukang_109.JPG",
+"wiki": "Wukang Road",
+"wp": "https://en.wikipedia.org/wiki/Wukang_Road"
+},
+"shanghai-15": {
+"credit": "Taken by Fanghong · CC BY 2.5",
+"f": "/images/intl/shanghai-15.webp",
+"lat": 31.15778,
+"lng": 121.35139,
+"page": "https://commons.wikimedia.org/wiki/File:Bridge_at_Nanxi_Street_over_Puhuitang_River,_Qibao.jpg",
+"wiki": "Qibao",
+"wp": "https://en.wikipedia.org/wiki/Qibao"
+},
+"shanghai-17": {
+"credit": "This illustration was made by Peter Potrowl. Pleas · CC BY 3.0",
+"f": "/images/intl/shanghai-17.webp",
+"lat": 31.24255,
+"lng": 121.49717,
+"page": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium.jpg",
+"wiki": "Shanghai Ocean Aquarium",
+"wp": "https://en.wikipedia.org/wiki/Shanghai_Ocean_Aquarium"
+},
+"shanghai-18": {
+"credit": "Jakub Hałun · CC BY-SA 3.0",
+"f": "/images/intl/shanghai-18.webp",
+"lat": 31.3925,
+"lng": 121.515,
+"page": "https://commons.wikimedia.org/wiki/File:20090426_Shanghai_5243.jpg",
+"wiki": "Huangpu River",
+"wp": "https://en.wikipedia.org/wiki/Huangpu_River"
 },
 "shanghai-2": {
 "credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
@@ -1340,6 +2291,72 @@
 "wiki": "Little India, Singapore",
 "wp": "https://en.wikipedia.org/wiki/Little_India,_Singapore"
 },
+"singapore-12": {
+"credit": "Chensiyuan · CC BY-SA 3.0",
+"f": "/images/intl/singapore-12.webp",
+"lat": 1.29002,
+"lng": 103.84609,
+"page": "https://commons.wikimedia.org/wiki/File:1_clarke_quay_singapore_night_2014.jpg",
+"wiki": "Clarke Quay",
+"wp": "https://en.wikipedia.org/wiki/Clarke_Quay"
+},
+"singapore-13": {
+"credit": "Rudolph Fennington · Public domain",
+"f": "/images/intl/singapore-13.webp",
+"lat": 1.29672,
+"lng": 103.84864,
+"page": "https://commons.wikimedia.org/wiki/File:NSMLogo.png",
+"wiki": "National Museum of Singapore",
+"wp": "https://en.wikipedia.org/wiki/National_Museum_of_Singapore"
+},
+"singapore-14": {
+"credit": "Velela · Public domain",
+"f": "/images/intl/singapore-14.webp",
+"lat": 1.3151,
+"lng": 103.8162,
+"page": "https://commons.wikimedia.org/wiki/File:Symphony_Lake,_Singapore_Botanic_Gardens_-_20041025.jpg",
+"wiki": "Singapore Botanic Gardens",
+"wp": "https://en.wikipedia.org/wiki/Singapore_Botanic_Gardens"
+},
+"singapore-15": {
+"credit": "Robert Sim · CC BY-SA 4.0",
+"f": "/images/intl/singapore-15.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Kampong_Glam_aerial_shot_-_20250628_-_RSKY.jpg",
+"wiki": "Kampong Glam",
+"wp": "https://en.wikipedia.org/wiki/Kampong_Glam"
+},
+"singapore-16": {
+"lat": 1.31192,
+"lng": 103.83957,
+"wiki": "Newton Food Centre",
+"wp": "https://en.wikipedia.org/wiki/Newton_Food_Centre"
+},
+"singapore-17": {
+"lat": null,
+"lng": null,
+"wiki": "Tiong Bahru",
+"wp": "https://en.wikipedia.org/wiki/Tiong_Bahru"
+},
+"singapore-18": {
+"credit": "Allie Caulfield · CC BY 2.0",
+"f": "/images/intl/singapore-18.webp",
+"lat": 1.40226,
+"lng": 103.78789,
+"page": "https://commons.wikimedia.org/wiki/File:Entrance_of_Night_Safari,_Singapore,_2012.jpg",
+"wiki": "Night Safari, Singapore",
+"wp": "https://en.wikipedia.org/wiki/Night_Safari,_Singapore"
+},
+"singapore-19": {
+"credit": "Erwin Soo from Singapore, Singapore · CC BY 2.0",
+"f": "/images/intl/singapore-19.webp",
+"lat": 1.30483,
+"lng": 103.83183,
+"page": "https://commons.wikimedia.org/wiki/File:Presenting..._the_real_ION_(8200217734).jpg",
+"wiki": "Orchard Road",
+"wp": "https://en.wikipedia.org/wiki/Orchard_Road"
+},
 "singapore-2": {
 "credit": "Shiny Things. · CC BY 2.0",
 "f": "/images/intl/singapore-2.webp",
@@ -1348,6 +2365,24 @@
 "page": "https://commons.wikimedia.org/wiki/File:Supertree_Grove,_Gardens_by_the_Bay,_Singapore_-_20120712-02.jpg",
 "wiki": "Gardens by the Bay",
 "wp": "https://en.wikipedia.org/wiki/Gardens_by_the_Bay"
+},
+"singapore-20": {
+"credit": "Chainwit. · CC BY 4.0",
+"f": "/images/intl/singapore-20.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:BTRTM_as_seen_from_Maxwell_MRT_entrance_(2025)_-_img_05.jpg",
+"wiki": "Buddha Tooth Relic Temple and Museum",
+"wp": "https://en.wikipedia.org/wiki/Buddha_Tooth_Relic_Temple_and_Museum"
+},
+"singapore-21": {
+"credit": "DvTor8303 · CC0",
+"f": "/images/intl/singapore-21.webp",
+"lat": 1.2894,
+"lng": 103.86323,
+"page": "https://commons.wikimedia.org/wiki/File:Singapore_Flyer_20250903.jpg",
+"wiki": "Singapore Flyer",
+"wp": "https://en.wikipedia.org/wiki/Singapore_Flyer"
 },
 "singapore-3": {
 "credit": "Bjørn Christian Tørrissen · CC BY-SA 3.0",
@@ -1421,6 +2456,24 @@
 "wiki": "Sun Moon Lake",
 "wp": "https://en.wikipedia.org/wiki/Sun_Moon_Lake"
 },
+"taichung-10": {
+"credit": "Outlookxp · CC BY-SA 4.0",
+"f": "/images/intl/taichung-10.webp",
+"lat": 24.145,
+"lng": 120.68333,
+"page": "https://commons.wikimedia.org/wiki/File:%E6%B9%96%E5%BF%83%E4%BA%AD%E9%81%A0%E6%99%AF.jpg",
+"wiki": "Taichung Park",
+"wp": "https://en.wikipedia.org/wiki/Taichung_Park"
+},
+"taichung-11": {
+"credit": "Bernard Gagnon · CC BY-SA 3.0",
+"f": "/images/intl/taichung-11.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Sun_Moon_Lake_Ropeway_03.jpg",
+"wiki": "Sun Moon Lake Ropeway",
+"wp": "https://en.wikipedia.org/wiki/Sun_Moon_Lake_Ropeway"
+},
 "taichung-2": {
 "credit": "Steven R. Barringer · CC BY-SA 4.0",
 "f": "/images/intl/taichung-2.webp",
@@ -1466,6 +2519,24 @@
 "wiki": "Alishan National Scenic Area",
 "wp": "https://en.wikipedia.org/wiki/Alishan_National_Scenic_Area"
 },
+"taichung-7": {
+"credit": "bangdoll · CC BY-SA 2.0",
+"f": "/images/intl/taichung-7.webp",
+"lat": 24.1471,
+"lng": 120.6858,
+"page": "https://commons.wikimedia.org/wiki/File:Road_name_sign_and_traffic_light_of_Yizhong_Street_20170528.jpg",
+"wiki": "Yizhong Street",
+"wp": "https://en.wikipedia.org/wiki/Yizhong_Street"
+},
+"taichung-9": {
+"credit": "Ralff Nestor Nacor · CC BY-SA 4.0",
+"f": "/images/intl/taichung-9.webp",
+"lat": 24.1575,
+"lng": 120.66639,
+"page": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Natural_Science,_Taichung,_Aug_2024.jpg",
+"wiki": "National Museum of Natural Science",
+"wp": "https://en.wikipedia.org/wiki/National_Museum_of_Natural_Science"
+},
 "taipei-1": {
 "credit": "Taipei Financial Center Corporation · Public domain",
 "f": "/images/intl/taipei-1.webp",
@@ -1483,6 +2554,66 @@
 "page": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%8A%95%E6%A9%9F%E5%BB%A0DSC_4995.jpg",
 "wiki": "Beitou District",
 "wp": "https://en.wikipedia.org/wiki/Beitou_District"
+},
+"taipei-11": {
+"credit": "Fred Hsu on en.wikipedia · CC BY-SA 3.0",
+"f": "/images/intl/taipei-11.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Taiwan_2009_Taipei_DinTaiFung_Dumpling_House_at_Pacific_Sogo_ZhongXiao_Store_FRD_9000.jpg",
+"wiki": "Din Tai Fung",
+"wp": "https://en.wikipedia.org/wiki/Din_Tai_Fung"
+},
+"taipei-12": {
+"credit": "迷惘的人生 · CC BY-SA 2.0",
+"f": "/images/intl/taipei-12.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Ningxia_Night_Market_20250520.jpg",
+"wiki": "Ningxia Night Market",
+"wp": "https://en.wikipedia.org/wiki/Ningxia_Night_Market"
+},
+"taipei-14": {
+"credit": "User: (WT-shared) Trcheng at wts wikivoyage · CC BY-SA 1.0",
+"f": "/images/intl/taipei-14.webp",
+"lat": 24.99594,
+"lng": 121.5762,
+"page": "https://commons.wikimedia.org/wiki/File:Maokong_Gondola_wts.jpg",
+"wiki": "Maokong Gondola",
+"wp": "https://en.wikipedia.org/wiki/Maokong_Gondola"
+},
+"taipei-15": {
+"credit": "This Photo was taken by Supanut Arunoprayote. Feel · CC BY 4.0",
+"f": "/images/intl/taipei-15.webp",
+"lat": 25.06655,
+"lng": 121.50995,
+"page": "https://commons.wikimedia.org/wiki/File:Buildings_along_Dihua_Street_07.23_(6).jpg",
+"wiki": "Dihua Street",
+"wp": "https://en.wikipedia.org/wiki/Dihua_Street"
+},
+"taipei-16": {
+"credit": "Wpcpey · CC BY 4.0",
+"f": "/images/intl/taipei-16.webp",
+"lat": 25.04444,
+"lng": 121.52944,
+"page": "https://commons.wikimedia.org/wiki/File:Huashan_1914,_Syntrend_and_Jinshan_e01_20150701.jpg",
+"wiki": "Huashan 1914 Creative Park",
+"wp": "https://en.wikipedia.org/wiki/Huashan_1914_Creative_Park"
+},
+"taipei-18": {
+"credit": "Sdfery · CC BY-SA 4.0",
+"f": "/images/intl/taipei-18.webp",
+"lat": 25.17194,
+"lng": 121.44389,
+"page": "https://commons.wikimedia.org/wiki/File:%E7%B4%85%E6%AF%9B%E5%9F%8E%E4%B9%8B%E7%BE%8E.jpg",
+"wiki": "Tamsui District",
+"wp": "https://en.wikipedia.org/wiki/Tamsui_District"
+},
+"taipei-19": {
+"lat": null,
+"lng": null,
+"wiki": "Shifen",
+"wp": "https://en.wikipedia.org/wiki/Shifen"
 },
 "taipei-2": {
 "credit": "Peellden · CC BY 3.0",
@@ -1583,6 +2714,42 @@
 "wiki": "Ueno Park",
 "wp": "https://en.wikipedia.org/wiki/Ueno_Park"
 },
+"tokyo-14": {
+"credit": "Rs1421 · CC BY-SA 3.0",
+"f": "/images/intl/tokyo-14.webp",
+"lat": 35.6685,
+"lng": 139.7054,
+"page": "https://commons.wikimedia.org/wiki/File:JRE-Harajuku-Station-07.jpg",
+"wiki": "Takeshita Street",
+"wp": "https://en.wikipedia.org/wiki/Harajuku"
+},
+"tokyo-15": {
+"credit": "Sakura Torch · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-15.webp",
+"lat": 35.65806,
+"lng": 139.70139,
+"page": "https://commons.wikimedia.org/wiki/File:SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
+"wiki": "Shibuya Scramble Square",
+"wp": "https://en.wikipedia.org/wiki/Shibuya_Scramble_Square"
+},
+"tokyo-17": {
+"credit": "Ka23 13 · CC BY 4.0",
+"f": "/images/intl/tokyo-17.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Ueno_20241210_133139.jpg",
+"wiki": "Ameya-Yokochō",
+"wp": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D"
+},
+"tokyo-18": {
+"credit": "Wiiii · CC BY-SA 3.0",
+"f": "/images/intl/tokyo-18.webp",
+"lat": 35.7189,
+"lng": 139.7764,
+"page": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum,_Honkan_2010.jpg",
+"wiki": "Tokyo National Museum",
+"wp": "https://en.wikipedia.org/wiki/Tokyo_National_Museum"
+},
 "tokyo-2": {
 "credit": "Kakidai · CC BY-SA 3.0",
 "f": "/images/intl/tokyo-2.webp",
@@ -1591,6 +2758,51 @@
 "page": "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_2014_%E2%85%A2.jpg",
 "wiki": "Tokyo Skytree",
 "wp": "https://en.wikipedia.org/wiki/Tokyo_Skytree"
+},
+"tokyo-20": {
+"credit": "Nesnad · CC BY 4.0",
+"f": "/images/intl/tokyo-20.webp",
+"lat": 35.63,
+"lng": 139.775,
+"page": "https://commons.wikimedia.org/wiki/File:Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+"wiki": "Odaiba",
+"wp": "https://en.wikipedia.org/wiki/Odaiba"
+},
+"tokyo-21": {
+"credit": "Kakidai · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-21.webp",
+"lat": 35.67122,
+"lng": 139.76501,
+"page": "https://commons.wikimedia.org/wiki/File:Ginza-WAKO_at_night.jpg",
+"wiki": "Ginza",
+"wp": "https://en.wikipedia.org/wiki/Ginza"
+},
+"tokyo-22": {
+"credit": "Basile Morin · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-22.webp",
+"lat": 35.695,
+"lng": 139.705,
+"page": "https://commons.wikimedia.org/wiki/File:Kabukicho_red_gate_and_colorful_neon_street_signs_at_night,_Shinjuku,_Tokyo,_Japan.jpg",
+"wiki": "Kabukichō",
+"wp": "https://en.wikipedia.org/wiki/Kabukich%C5%8D"
+},
+"tokyo-23": {
+"credit": "663highland · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-23.webp",
+"lat": 35.31686,
+"lng": 139.53572,
+"page": "https://commons.wikimedia.org/wiki/File:230128_Kamakura_Daibutsu_Japan04s3.jpg",
+"wiki": "Kōtoku-in",
+"wp": "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in"
+},
+"tokyo-24": {
+"credit": "Jpatokal · CC BY-SA 4.0",
+"f": "/images/intl/tokyo-24.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
+"wiki": "Tōshō-gū",
+"wp": "https://en.wikipedia.org/wiki/T%C5%8Dsh%C5%8D-g%C5%AB"
 },
 "tokyo-3": {
 "credit": "David Kernan · CC BY 4.0",
@@ -1664,6 +2876,30 @@
 "wiki": "Old Town of Lijiang",
 "wp": "https://en.wikipedia.org/wiki/Old_Town_of_Lijiang"
 },
+"yunnan-12": {
+"credit": "Ishai Bar (Headrock) · CC BY-SA 3.0",
+"f": "/images/intl/yunnan-12.webp",
+"lat": 25.64889,
+"lng": 100.09806,
+"page": "https://commons.wikimedia.org/wiki/File:South_Jade_Cloud_Road.JPG",
+"wiki": "Cang Mountain",
+"wp": "https://en.wikipedia.org/wiki/Cang_Mountain"
+},
+"yunnan-13": {
+"lat": null,
+"lng": null,
+"wiki": "Xizhou",
+"wp": "https://en.wikipedia.org/wiki/Xizhou"
+},
+"yunnan-16": {
+"credit": "Gisling · CC BY-SA 3.0",
+"f": "/images/intl/yunnan-16.webp",
+"lat": 27.23,
+"lng": 100.14,
+"page": "https://commons.wikimedia.org/wiki/File:%E8%99%8E%E8%B7%B3%E5%B3%A1.JPG",
+"wiki": "Tiger Leaping Gorge",
+"wp": "https://en.wikipedia.org/wiki/Tiger_Leaping_Gorge"
+},
 "yunnan-2": {
 "credit": "Evilbish · CC BY-SA 4.0",
 "f": "/images/intl/yunnan-2.webp",
@@ -1718,6 +2954,12 @@
 "wiki": "Stone Forest",
 "wp": "https://en.wikipedia.org/wiki/Stone_Forest"
 },
+"yunnan-8": {
+"lat": null,
+"lng": null,
+"wiki": "Green Lake Park",
+"wp": "https://en.wikipedia.org/wiki/Green_Lake_Park"
+},
 "zhangjiajie-1": {
 "credit": "chensiyuan · CC BY-SA 4.0",
 "f": "/images/intl/zhangjiajie-1.webp",
@@ -1726,6 +2968,21 @@
 "page": "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
 "wiki": "Zhangjiajie National Forest Park",
 "wp": "https://en.wikipedia.org/wiki/Zhangjiajie_National_Forest_Park"
+},
+"zhangjiajie-11": {
+"credit": "欧治 · CC BY-SA 3.0",
+"f": "/images/intl/zhangjiajie-11.webp",
+"lat": 29.32253,
+"lng": 110.55281,
+"page": "https://commons.wikimedia.org/wiki/File:%E5%BC%A0%E5%AE%B6%E7%95%8C%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD-%E5%AE%9D%E5%B3%B0%E6%B9%96_-_panoramio.jpg",
+"wiki": "Baofeng Lake",
+"wp": "https://en.wikipedia.org/wiki/Baofeng_Lake"
+},
+"zhangjiajie-14": {
+"lat": 27.9333,
+"lng": 109.46344,
+"wiki": "Southern Great Wall",
+"wp": "https://en.wikipedia.org/wiki/Miaojiang_Great_Wall"
 },
 "zhangjiajie-2": {
 "credit": "xiquinhosilva · CC BY 2.0",
@@ -1780,5 +3037,14 @@
 "page": "https://commons.wikimedia.org/wiki/File:Huanglongdong.JPG",
 "wiki": "Huanglong Cave",
 "wp": "https://en.wikipedia.org/wiki/Huanglong_Cave"
+},
+"zhangjiajie-9": {
+"credit": "Jörg Radestock · CC BY-SA 3.0",
+"f": "/images/intl/zhangjiajie-9.webp",
+"lat": 29.2167,
+"lng": 110.8,
+"page": "https://commons.wikimedia.org/wiki/File:China_Tianzi_Gebirge.JPG",
+"wiki": "Tianzi Mountain",
+"wp": "https://en.wikipedia.org/wiki/Tianzi_Mountain"
 }
 }
