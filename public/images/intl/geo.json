@@ -1,4 +1,94 @@
 {
+"amsterdam-1": {
+"credit": "Trougnouf (Benoit Brummer) · CC BY 4.0",
+"f": "/images/intl/amsterdam-1.webp",
+"lat": 52.36,
+"lng": 4.8853,
+"page": "https://commons.wikimedia.org/wiki/File:South_facade_of_the_Rijksmuseum_Amsterdam_(DSCF0528).jpg",
+"wiki": "Rijksmuseum",
+"wp": "https://en.wikipedia.org/wiki/Rijksmuseum"
+},
+"amsterdam-11": {
+"credit": "Zairon · CC BY-SA 4.0",
+"f": "/images/intl/amsterdam-11.webp",
+"lat": 52.47389,
+"lng": 4.81639,
+"page": "https://commons.wikimedia.org/wiki/File:Zaanstad_Zaanse_Schans_22.jpg",
+"wiki": "Zaanse Schans",
+"wp": "https://en.wikipedia.org/wiki/Zaanse_Schans"
+},
+"amsterdam-12": {
+"credit": "Urdulife · CC BY-SA 4.0",
+"f": "/images/intl/amsterdam-12.webp",
+"lat": 52.27126,
+"lng": 4.54636,
+"page": "https://commons.wikimedia.org/wiki/File:26Y_1599_2.jpg",
+"wiki": "Keukenhof",
+"wp": "https://en.wikipedia.org/wiki/Keukenhof"
+},
+"amsterdam-2": {
+"credit": "Koeweiden Postma[1] · Public domain",
+"f": "/images/intl/amsterdam-2.webp",
+"lat": 52.3583,
+"lng": 4.8811,
+"page": "https://commons.wikimedia.org/wiki/File:Logo_-_Van_Gogh_Museum.png",
+"wiki": "Van Gogh Museum",
+"wp": "https://en.wikipedia.org/wiki/Van_Gogh_Museum"
+},
+"amsterdam-3": {
+"credit": "Dietmar Rabich · CC BY-SA 4.0",
+"f": "/images/intl/amsterdam-3.webp",
+"lat": 52.37525,
+"lng": 4.88432,
+"page": "https://commons.wikimedia.org/wiki/File:Amsterdam_(NL),_Anne-Frank-Huis_--_2015_--_7185.jpg",
+"wiki": "Anne Frank House",
+"wp": "https://en.wikipedia.org/wiki/Anne_Frank_House"
+},
+"amsterdam-4": {
+"credit": "Andrés Barrios · CC BY-SA 4.0",
+"f": "/images/intl/amsterdam-4.webp",
+"lat": 52.365,
+"lng": 4.88778,
+"page": "https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png",
+"wiki": "Canals of Amsterdam",
+"wp": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam"
+},
+"amsterdam-5": {
+"credit": "Fernando · CC BY-SA 4.0",
+"f": "/images/intl/amsterdam-5.webp",
+"lat": 52.3731,
+"lng": 4.8928,
+"page": "https://commons.wikimedia.org/wiki/File:Dam_Square_2024.jpg",
+"wiki": "Dam Square",
+"wp": "https://en.wikipedia.org/wiki/Dam_Square"
+},
+"amsterdam-6": {
+"credit": "Dguendel · CC BY 4.0",
+"f": "/images/intl/amsterdam-6.webp",
+"lat": 52.358,
+"lng": 4.868,
+"page": "https://commons.wikimedia.org/wiki/File:Amsterdam,_Vondelpark,_at_the_pond-2.jpg",
+"wiki": "Vondelpark",
+"wp": "https://en.wikipedia.org/wiki/Vondelpark"
+},
+"amsterdam-7": {
+"credit": "Jvhertum · Public domain",
+"f": "/images/intl/amsterdam-7.webp",
+"lat": 52.37639,
+"lng": 4.88167,
+"page": "https://commons.wikimedia.org/wiki/File:Eerste_Leliedwarsstraat.jpg",
+"wiki": "Jordaan",
+"wp": "https://en.wikipedia.org/wiki/Jordaan"
+},
+"amsterdam-8": {
+"credit": "Michiel1972 at Dutch Wikipedia · CC BY-SA 3.0",
+"f": "/images/intl/amsterdam-8.webp",
+"lat": 52.35597,
+"lng": 4.89536,
+"page": "https://commons.wikimedia.org/wiki/File:Albert_Cuypmarkt.jpg",
+"wiki": "Albert Cuyp Market",
+"wp": "https://en.wikipedia.org/wiki/Albert_Cuyp_Market"
+},
 "bali-1": {
 "credit": "Grayswoodsurrey · CC BY-SA 4.0",
 "f": "/images/intl/bali-1.webp",
@@ -401,6 +491,105 @@
 "wiki": "Jim Thompson House",
 "wp": "https://en.wikipedia.org/wiki/Jim_Thompson_House"
 },
+"barcelona-1": {
+"credit": "Canaan · CC BY-SA 4.0",
+"f": "/images/intl/barcelona-1.webp",
+"lat": 41.40369,
+"lng": 2.17433,
+"page": "https://commons.wikimedia.org/wiki/File:SF_maig_2_cropped.jpg",
+"wiki": "Sagrada Família",
+"wp": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia"
+},
+"barcelona-10": {
+"credit": "Fabio Alessandro Locati · CC BY-SA 3.0",
+"f": "/images/intl/barcelona-10.webp",
+"lat": 41.36417,
+"lng": 2.16083,
+"page": "https://commons.wikimedia.org/wiki/File:Fale_-_Spain_-_Barcelona_-_8.jpg",
+"wiki": "Montjuïc",
+"wp": "https://en.wikipedia.org/wiki/Montju%C3%AFc"
+},
+"barcelona-11": {
+"credit": "Oh-Barcelona.com from Barcelona, Spain · CC BY 2.0",
+"f": "/images/intl/barcelona-11.webp",
+"lat": 41.3808,
+"lng": 2.1228,
+"page": "https://commons.wikimedia.org/wiki/File:Camp_Nou_aerial.jpg",
+"wiki": "Camp Nou",
+"wp": "https://en.wikipedia.org/wiki/Camp_Nou"
+},
+"barcelona-12": {
+"credit": "Josep Renalias · CC BY-SA 3.0",
+"f": "/images/intl/barcelona-12.webp",
+"lat": 41.59167,
+"lng": 1.83778,
+"page": "https://commons.wikimedia.org/wiki/File:Montserrat_des_de_Manresa.JPG",
+"wiki": "Montserrat (mountain)",
+"wp": "https://en.wikipedia.org/wiki/Montserrat_(mountain)"
+},
+"barcelona-2": {
+"credit": "essetefano · CC BY 3.0",
+"f": "/images/intl/barcelona-2.webp",
+"lat": 41.41361,
+"lng": 2.15278,
+"page": "https://commons.wikimedia.org/wiki/File:Parc_guell_-_panoramio.jpg",
+"wiki": "Park Güell",
+"wp": "https://en.wikipedia.org/wiki/Park_G%C3%BCell"
+},
+"barcelona-3": {
+"credit": "ChristianSchd · CC BY-SA 3.0",
+"f": "/images/intl/barcelona-3.webp",
+"lat": 41.39158,
+"lng": 2.16492,
+"page": "https://commons.wikimedia.org/wiki/File:Casa_Batllo_Overview_Barcelona_Spain_cut.jpg",
+"wiki": "Casa Batlló",
+"wp": "https://en.wikipedia.org/wiki/Casa_Batll%C3%B3"
+},
+"barcelona-4": {
+"credit": "Thomas Ledl · CC BY-SA 4.0",
+"f": "/images/intl/barcelona-4.webp",
+"lat": 41.39528,
+"lng": 2.16167,
+"page": "https://commons.wikimedia.org/wiki/File:Casa_Mil%C3%A0,_general_view.jpg",
+"wiki": "Casa Milà",
+"wp": "https://en.wikipedia.org/wiki/La_Pedrera,_Barcelona"
+},
+"barcelona-5": {
+"credit": "Llull · CC BY-SA 2.0",
+"f": "/images/intl/barcelona-5.webp",
+"lat": 41.38278,
+"lng": 2.17694,
+"page": "https://commons.wikimedia.org/wiki/File:Barcelona_-_Carrer_del_Bisbe.jpg",
+"wiki": "Gothic Quarter, Barcelona",
+"wp": "https://en.wikipedia.org/wiki/Gothic_Quarter,_Barcelona"
+},
+"barcelona-6": {
+"credit": "Ralf Roletschek · GFDL 1.2",
+"f": "/images/intl/barcelona-6.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg",
+"wiki": "La Rambla, Barcelona",
+"wp": "https://en.wikipedia.org/wiki/La_Rambla,_Barcelona"
+},
+"barcelona-7": {
+"credit": "Didier Descouens · CC BY-SA 4.0",
+"f": "/images/intl/barcelona-7.webp",
+"lat": 41.38194,
+"lng": 2.17194,
+"page": "https://commons.wikimedia.org/wiki/File:Barcelona_-_Mercat_de_Sant_Josep_(la_Boqueria)_-_Entrance.jpg",
+"wiki": "Mercat de la Boqueria",
+"wp": "https://en.wikipedia.org/wiki/La_Boqueria"
+},
+"barcelona-8": {
+"credit": "Axelv · CC BY-SA 4.0",
+"f": "/images/intl/barcelona-8.webp",
+"lat": 41.38361,
+"lng": 2.18306,
+"page": "https://commons.wikimedia.org/wiki/File:Barcelona_Carrer_dels_Agullers.jpg",
+"wiki": "El Born",
+"wp": "https://en.wikipedia.org/wiki/La_Ribera"
+},
 "beijing-1": {
 "credit": "Pixelflake · CC BY-SA 3.0",
 "f": "/images/intl/beijing-1.webp",
@@ -710,6 +899,15 @@
 "wiki": "Huinnyeoul Culture Village",
 "wp": "https://en.wikipedia.org/wiki/Huinnyeoul_Culture_Village"
 },
+"c-amsterdam": {
+"credit": "Andrés Barrios · CC BY-SA 4.0",
+"f": "/images/intl/c-amsterdam.webp",
+"lat": 52.37278,
+"lng": 4.89361,
+"page": "https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png",
+"wiki": "Amsterdam",
+"wp": "https://en.wikipedia.org/wiki/Amsterdam"
+},
 "c-bali": {
 "credit": "TUBS · CC BY-SA 3.0",
 "f": "/images/intl/c-bali.webp",
@@ -727,6 +925,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:4Y1A1159_Bangkok_(33536795515).jpg",
 "wiki": "Bangkok",
 "wp": "https://en.wikipedia.org/wiki/Bangkok"
+},
+"c-barcelona": {
+"credit": "M McBey · CC BY 2.0",
+"f": "/images/intl/c-barcelona.webp",
+"lat": 41.38333,
+"lng": 2.18333,
+"page": "https://commons.wikimedia.org/wiki/File:Evening_light_over_Barcelona.jpg",
+"wiki": "Barcelona",
+"wp": "https://en.wikipedia.org/wiki/Barcelona"
 },
 "c-beijing": {
 "credit": "N509FZ · CC BY 4.0",
@@ -746,6 +953,15 @@
 "wiki": "Busan",
 "wp": "https://en.wikipedia.org/wiki/Busan"
 },
+"c-cappadocia": {
+"credit": "Arian Zwegers from Brussels, Belgium · CC BY 2.0",
+"f": "/images/intl/c-cappadocia.webp",
+"lat": 38.61833,
+"lng": 34.86722,
+"page": "https://commons.wikimedia.org/wiki/File:Cappadocia_balloon_trip,_Ortahisar_Castle_(11893715185).jpg",
+"wiki": "Cappadocia",
+"wp": "https://en.wikipedia.org/wiki/Cappadocia"
+},
 "c-chiangmai": {
 "credit": "Nawit science · CC BY-SA 4.0",
 "f": "/images/intl/c-chiangmai.webp",
@@ -755,6 +971,15 @@
 "wiki": "Chiang Mai",
 "wp": "https://en.wikipedia.org/wiki/Chiang_Mai"
 },
+"c-florence": {
+"credit": "Giorgio Galeotti · CC BY 4.0",
+"f": "/images/intl/c-florence.webp",
+"lat": 43.77139,
+"lng": 11.25417,
+"page": "https://commons.wikimedia.org/wiki/File:Firenze_-_Piazzale_Michelangelo,_Firenze,_Italy_-_April_6,_2015_02.jpg",
+"wiki": "Florence",
+"wp": "https://en.wikipedia.org/wiki/Florence"
+},
 "c-guilin": {
 "credit": "xiquinhosilva · CC BY 2.0",
 "f": "/images/intl/c-guilin.webp",
@@ -763,6 +988,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Xiangshan_Scenic_Area_89468-Guilin_(31130832628).jpg",
 "wiki": "Guilin",
 "wp": "https://en.wikipedia.org/wiki/Guilin"
+},
+"c-istanbul": {
+"credit": "Hunanuk · CC0",
+"f": "/images/intl/c-istanbul.webp",
+"lat": 41.01361,
+"lng": 28.955,
+"page": "https://commons.wikimedia.org/wiki/File:Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
+"wiki": "Istanbul",
+"wp": "https://en.wikipedia.org/wiki/Istanbul"
 },
 "c-jeju": {
 "credit": "Robert Simmon, using Landsat data provided by the  · Public domain",
@@ -791,6 +1025,51 @@
 "wiki": "Kyoto",
 "wp": "https://en.wikipedia.org/wiki/Kyoto"
 },
+"c-lasvegas": {
+"credit": "Mike McBey · CC BY 2.0",
+"f": "/images/intl/c-lasvegas.webp",
+"lat": 36.16917,
+"lng": -115.14056,
+"page": "https://commons.wikimedia.org/wiki/File:Las_Vegas_from_above_(40064746644).jpg",
+"wiki": "Las Vegas",
+"wp": "https://en.wikipedia.org/wiki/Las_Vegas"
+},
+"c-london": {
+"credit": "Ilya Grigorik · CC BY-SA 3.0",
+"f": "/images/intl/c-london.webp",
+"lat": 51.50722,
+"lng": -0.1275,
+"page": "https://commons.wikimedia.org/wiki/File:London_Skyline_(125508655).jpeg",
+"wiki": "London",
+"wp": "https://en.wikipedia.org/wiki/London"
+},
+"c-losangeles": {
+"credit": "Gnaphron · CC BY-SA 2.0",
+"f": "/images/intl/c-losangeles.webp",
+"lat": 34.05,
+"lng": -118.25,
+"page": "https://commons.wikimedia.org/wiki/File:Hollywood_sign_(8485145044).jpg",
+"wiki": "Los Angeles",
+"wp": "https://en.wikipedia.org/wiki/Los_Angeles"
+},
+"c-munich": {
+"credit": "Thomas Wolf, www.foto-tw.de · CC BY-SA 3.0 de",
+"f": "/images/intl/c-munich.webp",
+"lat": 48.1375,
+"lng": 11.575,
+"page": "https://commons.wikimedia.org/wiki/File:Stadtbild_M%C3%BCnchen.jpg",
+"wiki": "Munich",
+"wp": "https://en.wikipedia.org/wiki/Munich"
+},
+"c-newyork": {
+"credit": "Dllu · CC BY-SA 4.0",
+"f": "/images/intl/c-newyork.webp",
+"lat": 40.7128,
+"lng": -74.0061,
+"page": "https://commons.wikimedia.org/wiki/File:View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_(cropped).jpg",
+"wiki": "New York City",
+"wp": "https://en.wikipedia.org/wiki/New_York_City"
+},
 "c-osaka": {
 "credit": "663highland · CC BY 2.5",
 "f": "/images/intl/c-osaka.webp",
@@ -799,6 +1078,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_03bs3200.jpg",
 "wiki": "Osaka",
 "wp": "https://en.wikipedia.org/wiki/Osaka"
+},
+"c-paris": {
+"credit": "Yann Caradec from Paris, France · CC BY-SA 2.0",
+"f": "/images/intl/c-paris.webp",
+"lat": 48.8567,
+"lng": 2.3522,
+"page": "https://commons.wikimedia.org/wiki/File:La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques,_Paris_ao%C3%BBt_2014_(2).jpg",
+"wiki": "Paris",
+"wp": "https://en.wikipedia.org/wiki/Paris"
 },
 "c-pattaya": {
 "credit": "Sergey S. Dukachev · CC BY-SA 3.0",
@@ -827,6 +1115,33 @@
 "wiki": "Phuket province",
 "wp": "https://en.wikipedia.org/wiki/Phuket_province"
 },
+"c-prague": {
+"credit": "Moyan Brenn from Italy · CC BY 2.0",
+"f": "/images/intl/c-prague.webp",
+"lat": 50.0875,
+"lng": 14.42139,
+"page": "https://commons.wikimedia.org/wiki/File:Prague_(6365119737).jpg",
+"wiki": "Prague",
+"wp": "https://en.wikipedia.org/wiki/Prague"
+},
+"c-rome": {
+"credit": "Diliff · CC BY 3.0",
+"f": "/images/intl/c-rome.webp",
+"lat": 41.89333,
+"lng": 12.48278,
+"page": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain,_Rome,_Italy_2_-_May_2007.jpg",
+"wiki": "Rome",
+"wp": "https://en.wikipedia.org/wiki/Rome"
+},
+"c-sanfrancisco": {
+"credit": "Craig Howell from San Carlos, CA, USA · CC BY 2.0",
+"f": "/images/intl/c-sanfrancisco.webp",
+"lat": 37.7775,
+"lng": -122.41639,
+"page": "https://commons.wikimedia.org/wiki/File:Zeppelin-ride-020100925-195_(5029394846).jpg",
+"wiki": "San Francisco",
+"wp": "https://en.wikipedia.org/wiki/San_Francisco"
+},
 "c-seoul": {
 "credit": "Eunmi Park · CC BY-SA 4.0",
 "f": "/images/intl/c-seoul.webp",
@@ -853,6 +1168,15 @@
 "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Singapore.svg",
 "wiki": "Singapore",
 "wp": "https://en.wikipedia.org/wiki/Singapore"
+},
+"c-swiss": {
+"credit": "Валерий Дед · CC BY 3.0",
+"f": "/images/intl/c-swiss.webp",
+"lat": 47.05,
+"lng": 8.3,
+"page": "https://commons.wikimedia.org/wiki/File:L%C3%B6wendenkmal_-_panoramio.jpg",
+"wiki": "Lucerne",
+"wp": "https://en.wikipedia.org/wiki/Lucerne"
 },
 "c-taichung": {
 "credit": "毛貓大少爺 from Taipei, Taiwan · CC BY-SA 2.0",
@@ -881,6 +1205,51 @@
 "wiki": "Tokyo",
 "wp": "https://en.wikipedia.org/wiki/Tokyo"
 },
+"c-toronto": {
+"credit": "Dillan Payne · CC BY-SA 4.0",
+"f": "/images/intl/c-toronto.webp",
+"lat": 43.6525,
+"lng": -79.38167,
+"page": "https://commons.wikimedia.org/wiki/File:Toronto_Skyline_from_Snake_Island,_September_11_2026_(01).jpg",
+"wiki": "Toronto",
+"wp": "https://en.wikipedia.org/wiki/Toronto"
+},
+"c-vancouver": {
+"credit": "Quintin Soloviev · CC BY 4.0",
+"f": "/images/intl/c-vancouver.webp",
+"lat": 49.26083,
+"lng": -123.11389,
+"page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Vancouver,_Canada.jpg",
+"wiki": "Vancouver",
+"wp": "https://en.wikipedia.org/wiki/Vancouver"
+},
+"c-venice": {
+"credit": "kallerna · CC BY-SA 4.0",
+"f": "/images/intl/c-venice.webp",
+"lat": 45.4375,
+"lng": 12.33583,
+"page": "https://commons.wikimedia.org/wiki/File:Venezia_aerial_view.jpg",
+"wiki": "Venice",
+"wp": "https://en.wikipedia.org/wiki/Venice"
+},
+"c-vienna": {
+"credit": "Superbass · CC BY-SA 3.0",
+"f": "/images/intl/c-vienna.webp",
+"lat": 48.2083,
+"lng": 16.3725,
+"page": "https://commons.wikimedia.org/wiki/File:Schoenbrunn_philharmoniker_2012.jpg",
+"wiki": "Vienna",
+"wp": "https://en.wikipedia.org/wiki/Vienna"
+},
+"c-washington": {
+"credit": "Ralf Roletschek (talk) - Infos über Fahrräder auf  · CC BY-SA 3.0",
+"f": "/images/intl/c-washington.webp",
+"lat": 38.90472,
+"lng": -77.01639,
+"page": "https://commons.wikimedia.org/wiki/File:12-07-13-washington-by-RalfR-08.jpg",
+"wiki": "Washington, D.C.",
+"wp": "https://en.wikipedia.org/wiki/Washington,_D.C."
+},
 "c-yunnan": {
 "credit": "Miltos Gikas from Lutsa, Attiki, Greece · CC BY 2.0",
 "f": "/images/intl/c-yunnan.webp",
@@ -898,6 +1267,57 @@
 "page": "https://commons.wikimedia.org/wiki/File:1_tianzishan_wulingyuan_zhangjiajie_2012.jpg",
 "wiki": "Zhangjiajie",
 "wp": "https://en.wikipedia.org/wiki/Zhangjiajie"
+},
+"cappadocia-1": {
+"credit": "Emrahuygun · CC BY-SA 4.0",
+"f": "/images/intl/cappadocia-1.webp",
+"lat": 38.65278,
+"lng": 34.86306,
+"page": "https://commons.wikimedia.org/wiki/File:Autumn_in_G%C3%B6reme_Valley.jpg",
+"wiki": "Göreme National Park",
+"wp": "https://en.wikipedia.org/wiki/G%C3%B6reme_Historical_National_Park"
+},
+"cappadocia-2": {
+"credit": "MusikAnimal · CC BY-SA 4.0",
+"f": "/images/intl/cappadocia-2.webp",
+"lat": 38.64306,
+"lng": 34.82889,
+"page": "https://commons.wikimedia.org/wiki/File:G%C3%B6reme_town_and_valley_2015.JPG",
+"wiki": "Göreme Open Air Museum",
+"wp": "https://en.wikipedia.org/wiki/G%C3%B6reme"
+},
+"cappadocia-3": {
+"credit": "Nevit Dilmen (talk) · CC BY-SA 3.0",
+"f": "/images/intl/cappadocia-3.webp",
+"lat": 38.3735,
+"lng": 34.7351,
+"page": "https://commons.wikimedia.org/wiki/File:Derinkuyu_Underground_City_9910_Nevit.jpg",
+"wiki": "Derinkuyu underground city",
+"wp": "https://en.wikipedia.org/wiki/Derinkuyu_underground_city"
+},
+"cappadocia-4": {
+"credit": "Bernard Gagnon · CC BY-SA 3.0",
+"f": "/images/intl/cappadocia-4.webp",
+"lat": 38.62889,
+"lng": 34.80333,
+"page": "https://commons.wikimedia.org/wiki/File:U%C3%A7hisar,_Cappadocia_01.jpg",
+"wiki": "Uçhisar",
+"wp": "https://en.wikipedia.org/wiki/U%C3%A7hisar"
+},
+"cappadocia-5": {
+"lat": 35.9875,
+"lng": -80.97389,
+"wiki": "Love Valley",
+"wp": "https://en.wikipedia.org/wiki/Love_Valley,_North_Carolina"
+},
+"cappadocia-9": {
+"credit": "Ludovic Courtès · CC BY-SA 3.0",
+"f": "/images/intl/cappadocia-9.webp",
+"lat": 38.715,
+"lng": 34.84667,
+"page": "https://commons.wikimedia.org/wiki/File:Cappadoce-Avanos.jpg",
+"wiki": "Avanos",
+"wp": "https://en.wikipedia.org/wiki/Avanos"
 },
 "chiangmai-1": {
 "credit": "JJ Harrison (https://www.jjharrison.com.au/) · CC BY-SA 3.0",
@@ -1031,6 +1451,102 @@
 "wiki": "Elephant Nature Park",
 "wp": "https://en.wikipedia.org/wiki/Elephant_Nature_Park"
 },
+"florence-1": {
+"credit": "Gary Campbell-Hall · CC BY 2.0",
+"f": "/images/intl/florence-1.webp",
+"lat": 43.77306,
+"lng": 11.25694,
+"page": "https://commons.wikimedia.org/wiki/File:Cattedrale_di_Santa_Maria_del_Fiore_%E2%80%93_Il_Duomo_di_Firenze.jpg",
+"wiki": "Florence Cathedral",
+"wp": "https://en.wikipedia.org/wiki/Florence_Cathedral"
+},
+"florence-10": {
+"credit": "Arne Müseler · CC BY-SA 3.0 de",
+"f": "/images/intl/florence-10.webp",
+"lat": 43.72306,
+"lng": 10.39639,
+"page": "https://commons.wikimedia.org/wiki/File:Italy_-_Pisa_-_Leaning_Tower.jpg",
+"wiki": "Leaning Tower of Pisa",
+"wp": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa"
+},
+"florence-11": {
+"credit": "giulio nepi · CC BY 2.0",
+"f": "/images/intl/florence-11.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Fiasco_di_vino_rosso_da_tavola_Monteriggioni.jpg",
+"wiki": "Chianti",
+"wp": "https://en.wikipedia.org/wiki/Chianti"
+},
+"florence-2": {
+"credit": "Arek N. · CC BY-SA 3.0",
+"f": "/images/intl/florence-2.webp",
+"lat": 43.7683,
+"lng": 11.2553,
+"page": "https://commons.wikimedia.org/wiki/File:Florence,_Italy_-_panoramio_(125).jpg",
+"wiki": "Uffizi",
+"wp": "https://en.wikipedia.org/wiki/Uffizi"
+},
+"florence-3": {
+"credit": "Rhododendrites · CC BY-SA 4.0",
+"f": "/images/intl/florence-3.webp",
+"lat": 43.7769,
+"lng": 11.2589,
+"page": "https://commons.wikimedia.org/wiki/File:David_at_the_Galleria_dell%27Accademia_(61351).jpg",
+"wiki": "Galleria dell'Accademia",
+"wp": "https://en.wikipedia.org/wiki/Galleria_dell%27Accademia"
+},
+"florence-4": {
+"credit": "Ingo Mehling · CC BY-SA 4.0",
+"f": "/images/intl/florence-4.webp",
+"lat": 43.76799,
+"lng": 11.25316,
+"page": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_from_Ponte_alle_Grazie.jpg",
+"wiki": "Ponte Vecchio",
+"wp": "https://en.wikipedia.org/wiki/Ponte_Vecchio"
+},
+"florence-5": {
+"lat": 43.76278,
+"lng": 11.26506,
+"wiki": "Piazzale Michelangelo",
+"wp": "https://en.wikipedia.org/wiki/Piazzale_Michelangelo"
+},
+"florence-6": {
+"credit": "Zolli · CC BY-SA 3.0",
+"f": "/images/intl/florence-6.webp",
+"lat": 43.76972,
+"lng": 11.25556,
+"page": "https://commons.wikimedia.org/wiki/File:Piazza_Signoria_-_Firenze.jpg",
+"wiki": "Piazza della Signoria",
+"wp": "https://en.wikipedia.org/wiki/Piazza_della_Signoria"
+},
+"florence-7": {
+"credit": "Diego Delso · CC BY-SA 4.0",
+"f": "/images/intl/florence-7.webp",
+"lat": 43.7625,
+"lng": 11.24833,
+"page": "https://commons.wikimedia.org/wiki/File:Jard%C3%ADn_de_B%C3%B3boli,_Florencia,_Italia,_2022-09-19,_DD_26.jpg",
+"wiki": "Boboli Gardens",
+"wp": "https://en.wikipedia.org/wiki/Boboli_Gardens"
+},
+"florence-8": {
+"credit": "Sailko · CC BY 3.0",
+"f": "/images/intl/florence-8.webp",
+"lat": 43.77667,
+"lng": 11.25333,
+"page": "https://commons.wikimedia.org/wiki/File:Mercato_centrale_di_san_lorenzo_01.jpg",
+"wiki": "Mercato Centrale (Florence)",
+"wp": "https://en.wikipedia.org/wiki/Mercato_Centrale_(Florence)"
+},
+"florence-9": {
+"credit": "Almaak · CC BY-SA 3.0",
+"f": "/images/intl/florence-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Palazzo_Pitti_nel_tardo_pomeriggio.jpg",
+"wiki": "Oltrarno",
+"wp": "https://en.wikipedia.org/wiki/Oltrarno"
+},
 "guilin-1": {
 "credit": "xiquinhosilva · CC BY 2.0",
 "f": "/images/intl/guilin-1.webp",
@@ -1120,6 +1636,108 @@
 "page": "https://commons.wikimedia.org/wiki/File:Sun_and_Moon_Pagodas_Guilin_November_2017_HDR_panorama.jpg",
 "wiki": "Sun and Moon Pagodas",
 "wp": "https://en.wikipedia.org/wiki/Sun_and_Moon_Pagodas"
+},
+"istanbul-1": {
+"credit": "Adli Wahid · CC BY-SA 3.0",
+"f": "/images/intl/istanbul-1.webp",
+"lat": 41.00833,
+"lng": 28.98,
+"page": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_(228968325).jpeg",
+"wiki": "Hagia Sophia",
+"wp": "https://en.wikipedia.org/wiki/Hagia_Sophia"
+},
+"istanbul-10": {
+"credit": "flowcomm · CC BY 2.0",
+"f": "/images/intl/istanbul-10.webp",
+"lat": 41.03944,
+"lng": 29.00167,
+"page": "https://commons.wikimedia.org/wiki/File:Dolmabahce_Istanbul_Turkey.jpg",
+"wiki": "Dolmabahçe Palace",
+"wp": "https://en.wikipedia.org/wiki/Dolmabah%C3%A7e_Palace"
+},
+"istanbul-11": {
+"credit": "A.Savin · FAL",
+"f": "/images/intl/istanbul-11.webp",
+"lat": 41.02278,
+"lng": 28.975,
+"page": "https://commons.wikimedia.org/wiki/File:Istanbul_asv2020-02_img46_Galata_Bridge_and_Tower.jpg",
+"wiki": "Karaköy",
+"wp": "https://en.wikipedia.org/wiki/Karak%C3%B6y"
+},
+"istanbul-12": {
+"credit": "Starliner · CC BY-SA 3.0",
+"f": "/images/intl/istanbul-12.webp",
+"lat": 40.99339,
+"lng": 29.03736,
+"page": "https://commons.wikimedia.org/wiki/File:Haydarpasa_train_station_(cropped).jpg",
+"wiki": "Kadıköy",
+"wp": "https://en.wikipedia.org/wiki/Kad%C4%B1k%C3%B6y"
+},
+"istanbul-2": {
+"lat": null,
+"lng": null,
+"wiki": "Blue Mosque",
+"wp": "https://en.wikipedia.org/wiki/Blue_Mosque"
+},
+"istanbul-3": {
+"credit": "Carlos Delgado · CC BY-SA 3.0",
+"f": "/images/intl/istanbul-3.webp",
+"lat": 41.013,
+"lng": 28.984,
+"page": "https://commons.wikimedia.org/wiki/File:Topkap%C4%B1_-_01.jpg",
+"wiki": "Topkapı Palace",
+"wp": "https://en.wikipedia.org/wiki/Topkap%C4%B1_Palace"
+},
+"istanbul-4": {
+"credit": "Diego Delso · CC BY-SA 4.0",
+"f": "/images/intl/istanbul-4.webp",
+"lat": 41.00806,
+"lng": 28.97778,
+"page": "https://commons.wikimedia.org/wiki/File:Cisterna_Bas%C3%ADlica,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_58-60_HDR.jpg",
+"wiki": "Basilica Cistern",
+"wp": "https://en.wikipedia.org/wiki/Basilica_Cistern"
+},
+"istanbul-5": {
+"lat": null,
+"lng": null,
+"wiki": "Grand Bazaar",
+"wp": "https://en.wikipedia.org/wiki/Grand_Bazaar"
+},
+"istanbul-6": {
+"credit": "Robot8A · CC BY-SA 4.0",
+"f": "/images/intl/istanbul-6.webp",
+"lat": 41.01639,
+"lng": 28.97056,
+"page": "https://commons.wikimedia.org/wiki/File:Spice_Bazaar_Istanbul_Feb_2020,_img_2.jpg",
+"wiki": "Spice Bazaar",
+"wp": "https://en.wikipedia.org/wiki/Spice_Bazaar"
+},
+"istanbul-7": {
+"credit": "User:Interiot · CC BY-SA 2.5",
+"f": "/images/intl/istanbul-7.webp",
+"lat": 41.11944,
+"lng": 29.07528,
+"page": "https://commons.wikimedia.org/wiki/File:Turkish_Strait_disambig.svg",
+"wiki": "Bosporus",
+"wp": "https://en.wikipedia.org/wiki/Bosporus"
+},
+"istanbul-8": {
+"credit": "GrandEscogriffe · CC BY-SA 4.0",
+"f": "/images/intl/istanbul-8.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Galata_tower_01_23.jpg",
+"wiki": "Galata Tower",
+"wp": "https://en.wikipedia.org/wiki/Galata_Tower"
+},
+"istanbul-9": {
+"credit": "Mark Ahsmann · CC BY-SA 4.0",
+"f": "/images/intl/istanbul-9.webp",
+"lat": 41.03417,
+"lng": 28.97889,
+"page": "https://commons.wikimedia.org/wiki/File:Istiklal_Avenue_in_Istanbul_-_Turkey.jpg",
+"wiki": "İstiklal Avenue",
+"wp": "https://en.wikipedia.org/wiki/%C4%B0stiklal_Avenue"
 },
 "jeju-1": {
 "credit": "Korea.net / Korean Culture and Information Service · CC BY-SA 2.0",
@@ -1550,6 +2168,570 @@
 "wiki": "Sannenzaka",
 "wp": "https://en.wikipedia.org/wiki/Sannenzaka"
 },
+"lasvegas-1": {
+"credit": "Mariordo (Mario Roberto Durán Ortiz) · CC BY-SA 4.0",
+"f": "/images/intl/lasvegas-1.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Las_Vegas_Strip_09_2017_4897.jpg",
+"wiki": "Las Vegas Strip",
+"wp": "https://en.wikipedia.org/wiki/Las_Vegas_Strip"
+},
+"lasvegas-10": {
+"credit": "Complexsimplellc at English Wikipedia · CC BY 2.5",
+"f": "/images/intl/lasvegas-10.webp",
+"lat": 36.01222,
+"lng": -113.81111,
+"page": "https://commons.wikimedia.org/wiki/File:SkywalkFromOutsideLedge.jpg",
+"wiki": "Grand Canyon Skywalk",
+"wp": "https://en.wikipedia.org/wiki/Grand_Canyon_Skywalk"
+},
+"lasvegas-11": {
+"credit": "Wilson44691 · CC0",
+"f": "/images/intl/lasvegas-11.webp",
+"lat": 36.13557,
+"lng": -115.42724,
+"page": "https://commons.wikimedia.org/wiki/File:Red_Rock_Canyon_National_Conservation_Area_view_031513.JPG",
+"wiki": "Red Rock Canyon National Conservation Area",
+"wp": "https://en.wikipedia.org/wiki/Red_Rock_Canyon_National_Conservation_Area"
+},
+"lasvegas-2": {
+"credit": "Kashyap Hosdurga · CC BY 2.0",
+"f": "/images/intl/lasvegas-2.webp",
+"lat": 36.1129,
+"lng": -115.17387,
+"page": "https://commons.wikimedia.org/wiki/File:Bellagio_Fountain.jpg",
+"wiki": "Fountains of Bellagio",
+"wp": "https://en.wikipedia.org/wiki/Fountains_of_Bellagio"
+},
+"lasvegas-3": {
+"credit": "Jean-Christophe BENOIST · CC BY 3.0",
+"f": "/images/intl/lasvegas-3.webp",
+"lat": 36.17083,
+"lng": -115.14417,
+"page": "https://commons.wikimedia.org/wiki/File:LasVegas-FremontStreet.jpg",
+"wiki": "Fremont Street Experience",
+"wp": "https://en.wikipedia.org/wiki/Fremont_Street_Experience"
+},
+"lasvegas-4": {
+"credit": "Thomas Wolf, www.foto-tw.de · CC BY-SA 3.0",
+"f": "/images/intl/lasvegas-4.webp",
+"lat": 36.08206,
+"lng": -115.17278,
+"page": "https://commons.wikimedia.org/wiki/File:Welcome_to_Fabulous_Las_Vegas.jpg",
+"wiki": "Welcome to Fabulous Las Vegas sign",
+"wp": "https://en.wikipedia.org/wiki/Welcome_to_Fabulous_Las_Vegas_sign"
+},
+"lasvegas-5": {
+"credit": "Marek Ślusarczyk (Tupungato) Photo portfolio · CC BY 3.0",
+"f": "/images/intl/lasvegas-5.webp",
+"lat": 36.12139,
+"lng": -115.16889,
+"page": "https://commons.wikimedia.org/wiki/File:11_The_Venetian_Las_Vegas_-_luxury_hotel_and_casino_in_Las_Vegas_Strip.jpg",
+"wiki": "The Venetian Las Vegas",
+"wp": "https://en.wikipedia.org/wiki/The_Venetian_Las_Vegas"
+},
+"lasvegas-6": {
+"credit": "Y2kcrazyjoker4 · CC BY 4.0",
+"f": "/images/intl/lasvegas-6.webp",
+"lat": 36.12111,
+"lng": -115.16194,
+"page": "https://commons.wikimedia.org/wiki/File:Sphere-exosphere-on-Jan-26-2024.jpg",
+"wiki": "Sphere (venue)",
+"wp": "https://en.wikipedia.org/wiki/Sphere_(venue)"
+},
+"lasvegas-7": {
+"credit": "kennejima · CC BY 2.0",
+"f": "/images/intl/lasvegas-7.webp",
+"lat": 36.11595,
+"lng": -115.17623,
+"page": "https://commons.wikimedia.org/wiki/File:Bacchanal_Buffet_2.jpg",
+"wiki": "Bacchanal Buffet",
+"wp": "https://en.wikipedia.org/wiki/Bacchanal_Buffet"
+},
+"lasvegas-8": {
+"credit": "Mariordo (Mario Roberto Durán Ortiz) · CC BY-SA 4.0",
+"f": "/images/intl/lasvegas-8.webp",
+"lat": 36.01556,
+"lng": -114.73778,
+"page": "https://commons.wikimedia.org/wiki/File:2017_Aerial_view_Hoover_Dam_4774.jpg",
+"wiki": "Hoover Dam",
+"wp": "https://en.wikipedia.org/wiki/Hoover_Dam"
+},
+"lasvegas-9": {
+"credit": "Murray Foubister · CC BY-SA 2.0",
+"f": "/images/intl/lasvegas-9.webp",
+"lat": 36.05526,
+"lng": -112.12184,
+"page": "https://commons.wikimedia.org/wiki/File:Dawn_on_the_S_rim_of_the_Grand_Canyon_(8645178272).jpg",
+"wiki": "South Rim",
+"wp": "https://en.wikipedia.org/wiki/Grand_Canyon_National_Park"
+},
+"london-1": {
+"credit": "Christian David · CC BY-SA 4.0",
+"f": "/images/intl/london-1.webp",
+"lat": 51.5007,
+"lng": -0.1245,
+"page": "https://commons.wikimedia.org/wiki/File:Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster,_London.jpg",
+"wiki": "Big Ben",
+"wp": "https://en.wikipedia.org/wiki/Big_Ben"
+},
+"london-10": {
+"credit": "Øyvind Holmstad · CC BY-SA 4.0",
+"f": "/images/intl/london-10.webp",
+"lat": 51.50556,
+"lng": -0.09083,
+"page": "https://commons.wikimedia.org/wiki/File:London_2018_March_IMG_0663.jpg",
+"wiki": "Borough Market",
+"wp": "https://en.wikipedia.org/wiki/Borough_Market"
+},
+"london-11": {
+"credit": "Covent_Garden_Interior_May_2006.jpg: Diliff deriva · CC BY 2.5",
+"f": "/images/intl/london-11.webp",
+"lat": 51.5125,
+"lng": -0.1225,
+"page": "https://commons.wikimedia.org/wiki/File:Covent_Garden_Interior_May_2006_crop.jpg",
+"wiki": "Covent Garden",
+"wp": "https://en.wikipedia.org/wiki/Covent_Garden"
+},
+"london-12": {
+"credit": "Dietmar Rabich · CC BY-SA 4.0",
+"f": "/images/intl/london-12.webp",
+"lat": 51.51111,
+"lng": -0.13139,
+"page": "https://commons.wikimedia.org/wiki/File:London,_China_Town_--_2016_--_4868.jpg",
+"wiki": "Chinatown, London",
+"wp": "https://en.wikipedia.org/wiki/Chinatown,_London"
+},
+"london-13": {
+"credit": "Diliff · CC BY-SA 3.0",
+"f": "/images/intl/london-13.webp",
+"lat": 51.50806,
+"lng": -0.12806,
+"page": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square,_London_2_-_Jun_2009.jpg",
+"wiki": "Trafalgar Square",
+"wp": "https://en.wikipedia.org/wiki/Trafalgar_Square"
+},
+"london-14": {
+"lat": null,
+"lng": null,
+"wiki": "King's Cross station",
+"wp": "https://en.wikipedia.org/wiki/King%27s_Cross_station"
+},
+"london-15": {
+"credit": "Diliff · CC BY 2.5",
+"f": "/images/intl/london-15.webp",
+"lat": 51.4839,
+"lng": -0.6044,
+"page": "https://commons.wikimedia.org/wiki/File:Windsor_Castle_at_Sunset_-_Nov_2006.jpg",
+"wiki": "Windsor Castle",
+"wp": "https://en.wikipedia.org/wiki/Windsor_Castle"
+},
+"london-16": {
+"credit": "garethwiscombe · CC BY 2.0",
+"f": "/images/intl/london-16.webp",
+"lat": 51.17889,
+"lng": -1.82611,
+"page": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
+"wiki": "Stonehenge",
+"wp": "https://en.wikipedia.org/wiki/Stonehenge"
+},
+"london-2": {
+"credit": "Antiquary · CC BY 4.0",
+"f": "/images/intl/london-2.webp",
+"lat": 51.49944,
+"lng": -0.1275,
+"page": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey,_Westminster.jpg",
+"wiki": "Westminster Abbey",
+"wp": "https://en.wikipedia.org/wiki/Westminster_Abbey"
+},
+"london-3": {
+"credit": "Julian Herzog (Website) · CC BY 4.0",
+"f": "/images/intl/london-3.webp",
+"lat": 51.50083,
+"lng": -0.14194,
+"page": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_London_Morning_2020_01_(cropped).jpg",
+"wiki": "Buckingham Palace",
+"wp": "https://en.wikipedia.org/wiki/Buckingham_Palace"
+},
+"london-4": {
+"credit": "Khamtran · CC BY-SA 3.0",
+"f": "/images/intl/london-4.webp",
+"lat": 51.5033,
+"lng": -0.1194,
+"page": "https://commons.wikimedia.org/wiki/File:London-Eye-2009.JPG",
+"wiki": "London Eye",
+"wp": "https://en.wikipedia.org/wiki/London_Eye"
+},
+"london-5": {
+"credit": "[Duncan] from Nottingham, UK · CC BY 2.0",
+"f": "/images/intl/london-5.webp",
+"lat": 51.50806,
+"lng": -0.07611,
+"page": "https://commons.wikimedia.org/wiki/File:Tower_of_London_from_the_Shard_(8515883950).jpg",
+"wiki": "Tower of London",
+"wp": "https://en.wikipedia.org/wiki/Tower_of_London"
+},
+"london-6": {
+"credit": "Fuzzypiggy · CC BY-SA 3.0",
+"f": "/images/intl/london-6.webp",
+"lat": 51.5056,
+"lng": -0.0753,
+"page": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_at_Dawn.jpg",
+"wiki": "Tower Bridge",
+"wp": "https://en.wikipedia.org/wiki/Tower_Bridge"
+},
+"london-7": {
+"credit": "Ham · CC BY-SA 3.0",
+"f": "/images/intl/london-7.webp",
+"lat": 51.5194,
+"lng": -0.1269,
+"page": "https://commons.wikimedia.org/wiki/File:British_Museum_from_NE_2.JPG",
+"wiki": "British Museum",
+"wp": "https://en.wikipedia.org/wiki/British_Museum"
+},
+"london-8": {
+"credit": "Unknown author. · Public domain",
+"f": "/images/intl/london-8.webp",
+"lat": 51.49611,
+"lng": -0.17639,
+"page": "https://commons.wikimedia.org/wiki/File:Natural_History_Museum_London_logo_(large).svg",
+"wiki": "Natural History Museum, London",
+"wp": "https://en.wikipedia.org/wiki/Natural_History_Museum,_London"
+},
+"london-9": {
+"credit": "@LondonNPC #NationalParkCity · CC BY 2.0",
+"f": "/images/intl/london-9.webp",
+"lat": 51.50861,
+"lng": -0.16361,
+"page": "https://commons.wikimedia.org/wiki/File:Hyde_Park_London_from_the_air.jpg",
+"wiki": "Hyde Park, London",
+"wp": "https://en.wikipedia.org/wiki/Hyde_Park,_London"
+},
+"losangeles-1": {
+"credit": "Fabio Achilli from Milano, Italy · CC BY 2.0",
+"f": "/images/intl/losangeles-1.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Walk_of_Fame,_Hollywood_(20986072759).jpg",
+"wiki": "Hollywood Walk of Fame",
+"wp": "https://en.wikipedia.org/wiki/Hollywood_Walk_of_Fame"
+},
+"losangeles-10": {
+"credit": "JS2PR · CC BY-SA 4.0",
+"f": "/images/intl/losangeles-10.webp",
+"lat": 34.0725,
+"lng": -118.36028,
+"page": "https://commons.wikimedia.org/wiki/File:FM_-Clock_Tower.jpg",
+"wiki": "Original Farmers Market",
+"wp": "https://en.wikipedia.org/wiki/Original_Farmers_Market"
+},
+"losangeles-11": {
+"credit": "Jeremy Nguyen · CC BY-SA 4.0",
+"f": "/images/intl/losangeles-11.webp",
+"lat": 33.745,
+"lng": -117.96361,
+"page": "https://commons.wikimedia.org/wiki/File:Entrance_sign_of_Little_Saigon,_City_of_Westminster.jpg",
+"wiki": "Little Saigon, Orange County",
+"wp": "https://en.wikipedia.org/wiki/Little_Saigon,_Orange_County"
+},
+"losangeles-2": {
+"credit": "Matthew Field · CC BY 2.5",
+"f": "/images/intl/losangeles-2.webp",
+"lat": 34.11833,
+"lng": -118.30033,
+"page": "https://commons.wikimedia.org/wiki/File:Griffith_observatory_2006.jpg",
+"wiki": "Griffith Observatory",
+"wp": "https://en.wikipedia.org/wiki/Griffith_Observatory"
+},
+"losangeles-3": {
+"credit": "CrispyCream27 · CC BY-SA 4.0",
+"f": "/images/intl/losangeles-3.webp",
+"lat": 34.13652,
+"lng": -118.35605,
+"page": "https://commons.wikimedia.org/wiki/File:Universal_archway_2019.jpg",
+"wiki": "Universal Studios Hollywood",
+"wp": "https://en.wikipedia.org/wiki/Universal_Studios_Hollywood"
+},
+"losangeles-4": {
+"credit": "web4camguy · CC BY-SA 2.0",
+"f": "/images/intl/losangeles-4.webp",
+"lat": 34.00861,
+"lng": -118.49861,
+"page": "https://commons.wikimedia.org/wiki/File:Santa_monica_pier_entrance_evening.jpg",
+"wiki": "Santa Monica Pier",
+"wp": "https://en.wikipedia.org/wiki/Santa_Monica_Pier"
+},
+"losangeles-6": {
+"credit": "Jelson25 · Public domain",
+"f": "/images/intl/losangeles-6.webp",
+"lat": 34.0775,
+"lng": -118.475,
+"page": "https://commons.wikimedia.org/wiki/File:Aerial_Getty_Museum.jpg",
+"wiki": "Getty Center",
+"wp": "https://en.wikipedia.org/wiki/Getty_Center"
+},
+"losangeles-7": {
+"credit": "Parksfan1955 · CC0",
+"f": "/images/intl/losangeles-7.webp",
+"lat": 33.81,
+"lng": -117.92,
+"page": "https://commons.wikimedia.org/wiki/File:Sleeping_Beauty_Castle_-_February_2024.png",
+"wiki": "Disneyland",
+"wp": "https://en.wikipedia.org/wiki/Disneyland"
+},
+"losangeles-8": {
+"credit": "jjron · GFDL 1.2",
+"f": "/images/intl/losangeles-8.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Rodeo_Drive,_Beverly_Hills,_LA,_CA,_jjron_21.03.2012.jpg",
+"wiki": "Rodeo Drive",
+"wp": "https://en.wikipedia.org/wiki/Rodeo_Drive"
+},
+"losangeles-9": {
+"credit": "Alossix · CC BY 3.0",
+"f": "/images/intl/losangeles-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Grand_central_market.jpg",
+"wiki": "Grand Central Market",
+"wp": "https://en.wikipedia.org/wiki/Grand_Central_Market"
+},
+"munich-1": {
+"credit": "Diliff · CC BY-SA 3.0",
+"f": "/images/intl/munich-1.webp",
+"lat": 48.1373,
+"lng": 11.5755,
+"page": "https://commons.wikimedia.org/wiki/File:Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg",
+"wiki": "Marienplatz",
+"wp": "https://en.wikipedia.org/wiki/Marienplatz"
+},
+"munich-10": {
+"credit": "Burkhard Mücke · CC BY-SA 4.0",
+"f": "/images/intl/munich-10.webp",
+"lat": 48.13,
+"lng": 11.5833,
+"page": "https://commons.wikimedia.org/wiki/File:Deutsches_Museum_Portrait_4.jpg",
+"wiki": "Deutsches Museum",
+"wp": "https://en.wikipedia.org/wiki/Deutsches_Museum"
+},
+"munich-11": {
+"credit": "Thomas Wolf, www.foto-tw.de · CC BY-SA 3.0 de",
+"f": "/images/intl/munich-11.webp",
+"lat": 47.5575,
+"lng": 10.74944,
+"page": "https://commons.wikimedia.org/wiki/File:Schloss_Neuschwanstein_2013.jpg",
+"wiki": "Neuschwanstein Castle",
+"wp": "https://en.wikipedia.org/wiki/Neuschwanstein_Castle"
+},
+"munich-12": {
+"credit": "Unknown authorUnknown author · Public domain",
+"f": "/images/intl/munich-12.webp",
+"lat": 48.26889,
+"lng": 11.46861,
+"page": "https://commons.wikimedia.org/wiki/File:KZDachau1945.jpg",
+"wiki": "Dachau concentration camp",
+"wp": "https://en.wikipedia.org/wiki/Dachau_concentration_camp"
+},
+"munich-2": {
+"credit": "Maximilian Dörrbecker (Chumwa) · CC BY-SA 2.0",
+"f": "/images/intl/munich-2.webp",
+"lat": 48.13528,
+"lng": 11.57611,
+"page": "https://commons.wikimedia.org/wiki/File:Karte_Viktualienmarkt_M%C3%BCnchen.png",
+"wiki": "Viktualienmarkt",
+"wp": "https://en.wikipedia.org/wiki/Viktualienmarkt"
+},
+"munich-3": {
+"credit": "Kiban · Public domain",
+"f": "/images/intl/munich-3.webp",
+"lat": 48.1375,
+"lng": 11.57972,
+"page": "https://commons.wikimedia.org/wiki/File:Hofbrauhaus.JPG",
+"wiki": "Hofbräuhaus am Platzl",
+"wp": "https://en.wikipedia.org/wiki/Hofbr%C3%A4uhaus_am_Platzl"
+},
+"munich-4": {
+"credit": "Bayreuth2009 · CC BY 3.0",
+"f": "/images/intl/munich-4.webp",
+"lat": 48.14111,
+"lng": 11.57806,
+"page": "https://commons.wikimedia.org/wiki/File:Grundriss_der_Residenz_M%C3%BCnchen_(Bayerische_Schl%C3%B6sserverwaltung).jpg",
+"wiki": "Munich Residenz",
+"wp": "https://en.wikipedia.org/wiki/Munich_Residenz"
+},
+"munich-5": {
+"credit": "Original: Richard Bartz, Munich aka Makro Freak De · CC BY-SA 2.5",
+"f": "/images/intl/munich-5.webp",
+"lat": 48.15806,
+"lng": 11.50361,
+"page": "https://commons.wikimedia.org/wiki/File:Image-Schloss_Nymphenburg_Munich_CC_edit3.jpg",
+"wiki": "Nymphenburg Palace",
+"wp": "https://en.wikipedia.org/wiki/Nymphenburg_Palace"
+},
+"munich-6": {
+"credit": "Carsten Steger · CC BY-SA 4.0",
+"f": "/images/intl/munich-6.webp",
+"lat": 48.15278,
+"lng": 11.59194,
+"page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Englischer_Garten_in_Munich_(view_from_the_southwest).jpg",
+"wiki": "Englischer Garten",
+"wp": "https://en.wikipedia.org/wiki/Englischer_Garten"
+},
+"munich-7": {
+"credit": "Diego Delso · CC BY-SA 3.0",
+"f": "/images/intl/munich-7.webp",
+"lat": 48.17694,
+"lng": 11.55667,
+"page": "https://commons.wikimedia.org/wiki/File:BMW_Welt,_M%C3%BAnich,_Alemania16.jpg",
+"wiki": "BMW Welt",
+"wp": "https://en.wikipedia.org/wiki/BMW_Welt"
+},
+"munich-8": {
+"credit": "Wladyslaw Sojka · FAL",
+"f": "/images/intl/munich-8.webp",
+"lat": 48.17,
+"lng": 11.55,
+"page": "https://commons.wikimedia.org/wiki/File:M%C3%BCnchen_-_Olympische_Bauten.jpg",
+"wiki": "Olympiapark (Munich)",
+"wp": "https://en.wikipedia.org/wiki/Olympiapark_(Munich)"
+},
+"munich-9": {
+"credit": "Diliff · CC BY 2.5",
+"f": "/images/intl/munich-9.webp",
+"lat": 48.13861,
+"lng": 11.57389,
+"page": "https://commons.wikimedia.org/wiki/File:Frauenkirche_Munich_-_View_from_Peterskirche_Tower2.jpg",
+"wiki": "Frauenkirche, Munich",
+"wp": "https://en.wikipedia.org/wiki/Frauenkirche,_Munich"
+},
+"newyork-1": {
+"credit": "AskALotl · CC0",
+"f": "/images/intl/newyork-1.webp",
+"lat": 40.68917,
+"lng": -74.04444,
+"page": "https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_(cropped).jpg",
+"wiki": "Statue of Liberty",
+"wp": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+},
+"newyork-10": {
+"credit": "Ajay Suresh from New York, NY, USA · CC BY 2.0",
+"f": "/images/intl/newyork-10.webp",
+"lat": 40.7425,
+"lng": -74.00611,
+"page": "https://commons.wikimedia.org/wiki/File:Chelsea_Market_(49052085186).jpg",
+"wiki": "Chelsea Market",
+"wp": "https://en.wikipedia.org/wiki/Chelsea_Market"
+},
+"newyork-11": {
+"credit": "Famartin · CC BY-SA 4.0",
+"f": "/images/intl/newyork-11.webp",
+"lat": 40.715,
+"lng": -73.997,
+"page": "https://commons.wikimedia.org/wiki/File:2024-05-20_13_32_04_View_west_along_East_Broadway_from_the_Manhattan_Bridge_in_Manhattan,_New_York_City,_New_York.jpg",
+"wiki": "Chinatown, Manhattan",
+"wp": "https://en.wikipedia.org/wiki/Chinatown,_Manhattan"
+},
+"newyork-12": {
+"credit": "Justicex07 · CC BY-SA 4.0",
+"f": "/images/intl/newyork-12.webp",
+"lat": 40.71,
+"lng": -73.96,
+"page": "https://commons.wikimedia.org/wiki/File:WilliamsburgBK.jpg",
+"wiki": "Williamsburg, Brooklyn",
+"wp": "https://en.wikipedia.org/wiki/Williamsburg,_Brooklyn"
+},
+"newyork-13": {
+"credit": "Fcb981 ; Eric Baetscher (attribution required) · CC BY-SA 3.0",
+"f": "/images/intl/newyork-13.webp",
+"lat": 40.7528,
+"lng": -73.9772,
+"page": "https://commons.wikimedia.org/wiki/File:Image-Grand_central_Station_Outside_Night_2.jpg",
+"wiki": "Grand Central Terminal",
+"wp": "https://en.wikipedia.org/wiki/Grand_Central_Terminal"
+},
+"newyork-14": {
+"credit": "Corey Seeman · CC BY-SA 4.0",
+"f": "/images/intl/newyork-14.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Various_Pictures_from_New_York_City_-_September,_2025.jpg",
+"wiki": "Broadway theatre",
+"wp": "https://en.wikipedia.org/wiki/Broadway_theatre"
+},
+"newyork-2": {
+"credit": "Terabass · CC BY-SA 3.0",
+"f": "/images/intl/newyork-2.webp",
+"lat": 40.7575,
+"lng": -73.9858,
+"page": "https://commons.wikimedia.org/wiki/File:New_york_times_square-terabass.jpg",
+"wiki": "Times Square",
+"wp": "https://en.wikipedia.org/wiki/Times_Square"
+},
+"newyork-3": {
+"credit": "Anthony Quintano from Hillsborough, NJ, United Sta · CC BY 2.0",
+"f": "/images/intl/newyork-3.webp",
+"lat": 40.78222,
+"lng": -73.96528,
+"page": "https://commons.wikimedia.org/wiki/File:Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_(15351915006).jpg",
+"wiki": "Central Park",
+"wp": "https://en.wikipedia.org/wiki/Central_Park"
+},
+"newyork-4": {
+"credit": "Sam Valadi · Public domain",
+"f": "/images/intl/newyork-4.webp",
+"lat": 40.7483,
+"lng": -73.9856,
+"page": "https://commons.wikimedia.org/wiki/File:Empire_State_Building_(aerial_view).jpg",
+"wiki": "Empire State Building",
+"wp": "https://en.wikipedia.org/wiki/Empire_State_Building"
+},
+"newyork-5": {
+"credit": "Hugo Schneider · CC BY-SA 2.0",
+"f": "/images/intl/newyork-5.webp",
+"lat": 40.7794,
+"lng": -73.9631,
+"page": "https://commons.wikimedia.org/wiki/File:Metropolitan_Museum_of_Art_(The_Met)_-_Central_Park,_NYC.jpg",
+"wiki": "Metropolitan Museum of Art",
+"wp": "https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art"
+},
+"newyork-6": {
+"credit": "Christian David · CC BY-SA 4.0",
+"f": "/images/intl/newyork-6.webp",
+"lat": 40.7057,
+"lng": -73.9964,
+"page": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach,_New_York.jpg",
+"wiki": "Brooklyn Bridge",
+"wp": "https://en.wikipedia.org/wiki/Brooklyn_Bridge"
+},
+"newyork-7": {
+"credit": "Paul Sableman · CC BY 2.0",
+"f": "/images/intl/newyork-7.webp",
+"lat": 40.71167,
+"lng": -74.01361,
+"page": "https://commons.wikimedia.org/wiki/File:9-11_Memorial_and_Museum_(28815276064).jpg",
+"wiki": "National September 11 Memorial & Museum",
+"wp": "https://en.wikipedia.org/wiki/National_September_11_Memorial_%26_Museum"
+},
+"newyork-8": {
+"credit": "Rockefeller Group/Mitsubishi Estate · Public domain",
+"f": "/images/intl/newyork-8.webp",
+"lat": 40.75861,
+"lng": -73.97917,
+"page": "https://commons.wikimedia.org/wiki/File:Rockefeller_Center_logo.svg",
+"wiki": "Rockefeller Center",
+"wp": "https://en.wikipedia.org/wiki/Rockefeller_Center"
+},
+"newyork-9": {
+"credit": "Dansnguyen · CC0",
+"f": "/images/intl/newyork-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:High_Line_Park,_Section_1a.jpg",
+"wiki": "High Line",
+"wp": "https://en.wikipedia.org/wiki/High_Line"
+},
 "osaka-1": {
 "credit": "663highland · CC BY 2.5",
 "f": "/images/intl/osaka-1.webp",
@@ -1675,6 +2857,138 @@
 "page": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
 "wiki": "Tōdai-ji",
 "wp": "https://en.wikipedia.org/wiki/T%C5%8Ddai-ji"
+},
+"paris-1": {
+"credit": "Benh LIEU SONG · Public domain",
+"f": "/images/intl/paris-1.webp",
+"lat": 48.85822,
+"lng": 2.2945,
+"page": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+"wiki": "Eiffel Tower",
+"wp": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+},
+"paris-10": {
+"credit": "Kirua · Public domain",
+"f": "/images/intl/paris-10.webp",
+"lat": 48.84694,
+"lng": 2.33722,
+"page": "https://commons.wikimedia.org/wiki/File:LuxembourgMontparnasse.JPG",
+"wiki": "Jardin du Luxembourg",
+"wp": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg"
+},
+"paris-11": {
+"credit": "Wikimedia Commons · CC BY-SA 3.0",
+"f": "/images/intl/paris-11.webp",
+"lat": 48.86,
+"lng": 2.36083,
+"page": "https://commons.wikimedia.org/wiki/File:Paris_Hotel_de_Sens_dsc04028.jpg",
+"wiki": "Le Marais",
+"wp": "https://en.wikipedia.org/wiki/The_Marais"
+},
+"paris-12": {
+"credit": "Mbzt · CC BY-SA 4.0",
+"f": "/images/intl/paris-12.webp",
+"lat": 48.85,
+"lng": 2.3425,
+"page": "https://commons.wikimedia.org/wiki/File:P1300734_Paris_V_place_de_la_Sorbonne_rwk.jpg",
+"wiki": "Latin Quarter, Paris",
+"wp": "https://en.wikipedia.org/wiki/Latin_Quarter,_Paris"
+},
+"paris-13": {
+"credit": "Celette · CC BY-SA 4.0",
+"f": "/images/intl/paris-13.webp",
+"lat": 48.85417,
+"lng": 2.33264,
+"page": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_de_Flore,_172_boulevard_Saint-Germain,_Paris_6e.jpg",
+"wiki": "Café de Flore",
+"wp": "https://en.wikipedia.org/wiki/Caf%C3%A9_de_Flore"
+},
+"paris-16": {
+"credit": "Photographer: Anthony Atkielski · Cc-by-sa-3.0",
+"f": "/images/intl/paris-16.webp",
+"lat": 48.87261,
+"lng": 2.77675,
+"page": "https://en.wikipedia.org/wiki/File:SleepingBeautyCastleDisneylandParisl.jpg",
+"wiki": "Disneyland Park (Paris)",
+"wp": "https://en.wikipedia.org/wiki/Disneyland_Park_(Paris)"
+},
+"paris-17": {
+"credit": "Moonik · CC BY-SA 3.0",
+"f": "/images/intl/paris-17.webp",
+"lat": 48.84611,
+"lng": 2.34583,
+"page": "https://commons.wikimedia.org/wiki/File:Pantheon_of_Paris_007.JPG",
+"wiki": "Panthéon",
+"wp": "https://en.wikipedia.org/wiki/Panth%C3%A9on"
+},
+"paris-2": {
+"credit": "Benh LIEU SONG (Flickr) · CC BY-SA 3.0",
+"f": "/images/intl/paris-2.webp",
+"lat": 48.8611,
+"lng": 2.3358,
+"page": "https://commons.wikimedia.org/wiki/File:Louvre_Museum_Wikimedia_Commons.jpg",
+"wiki": "Louvre",
+"wp": "https://en.wikipedia.org/wiki/Louvre"
+},
+"paris-3": {
+"credit": "Ali Sabbagh · CC0",
+"f": "/images/intl/paris-3.webp",
+"lat": 48.85306,
+"lng": 2.35,
+"page": "https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris,_4_October_2017.jpg",
+"wiki": "Notre-Dame de Paris",
+"wp": "https://en.wikipedia.org/wiki/Notre-Dame_de_Paris"
+},
+"paris-4": {
+"credit": "ZeusUpsistos · CC BY-SA 4.0",
+"f": "/images/intl/paris-4.webp",
+"lat": 48.87378,
+"lng": 2.29503,
+"page": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe_-_Ao%C3%BBt_2026.jpg",
+"wiki": "Arc de Triomphe",
+"wp": "https://en.wikipedia.org/wiki/Arc_de_Triomphe"
+},
+"paris-5": {
+"credit": "Josh Hallett · CC BY-SA 2.0",
+"f": "/images/intl/paris-5.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Avenue_des_Champs-%C3%89lys%C3%A9es_July_24,_2009_N1.jpg",
+"wiki": "Champs-Élysées",
+"wp": "https://en.wikipedia.org/wiki/Champs-%C3%89lys%C3%A9es"
+},
+"paris-6": {
+"credit": "Tonchino · CC BY-SA 3.0",
+"f": "/images/intl/paris-6.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Le_sacre_coeur.jpg",
+"wiki": "Sacré-Cœur, Paris",
+"wp": "https://en.wikipedia.org/wiki/Sacr%C3%A9-C%C5%93ur,_Paris"
+},
+"paris-7": {
+"lat": 48.85997,
+"lng": 2.32653,
+"wiki": "Musée d'Orsay",
+"wp": "https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay"
+},
+"paris-8": {
+"credit": "ToucanWings · CC BY-SA 3.0",
+"f": "/images/intl/paris-8.webp",
+"lat": 48.8047,
+"lng": 2.1203,
+"page": "https://commons.wikimedia.org/wiki/File:Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_(cropped).jpg",
+"wiki": "Palace of Versailles",
+"wp": "https://en.wikipedia.org/wiki/Palace_of_Versailles"
+},
+"paris-9": {
+"credit": "Jean-noël Lafargue · FAL",
+"f": "/images/intl/paris-9.webp",
+"lat": 48.86389,
+"lng": 2.30583,
+"page": "https://commons.wikimedia.org/wiki/File:Bateau_mouche_jnl_4.jpg",
+"wiki": "Bateaux Mouches",
+"wp": "https://en.wikipedia.org/wiki/Bateaux_Mouches"
 },
 "pattaya-1": {
 "credit": "Marlinjuice at English Wikipedia · CC BY-SA 3.0",
@@ -1969,6 +3283,321 @@
 "page": "https://commons.wikimedia.org/wiki/File:Kata_beach_morning_2.jpg",
 "wiki": "Kata Beach",
 "wp": "https://en.wikipedia.org/wiki/Hat_Kata"
+},
+"prague-1": {
+"credit": "Tilman2007 · CC BY-SA 4.0",
+"f": "/images/intl/prague-1.webp",
+"lat": 50.09,
+"lng": 14.4,
+"page": "https://commons.wikimedia.org/wiki/File:Karl%C5%AFv_most_Praha,_Star%C3%A9_M%C4%9Bsto_20170810_007.jpg",
+"wiki": "Prague Castle",
+"wp": "https://en.wikipedia.org/wiki/Prague_Castle"
+},
+"prague-11": {
+"credit": "01x07x2022000 · CC0",
+"f": "/images/intl/prague-11.webp",
+"lat": 50.00333,
+"lng": 14.47028,
+"page": "https://commons.wikimedia.org/wiki/File:TTTM_Sapa_20230106_101419.jpg",
+"wiki": "Sapa (Prague)",
+"wp": "https://en.wikipedia.org/wiki/Sapa_(Prague)"
+},
+"prague-12": {
+"credit": "DominikCK1999 · CC BY 4.0",
+"f": "/images/intl/prague-12.webp",
+"lat": 48.81111,
+"lng": 14.31528,
+"page": "https://commons.wikimedia.org/wiki/File:Blick_auf_das_Stadtzentrum_von_Krumau_(2026).jpg",
+"wiki": "Český Krumlov",
+"wp": "https://en.wikipedia.org/wiki/%C4%8Cesk%C3%BD_Krumlov"
+},
+"prague-2": {
+"credit": "A.Savin · FAL",
+"f": "/images/intl/prague-2.webp",
+"lat": 50.08639,
+"lng": 14.41194,
+"page": "https://commons.wikimedia.org/wiki/File:Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg",
+"wiki": "Charles Bridge",
+"wp": "https://en.wikipedia.org/wiki/Charles_Bridge"
+},
+"prague-3": {
+"credit": "A.Savin · FAL",
+"f": "/images/intl/prague-3.webp",
+"lat": 50.0875,
+"lng": 14.4214,
+"page": "https://commons.wikimedia.org/wiki/File:Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg",
+"wiki": "Old Town Square",
+"wp": "https://en.wikipedia.org/wiki/Old_Town_Square"
+},
+"prague-4": {
+"credit": "Steve Collis from Melbourne, Australia · CC BY 2.0",
+"f": "/images/intl/prague-4.webp",
+"lat": 50.08701,
+"lng": 14.42092,
+"page": "https://commons.wikimedia.org/wiki/File:Astronomical_Clock_(8341899828).jpg",
+"wiki": "Prague astronomical clock",
+"wp": "https://en.wikipedia.org/wiki/Prague_astronomical_clock"
+},
+"prague-5": {
+"credit": "donald judge · CC BY 2.0",
+"f": "/images/intl/prague-5.webp",
+"lat": 50.08806,
+"lng": 14.40389,
+"page": "https://commons.wikimedia.org/wiki/File:19.7.16_Prague_Castle_12_(28395711206).jpg",
+"wiki": "Malá Strana",
+"wp": "https://en.wikipedia.org/wiki/Mal%C3%A1_Strana"
+},
+"prague-6": {
+"credit": "Ludek · CC BY-SA 3.0",
+"f": "/images/intl/prague-6.webp",
+"lat": 50.08361,
+"lng": 14.39528,
+"page": "https://commons.wikimedia.org/wiki/File:Petrin_Praha.jpg",
+"wiki": "Petřín",
+"wp": "https://en.wikipedia.org/wiki/Pet%C5%99%C3%ADn"
+},
+"prague-7": {
+"credit": "Spaul57 · CC BY-SA 4.0",
+"f": "/images/intl/prague-7.webp",
+"lat": 50.08624,
+"lng": 14.40695,
+"page": "https://commons.wikimedia.org/wiki/File:Lennon_Wall,_August_2014.jpg",
+"wiki": "Lennon Wall",
+"wp": "https://en.wikipedia.org/wiki/Lennon_Wall"
+},
+"prague-8": {
+"credit": "Martin Pauer (Power) · CC BY-SA 2.5",
+"f": "/images/intl/prague-8.webp",
+"lat": 50.08972,
+"lng": 14.41861,
+"page": "https://commons.wikimedia.org/wiki/File:Jewish_tawnhall_(Prague).jpg",
+"wiki": "Josefov",
+"wp": "https://en.wikipedia.org/wiki/Josefov"
+},
+"prague-9": {
+"credit": "Øyvind Holmstad · CC BY-SA 3.0",
+"f": "/images/intl/prague-9.webp",
+"lat": 50.08139,
+"lng": 14.4275,
+"page": "https://commons.wikimedia.org/wiki/File:Prague_Praha_2014_Holmstad_Vaclavplassen_i_nybyen_Nove_Mesto_flott.jpg",
+"wiki": "Wenceslas Square",
+"wp": "https://en.wikipedia.org/wiki/Wenceslas_Square"
+},
+"rome-1": {
+"credit": "FeaturedPics · CC BY-SA 4.0",
+"f": "/images/intl/rome-1.webp",
+"lat": 41.8903,
+"lng": 12.4922,
+"page": "https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg",
+"wiki": "Colosseum",
+"wp": "https://en.wikipedia.org/wiki/Colosseum"
+},
+"rome-10": {
+"credit": "Myrabella · CC BY-SA 3.0",
+"f": "/images/intl/rome-10.webp",
+"lat": 41.8957,
+"lng": 12.472,
+"page": "https://commons.wikimedia.org/wiki/File:Campo_dei_Fiori.jpg",
+"wiki": "Campo de' Fiori",
+"wp": "https://en.wikipedia.org/wiki/Campo_de%27_Fiori"
+},
+"rome-11": {
+"credit": "Oursana · CC0",
+"f": "/images/intl/rome-11.webp",
+"lat": 41.91417,
+"lng": 12.49222,
+"page": "https://commons.wikimedia.org/wiki/File:Ingresso_monumentale_di_Villa_Borghese_a_Roma_su_piazzale_Flaminio_2018-02.jpg",
+"wiki": "Villa Borghese gardens",
+"wp": "https://en.wikipedia.org/wiki/Villa_Borghese_gardens"
+},
+"rome-12": {
+"credit": "Livioandronico2013 · CC BY-SA 4.0",
+"f": "/images/intl/rome-12.webp",
+"lat": 41.9031,
+"lng": 12.4663,
+"page": "https://commons.wikimedia.org/wiki/File:Castel_Sant%27Angelo_at_Night.jpg",
+"wiki": "Castel Sant'Angelo",
+"wp": "https://en.wikipedia.org/wiki/Castel_Sant%27Angelo"
+},
+"rome-13": {
+"credit": "Alessio Damato · CC BY-SA 3.0",
+"f": "/images/intl/rome-13.webp",
+"lat": 41.89496,
+"lng": 12.48923,
+"page": "https://commons.wikimedia.org/wiki/File:Rome_via_dei_fori_imperiali_20050922.jpg",
+"wiki": "Monti (rione of Rome)",
+"wp": "https://en.wikipedia.org/wiki/Monti_(rione_of_Rome)"
+},
+"rome-2": {
+"credit": "This Photo was taken by Wolfgang Moroder. Feel fre · CC BY-SA 3.0",
+"f": "/images/intl/rome-2.webp",
+"lat": 41.8922,
+"lng": 12.4852,
+"page": "https://commons.wikimedia.org/wiki/File:Foro_Romano_Musei_Capitolini_Roma.jpg",
+"wiki": "Roman Forum",
+"wp": "https://en.wikipedia.org/wiki/Roman_Forum"
+},
+"rome-3": {
+"credit": "Original: Fabio Mochi Vector: Kaidor · CC BY 4.0",
+"f": "/images/intl/rome-3.webp",
+"lat": 41.9064,
+"lng": 12.4544,
+"page": "https://commons.wikimedia.org/wiki/File:Musei_vaticani_Coat_of_Arms.svg",
+"wiki": "Vatican Museums",
+"wp": "https://en.wikipedia.org/wiki/Vatican_Museums"
+},
+"rome-4": {
+"credit": "Alvesgaspar · CC BY-SA 4.0",
+"f": "/images/intl/rome-4.webp",
+"lat": 41.90222,
+"lng": 12.45333,
+"page": "https://commons.wikimedia.org/wiki/File:Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg",
+"wiki": "St. Peter's Basilica",
+"wp": "https://en.wikipedia.org/wiki/St._Peter%27s_Basilica"
+},
+"rome-5": {
+"credit": "NikonZ7II · CC BY-SA 4.0",
+"f": "/images/intl/rome-5.webp",
+"lat": 41.90083,
+"lng": 12.48306,
+"page": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg",
+"wiki": "Trevi Fountain",
+"wp": "https://en.wikipedia.org/wiki/Trevi_Fountain"
+},
+"rome-6": {
+"credit": "NikonZ7II · CC BY-SA 4.0",
+"f": "/images/intl/rome-6.webp",
+"lat": 41.8986,
+"lng": 12.4768,
+"page": "https://commons.wikimedia.org/wiki/File:Pantheon_(Rome)_-_Right_side_and_front.jpg",
+"wiki": "Pantheon, Rome",
+"wp": "https://en.wikipedia.org/wiki/Pantheon,_Rome"
+},
+"rome-7": {
+"credit": "Arnaud 25 · CC BY-SA 3.0",
+"f": "/images/intl/rome-7.webp",
+"lat": 41.9061,
+"lng": 12.4828,
+"page": "https://commons.wikimedia.org/wiki/File:Piazza_di_Spagna_(Rome)_0004.jpg",
+"wiki": "Spanish Steps",
+"wp": "https://en.wikipedia.org/wiki/Spanish_Steps"
+},
+"rome-8": {
+"credit": "NikonZ7II · CC BY-SA 4.0",
+"f": "/images/intl/rome-8.webp",
+"lat": 41.899,
+"lng": 12.4731,
+"page": "https://commons.wikimedia.org/wiki/File:Piazza_Navona_(Rome)_at_night.jpg",
+"wiki": "Piazza Navona",
+"wp": "https://en.wikipedia.org/wiki/Piazza_Navona"
+},
+"rome-9": {
+"credit": "Jensens · Public domain",
+"f": "/images/intl/rome-9.webp",
+"lat": 41.88722,
+"lng": 12.46556,
+"page": "https://commons.wikimedia.org/wiki/File:Santa_Maria_in_Trastevere_fountain.jpg",
+"wiki": "Trastevere",
+"wp": "https://en.wikipedia.org/wiki/Trastevere"
+},
+"sanfrancisco-1": {
+"credit": "Frank Schulenburg · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-1.webp",
+"lat": 37.81972,
+"lng": -122.47861,
+"page": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+"wiki": "Golden Gate Bridge",
+"wp": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+},
+"sanfrancisco-10": {
+"credit": "InvadingInvader · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-10.webp",
+"lat": 37.75159,
+"lng": -122.44772,
+"page": "https://commons.wikimedia.org/wiki/File:Twin_Peaks_2022_Aerial.png",
+"wiki": "Twin Peaks (San Francisco)",
+"wp": "https://en.wikipedia.org/wiki/Twin_Peaks_(San_Francisco)"
+},
+"sanfrancisco-11": {
+"credit": "Unknown authorUnknown author · Public domain",
+"f": "/images/intl/sanfrancisco-11.webp",
+"lat": 38.4012,
+"lng": -122.33018,
+"page": "https://commons.wikimedia.org/wiki/File:TTB_Map_Napa_Valley_AVA.png",
+"wiki": "Napa Valley AVA",
+"wp": "https://en.wikipedia.org/wiki/Napa_Valley_AVA"
+},
+"sanfrancisco-2": {
+"credit": "Chris6d · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-2.webp",
+"lat": 37.82667,
+"lng": -122.42278,
+"page": "https://commons.wikimedia.org/wiki/File:Alcatraz_2021.jpg",
+"wiki": "Alcatraz Island",
+"wp": "https://en.wikipedia.org/wiki/Alcatraz_Island"
+},
+"sanfrancisco-3": {
+"credit": "jjron · GFDL 1.2",
+"f": "/images/intl/sanfrancisco-3.webp",
+"lat": 37.80833,
+"lng": -122.41556,
+"page": "https://commons.wikimedia.org/wiki/File:Fishermans_Wharf_Sign,_SF,_CA,_jjron_25.03.2012.jpg",
+"wiki": "Fisherman's Wharf, San Francisco",
+"wp": "https://en.wikipedia.org/wiki/Fisherman%27s_Wharf,_San_Francisco"
+},
+"sanfrancisco-4": {
+"credit": "Pi.1415926535 · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-4.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Cable_car_19_on_Hyde_Street,_July_2023.JPG",
+"wiki": "San Francisco cable car system",
+"wp": "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system"
+},
+"sanfrancisco-5": {
+"credit": "Christopher Michel · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-5.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Lombard_Street_2020.jpg",
+"wiki": "Lombard Street (San Francisco)",
+"wp": "https://en.wikipedia.org/wiki/Lombard_Street_(San_Francisco)"
+},
+"sanfrancisco-6": {
+"credit": "Christian Mehlführer, User:Chmehl · CC BY 3.0",
+"f": "/images/intl/sanfrancisco-6.webp",
+"lat": 37.79417,
+"lng": -122.40694,
+"page": "https://commons.wikimedia.org/wiki/File:San_Francisco_China_Town_MC.jpg",
+"wiki": "Chinatown, San Francisco",
+"wp": "https://en.wikipedia.org/wiki/Chinatown,_San_Francisco"
+},
+"sanfrancisco-7": {
+"credit": "Daniel Lu (User:dllu) · CC BY-SA 4.0",
+"f": "/images/intl/sanfrancisco-7.webp",
+"lat": 37.7955,
+"lng": -122.3937,
+"page": "https://commons.wikimedia.org/wiki/File:Ferry_Building_San_Francisco_from_Hyatt_Regency_with_R-Evolution_and_Bay_Bridge_2026_dllu.jpg",
+"wiki": "San Francisco Ferry Building",
+"wp": "https://en.wikipedia.org/wiki/San_Francisco_Ferry_Building"
+},
+"sanfrancisco-8": {
+"credit": "Dennis G. Jarvis · CC BY-SA 2.0",
+"f": "/images/intl/sanfrancisco-8.webp",
+"lat": 37.76972,
+"lng": -122.47694,
+"page": "https://commons.wikimedia.org/wiki/File:California-06241_-_In_front_of_museum_(20449897948).jpg",
+"wiki": "Golden Gate Park",
+"wp": "https://en.wikipedia.org/wiki/Golden_Gate_Park"
+},
+"sanfrancisco-9": {
+"credit": "King of Hearts · CC BY-SA 3.0",
+"f": "/images/intl/sanfrancisco-9.webp",
+"lat": 37.77639,
+"lng": -122.43306,
+"page": "https://commons.wikimedia.org/wiki/File:Painted_Ladies_San_Francisco_January_2013_panorama_2.jpg",
+"wiki": "Painted ladies",
+"wp": "https://en.wikipedia.org/wiki/Painted_ladies"
 },
 "seoul-1": {
 "credit": "서울관광 아카이브 · KOGL Type 1",
@@ -2483,6 +4112,129 @@
 "wiki": "Singapore Zoo",
 "wp": "https://en.wikipedia.org/wiki/Singapore_Zoo"
 },
+"swiss-1": {
+"credit": "Simon Koopmann · CC BY-SA 2.5",
+"f": "/images/intl/swiss-1.webp",
+"lat": 47.05167,
+"lng": 8.3075,
+"page": "https://commons.wikimedia.org/wiki/File:Kapellbruecke.JPG",
+"wiki": "Chapel Bridge",
+"wp": "https://en.wikipedia.org/wiki/Kapellbr%C3%BCcke"
+},
+"swiss-10": {
+"credit": "Giles Laurent · CC BY-SA 4.0",
+"f": "/images/intl/swiss-10.webp",
+"lat": 46.7,
+"lng": 7.85,
+"page": "https://commons.wikimedia.org/wiki/File:14_Harder_Kulm_Lac_Thoune_Photo_by_Giles_Laurent.jpg",
+"wiki": "Harder Kulm",
+"wp": "https://en.wikipedia.org/wiki/Harderkulm"
+},
+"swiss-11": {
+"credit": "Carsten Steger · CC BY-SA 4.0",
+"f": "/images/intl/swiss-11.webp",
+"lat": 46.71667,
+"lng": 7.96667,
+"page": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Lake_Brienz_(view_from_the_southwest).jpg",
+"wiki": "Lake Brienz",
+"wp": "https://en.wikipedia.org/wiki/Lake_Brienz"
+},
+"swiss-12": {
+"credit": "Rectilinium · CC0",
+"f": "/images/intl/swiss-12.webp",
+"lat": 46.68333,
+"lng": 7.85,
+"page": "https://commons.wikimedia.org/wiki/File:Goldswil-Viadukt_Panorama_mit_Interlaken_im_Hintergrund_2.jpg",
+"wiki": "Interlaken",
+"wp": "https://en.wikipedia.org/wiki/Interlaken"
+},
+"swiss-14": {
+"credit": "Roland zh · CC BY-SA 3.0",
+"f": "/images/intl/swiss-14.webp",
+"lat": 47.2475,
+"lng": 8.6775,
+"page": "https://commons.wikimedia.org/wiki/File:Pfannenstiel_-_Z%C3%BCrichsee_-_Sihltal_-_Albis_Baldern_IMG_5316.jpg",
+"wiki": "Lake Zurich",
+"wp": "https://en.wikipedia.org/wiki/Lake_Zurich"
+},
+"swiss-15": {
+"credit": "KeanoManu · CC BY-SA 4.0",
+"f": "/images/intl/swiss-15.webp",
+"lat": 47.37139,
+"lng": 8.53865,
+"page": "https://commons.wikimedia.org/wiki/File:Bahnhofstrasse-2019.jpg",
+"wiki": "Bahnhofstrasse",
+"wp": "https://en.wikipedia.org/wiki/Bahnhofstrasse"
+},
+"swiss-16": {
+"credit": "Matt Joseph · CC BY-SA 4.0",
+"f": "/images/intl/swiss-16.webp",
+"lat": 47.37917,
+"lng": 8.53972,
+"page": "https://commons.wikimedia.org/wiki/File:2026-04-26_-_Landesmuseum_Z%C3%BCrich_Schweiz.jpg",
+"wiki": "Swiss National Museum",
+"wp": "https://en.wikipedia.org/wiki/Swiss_National_Museum"
+},
+"swiss-2": {
+"lat": null,
+"lng": null,
+"wiki": "Pilatus",
+"wp": "https://en.wikipedia.org/wiki/Pilatus"
+},
+"swiss-3": {
+"credit": "Roland Zumbühl · CC BY-SA 3.0",
+"f": "/images/intl/swiss-3.webp",
+"lat": 47.05667,
+"lng": 8.48556,
+"page": "https://commons.wikimedia.org/wiki/File:Lauerzersee.jpg",
+"wiki": "Rigi",
+"wp": "https://en.wikipedia.org/wiki/Rigi"
+},
+"swiss-4": {
+"credit": "Gürkan Sengün · Public domain",
+"f": "/images/intl/swiss-4.webp",
+"lat": 47.05833,
+"lng": 8.31056,
+"page": "https://commons.wikimedia.org/wiki/File:Lion_Monument.jpg",
+"wiki": "Lion Monument",
+"wp": "https://en.wikipedia.org/wiki/Lion_Monument"
+},
+"swiss-5": {
+"credit": "Ttrainer · CC BY-SA 3.0",
+"f": "/images/intl/swiss-5.webp",
+"lat": 47.0194,
+"lng": 8.4011,
+"page": "https://commons.wikimedia.org/wiki/File:Vierwaldstaettersee.jpg",
+"wiki": "Lake Lucerne",
+"wp": "https://en.wikipedia.org/wiki/Lake_Lucerne"
+},
+"swiss-7": {
+"credit": "Pmau · CC BY-SA 4.0",
+"f": "/images/intl/swiss-7.webp",
+"lat": 46.54722,
+"lng": 7.98056,
+"page": "https://commons.wikimedia.org/wiki/File:Sphinx_et_Jungfrau_-_img_06980.jpg",
+"wiki": "Jungfraujoch",
+"wp": "https://en.wikipedia.org/wiki/Jungfraujoch"
+},
+"swiss-8": {
+"credit": "Cristo Vlahos · CC BY-SA 3.0",
+"f": "/images/intl/swiss-8.webp",
+"lat": 46.61667,
+"lng": 8.03333,
+"page": "https://commons.wikimedia.org/wiki/File:Grindelwald_View_02.jpg",
+"wiki": "Grindelwald",
+"wp": "https://en.wikipedia.org/wiki/Grindelwald"
+},
+"swiss-9": {
+"credit": "Chensiyuan · CC BY-SA 4.0",
+"f": "/images/intl/swiss-9.webp",
+"lat": 46.595,
+"lng": 7.90745,
+"page": "https://commons.wikimedia.org/wiki/File:1_lauterbrunnen_valley_wengen_2022.jpg",
+"wiki": "Lauterbrunnen",
+"wp": "https://en.wikipedia.org/wiki/Lauterbrunnen"
+},
 "taichung-1": {
 "credit": "Original data: ESA Copernicus Sentinel-2 Processed · Attribution",
 "f": "/images/intl/taichung-1.webp",
@@ -2902,6 +4654,468 @@
 "page": "https://commons.wikimedia.org/wiki/File:Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
 "wiki": "Tokyo Disneyland",
 "wp": "https://en.wikipedia.org/wiki/Tokyo_Disneyland"
+},
+"toronto-1": {
+"credit": "Unknown authorUnknown author · Public domain",
+"f": "/images/intl/toronto-1.webp",
+"lat": 43.64256,
+"lng": -79.38708,
+"page": "https://commons.wikimedia.org/wiki/File:CN_Tower_logo.png",
+"wiki": "CN Tower",
+"wp": "https://en.wikipedia.org/wiki/CN_Tower"
+},
+"toronto-10": {
+"credit": "Saffron Blaze · CC BY-SA 3.0",
+"f": "/images/intl/toronto-10.webp",
+"lat": 43.0799,
+"lng": -79.0747,
+"page": "https://commons.wikimedia.org/wiki/File:3Falls_Niagara.jpg",
+"wiki": "Niagara Falls",
+"wp": "https://en.wikipedia.org/wiki/Niagara_Falls"
+},
+"toronto-2": {
+"credit": "Canmenwalker · CC BY 4.0",
+"f": "/images/intl/toronto-2.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:St_Lawerence_South_Market_Exterior_202112.jpg",
+"wiki": "St. Lawrence Market",
+"wp": "https://en.wikipedia.org/wiki/St._Lawrence_Market"
+},
+"toronto-3": {
+"credit": "EuroCarGT · CC BY-SA 4.0",
+"f": "/images/intl/toronto-3.webp",
+"lat": 43.64248,
+"lng": -79.38605,
+"page": "https://commons.wikimedia.org/wiki/File:Ripley%27s_Aquarium_of_Canada,_Toronto,_Ontario.jpg",
+"wiki": "Ripley's Aquarium of Canada",
+"wp": "https://en.wikipedia.org/wiki/Ripley%27s_Aquarium_of_Canada"
+},
+"toronto-4": {
+"credit": "Maksim Sokolov (Maxergon) · CC BY-SA 4.0",
+"f": "/images/intl/toronto-4.webp",
+"lat": 43.66768,
+"lng": -79.39481,
+"page": "https://commons.wikimedia.org/wiki/File:Royal_Ontario_Museum_in_Fall_2021.jpg",
+"wiki": "Royal Ontario Museum",
+"wp": "https://en.wikipedia.org/wiki/Royal_Ontario_Museum"
+},
+"toronto-5": {
+"credit": "Geo Swan stitched by Marku1988 This image was crea · CC BY-SA 3.0",
+"f": "/images/intl/toronto-5.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Gooderham.jpg",
+"wiki": "Distillery District",
+"wp": "https://en.wikipedia.org/wiki/Distillery_District"
+},
+"toronto-6": {
+"credit": "Arild Vågen · CC BY-SA 4.0",
+"f": "/images/intl/toronto-6.webp",
+"lat": 43.65477,
+"lng": -79.40068,
+"page": "https://commons.wikimedia.org/wiki/File:Kensington_Market_Toronto_August_2017_01.jpg",
+"wiki": "Kensington Market",
+"wp": "https://en.wikipedia.org/wiki/Kensington_Market"
+},
+"toronto-7": {
+"credit": "JK Liu · CC BY-SA 4.0",
+"f": "/images/intl/toronto-7.webp",
+"lat": 43.62083,
+"lng": -79.37861,
+"page": "https://commons.wikimedia.org/wiki/File:Toronto_Islands_2025-05-08.jpg",
+"wiki": "Toronto Islands",
+"wp": "https://en.wikipedia.org/wiki/Toronto_Islands"
+},
+"toronto-8": {
+"credit": "Priscilla Jordão from São Paulo, Brasil · CC BY-SA 2.0",
+"f": "/images/intl/toronto-8.webp",
+"lat": 43.6781,
+"lng": -79.4095,
+"page": "https://commons.wikimedia.org/wiki/File:Exterior_of_Casa_Loma,_June_2012.jpg",
+"wiki": "Casa Loma",
+"wp": "https://en.wikipedia.org/wiki/Casa_Loma"
+},
+"toronto-9": {
+"credit": "ぐら(Gura) · CC BY-SA 1.0",
+"f": "/images/intl/toronto-9.webp",
+"lat": 43.6529,
+"lng": -79.398,
+"page": "https://commons.wikimedia.org/wiki/File:Chinatown_Toronto.JPG",
+"wiki": "Chinatown, Toronto",
+"wp": "https://en.wikipedia.org/wiki/Chinatown,_Toronto"
+},
+"vancouver-1": {
+"credit": "The original uploader was Soggybread at English Wi · CC BY-SA 3.0",
+"f": "/images/intl/vancouver-1.webp",
+"lat": 49.3,
+"lng": -123.14,
+"page": "https://commons.wikimedia.org/wiki/File:Stanley_Park_Labeled_Aerial_Map.png",
+"wiki": "Stanley Park",
+"wp": "https://en.wikipedia.org/wiki/Stanley_Park"
+},
+"vancouver-10": {
+"credit": "Resort Municipality of Whistler · Public domain",
+"f": "/images/intl/vancouver-10.webp",
+"lat": 50.11667,
+"lng": -122.95417,
+"page": "https://commons.wikimedia.org/wiki/File:Flag_of_Whistler.svg",
+"wiki": "Whistler, British Columbia",
+"wp": "https://en.wikipedia.org/wiki/Whistler,_British_Columbia"
+},
+"vancouver-2": {
+"credit": "Joe Mabel · CC BY-SA 3.0",
+"f": "/images/intl/vancouver-2.webp",
+"lat": 49.27083,
+"lng": -123.13417,
+"page": "https://commons.wikimedia.org/wiki/File:Granville_Island_view_from_Granville_Bridge_in_2010.jpg",
+"wiki": "Granville Island",
+"wp": "https://en.wikipedia.org/wiki/Granville_Island"
+},
+"vancouver-3": {
+"credit": "Markus Säynevirta · CC BY-SA 4.0",
+"f": "/images/intl/vancouver-3.webp",
+"lat": 49.34287,
+"lng": -123.11513,
+"page": "https://commons.wikimedia.org/wiki/File:Capilano_Suspension_Bridge,_Vancouver,_Canada_(July_2016)_1.jpg",
+"wiki": "Capilano Suspension Bridge",
+"wp": "https://en.wikipedia.org/wiki/Capilano_Suspension_Bridge"
+},
+"vancouver-4": {
+"credit": "Lee Coursey from Decatur, GA · CC BY 2.0",
+"f": "/images/intl/vancouver-4.webp",
+"lat": 49.28469,
+"lng": -123.11095,
+"page": "https://commons.wikimedia.org/wiki/File:Vancouver_2018-20180422-2108_(42138196834).jpg",
+"wiki": "Gastown",
+"wp": "https://en.wikipedia.org/wiki/Gastown"
+},
+"vancouver-5": {
+"credit": "Pburka at English Wikipedia · Public domain",
+"f": "/images/intl/vancouver-5.webp",
+"lat": 49.37956,
+"lng": -123.0818,
+"page": "https://commons.wikimedia.org/wiki/File:Grouse_Mountain_Gondola.JPG",
+"wiki": "Grouse Mountain",
+"wp": "https://en.wikipedia.org/wiki/Grouse_Mountain"
+},
+"vancouver-6": {
+"credit": "Nicolas Untz · CC BY-SA 2.0",
+"f": "/images/intl/vancouver-6.webp",
+"lat": 49.28863,
+"lng": -123.11112,
+"page": "https://commons.wikimedia.org/wiki/File:Canada_Place_Landing.jpg",
+"wiki": "Canada Place",
+"wp": "https://en.wikipedia.org/wiki/Canada_Place"
+},
+"vancouver-7": {
+"credit": "Canmenwalker · CC BY 4.0",
+"f": "/images/intl/vancouver-7.webp",
+"lat": 49.28,
+"lng": -123.09944,
+"page": "https://commons.wikimedia.org/wiki/File:Vancouver_Chinatown_Millennium_Gate_2025.jpg",
+"wiki": "Chinatown, Vancouver",
+"wp": "https://en.wikipedia.org/wiki/Chinatown,_Vancouver"
+},
+"vancouver-8": {
+"lat": null,
+"lng": null,
+"wiki": "English Bay",
+"wp": "https://en.wikipedia.org/wiki/English_Bay"
+},
+"vancouver-9": {
+"credit": "GoToVan from Vancouver, Canada · CC BY 2.0",
+"f": "/images/intl/vancouver-9.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Richmond_Night_Market_2019_(33946171228).jpg",
+"wiki": "Richmond Night Market",
+"wp": "https://en.wikipedia.org/wiki/Richmond_Night_Market"
+},
+"venice-1": {
+"lat": null,
+"lng": null,
+"wiki": "St Mark's Square",
+"wp": "https://en.wikipedia.org/wiki/St._Mark%27s_Square"
+},
+"venice-10": {
+"credit": "Didier Descouens · CC BY-SA 4.0",
+"f": "/images/intl/venice-10.webp",
+"lat": 45.446,
+"lng": 12.327,
+"page": "https://commons.wikimedia.org/wiki/File:Canale_di_Cannaregio_-_Viewed_from_Grand_Canal.jpg",
+"wiki": "Cannaregio",
+"wp": "https://en.wikipedia.org/wiki/Cannaregio"
+},
+"venice-11": {
+"credit": "This Photo was taken by Wolfgang Moroder. Feel fre · CC BY-SA 3.0",
+"f": "/images/intl/venice-11.webp",
+"lat": 45.43083,
+"lng": 12.33444,
+"page": "https://commons.wikimedia.org/wiki/File:Santa_Maria_della_Salute_from_Hotel_Monaco.jpg",
+"wiki": "Santa Maria della Salute",
+"wp": "https://en.wikipedia.org/wiki/Santa_Maria_della_Salute"
+},
+"venice-2": {
+"credit": "Zairon · Public domain",
+"f": "/images/intl/venice-2.webp",
+"lat": 45.43444,
+"lng": 12.33972,
+"page": "https://commons.wikimedia.org/wiki/File:Venezia_Basilica_di_San_Marco_Fassade_2.jpg",
+"wiki": "St Mark's Basilica",
+"wp": "https://en.wikipedia.org/wiki/St_Mark%27s_Basilica"
+},
+"venice-3": {
+"credit": "Didier Descouens · CC BY-SA 4.0",
+"f": "/images/intl/venice-3.webp",
+"lat": 45.4337,
+"lng": 12.3405,
+"page": "https://commons.wikimedia.org/wiki/File:(Venice)_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+"wiki": "Doge's Palace",
+"wp": "https://en.wikipedia.org/wiki/Doge%27s_Palace"
+},
+"venice-4": {
+"credit": "kallerna · CC BY-SA 4.0",
+"f": "/images/intl/venice-4.webp",
+"lat": 45.438,
+"lng": 12.336,
+"page": "https://commons.wikimedia.org/wiki/File:Rialto_2025_4.jpg",
+"wiki": "Rialto Bridge",
+"wp": "https://en.wikipedia.org/wiki/Rialto_Bridge"
+},
+"venice-5": {
+"credit": "Njsmith3 · CC BY-SA 4.0",
+"f": "/images/intl/venice-5.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Gondola_Ride.jpg",
+"wiki": "Gondola",
+"wp": "https://en.wikipedia.org/wiki/Gondola"
+},
+"venice-6": {
+"credit": "Didier Descouens · CC BY-SA 4.0",
+"f": "/images/intl/venice-6.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:View_of_the_Grand_Canal_from_Rialto_to_Ca%27Foscari.jpg",
+"wiki": "Grand Canal (Venice)",
+"wp": "https://en.wikipedia.org/wiki/Grand_Canal_(Venice)"
+},
+"venice-7": {
+"credit": "kallerna · CC BY-SA 4.0",
+"f": "/images/intl/venice-7.webp",
+"lat": 45.486,
+"lng": 12.417,
+"page": "https://commons.wikimedia.org/wiki/File:Burano_Venice_17.jpg",
+"wiki": "Burano",
+"wp": "https://en.wikipedia.org/wiki/Burano"
+},
+"venice-8": {
+"credit": "Wittylama · CC BY-SA 4.0",
+"f": "/images/intl/venice-8.webp",
+"lat": 45.4575,
+"lng": 12.35361,
+"page": "https://commons.wikimedia.org/wiki/File:Murano_sunset.JPG",
+"wiki": "Murano",
+"wp": "https://en.wikipedia.org/wiki/Murano"
+},
+"vienna-1": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-1.webp",
+"lat": 48.18452,
+"lng": 16.31187,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_-_Schloss_Sch%C3%B6nbrunn.JPG",
+"wiki": "Schönbrunn Palace",
+"wp": "https://en.wikipedia.org/wiki/Sch%C3%B6nbrunn_Palace"
+},
+"vienna-10": {
+"credit": "Kasa Fue · CC BY-SA 4.0",
+"f": "/images/intl/vienna-10.webp",
+"lat": 48.20333,
+"lng": 16.35889,
+"page": "https://commons.wikimedia.org/wiki/File:MuseumsQuartier_Wien_Sept_2020_1.jpg",
+"wiki": "MuseumsQuartier",
+"wp": "https://en.wikipedia.org/wiki/MuseumsQuartier"
+},
+"vienna-11": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-11.webp",
+"lat": 48.36444,
+"lng": 15.43417,
+"page": "https://commons.wikimedia.org/wiki/File:Wachau_(2).JPG",
+"wiki": "Wachau Valley",
+"wp": "https://en.wikipedia.org/wiki/Wachau"
+},
+"vienna-12": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-12.webp",
+"lat": 47.562,
+"lng": 13.649,
+"page": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_Zentrum_.JPG",
+"wiki": "Hallstatt",
+"wp": "https://en.wikipedia.org/wiki/Hallstatt"
+},
+"vienna-2": {
+"credit": "C.Stadler/Bwag · CC BY-SA 3.0 at",
+"f": "/images/intl/vienna-2.webp",
+"lat": 48.20639,
+"lng": 16.36528,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_-_Neue_Hofburg.JPG",
+"wiki": "Hofburg",
+"wp": "https://en.wikipedia.org/wiki/Hofburg"
+},
+"vienna-3": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-3.webp",
+"lat": 48.2085,
+"lng": 16.373,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_-_Stephansdom_(1).JPG",
+"wiki": "St. Stephen's Cathedral, Vienna",
+"wp": "https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Vienna"
+},
+"vienna-4": {
+"credit": "Wiener Staatsoper GmbH · CC BY-SA 4.0",
+"f": "/images/intl/vienna-4.webp",
+"lat": null,
+"lng": null,
+"page": "https://commons.wikimedia.org/wiki/File:Wiener_Staatsoper_Front.jpg",
+"wiki": "Vienna State Opera",
+"wp": "https://en.wikipedia.org/wiki/Vienna_State_Opera"
+},
+"vienna-5": {
+"credit": "Diego Delso · CC BY-SA 4.0",
+"f": "/images/intl/vienna-5.webp",
+"lat": 48.19417,
+"lng": 16.38028,
+"page": "https://commons.wikimedia.org/wiki/File:Palacio_Belvedere,_Viena,_Austria,_2020-02-01,_DD_93-95_HDR.jpg",
+"wiki": "Belvedere, Vienna",
+"wp": "https://en.wikipedia.org/wiki/Belvedere,_Vienna"
+},
+"vienna-6": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-6.webp",
+"lat": 48.19889,
+"lng": 16.36361,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_-_Naschmarkt.JPG",
+"wiki": "Naschmarkt",
+"wp": "https://en.wikipedia.org/wiki/Naschmarkt"
+},
+"vienna-7": {
+"credit": "User:Florian Prischl · Public domain",
+"f": "/images/intl/vienna-7.webp",
+"lat": 48.21028,
+"lng": 16.36528,
+"page": "https://commons.wikimedia.org/wiki/File:Palais_Ferstel.jpg",
+"wiki": "Café Central",
+"wp": "https://en.wikipedia.org/wiki/Caf%C3%A9_Central"
+},
+"vienna-8": {
+"credit": "Thomas Ledl · CC BY-SA 4.0",
+"f": "/images/intl/vienna-8.webp",
+"lat": 48.21665,
+"lng": 16.39595,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_Riesenrad.jpg",
+"wiki": "Wiener Riesenrad",
+"wp": "https://en.wikipedia.org/wiki/Wiener_Riesenrad"
+},
+"vienna-9": {
+"credit": "C.Stadler/Bwag · CC BY-SA 4.0",
+"f": "/images/intl/vienna-9.webp",
+"lat": 48.20722,
+"lng": 16.39417,
+"page": "https://commons.wikimedia.org/wiki/File:Wien_-_Hundertwasserhaus_(03).JPG",
+"wiki": "Hundertwasserhaus",
+"wp": "https://en.wikipedia.org/wiki/Hundertwasserhaus"
+},
+"washington-1": {
+"credit": "(top)Cezary p(bottom)MattWade · CC BY-SA 4.0",
+"f": "/images/intl/washington-1.webp",
+"lat": 38.89778,
+"lng": -77.03639,
+"page": "https://commons.wikimedia.org/wiki/File:White_House_north_and_south_sides.jpg",
+"wiki": "White House",
+"wp": "https://en.wikipedia.org/wiki/White_House"
+},
+"washington-11": {
+"credit": "AgnosticPreachersKid · CC BY-SA 3.0",
+"f": "/images/intl/washington-11.webp",
+"lat": 38.88639,
+"lng": -76.99667,
+"page": "https://commons.wikimedia.org/wiki/File:Eastern_Market_-_facade.JPG",
+"wiki": "Eastern Market (Washington, D.C.)",
+"wp": "https://en.wikipedia.org/wiki/Eastern_Market,_Washington,_D.C."
+},
+"washington-2": {
+"credit": "Martin Falbisoner · CC BY-SA 3.0",
+"f": "/images/intl/washington-2.webp",
+"lat": 38.88972,
+"lng": -77.00889,
+"page": "https://commons.wikimedia.org/wiki/File:US_Capitol_east_side.JPG",
+"wiki": "United States Capitol",
+"wp": "https://en.wikipedia.org/wiki/United_States_Capitol"
+},
+"washington-3": {
+"credit": "Martin Falbisoner · CC BY-SA 3.0",
+"f": "/images/intl/washington-3.webp",
+"lat": 38.88928,
+"lng": -77.05014,
+"page": "https://commons.wikimedia.org/wiki/File:Lincoln_Memorial_east_side.JPG",
+"wiki": "Lincoln Memorial",
+"wp": "https://en.wikipedia.org/wiki/Lincoln_Memorial"
+},
+"washington-4": {
+"credit": "Greyfiveys · CC BY-SA 4.0",
+"f": "/images/intl/washington-4.webp",
+"lat": 38.88944,
+"lng": -77.03528,
+"page": "https://commons.wikimedia.org/wiki/File:Washington_Monument_2022.jpg",
+"wiki": "Washington Monument",
+"wp": "https://en.wikipedia.org/wiki/Washington_Monument"
+},
+"washington-5": {
+"credit": "ajay_suresh · CC BY 4.0",
+"f": "/images/intl/washington-5.webp",
+"lat": 38.88833,
+"lng": -77.02,
+"page": "https://commons.wikimedia.org/wiki/File:National_Air_and_Space_Museum_(55256212753).jpg",
+"wiki": "National Air and Space Museum",
+"wp": "https://en.wikipedia.org/wiki/National_Air_and_Space_Museum"
+},
+"washington-6": {
+"credit": "ajay_suresh · CC BY 4.0",
+"f": "/images/intl/washington-6.webp",
+"lat": 38.8913,
+"lng": -77.0259,
+"page": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Natural_History_-_2026_(55255088887).jpg",
+"wiki": "National Museum of Natural History",
+"wp": "https://en.wikipedia.org/wiki/National_Museum_of_Natural_History"
+},
+"washington-7": {
+"credit": "Matti Blume · CC BY-SA 4.0",
+"f": "/images/intl/washington-7.webp",
+"lat": 38.89,
+"lng": -77.02361,
+"page": "https://commons.wikimedia.org/wiki/File:National_Mall,_Washington,_D.C._(20100325-DSC01310).jpg",
+"wiki": "National Mall",
+"wp": "https://en.wikipedia.org/wiki/National_Mall"
+},
+"washington-8": {
+"credit": "Carol M. Highsmith · Public domain",
+"f": "/images/intl/washington-8.webp",
+"lat": 38.88861,
+"lng": -77.00472,
+"page": "https://commons.wikimedia.org/wiki/File:LOC_Main_Reading_Room_Highsmith.jpg",
+"wiki": "Library of Congress",
+"wp": "https://en.wikipedia.org/wiki/Library_of_Congress"
+},
+"washington-9": {
+"credit": "Ben Schumin · CC BY-SA 2.5",
+"f": "/images/intl/washington-9.webp",
+"lat": 38.90944,
+"lng": -77.065,
+"page": "https://commons.wikimedia.org/wiki/File:Riggs_Bank,_Georgetown.jpg",
+"wiki": "Georgetown (Washington, D.C.)",
+"wp": "https://en.wikipedia.org/wiki/Georgetown_(Washington,_D.C.)"
 },
 "yunnan-1": {
 "credit": "Pavel Špindler · CC BY 3.0",
