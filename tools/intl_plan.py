@@ -535,3 +535,9 @@ def extend(cities):
         c['places'] = out
         c['_ext'] = base
     return cities
+
+
+# Châu Âu, châu Mỹ
+from intl_west import CITY_W, LOCAL_W  # noqa: E402
+CITY.update(CITY_W)
+LOCAL.update(LOCAL_W)

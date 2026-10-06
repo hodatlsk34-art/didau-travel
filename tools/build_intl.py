@@ -40,7 +40,7 @@ def plan_fields(cat, extra, country, multi):
     if 'v' in extra:
         cost = int(extra['v']) * 1000
     else:
-        cost = MEAL[country] * 1000 if cat == 'food' else 0
+        cost = (MEAL.get(country) or (LOCAL.get(country) or {}).get('meal', 400)) * 1000 if cat == 'food' else 0
     if 'd' in extra:
         dur = int(extra['d'])
     elif extra.get('trip'):

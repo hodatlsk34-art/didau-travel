@@ -335,6 +335,13 @@ CITIES = [
      ]},
 ]
 
+# Châu Âu, châu Mỹ (tools/intl_west.py)
+from intl_west import COUNTRIES_W, CITIES_W  # noqa: E402
+for _k in COUNTRIES:
+    _k.setdefault('region', 'asia')
+COUNTRIES += COUNTRIES_W
+CITIES += CITIES_W
+
 # Bổ sung địa điểm và thông tin lập lịch trình (tools/intl_plan.py)
 from intl_plan import extend as _extend  # noqa: E402
 _extend(CITIES)
