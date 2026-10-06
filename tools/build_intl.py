@@ -91,8 +91,8 @@ for c in CITIES:
     clat = g.get('lat') if g.get('lat') is not None else (sum(p['lat'] for p in pts) / len(pts) if pts else None)
     clng = g.get('lng') if g.get('lng') is not None else (sum(p['lng'] for p in pts) / len(pts) if pts else None)
     bad = lambda x: not x or re.search(r'Flag_of|_map|marker|Locator|\.svg', x.get('page') or '', re.I)   # cờ, bản đồ: không dùng làm ảnh bìa
-    cover = {'singapore': 'singapore-2', 'bali': 'bali-1', 'penang': 'penang-1'}.get(c['id'])
-    cimg = img(g) if not bad(img(g)) else None
+    cover = {'singapore': 'singapore-2', 'bali': 'bali-1', 'penang': 'penang-1', 'swiss': 'swiss-9', 'vienna': 'vienna-1'}.get(c['id'])
+    cimg = img(g) if not bad(img(g)) and c['id'] not in ('swiss', 'vienna') else None
     cimg = cimg or next((p['img'] for p in places if p['id'] == cover and p['img']), None) or next((p['img'] for p in places if p['img'] and not bad(p['img'])), None)
     cities.append({'id': c['id'], 'country': c['country'], 'name': c['name'], 'local': c.get('local', ''), 'intro': c['intro'],
                    'best': c['best'], 'days': c['days'], 'lat': clat, 'lng': clng, 'img': cimg, 'places': places,

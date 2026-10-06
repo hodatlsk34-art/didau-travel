@@ -1651,6 +1651,11 @@ body::before,body.has-bgimg::before{position:fixed!important;inset:0!important;h
 .ifeat-t small{font-size:12.5px;opacity:.95}
 .ifeat-go{position:absolute;right:10px;bottom:10px;z-index:1;width:28px;height:28px;border-radius:50%;background:#fff;color:#14233a;display:grid;place-items:center;font-size:20px;font-weight:700;line-height:1}
 .iplanq .chip small{color:var(--muted);font-weight:400}
+.iplanq-h{margin:6px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+.iregs{display:flex;gap:6px;flex-wrap:wrap}
+.ireg{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font:600 14px var(--font-body);color:var(--ink);cursor:pointer}
+.ireg small{color:var(--muted);font-weight:500}
+.ireg[aria-pressed="true"]{background:#1F64D6;border-color:#1F64D6;color:#fff}.ireg[aria-pressed="true"] small{color:#dbe7ff}
 @media (max-width:899px){
   .ihx{min-height:260px;border-radius:18px}
   .ihx-in{padding:18px 14px 14px}
@@ -2406,8 +2411,8 @@ function legInfo(a,b,P,LT){
     if(km<1.2){mode='walk';min=Math.max(3,km/4.5*60);cost=0;}
     else if(LT.metro&&LT.tr==='metro'&&km<40){mode='metro';min=km/24*60+12;cost=P*(LT.metro[0]+LT.metro[1]*km)*1000;}
     else if(km<40){mode='taxi';min=km/24*60+6;cost=Math.ceil(P/4)*(LT.car[0]+LT.car[1]*km)*1000;}
-    else if(LT.far[0]==='train'){mode='train';min=km/(km>100?70:50)*60+20;cost=P*(LT.far[1]+LT.far[2]*km)*1000;}
-    else {mode='hire';min=km/(km>100?65:45)*60+10;cost=Math.ceil(P/6)*(LT.far[1]+LT.far[2]*km)*1000;}
+    else if(LT.far[0]==='train'){mode='train';min=km/(km>250?95:km>100?70:50)*60+20;cost=P*(LT.far[1]+LT.far[2]*km)*1000;}
+    else {mode='hire';min=km/(km>250?85:km>100?65:45)*60+10;cost=Math.ceil(P/6)*(LT.far[1]+LT.far[2]*km)*1000;}
     return {km,min:Math.round(min),cost:Math.round(cost/1000)*1000,mode};
   }
   if(km<1.2){mode='walk';min=Math.max(3,km/4.5*60);cost=0;}
@@ -2827,7 +2832,7 @@ document.addEventListener('keydown',e=>{ const lb=document.getElementById('light
 document.addEventListener('click',e=>{ const b=e.target.closest&&e.target.closest('[data-galopen]'); if(!b) return; e.preventDefault(); e.stopPropagation(); openLightbox(b.dataset.galopen,Number(b.dataset.gali)); track('gallery_open',{place:b.dataset.galopen}); },true);
 /* ---------- Quốc tế: 8 nước, 21 thành phố (dữ liệu /data/intl.json, tọa độ + ảnh lấy từ Wikipedia) ---------- */
 let INTL=null, INTL_LOADING=false, imap=null;
-state.intl={country:'all',city:null,filter:'all',sel:null,big:false,q:''};
+state.intl={country:'all',region:'all',city:null,filter:'all',sel:null,big:false,q:''};
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&state.intl.big){ state.intl.big=false; document.body.classList.remove('imap-open'); render(); } });
 const MONTHS_VN=m=>m.length?'Tháng '+m.join(', '):'';
 let INTL_P=null;
@@ -2867,9 +2872,9 @@ function registerIntl(j){
         n:ps.length,v:'',h:P.hotel,months:C.best,kid:2,old:2,ferry:0,intro:C.intro,r:'i:'+C.id,intl:C.id,fly:P.fly,air:P.air,extra:P.extra};
       DESTMAP[D.key]=D; if(a!=='Nội thành') INTL_Q[a]=a+', '+P.en+', '+(K.name||'');
       /* Bữa sáng: khách sạn hoặc quán quanh nơi ở (dùng khi gần đó không có quán ăn sáng trong dữ liệu) */
-      const bf={id:'i:'+C.id+'-bf'+ai,cat:'food',name:'Ăn sáng gần nơi ở',why:'Bữa sáng ở khách sạn hoặc quán quanh nơi ở',kinds:['sang'],tags:[],cost:(INTL_BF[C.country]||80)*1000,dur:40,io:'in',
+      const bf={id:'i:'+C.id+'-bf'+ai,cat:'food',name:'Ăn sáng gần nơi ở',why:'Bữa sáng ở khách sạn hoặc quán quanh nơi ở',kinds:['sang'],tags:[],cost:((K.local&&K.local.bf)||INTL_BF[C.country]||80)*1000,dur:40,io:'in',
         fit:{kid:true,old:true},lat:hs.reduce((s,p)=>s+p.lat,0)/hs.length,lng:hs.reduce((s,p)=>s+p.lng,0)/hs.length,prov:pv,area:a,intl:C.id,synthetic:true,
-        addr:'Quanh nơi ở gợi ý, '+(a==='Nội thành'?pv:a),hours:'Sáng',price:'~'+fmtVnd((INTL_BF[C.country]||80)*1000)+'/người (ước tính)',best:'Buổi sáng',must:'Món địa phương hoặc buffet sáng của khách sạn',
+        addr:'Quanh nơi ở gợi ý, '+(a==='Nội thành'?pv:a),hours:'Sáng',price:'~'+fmtVnd(((K.local&&K.local.bf)||INTL_BF[C.country]||80)*1000)+'/người (ước tính)',best:'Buổi sáng',must:'Món địa phương hoặc buffet sáng của khách sạn',
         tip:'Nhiều khách sạn đã gồm bữa sáng: kiểm tra khi đặt phòng để bớt chi phí.',src:'Đi Đâu? ước tính',ver:null,img:null};
       places.push(bf);
     });
@@ -2887,7 +2892,7 @@ const INTL_MEAL={th:150,cn:150,kr:250,jp:300,sg:200,my:120,tw:150,id:150};
 function nearMeal(p,pv){
   if(!p||!p.lat||p.near) return p&&p.near?p:null; const X=INTL_PROV[pv]; if(!X) return null;
   const id='i:near:'+(p.id||(p.lat.toFixed(3)+','+p.lng.toFixed(3))); if(BYID[id]) return BYID[id];
-  const short=String(p.label||p.name||'').replace(/^nơi ở gợi ý – /,'').split(/\s[–(]/)[0], cost=(INTL_MEAL[X.C.country]||150)*1000;
+  const short=String(p.label||p.name||'').replace(/^nơi ở gợi ý – /,'').split(/\s[–(]/)[0], cost=((X.K.local&&X.K.local.meal)||INTL_MEAL[X.C.country]||150)*1000;
   return BYID[id]={id,cat:'food',name:'Ăn quanh '+short,why:'Chọn quán gần '+short+' (chưa có quán cụ thể trong dữ liệu)',kinds:['trua','toi','vat'],tags:['street'],cost,dur:60,io:'in',
     fit:{kid:true,old:true},lat:p.lat,lng:p.lng,prov:pv,area:p.area||DATA[pv].areas[0],intl:X.C.id,synthetic:true,near:true,addr:'Quanh '+short,hours:'Tùy quán',
     price:'~'+fmtVnd(cost)+'/người (ước tính)',best:'Bữa trưa, tối',must:'Món địa phương ở quán đông khách gần đó',tip:'Mở Google Maps tìm "restaurant" quanh đây, chọn quán có nhiều đánh giá gần nhất.',
@@ -2922,6 +2927,18 @@ const INTL_IDX=[
  ['c','kualalumpur','Kuala Lumpur','🇲🇾','kuala lumpur|kl|genting'],['c','penang','Penang','🇲🇾','penang|george town|pinang'],
  ['c','taipei','Đài Bắc','🇹🇼','dai bac|taipei|cuu phan|da lieu'],['c','taichung','Đài Trung – Nhật Nguyệt Đàm','🇹🇼','dai trung|taichung|nhat nguyet dam|a ly son|alishan'],
  ['c','bali','Bali','🇮🇩','bali|ubud|indonesia|indo|nusa penida'],
+ ['c','paris','Paris','🇫🇷','paris|pa ri|eiffel|thap eiffel|versailles'],['c','rome','Rome','🇮🇹','rome|roma|vatican|colosseum'],['c','venice','Venice','🇮🇹','venice|venezia|vo ni'],
+ ['c','florence','Florence','🇮🇹','florence|firenze|pisa|thap nghieng pisa|tuscany'],['c','swiss','Thụy Sĩ','🇨🇭','thuy si|switzerland|swiss|lucerne|luzern|interlaken|zurich|jungfrau|alps'],
+ ['c','london','London','🇬🇧','london|luan don|big ben'],['c','munich','Munich','🇩🇪','munich|munchen|neuschwanstein|bavaria'],['c','amsterdam','Amsterdam','🇳🇱','amsterdam|keukenhof|tulip'],
+ ['c','barcelona','Barcelona','🇪🇸','barcelona|sagrada|gaudi'],['c','prague','Praha','🇨🇿','praha|prague|cau charles'],['c','vienna','Vienna','🇦🇹','vienna|wien|vien na|hallstatt'],
+ ['c','istanbul','Istanbul','🇹🇷','istanbul|hagia sophia'],['c','cappadocia','Cappadocia','🇹🇷','cappadocia|khinh khi cau|goreme'],
+ ['c','newyork','New York','🇺🇸','new york|nyc|nu uoc|manhattan|tuong nu than tu do'],['c','washington','Washington D.C.','🇺🇸','washington|white house|nha trang my'],
+ ['c','losangeles','Los Angeles','🇺🇸','los angeles|hollywood|disneyland|little saigon'],['c','sanfrancisco','San Francisco','🇺🇸','san francisco|sf|cau cong vang|golden gate'],
+ ['c','lasvegas','Las Vegas – Grand Canyon','🇺🇸','las vegas|vegas|grand canyon'],['c','toronto','Toronto – Niagara','🇨🇦','toronto|niagara|thac niagara'],['c','vancouver','Vancouver','🇨🇦','vancouver|whistler'],
+ ['k','fr','Pháp','🇫🇷','nuoc phap|france|du lich phap|sang phap|di phap'],['k','it','Ý','🇮🇹','nuoc y|italia|italy|du lich y|sang y|di y'],['k','gb','Anh','🇬🇧','nuoc anh|england|vuong quoc anh|du lich anh|sang anh'],['k','de','Đức','🇩🇪','nuoc duc|germany|du lich duc|sang duc'],
+ ['k','nl','Hà Lan','🇳🇱','ha lan|netherlands|holland'],['k','es','Tây Ban Nha','🇪🇸','tay ban nha|spain'],['k','cz','Séc','🇨🇿','czech|cong hoa sec|nuoc sec|du lich sec'],['k','at','Áo','🇦🇹','nuoc ao|austria|du lich ao|di ao'],
+ ['k','tr','Thổ Nhĩ Kỳ','🇹🇷','tho nhi ky|turkey|turkiye'],['k','us','Mỹ','🇺🇸','hoa ky|usa|america|nuoc my|du lich my|sang my|di my'],['k','ca','Canada','🇨🇦','canada|ca na da'],
+ ['k','eu','châu Âu','🇪🇺','chau au|europe|schengen|tay au|dong au'],['k','am','châu Mỹ','🌎','chau my|bac my'],
  ['k','th','Thái Lan','🇹🇭','thai lan|thailand|xu chua vang'],['k','cn','Trung Quốc','🇨🇳','trung quoc|china'],['k','kr','Hàn Quốc','🇰🇷','han quoc|korea|xu han|xu kim chi'],
  ['k','jp','Nhật Bản','🇯🇵','nhat ban|japan|xu phu tang'],['k','my','Malaysia','🇲🇾','malaysia|ma lai|malai|ma lai xi a'],['k','tw','Đài Loan','🇹🇼','dai loan|taiwan'],
  ['k','_','nước ngoài','🌏','nuoc ngoai|quoc te|xuat ngoai|outbound']
@@ -2955,7 +2972,7 @@ function intlHTML(){
   const S=state.intl, C=S.city&&INTL.cities.find(c=>c.id===S.city);
   return C?intlCityHTML(C):intlListHTML();
 }
-const INTL_FEAT=['tokyo','bangkok','singapore','seoul','osaka','beijing'];
+const INTL_FEAT=['tokyo','bangkok','singapore','seoul','paris','beijing','london','newyork','istanbul'];
 const IQ_IC={globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',
   city:'<path d="M4 21V9l5-3v15M9 21V4l7 3v14M16 21v-9l4 2v7M3 21h18"/><path d="M12 9h1M12 12h1M12 15h1M6 12h1M6 15h1"/>',
   plane:'<path d="M2.5 14.5 21 7l-2 4.5-7.5 2.2-2.8 5.3-1.6-.6.9-4-4.4 1.3z"/>',
@@ -2967,10 +2984,10 @@ function intlSuggest(q){
   const sc=x=>{ const n=norm(x.name); return n.startsWith(t)?4:x.al.some(a=>a===t)?3:x.al.some(a=>a.startsWith(t))?2:(n.includes(t)||x.al.some(a=>a.includes(' '+t)||t.includes(a)))?1:0; };
   return INTL_IDX.filter(x=>x.id!=='_').map(x=>[x,sc(x)]).filter(z=>z[1]).sort((a,b)=>b[1]-a[1]).map(z=>z[0]).slice(0,6);
 }
-function intlSuggestHTML(q){ const l=intlSuggest(q); if(!l.length) return q&&q.trim().length>=2?`<p class="isq-none">Chưa có "${esc(q.trim())}" trong mục Quốc tế. Hiện có 21 thành phố ở Thái Lan, Trung Quốc, Hàn Quốc, Nhật Bản, Singapore, Malaysia, Đài Loan, Bali.</p>`:'';
-  return l.map(x=>`<button type="button" class="isq-it" ${x.t==='c'?`data-icity="${x.id}"`:`data-icountry="${x.id}" data-iscroll="iall"`}>${x.flag} <b>${esc(x.name)}</b><small>${x.t==='c'?'Thành phố':'Quốc gia'}</small></button>`).join(''); }
+function intlSuggestHTML(q){ const l=intlSuggest(q); if(!l.length) return q&&q.trim().length>=2?`<p class="isq-none">Chưa có "${esc(q.trim())}" trong mục Quốc tế. Hiện có ${INTL.cities.length} thành phố ở ${INTL.countries.length} nước châu Á, châu Âu, châu Mỹ.</p>`:'';
+  return l.map(x=>`<button type="button" class="isq-it" ${x.t==='c'?`data-icity="${x.id}"`:x.id==='eu'||x.id==='am'?`data-iregion="${x.id==='eu'?'europe':'america'}" data-iscroll="iall"`:`data-icountry="${x.id}" data-iscroll="iall"`}>${x.flag} <b>${esc(x.name)}</b><small>${x.t==='c'?'Thành phố':'Quốc gia'}</small></button>`).join(''); }
 function intlHeroHTML(){
-  const pics=['tokyo','singapore','bangkok'].map(id=>INTL.cities.find(c=>c.id===id)).filter(c=>c&&c.img&&c.img.f);
+  const pics=['paris','tokyo','newyork'].map(id=>INTL.cities.find(c=>c.id===id)).filter(c=>c&&c.img&&c.img.f);
   affTag='quoc-te'; const tv=p=>affWrap('traveloka','https://www.traveloka.com/vi-vn/'+p);
   const feat=INTL_FEAT.map(id=>INTL.cities.find(c=>c.id===id)).filter(Boolean);
   const fcard=c=>{ const K=intlCountry(c.country)||{}; return `<a class="ifeat" href="#quoc-te/${c.id}" data-icity="${c.id}">${intlImg(c.img)}<span class="ifeat-t"><b>${esc(c.name.split(' – ')[0])}</b><small>${K.flag||''} ${esc(K.name||'')}</small></span><span class="ifeat-go" aria-hidden="true">›</span></a>`; };
@@ -2992,12 +3009,15 @@ function intlHeroHTML(){
       <div class="ifeats">${feat.map(fcard).join('')}</div></section>
     <section id="iplanq" class="isec"><div class="isec-h"><h2>✨ Gợi ý lịch trình</h2></div>
       <p class="hint">Chọn điểm đến, Đi Đâu? xếp lịch theo giờ, vẽ tuyến trên bản đồ và ước tính vé máy bay, khách sạn, ăn uống.</p>
-      <div class="chips iplanq">${INTL.cities.map(c=>{ const K=intlCountry(c.country)||{}; return `<button type="button" class="chip" data-iplan="${c.id}">${K.flag||''} ${esc(c.name.split(' (')[0])} <small>${esc(c.days)}</small></button>`; }).join('')}</div></section>`;
+      ${[['asia','Châu Á'],['europe','Châu Âu'],['america','Châu Mỹ']].map(([r,l])=>{ const cs=INTL.cities.filter(c=>((intlCountry(c.country)||{}).region||'asia')===r); return cs.length?`<h3 class="iplanq-h">${l}</h3><div class="chips iplanq">${cs.map(c=>{ const K=intlCountry(c.country)||{}; return `<button type="button" class="chip" data-iplan="${c.id}">${K.flag||''} ${esc(c.name.split(' (')[0])} <small>${esc(c.days)}</small></button>`; }).join('')}</div>`:''; }).join('')}</section>`;
 }
 function intlListHTML(){
   const S=state.intl, cs=INTL.countries;
-  const chips=`<div class="chips scroll ichips" role="group" aria-label="Chọn nước"><button class="chip" data-icountry="all" aria-pressed="${S.country==='all'}">Tất cả</button>${cs.map(c=>`<button class="chip" data-icountry="${c.id}" aria-pressed="${S.country===c.id}">${c.flag} ${esc(c.name)}</button>`).join('')}</div>`;
-  const list=INTL.cities.filter(c=>S.country==='all'||c.country===S.country);
+  const REG=[['all','🌏 Tất cả'],['asia','Châu Á'],['europe','Châu Âu'],['america','Châu Mỹ']], rg=S.region||'all', inR=c=>rg==='all'||(c.region||'asia')===rg;
+  const nC=r=>INTL.cities.filter(c=>r==='all'||((intlCountry(c.country)||{}).region||'asia')===r).length;
+  const chips=`<div class="iregs" role="group" aria-label="Chọn châu lục">${REG.map(([k,l])=>`<button class="ireg" data-iregion="${k}" aria-pressed="${rg===k}">${l} <small>${nC(k)}</small></button>`).join('')}</div>
+    <div class="chips scroll ichips" role="group" aria-label="Chọn nước"><button class="chip" data-icountry="all" aria-pressed="${S.country==='all'}">Tất cả nước</button>${cs.filter(inR).map(c=>`<button class="chip" data-icountry="${c.id}" aria-pressed="${S.country===c.id}">${c.flag} ${esc(c.name)}</button>`).join('')}</div>`;
+  const list=INTL.cities.filter(c=>(S.country==='all'?inR(intlCountry(c.country)||{}):c.country===S.country));
   const now=new Date().getMonth()+1;
   const card=c=>{ const K=intlCountry(c.country), good=c.best.includes(now);
     return `<a class="icard" href="#quoc-te/${c.id}" data-icity="${c.id}"><div class="icover">${intlImg(c.img)}<span class="iflag">${K?K.flag:''}</span>${K&&K.visaFree?'<span class="ibadge">Miễn visa</span>':''}</div>
@@ -3078,12 +3098,13 @@ function intlAfter(){
 }
 $('#pbody').addEventListener('click',e=>{
   if(state.tab!=='intl') return;
-  const t=e.target.closest('[data-iscroll],[data-iplan],[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
+  const t=e.target.closest('[data-iregion],[data-iscroll],[data-iplan],[data-icountry],[data-icity],[data-ifilter],[data-iplace],[data-action="intlback"],[data-action="imapbig"],[data-action="imapclose"],[data-action="imapfit"]'); if(!t) return;
   const d=t.dataset, S=state.intl;
   if(d.iplan){ startIntlPlan(d.iplan); return; }
-  if(d.iscroll){ if(d.icountry){ S.country=d.icountry; S.city=null; } if(d.icountry||state.intl.city) render();
+  if(d.iregion&&!d.iscroll){ S.region=d.iregion; S.country='all'; render(); return; }
+  if(d.iscroll){ if(d.iregion){ S.region=d.iregion; S.country='all'; S.city=null; } if(d.icountry){ S.country=d.icountry; S.city=null; if(d.icountry==='all') S.region='all'; else S.region=(intlCountry(d.icountry)||{}).region||'all'; } if(d.icountry||d.iregion||state.intl.city) render();
     setTimeout(()=>{ const el=document.getElementById(d.iscroll); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-(innerWidth>899?90:70),behavior:'smooth'}); },30); return; }
-  if(d.icountry){ S.country=d.icountry; render(); return; }
+  if(d.icountry){ S.country=d.icountry; if(d.icountry!=='all') S.region=(intlCountry(d.icountry)||{}).region||S.region; render(); return; }
   if(d.icity){ if(e.ctrlKey||e.metaKey||e.shiftKey) return; e.preventDefault(); S.city=d.icity; S.filter='all'; S.sel=null; try{ history.replaceState(null,'','#quoc-te/'+d.icity); }catch(err){} render(); window.scrollTo(0,0); return; }
   if(d.ifilter){ S.filter=d.ifilter; S.sel=null; render(); return; }
   if(d.iplace){ e.preventDefault(); S.sel=S.sel===d.iplace?null:d.iplace; render(); const m=document.getElementById('imap'); if(m&&S.sel) m.scrollIntoView({behavior:'smooth',block:'center'}); return; }
@@ -4042,7 +4063,7 @@ $('#pbody').addEventListener('submit',e=>{ if(e.target.id!=='isqForm') return; e
   if(typeof gaSearch==='function') gaSearch(q,'quoc-te');
   if(!m){ toast(q.trim()?'Chưa có "'+q.trim()+'" trong mục Quốc tế.':'Nhập tên nước hoặc thành phố, ví dụ Tokyo, Thái Lan.'); return; }
   state.intl.q=''; if(m.t==='c'){ openIntl(m,'intl-search'); return; }
-  state.intl.country=m.id==='_'?'all':m.id; render(); setTimeout(()=>{ const el=document.getElementById('iall'); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); },30); });
+  if(m.id==='eu'||m.id==='am'){ state.intl.region=m.id==='eu'?'europe':'america'; state.intl.country='all'; } else { state.intl.country=m.id==='_'?'all':m.id; state.intl.region=(intlCountry(m.id)||{}).region||'all'; } render(); setTimeout(()=>{ const el=document.getElementById('iall'); if(el) window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); },30); });
 $('#pbody').addEventListener('toggle',e=>{ if(e.target.id==='reqMore') state.home.open=e.target.open; },true);
 $('#pbody').addEventListener('submit',async e=>{ const f=e.target.closest('[data-addrform]'); if(!f) return; e.preventDefault();
   const q=(f.q.value||'').trim(); if(q.length<3){ toast('Nhập địa chỉ cụ thể hơn.'); return; }
